@@ -16,6 +16,7 @@
     </p>
         <asp:Button ID="btnLogin" runat="server" CssClass="btnLogin" Text="Logga in" 
            onclick="btnLogin_Click" />
+           <asp:Label runat="server">hej</asp:Label>
    </div>
    <div class="rightDiv">
    </div>
