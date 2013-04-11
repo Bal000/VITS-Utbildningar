@@ -1,0 +1,8 @@
+c:\users\michael\documents\visual studio 2010\Projects\Vits\Vits\bin\Vits.dll
+c:\users\michael\documents\visual studio 2010\Projects\Vits\Vits\bin\Vits.pdb
+c:\users\michael\documents\visual studio 2010\Projects\Vits\Vits\obj\Debug\Vits.dll
+c:\users\michael\documents\visual studio 2010\Projects\Vits\Vits\obj\Debug\Vits.pdb
+C:\Users\Michael\Documents\GitHub\Vits-Utbildning\Vits\Vits\bin\Vits.dll
+C:\Users\Michael\Documents\GitHub\Vits-Utbildning\Vits\Vits\bin\Vits.pdb
+C:\Users\Michael\Documents\GitHub\Vits-Utbildning\Vits\Vits\obj\Debug\Vits.dll
+C:\Users\Michael\Documents\GitHub\Vits-Utbildning\Vits\Vits\obj\Debug\Vits.pdb
