@@ -1,55 +1,51 @@
 
 
-USE DATABASE
-
-GO
 
 CREATE TABLE Employee
 (
 EID tinyint NOT NULL PRIMARY KEY IDENTITY, 
-FirstName nvarchar(32) NOT NULL, 
-LastName nvarchar(32) NOT NULL, 
-UserName nvarchar(32) NOT NULL UNIQUE, 
-Adress nvarchar(32) NOT NULL, 
-ZipCode int NOT NULL, 
-City nvarchar(32) NOT NULL, 
-IdNumber int NOT NULL, 
-Manager BIT NOT NULL 
+FirstName nvarchar(64) NOT NULL, 
+LastName nvarchar(64) NOT NULL, 
+Adress nvarchar(64) NOT NULL, 
+ZipCode nvarchar(64) NOT NULL, 
+City nvarchar(64) NOT NULL, 
+IdNumber nvarchar(64) NOT NULL, 
+Manager BIT NOT NULL,  
+Email nvarchar(64) NOT NULL
 )
 
-GO
+
 
 CREATE TABLE Country
 (
 CID tinyint NOT NULL PRIMARY KEY IDENTITY, 
-Name nvarchar(32) NOT NULL, 
-Subsistence int NOT NULL
+Name nvarchar(64) NOT NULL
 )
 
-GO
+
 
 CREATE TABLE Office
 (
 OID tinyint NOT NULL PRIMARY KEY IDENTITY, 
-Name nvarchar(32) NOT NULL, 
+Name nvarchar(64) NOT NULL, 
 OrgNumber int NOT NULL, 
-Adress nvarchar(32) NOT NULL, 
+Adress nvarchar(64) NOT NULL, 
 ZipCode int NOT NULL, 
-City nvarchar(32) NOT NULL, 
+City nvarchar(64) NOT NULL, 
 CID tinyint NOT NULL FOREIGN KEY REFERENCES Country(CID)
 )
 
-GO
+
 
 CREATE TABLE Mission
 (
 MID tinyint NOT NULL PRIMARY KEY IDENTITY, 
 OID tinyint NOT NULL FOREIGN KEY REFERENCES Office(OID), 
 Manager tinyint NOT NULL FOREIGN KEY REFERENCES Employee(EID), 
-Description varchar(32) NOT NULL, 
+Description varchar(200) NOT NULL, 
 )
 
-GO
+
 
 CREATE TABLE TravelAdvances
 (
@@ -61,7 +57,6 @@ EID tinyint NOT NULL FOREIGN KEY REFERENCES Employee(EID),
 MID tinyint NOT NULL FOREIGN KEY REFERENCES Mission(MID), 
 )
 
-GO
 
 CREATE TABLE Trip
 (
@@ -72,7 +67,7 @@ StartDate DateTime NOT NULL,
 StopDate DateTime 
 )
 
-GO
+
 
 CREATE TABLE Report
 (
@@ -84,30 +79,27 @@ Car bit NOT NULL DEFAULT 0,
 Miles int NOT NULL DEFAULT 0
 )
 
-GO
+
 
 CREATE TABLE CostCenter
 (
 CCID tinyint NOT NULL PRIMARY KEY IDENTITY, 
-Name nvarchar(32) NOT NULL,  
+Name nvarchar(64) NOT NULL,  
 )
-
-GO
 
 CREATE TABLE Receipt
 (
 RECID tinyint NOT NULL PRIMARY KEY IDENTITY, 
 REPID  tinyint NOT NULL FOREIGN KEY REFERENCES Report(REPID), 
 CCID tinyint NOT NULL FOREIGN KEY REFERENCES CostCenter(CCID), 
-Category nvarchar(32) NOT NULL, 
 Sum int NOT NULL, 
 VAT int NOT NULL, 
 [From] DateTime NOT NULL, 
 [To] DateTime NOT NULL, 
-Description nvarchar(32)
+Description nvarchar(200)
 )
 
-GO
+
 
 CREATE TABLE EmployeeMission
 (

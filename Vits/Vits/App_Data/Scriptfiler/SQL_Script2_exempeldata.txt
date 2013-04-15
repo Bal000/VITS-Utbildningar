@@ -1,0 +1,170 @@
+
+INSERT INTO Employee(FirstName, LastName, Adress, ZipCode, City, IdNumber, Manager, Email)
+VALUES ('Kim', 'Yung', 'Gatan 5', '75244', 'Örebro', '198011112983', 1, 'wd@gmail.com')
+
+INSERT INTO Employee(FirstName, LastName, Adress, ZipCode, City, IdNumber, Manager, Email)
+VALUES ('Adrian', 'Maruszscyk', 'Hallonstigen 3', '70522', 'Örebro', '19661111110345', 1, 'awdawd@gmail.com')
+
+INSERT INTO Employee(FirstName, LastName, Adress, ZipCode, City, IdNumber, Manager, Email) 
+VALUES ('Johan', 'Svensk', 'Gatan 1', '70552', 'Örebro', '19801010103030', 0, 'hejsan@gmail.com')
+
+INSERT INTO Employee(FirstName, LastName, Adress, ZipCode, City, IdNumber, Manager, Email)
+VALUES ('Roger', 'Nilsson', 'Trädvägen 903', '30222', 'Skövde', '197312183939', 0, 'mancity@gmail.com')
+
+INSERT INTO Employee(FirstName, LastName, Adress, ZipCode, City, IdNumber, Manager, Email)
+VALUES ('Tomas', 'Henriksson', 'Granstigen 390', '70342', 'Borlänge', '196502034581', 0, 'korvmat@gmail.com')
+
+INSERT INTO Employee(FirstName, LastName, Adress, ZipCode, City, IdNumber, Manager, Email)
+VALUES ('Ulrika', 'Nilsson', 'Kumlastigen 32', '70222', 'Kumla', '19831013303', 0, 'tjeeena@gmail.com')
+
+INSERT INTO Employee(FirstName, LastName, Adress, ZipCode, City, IdNumber, Manager, Email)
+VALUES ('Sandra', 'Andersson', 'Bävervägen 33', '701244', 'Storå', '194511119856', 0, 'britttio@gmail.com')
+
+INSERT INTO Employee(FirstName, LastName, Adress, ZipCode, City, IdNumber, Manager, Email)
+VALUES ('Usain', 'Messma', 'Torskvägen', '70102', 'Stockholm', '197710113033', 0, 'nejtack@gmail.com')
+
+INSERT INTO Employee(FirstName, LastName, Adress, ZipCode, City, IdNumber, Manager, Email)
+VALUES ('Nelson', 'Garden', 'Maskrosen 52', '70333', 'Örebro', '199011101022', 0, 'KoloToure@gmail.com')
+
+INSERT INTO Employee(FirstName, LastName, Adress, ZipCode, City, IdNumber, Manager, Email)
+VALUES ('Omar', 'Leona', 'Mångatan 32', '50303', 'Jokkmokk', '198906161033', 0, 'Mattkungen@gmail.com')
+
+INSERT INTO Employee(FirstName, LastName, Adress, ZipCode, City, IdNumber, Manager, Email)
+VALUES ('Inge', 'Snack', 'Drottninggatan 53', '70933', 'Örebro', '194912150903', 0, 'Rajalakso@gmail.com')
+
+INSERT INTO Country(Name)
+VALUES ('Sverige')
+
+INSERT INTO Country(Name)
+VALUES ('Tyskland')
+
+INSERT INTO Country(Name)
+VALUES ('Kanada')
+
+INSERT INTO Country(Name)
+VALUES ('Ryssland')
+
+INSERT INTO Country(Name)
+VALUES ('Norge')
+
+INSERT INTO Office(Name, OrgNumber, Adress, ZipCode, City, CID)
+VALUES ('Apple Ottowa', '32321', 'Road 13', 24241, 'Ottowa', 3)
+
+INSERT INTO Office(Name, OrgNumber, Adress, ZipCode, City, CID)
+VALUES ('Apple Berlin', '32321', 'Das Vääge 15', 12414, 'Berlin', 2)
+
+INSERT INTO Office(Name, OrgNumber, Adress, ZipCode, City, CID)
+VALUES ('APK RUSSIA', '12467', 'Sthaket 42', 112233, 'Moskva', 4)
+
+INSERT INTO Office(Name, OrgNumber, Adress, ZipCode, City, CID)
+VALUES ('Fish For Money', '73733', 'Norgeveg 23', 99776, 'Oslo', 5)
+
+INSERT INTO Office(Name, OrgNumber, Adress, ZipCode, City, CID)
+VALUES ('Kalmar Universitet', '11443', 'Kalmarvägen 132', 124124, 'Kalmar', 1)
+
+INSERT INTO Mission(OID, Manager, Description)
+VALUES (3, 1, 'Utbilda kundkontoret om viktiga metoder')
+
+INSERT INTO Mission(OID, Manager, Description)
+VALUES (2, 2, 'Delta i forskning om användarvänlighet')
+
+INSERT INTO Mission(OID, Manager, Description)
+VALUES (4, 1, 'Nätverksutbildning')
+
+INSERT INTO Mission(OID, Manager, Description)
+VALUES (5, 1, 'Håll utbildning om kosntnadseffektivitet')
+
+INSERT INTO Mission(OID, Manager, Description)
+VALUES (3, 1, 'Utbilda om sitemaps')
+
+INSERT INTO Mission(OID, Manager, Description)
+VALUES (1, 2, 'Håll kurs i databashantering')
+
+
+INSERT INTO EmployeeMission(EID, MID, [From], [To])
+VALUES(2, 5, 2012-03-14, 2012-04-30)
+
+INSERT INTO EmployeeMission(EID, MID, [From], [To])
+VALUES(1, 3, 2012-03-14, 2012-04-30)
+
+INSERT INTO EmployeeMission(EID, MID, [From], [To])
+VALUES(1, 5, 2012-03-16, 2012-03-19)
+
+INSERT INTO EmployeeMission(EID, MID, [From], [To])
+VALUES(3, 2, 2012-03-16, 2012-03-19)
+
+INSERT INTO EmployeeMission(EID, MID, [From], [To])
+VALUES(4, 1, 2012-03-20, 2012-04-25)
+
+INSERT INTO TravelAdvances(Total, Approved, Date, EID, MID)
+VALUES(505, 0, 2012-04-13, 2, 3)
+
+INSERT INTO TravelAdvances(Total, Approved, Date, EID, MID)
+VALUES(300, 0, 2012-04-15, 3, 5)
+
+INSERT INTO TravelAdvances(Total, Approved, Date, EID, MID)
+VALUES(1505, 0, 2012-02-13, 9, 3)
+
+INSERT INTO TravelAdvances(Total, Approved, Date, EID, MID)
+VALUES(7000, 0, 2012-03-13, 7, 4)
+
+INSERT INTO TravelAdvances(Total, Approved, Date, EID, MID)
+VALUES(33, 1, 2012-01-13, 4, 3)
+
+INSERT INTO Trip(EID, MID, CID, StartDate, StopDate)
+VALUES(1, 3, 2, '2012-02-14 15:42', '2012-02-14 15:42')
+
+INSERT INTO Trip(EID, MID, CID, StartDate, StopDate)
+VALUES(2, 5, 4, '2012-02-11 14:32', '2012-02-11 14:32')
+
+INSERT INTO Trip(EID, MID, CID, StartDate, StopDate)
+VALUES(3, 5, 4, '2012-02-18 14:22', '2012-02-19 15:42')
+
+INSERT INTO Trip(EID, MID, CID, StartDate, StopDate)
+VALUES(4, 4, 4, '2012-02-17 14:52', '2012-02-17 14:52')
+
+INSERT INTO Trip(EID, MID, CID, StartDate, StopDate)
+VALUES(9, 1, 5, '2012-02-20 12:32', '2012-02-20 12:32')
+
+INSERT INTO Report(EID,MID,Expenses,Car,Miles)
+VALUES(1,3,200,0,0)
+
+INSERT INTO Report(EID,MID,Expenses,Car,Miles)
+VALUES(2,5,500,0,0)
+
+INSERT INTO Report(EID,MID,Expenses,Car,Miles)
+VALUES(4,4,2200,1,300000)
+
+INSERT INTO CostCenter(Name)
+VALUES('Boende')
+
+INSERT INTO CostCenter(Name)
+VALUES('Mat')
+
+INSERT INTO CostCenter(Name)
+VALUES('Transport')
+
+INSERT INTO CostCenter(Name)
+VALUES('Övrigt')
+
+INSERT INTO Receipt(REPID, CCID, Sum, VAT, [From], [To], Description)
+VALUES(1, 2, 204, 25, 2012-02-13, 2012-02-13, 'Köpte kaffe')
+
+INSERT INTO Receipt(REPID, CCID, Sum, VAT, [From], [To], Description)
+VALUES(1, 3, 123, 6, 2012-02-14, 2012-02-14, 'Bussresa')
+
+INSERT INTO Receipt(REPID, CCID, Sum, VAT, [From], [To], Description)
+VALUES(2, 2, 55, 25, 2012-02-15, 2012-02-15, 'Köpte pizza')
+
+INSERT INTO Receipt(REPID, CCID, Sum, VAT, [From], [To], Description)
+VALUES(3, 1, 1204, 12, 2012-01-12, 2012-01-13, 'Bodde på motel')
+
+INSERT INTO Receipt(REPID, CCID, Sum, VAT, [From], [To], Description)
+VALUES(3, 4, 30, 12, 2012-01-12, 2012-01-13, 'Köpte pennor')
+
+
+
+
+
+
+
