@@ -13,6 +13,7 @@
 
         <asp:Label ID="lblUppdrag" runat="server" CssClass="mainLabel">Välj Uppdrag:</asp:Label>
         <asp:DropDownList runat="server" id="ddlUppdrag">
+            <asp:ListItem Value="">Välj uppdrag</asp:ListItem>
             <asp:ListItem Value="">Företag, Ärendenummer</asp:ListItem>
             <asp:ListItem Value="">Microsoft, 69.186.703</asp:ListItem>
             <asp:ListItem Value="">Apple, 70.456.987</asp:ListItem>
@@ -62,6 +63,8 @@
     <div>
         <div>
             <asp:Label ID="lblRedovisadeUtgifter" runat="server" CssClass="mainLabel">Redovisade utgifter:</asp:Label><br />
+            <asp:Calendar ID="Calendar1" runat="server" 
+                onselectionchanged="Calendar1_SelectionChanged"></asp:Calendar>
        </div>
     </div>
     </div>

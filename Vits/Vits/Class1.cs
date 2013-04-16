@@ -8,10 +8,10 @@ using System.Text.RegularExpressions;
 
 namespace Vits
 {
-    public class Validator
+    public static class Validator
     {
       
-        protected bool ValidateEmail(TextBox tbox, Label lbl, Label error)
+        public static bool ValidateEmail(TextBox tbox, Label lbl, Label error)
         {
             Regex rx = new Regex("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
             if(!rx.IsMatch(tbox.Text))
@@ -25,7 +25,7 @@ namespace Vits
             
         }
        
-        protected bool ValidateRequiredField(TextBox tboxReq, Label lbl, Label error)
+        public static bool ValidateRequiredField(TextBox tboxReq, Label lbl, Label error)
         {
             
             tboxReq.Text = tboxReq.Text.Trim();
@@ -42,7 +42,7 @@ namespace Vits
             return true;
         }
         
-        protected bool ValidateTextLength(TextBox tboxName, Label lbl, Label error, int min, int max)
+        public static bool ValidateTextLength(TextBox tboxName, Label lbl, Label error, int min, int max)
         {
 
             if ( tboxName.Text.Length > min && tboxName.Text.Length < max)
@@ -56,7 +56,7 @@ namespace Vits
             return true;
         }
         
-        protected bool ValidateEmailLength(TextBox tboxEmail, Label lbl, Label error, int min, int max)
+        public static bool ValidateEmailLength(TextBox tboxEmail, Label lbl, Label error, int min, int max)
         {
             if (tboxEmail.Text.Length > min && tboxEmail.Text.Length < max)
             {
@@ -69,7 +69,7 @@ namespace Vits
 
         }
         
-        protected bool ValidateDescriptionLength(TextBox tboxDescription, Label lbl, Label error, int min, int max)
+        public static bool ValidateDescriptionLength(TextBox tboxDescription, Label lbl, Label error, int min, int max)
         {
             if (tboxDescription.Text.Length > min && tboxDescription.Text.Length < max)
             {
@@ -81,6 +81,21 @@ namespace Vits
             return true;
             
         }
+
+        public static bool ValueSelectedDropDown(DropDownList dropDown, Label lbl, string text, string felMeddelande)
+        {
+            if (dropDown.SelectedValue == text)
+            {
+                lbl.Text = felMeddelande ;
+                lbl.Visible = true;
+                return false;
+            }
+
+            lbl.Visible = false;
+            return true;
+        }
+
+       
        
         //protected bool IsValidInformation()
         //{

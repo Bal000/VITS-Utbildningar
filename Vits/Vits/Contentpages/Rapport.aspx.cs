@@ -11,7 +11,7 @@ namespace Vits
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void cbFardsatt_CheckedChanged(object sender, EventArgs e)
@@ -43,6 +43,12 @@ namespace Vits
                 txtMiltal.Enabled = false;
                 txtMiltal.Text = "";
             }
+        }
+
+        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+        {
+            string myString = Calendar1.SelectedDate.ToString().Substring(0,10);
+            txtFrom.Text = myString;
         }
     }
 }
