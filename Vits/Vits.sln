@@ -2,6 +2,11 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vits", "Vits\Vits.csproj", "{1B976764-E515-4607-BC45-55879869E1F3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{77579E73-3316-4396-A334-02351D84E69F} = {77579E73-3316-4396-A334-02351D84E69F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VitsWCF", "VitsWCF\VitsWCF.csproj", "{77579E73-3316-4396-A334-02351D84E69F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +18,10 @@ Global
 		{1B976764-E515-4607-BC45-55879869E1F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B976764-E515-4607-BC45-55879869E1F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B976764-E515-4607-BC45-55879869E1F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77579E73-3316-4396-A334-02351D84E69F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77579E73-3316-4396-A334-02351D84E69F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77579E73-3316-4396-A334-02351D84E69F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77579E73-3316-4396-A334-02351D84E69F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="DatabaseModelStoreContainer">
+    <EntitySet Name="CostCenter" EntityType="DatabaseModel.Store.CostCenter" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Country" EntityType="DatabaseModel.Store.Country" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employee" EntityType="DatabaseModel.Store.Employee" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmployeeMission" EntityType="DatabaseModel.Store.EmployeeMission" store:Type="Tables" store:Schema="dbo" store:Name="EmployeeMission">
+      <DefiningQuery>SELECT 
+      [EmployeeMission].[EID] AS [EID], 
+      [EmployeeMission].[MID] AS [MID], 
+      [EmployeeMission].[From] AS [From], 
+      [EmployeeMission].[To] AS [To]
+      FROM [dbo].[EmployeeMission] AS [EmployeeMission]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Mission" EntityType="DatabaseModel.Store.Mission" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Office" EntityType="DatabaseModel.Store.Office" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Receipt" EntityType="DatabaseModel.Store.Receipt" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Report" EntityType="DatabaseModel.Store.Report" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TravelAdvances" EntityType="DatabaseModel.Store.TravelAdvances" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Trip" EntityType="DatabaseModel.Store.Trip" store:Type="Tables" store:Schema="dbo" store:Name="Trip">
+      <DefiningQuery>SELECT 
+      [Trip].[EID] AS [EID], 
+      [Trip].[MID] AS [MID], 
+      [Trip].[CID] AS [CID], 
+      [Trip].[StartDate] AS [StartDate], 
+      [Trip].[StopDate] AS [StopDate]
+      FROM [dbo].[Trip] AS [Trip]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__EmployeeMis__EID__2E1BDC42" Association="DatabaseModel.Store.FK__EmployeeMis__EID__2E1BDC42">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="EmployeeMission" EntitySet="EmployeeMission" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EmployeeMis__MID__2F10007B" Association="DatabaseModel.Store.FK__EmployeeMis__MID__2F10007B">
+      <End Role="Mission" EntitySet="Mission" />
+      <End Role="EmployeeMission" EntitySet="EmployeeMission" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mission__Manager__0EA330E9" Association="DatabaseModel.Store.FK__Mission__Manager__0EA330E9">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Mission" EntitySet="Mission" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mission__OID__0DAF0CB0" Association="DatabaseModel.Store.FK__Mission__OID__0DAF0CB0">
+      <End Role="Office" EntitySet="Office" />
+      <End Role="Mission" EntitySet="Mission" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Office__CID__08EA5793" Association="DatabaseModel.Store.FK__Office__CID__08EA5793">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Office" EntitySet="Office" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Receipt__CCID__2C3393D0" Association="DatabaseModel.Store.FK__Receipt__CCID__2C3393D0">
+      <End Role="CostCenter" EntitySet="CostCenter" />
+      <End Role="Receipt" EntitySet="Receipt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Receipt__REPID__2B3F6F97" Association="DatabaseModel.Store.FK__Receipt__REPID__2B3F6F97">
+      <End Role="Report" EntitySet="Report" />
+      <End Role="Receipt" EntitySet="Receipt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Report__EID__1ED998B2" Association="DatabaseModel.Store.FK__Report__EID__1ED998B2">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Report" EntitySet="Report" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Report__MID__1FCDBCEB" Association="DatabaseModel.Store.FK__Report__MID__1FCDBCEB">
+      <End Role="Mission" EntitySet="Mission" />
+      <End Role="Report" EntitySet="Report" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TravelAdvan__EID__15502E78" Association="DatabaseModel.Store.FK__TravelAdvan__EID__15502E78">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="TravelAdvances" EntitySet="TravelAdvances" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TravelAdvan__MID__164452B1" Association="DatabaseModel.Store.FK__TravelAdvan__MID__164452B1">
+      <End Role="Mission" EntitySet="Mission" />
+      <End Role="TravelAdvances" EntitySet="TravelAdvances" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Trip__CID__1A14E395" Association="DatabaseModel.Store.FK__Trip__CID__1A14E395">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Trip" EntitySet="Trip" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Trip__EID__182C9B23" Association="DatabaseModel.Store.FK__Trip__EID__182C9B23">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Trip" EntitySet="Trip" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Trip__MID__1920BF5C" Association="DatabaseModel.Store.FK__Trip__MID__1920BF5C">
+      <End Role="Mission" EntitySet="Mission" />
+      <End Role="Trip" EntitySet="Trip" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CostCenter">
+    <Key>
+      <PropertyRef Name="CCID" />
+    </Key>
+    <Property Name="CCID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="64" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="CID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="64" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EID" />
+    </Key>
+    <Property Name="EID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="Adress" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="ZipCode" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="IdNumber" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="Manager" Type="bit" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="64" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'C:\USERS\RICKARD\DOCUMENTS\GITHUB\VITS-UTBILDNINGAR\VITS\VITS\APP_DATA\DATABASE.MDF.dbo.EmployeeMission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="EmployeeMission">
+    <Key>
+      <PropertyRef Name="EID" />
+      <PropertyRef Name="MID" />
+      <PropertyRef Name="From" />
+      <PropertyRef Name="To" />
+    </Key>
+    <Property Name="EID" Type="tinyint" Nullable="false" />
+    <Property Name="MID" Type="tinyint" Nullable="false" />
+    <Property Name="From" Type="datetime" Nullable="false" />
+    <Property Name="To" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mission">
+    <Key>
+      <PropertyRef Name="MID" />
+    </Key>
+    <Property Name="MID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OID" Type="tinyint" Nullable="false" />
+    <Property Name="Manager" Type="tinyint" Nullable="false" />
+    <Property Name="Description" Type="varchar" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Office">
+    <Key>
+      <PropertyRef Name="OID" />
+    </Key>
+    <Property Name="OID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="OrgNumber" Type="int" Nullable="false" />
+    <Property Name="Adress" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="ZipCode" Type="int" Nullable="false" />
+    <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="CID" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Receipt">
+    <Key>
+      <PropertyRef Name="RECID" />
+    </Key>
+    <Property Name="RECID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="REPID" Type="tinyint" Nullable="false" />
+    <Property Name="CCID" Type="tinyint" Nullable="false" />
+    <Property Name="Sum" Type="int" Nullable="false" />
+    <Property Name="VAT" Type="int" Nullable="false" />
+    <Property Name="From" Type="datetime" Nullable="false" />
+    <Property Name="To" Type="datetime" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Report">
+    <Key>
+      <PropertyRef Name="REPID" />
+    </Key>
+    <Property Name="REPID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EID" Type="tinyint" Nullable="false" />
+    <Property Name="MID" Type="tinyint" Nullable="false" />
+    <Property Name="Expenses" Type="int" Nullable="false" />
+    <Property Name="Car" Type="bit" Nullable="false" />
+    <Property Name="Miles" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TravelAdvances">
+    <Key>
+      <PropertyRef Name="TID" />
+    </Key>
+    <Property Name="TID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Total" Type="int" Nullable="false" />
+    <Property Name="Approved" Type="bit" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="EID" Type="tinyint" Nullable="false" />
+    <Property Name="MID" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'C:\USERS\RICKARD\DOCUMENTS\GITHUB\VITS-UTBILDNINGAR\VITS\VITS\APP_DATA\DATABASE.MDF.dbo.Trip' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Trip">
+    <Key>
+      <PropertyRef Name="EID" />
+      <PropertyRef Name="MID" />
+      <PropertyRef Name="CID" />
+      <PropertyRef Name="StartDate" />
+    </Key>
+    <Property Name="EID" Type="tinyint" Nullable="false" />
+    <Property Name="MID" Type="tinyint" Nullable="false" />
+    <Property Name="CID" Type="tinyint" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="StopDate" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__EmployeeMis__EID__2E1BDC42">
+    <End Role="Employee" Type="DatabaseModel.Store.Employee" Multiplicity="1" />
+    <End Role="EmployeeMission" Type="DatabaseModel.Store.EmployeeMission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EID" />
+      </Principal>
+      <Dependent Role="EmployeeMission">
+        <PropertyRef Name="EID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EmployeeMis__MID__2F10007B">
+    <End Role="Mission" Type="DatabaseModel.Store.Mission" Multiplicity="1" />
+    <End Role="EmployeeMission" Type="DatabaseModel.Store.EmployeeMission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mission">
+        <PropertyRef Name="MID" />
+      </Principal>
+      <Dependent Role="EmployeeMission">
+        <PropertyRef Name="MID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mission__Manager__0EA330E9">
+    <End Role="Employee" Type="DatabaseModel.Store.Employee" Multiplicity="1" />
+    <End Role="Mission" Type="DatabaseModel.Store.Mission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EID" />
+      </Principal>
+      <Dependent Role="Mission">
+        <PropertyRef Name="Manager" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mission__OID__0DAF0CB0">
+    <End Role="Office" Type="DatabaseModel.Store.Office" Multiplicity="1" />
+    <End Role="Mission" Type="DatabaseModel.Store.Mission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Office">
+        <PropertyRef Name="OID" />
+      </Principal>
+      <Dependent Role="Mission">
+        <PropertyRef Name="OID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Office__CID__08EA5793">
+    <End Role="Country" Type="DatabaseModel.Store.Country" Multiplicity="1" />
+    <End Role="Office" Type="DatabaseModel.Store.Office" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="Office">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Receipt__CCID__2C3393D0">
+    <End Role="CostCenter" Type="DatabaseModel.Store.CostCenter" Multiplicity="1" />
+    <End Role="Receipt" Type="DatabaseModel.Store.Receipt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CostCenter">
+        <PropertyRef Name="CCID" />
+      </Principal>
+      <Dependent Role="Receipt">
+        <PropertyRef Name="CCID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Receipt__REPID__2B3F6F97">
+    <End Role="Report" Type="DatabaseModel.Store.Report" Multiplicity="1" />
+    <End Role="Receipt" Type="DatabaseModel.Store.Receipt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Report">
+        <PropertyRef Name="REPID" />
+      </Principal>
+      <Dependent Role="Receipt">
+        <PropertyRef Name="REPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Report__EID__1ED998B2">
+    <End Role="Employee" Type="DatabaseModel.Store.Employee" Multiplicity="1" />
+    <End Role="Report" Type="DatabaseModel.Store.Report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EID" />
+      </Principal>
+      <Dependent Role="Report">
+        <PropertyRef Name="EID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Report__MID__1FCDBCEB">
+    <End Role="Mission" Type="DatabaseModel.Store.Mission" Multiplicity="1" />
+    <End Role="Report" Type="DatabaseModel.Store.Report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mission">
+        <PropertyRef Name="MID" />
+      </Principal>
+      <Dependent Role="Report">
+        <PropertyRef Name="MID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TravelAdvan__EID__15502E78">
+    <End Role="Employee" Type="DatabaseModel.Store.Employee" Multiplicity="1" />
+    <End Role="TravelAdvances" Type="DatabaseModel.Store.TravelAdvances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EID" />
+      </Principal>
+      <Dependent Role="TravelAdvances">
+        <PropertyRef Name="EID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TravelAdvan__MID__164452B1">
+    <End Role="Mission" Type="DatabaseModel.Store.Mission" Multiplicity="1" />
+    <End Role="TravelAdvances" Type="DatabaseModel.Store.TravelAdvances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mission">
+        <PropertyRef Name="MID" />
+      </Principal>
+      <Dependent Role="TravelAdvances">
+        <PropertyRef Name="MID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Trip__CID__1A14E395">
+    <End Role="Country" Type="DatabaseModel.Store.Country" Multiplicity="1" />
+    <End Role="Trip" Type="DatabaseModel.Store.Trip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="Trip">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Trip__EID__182C9B23">
+    <End Role="Employee" Type="DatabaseModel.Store.Employee" Multiplicity="1" />
+    <End Role="Trip" Type="DatabaseModel.Store.Trip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EID" />
+      </Principal>
+      <Dependent Role="Trip">
+        <PropertyRef Name="EID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Trip__MID__1920BF5C">
+    <End Role="Mission" Type="DatabaseModel.Store.Mission" Multiplicity="1" />
+    <End Role="Trip" Type="DatabaseModel.Store.Trip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mission">
+        <PropertyRef Name="MID" />
+      </Principal>
+      <Dependent Role="Trip">
+        <PropertyRef Name="MID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
