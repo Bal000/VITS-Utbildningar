@@ -299,6 +299,7 @@ div.accountInfo
     padding-right: 10px;
 }
 
+
 /*------ Default-Divs --------*/
 
 .leftDiv
@@ -348,6 +349,7 @@ div.accountInfo
 {
     font-weight: bold;
     margin-right: 3px;
+    margin-top: 5px;
 }
 
 #mainDiv
@@ -365,7 +367,35 @@ div.accountInfo
 #mainDiv div
 {
     width: 290px;
-    background-color: Red;
     float: left;
-    
+    height: 300px;
+    overflow: hidden; 
+}
+
+#btnLaggTillKvitto
+{
+    width: 280px;        
+}
+
+#ddlUppdrag
+{
+    width: 280px;    
+}
+
+#imgLogo
+{
+    border: 2px outset black;
+    margin-top: 2px;    
+}
+
+.txtBoxRapport
+{
+    width: 275px;
+    margin-top: 5px;
+}
+
+.kortTxt
+{
+    width: 60px;
+    margin-right: 20px;   
 }
