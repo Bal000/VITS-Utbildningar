@@ -13,5 +13,36 @@ namespace Vits
         {
 
         }
+
+        protected void cbFardsatt_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbFardsatt.Checked == true)
+            {
+                ddlFardsatt.Enabled = true;
+                if (ddlFardsatt.SelectedIndex == 0)
+                {
+                    txtMiltal.Enabled = true;
+                }
+            }
+            else
+            {
+                ddlFardsatt.Enabled = false;
+                txtMiltal.Enabled = false;
+                txtMiltal.Text = "";
+            }
+
+            
+        }
+
+        protected void ddlFardsatt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlFardsatt.SelectedIndex == 0)
+                txtMiltal.Enabled = true;
+            else
+            {
+                txtMiltal.Enabled = false;
+                txtMiltal.Text = "";
+            }
+        }
     }
 }
