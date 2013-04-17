@@ -2,72 +2,89 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <div id="mainDiv">
-       <div>
-        <asp:Label ID="lblNamn" runat="server" CssClass="mainLabel">Namn:</asp:Label>
-        <asp:Label ID="lblExempelNamn" runat="server">Erik Andersson</asp:Label><br />
-        <asp:Label ID="lblPnr" runat="server" CssClass="mainLabel">Pnr:</asp:Label>
-        <asp:Label ID="lblExPnr" runat="server">810306-7958</asp:Label><br />
-        <asp:Label ID="lblAdress" runat="server" CssClass="mainLabel">Adress:</asp:Label>
-        <asp:Label ID="lblExAdress" runat="server">Hovstagatan 71691 Örebro</asp:Label><br /><br />
+    <div class="ContentWrapper">
+        <div class="ContentLeft">
+            <asp:Label ID="txtName" runat="server" Text="Name"></asp:Label><br />
+            <asp:Label ID="txtEID" runat="server" Text="Eid"></asp:Label><br />
+            <asp:Label ID="txtChooseMission" runat="server" Text="Välj uppdrag" CssClass="lblBold"></asp:Label><br />
+            <asp:DropDownList ID="ddlChooseMission" runat="server">
+            </asp:DropDownList>
+                <div class="ContentMissionInfo"> <%--Börjar uppdrags info rutan--%>
+                <asp:Label ID="txtCustomer" runat="server" Text="Kund" CssClass="lblBold"></asp:Label><br />
+                <asp:Label ID="txtCustomerInfo" runat="server" Text="inehåll"></asp:Label><br />
 
-        <asp:Label ID="lblUppdrag" runat="server" CssClass="mainLabel">Välj Uppdrag:</asp:Label>
-        <asp:DropDownList runat="server" id="ddlUppdrag">
-            <asp:ListItem Value="">Välj uppdrag</asp:ListItem>
-            <asp:ListItem Value="">Företag, Ärendenummer</asp:ListItem>
-            <asp:ListItem Value="">Microsoft, 69.186.703</asp:ListItem>
-            <asp:ListItem Value="">Apple, 70.456.987</asp:ListItem>
-            <asp:ListItem Value="">Double Hi-Tech Data, 23.615.765</asp:ListItem>
-        </asp:DropDownList><br /><br />
+                <asp:Label ID="txtMissionDescription" runat="server" Text="Syfte" CssClass="lblBold"></asp:Label><br />
+                <asp:Label ID="txtMissionDescriptionInfo" runat="server" Text="Innehåll" ></asp:Label><br />
 
-        <asp:CheckBox ID="cbFardsatt" runat="server" 
-               oncheckedchanged="cbFardsatt_CheckedChanged" AutoPostBack="true"/>
-        <asp:Label ID="lblFardsatt" runat="server" CssClass="mainLabel">Välj Färdsätt:</asp:Label><br />
-        <asp:DropDownList runat="server" id="ddlFardsatt" Enabled="false" 
-               onselectedindexchanged="ddlFardsatt_SelectedIndexChanged" AutoPostBack="true">
-            <asp:ListItem Value="Bil">Bil</asp:ListItem>
-            <asp:ListItem Value="">Flyg</asp:ListItem>
-            <asp:ListItem Value="">Båt</asp:ListItem>
-            <asp:ListItem Value="">Taxi</asp:ListItem>
-            <asp:ListItem Value="">Tåg</asp:ListItem>
-            <asp:ListItem Value="">Övrigt</asp:ListItem>
-        </asp:DropDownList>
-        <asp:Label ID="lblMiltal" runat="server" CssClass="mainLabel">Mil:</asp:Label>
-        <asp:TextBox ID="txtMiltal" runat="server" CssClass="kortTxt" Enabled="false"></asp:TextBox>
+                <asp:Label ID="txtMissionPeriod" runat="server" Text="Uppdragsperiod" CssClass="lblBold"></asp:Label><br />
+                <asp:Label ID="txtMissionPeriodInfo" runat="server" Text="innehåll"></asp:Label><br />
 
+                <asp:Label ID="MissionManager" runat="server" Text="Ansvarig" CssClass="lblBold"></asp:Label><br />
+                <asp:Label ID="MissionManagerInfo" runat="server" Text="Innehåll"></asp:Label><br />
+                </div> <%--Avslutar uppdrags info rutan--%>
+                
+                <asp:Label ID="txtOwnCar" runat="server" Text="Egen bil" CssClass="lblBold"></asp:Label>
+                <asp:CheckBox ID="cbOwnCar" runat="server" />
+                <asp:Label ID="lblMiles" runat="server" Text="Antal mil: " CssClass="lblBold"></asp:Label>
+                <asp:TextBox ID="txtlOWnCar" runat="server"></asp:TextBox>
+                <br />
 
+                <asp:Label ID="txtAbnormalTravel" runat="server" Text="Avvikelser Resa" CssClass="lblBold"></asp:Label>
+                <asp:CheckBox ID="cbAbnormalTravel" runat="server" />
+                
+                <div class="ContentAbnormalTravel"> <%--Börjar AVvikelser resa--%>
 
-       </div>
-    <div>
-        <asp:Label ID="lblSpec" runat="server" CssClass="mainLabel">Specificering:</asp:Label><br />
-        <asp:TextBox ID="txtSpec" runat="server" CssClass="txtBoxRapport"></asp:TextBox><br />
-        <asp:Label ID="lblFrom" runat="server" CssClass="mainLabel">From:</asp:Label><br />
-        <asp:TextBox ID="txtFrom" runat="server" CssClass="txtBoxRapport"></asp:TextBox><br />
-        <asp:Label ID="Tom" runat="server" CssClass="mainLabel">Tom:</asp:Label><br />
-        <asp:TextBox ID="txtTom" runat="server" CssClass="txtBoxRapport"></asp:TextBox><br />
-        <asp:Label ID="lblBelopp" runat="server" CssClass="mainLabel">Belopp:</asp:Label><br />
-        <asp:TextBox ID="txtBelopp" CssClass="kortTxt" runat="server"></asp:TextBox>
-        <asp:Label ID="lblMoms" runat="server" CssClass="mainLabel">Momssats:</asp:Label>
-        <asp:DropDownList runat="server" id="ddlMoms">
-            <asp:ListItem Value="">0%</asp:ListItem>
-            <asp:ListItem Value="">6%</asp:ListItem>
-            <asp:ListItem Value="">12%</asp:ListItem>
-            <asp:ListItem Value="">25%</asp:ListItem>
-        </asp:DropDownList><br />
-        <asp:Label ID="lblText" runat="server" CssClass="mainLabel">Text:</asp:Label><br />
-        <asp:TextBox ID="txtText" runat="server" CssClass="txtBoxRapport"></asp:TextBox><br /><br />
+                </div> <%--Slutar AVvikelser resa--%>
+        </div>
 
-        <asp:Button runat="server" ID="btnLaggTillKvitto" text="Lägg till kvitto/utgift" />
-        
-    </div>
-    <div>
-        <div>
-            <asp:Label ID="lblRedovisadeUtgifter" runat="server" CssClass="mainLabel">Redovisade utgifter:</asp:Label><br />
-            <asp:Calendar ID="Calendar1" runat="server" 
-                onselectionchanged="Calendar1_SelectionChanged"></asp:Calendar>
-       </div>
-    </div>
-    </div>
+        <div class="ContentCenter">
+                <asp:Label ID="txtCategory" runat="server" Text="Kategori" CssClass="lblBold"></asp:Label><br />
+                <asp:DropDownList ID="ddlCategory" runat="server">
+                    <asp:ListItem>Dummy</asp:ListItem>
+                </asp:DropDownList><br />
+                <asp:Label ID="txtDate" runat="server" Text="Datum" CssClass="lblBold"></asp:Label><br />
+                    <asp:TextBox ID="txtBoxDateFrom" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtBoxDateTo" runat="server"></asp:TextBox><br />
+                <asp:Label ID="txtAmount" runat="server" Text="Belopp" CssClass="lblBold"></asp:Label><br />
+                    <asp:TextBox ID="txtBoxAmount" runat="server"></asp:TextBox><br />
+                <asp:Label ID="txtCountry" runat="server" Text="Land" CssClass="lblBold" ></asp:Label><br />
+                <asp:DropDownList ID="ddlCountry" runat="server">
+                </asp:DropDownList><br />
+                <asp:Label ID="txtDescription" runat="server" Text="Beskrivning" CssClass="lblBold"></asp:Label><br />
+                <asp:TextBox ID="txtBoxDescription" runat="server"></asp:TextBox>
+                <br />
+                <br />
+                <asp:Button ID="btnAddReceipt" runat="server" Text="Lägg till kvitto" />
+        </div>
+        <div class="ContentRight">
+            <asp:GridView ID="gvReciept" runat="server" CellPadding="4" ForeColor="#333333" 
+                GridLines="None">
+                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                <Columns>
+                    <asp:BoundField HeaderText="Kategori" />
+                    <asp:BoundField HeaderText="Belopp" />
+                    <asp:ButtonField Text="Button" />
+                </Columns>
+                <EditRowStyle BackColor="#999999" />
+                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+
+            </asp:GridView>
+            <br />
+            <asp:Label ID="lblTotal" runat="server" Text="Totalt: " CssClass="lblBold"></asp:Label>
+        </div>
+        <p class="ClearFix">
+        <div class="ContentFooter">
+            
+        </div>
+    </div><%--Avslutar ContentWrapper--%>
 
 
 </asp:Content>
