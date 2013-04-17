@@ -81,7 +81,33 @@
             <asp:Label ID="lblTotal" runat="server" Text="Totalt: " CssClass="lblBold"></asp:Label>
         </div>
         <p class="ClearFix">
+        </p>
         <div class="ContentFooter">
+            
+            <div class="ContentFooterLeft">
+                <asp:Label ID="lblFooterCountryLabel" runat="server" Text="Välj land:"></asp:Label></br >
+                <asp:DropDownList ID="ddlTractCountry" runat="server">
+                </asp:DropDownList>
+                <div id="CalendarFromDiv">
+                <asp:Label ID="lblFrom" runat="server" Text="Från:" CssClass="lblBold"></asp:Label></br >
+                <asp:Calendar ID="calFrom" runat="server" CssClass="NoLineBreak" Height="125px" 
+                        Width="164px"></asp:Calendar>
+                </div>
+            </div>
+
+            <div class="ContentFooterRight">
+                <div id="CalendarToDiv">
+                <asp:Label ID="lblTo" runat="server" Text="Till:" CssClass="lblBold"></asp:Label><br />
+                <asp:Calendar ID="calTo" runat="server" CssClass="NoLineBreak"></asp:Calendar>
+                </div>
+                <br />
+                <asp:Button ID="BtnAddTract" Text="Lägg till" runat="server" Height="41px" 
+                    Width="101px"/>
+            </div>
+            <div id="GWDiv">
+            <asp:GridView ID="GWTract" runat="server" Height="157px" Width="477px">
+            </asp:GridView>
+            </div>
             
         </div>
     </div><%--Avslutar ContentWrapper--%>
