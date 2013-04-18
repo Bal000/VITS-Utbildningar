@@ -14,8 +14,7 @@
           <SilverlightDebugging>False</SilverlightDebugging>
           <NativeDebugging>False</NativeDebugging>
           <SQLDebugging>False</SQLDebugging>
-          <ExternalProgram>
-          </ExternalProgram>
+          <ExternalProgram>C:\Users\Felix\AppData\Local\Google\Chrome\Application\chrome.exe</ExternalProgram>
           <StartExternalURL>
           </StartExternalURL>
           <StartCmdLineArguments>

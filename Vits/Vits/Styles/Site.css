@@ -22,6 +22,7 @@ a:hover
     text-decoration: none;
 }
 
+
 a:active
 {
     color: #034af3;
@@ -378,6 +379,13 @@ div.accountInfo
      display: inline-block;
      border: 1px solid black;
  }
+
+ #OfficeForm
+ {
+     position: relative;
+     display: inline;
+     width: 300px;
+ }
  
  p.ClearFix
  {
@@ -404,3 +412,42 @@ div.accountInfo
 font-weight: bold;    
 }
 /*--Avslutar Rapport sidan--*/
+
+div.Form
+{
+    position: relative;
+    float: left;
+    width:200px;
+}
+div.FormWrap
+{
+    width:425px;
+    float: left;
+    height: auto;
+    margin-left: 50px;
+    top: 0px;
+    margin-bottom: 14px;
+    
+    border: 1px solid black;
+}
+
+div.OfficeList
+{
+    width:200px;
+    height:250px;
+    float: left;
+    position: relative;
+    margin-left: 50px;
+}
+div.UserList
+{
+    width:200px;
+    height:250px;
+    float: left;
+    position: relative;
+    margin-left: 50px;
+}
+.ButtonSpace
+{
+    margin-left: 36px;
+}

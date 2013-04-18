@@ -8,13 +8,12 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.ComponentModel;
-using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Linq;
-using System.Runtime.Serialization;
+using System.Data.EntityClient;
+using System.ComponentModel;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -245,7 +244,6 @@ namespace VitsWCF
         private ObjectSet<Trip> _Trip;
 
         #endregion
-
         #region AddTo Methods
     
         /// <summary>
@@ -329,11 +327,11 @@ namespace VitsWCF
         }
 
         #endregion
-
     }
+    
 
     #endregion
-
+    
     #region Entities
     
     /// <summary>
@@ -360,7 +358,6 @@ namespace VitsWCF
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -415,7 +412,6 @@ namespace VitsWCF
         partial void OnNameChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -442,7 +438,6 @@ namespace VitsWCF
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -469,7 +464,6 @@ namespace VitsWCF
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -524,7 +518,6 @@ namespace VitsWCF
         partial void OnNameChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -573,7 +566,6 @@ namespace VitsWCF
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -614,7 +606,6 @@ namespace VitsWCF
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -837,7 +828,6 @@ namespace VitsWCF
         partial void OnEmailChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -952,7 +942,6 @@ namespace VitsWCF
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -983,7 +972,6 @@ namespace VitsWCF
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1095,7 +1083,6 @@ namespace VitsWCF
         partial void OnToChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1176,7 +1163,6 @@ namespace VitsWCF
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1207,7 +1193,6 @@ namespace VitsWCF
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1310,7 +1295,6 @@ namespace VitsWCF
         partial void OnDescriptionChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1479,7 +1463,6 @@ namespace VitsWCF
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1516,7 +1499,6 @@ namespace VitsWCF
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1691,7 +1673,6 @@ namespace VitsWCF
         partial void OnCIDChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1756,7 +1737,6 @@ namespace VitsWCF
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1793,7 +1773,6 @@ namespace VitsWCF
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1992,7 +1971,6 @@ namespace VitsWCF
         partial void OnDescriptionChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -2073,7 +2051,6 @@ namespace VitsWCF
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2108,7 +2085,6 @@ namespace VitsWCF
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -2259,7 +2235,6 @@ namespace VitsWCF
         partial void OnMilesChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -2362,7 +2337,6 @@ namespace VitsWCF
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2397,7 +2371,6 @@ namespace VitsWCF
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -2548,7 +2521,6 @@ namespace VitsWCF
         partial void OnMIDChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -2629,7 +2601,6 @@ namespace VitsWCF
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2660,7 +2631,6 @@ namespace VitsWCF
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -2796,7 +2766,6 @@ namespace VitsWCF
         partial void OnStopDateChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -2915,10 +2884,8 @@ namespace VitsWCF
         }
 
         #endregion
-
     }
 
     #endregion
-
     
 }
