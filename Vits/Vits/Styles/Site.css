@@ -300,14 +300,20 @@ div.accountInfo
 }
 
 
-.btnLogin
+.btnAll
 {
-    margin-left: 130px;
-    margin-top: 20px;
+    margin-top: 95px;
     margin-bottom: 20px;
+    margin-right: 20px;
     font: normal 12px arial, sans-serig;
     width: 100px;
     height: 50px;
+    float: right;
+}
+
+.Content
+{
+     
 }
 
 /*------ Rapport-sidan --------*/
@@ -318,6 +324,15 @@ div.accountInfo
      width: 100%;
      overflow: hidden;
      background: #fff;
+  }
+  
+  div.ContentWrapperIntro
+  {  
+     width: 50%;
+     overflow: hidden;
+     background: #fff;
+     margin-left: auto;
+     margin-right: auto;
   }
  
  div.ContentLeft
@@ -387,7 +402,9 @@ div.accountInfo
  .ContentMissionInfo
  {
     border: 2px solid pink;
-    margin: 5px 5px 5px 5px;
+    margin: 5px 25px 5px 5px;
+    width: 275px;
+    float: left;
         
  }
  
@@ -404,3 +421,5 @@ div.accountInfo
 font-weight: bold;    
 }
 /*--Avslutar Rapport sidan--*/
+
+/*--RapportIntro sidan--*/
