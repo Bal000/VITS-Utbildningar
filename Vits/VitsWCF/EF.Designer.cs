@@ -22,17 +22,16 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DatabaseModel", "FK__Receipt__CCID__2C3393D0", "CostCenter", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.CostCenter), "Receipt", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Receipt), true)]
 [assembly: EdmRelationshipAttribute("DatabaseModel", "FK__Office__CID__08EA5793", "Country", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Country), "Office", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Office), true)]
 [assembly: EdmRelationshipAttribute("DatabaseModel", "FK__Trip__CID__1A14E395", "Country", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Country), "Trip", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Trip), true)]
-[assembly: EdmRelationshipAttribute("DatabaseModel", "FK__EmployeeMis__EID__2E1BDC42", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Employee), "EmployeeMission", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.EmployeeMission), true)]
 [assembly: EdmRelationshipAttribute("DatabaseModel", "FK__Mission__Manager__0EA330E9", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Employee), "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Mission), true)]
 [assembly: EdmRelationshipAttribute("DatabaseModel", "FK__Report__EID__1ED998B2", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Employee), "Report", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Report), true)]
 [assembly: EdmRelationshipAttribute("DatabaseModel", "FK__TravelAdvan__EID__15502E78", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Employee), "TravelAdvances", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.TravelAdvances), true)]
 [assembly: EdmRelationshipAttribute("DatabaseModel", "FK__Trip__EID__182C9B23", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Employee), "Trip", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Trip), true)]
-[assembly: EdmRelationshipAttribute("DatabaseModel", "FK__EmployeeMis__MID__2F10007B", "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Mission), "EmployeeMission", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.EmployeeMission), true)]
 [assembly: EdmRelationshipAttribute("DatabaseModel", "FK__Mission__OID__0DAF0CB0", "Office", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Office), "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Mission), true)]
 [assembly: EdmRelationshipAttribute("DatabaseModel", "FK__Report__MID__1FCDBCEB", "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Mission), "Report", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Report), true)]
 [assembly: EdmRelationshipAttribute("DatabaseModel", "FK__TravelAdvan__MID__164452B1", "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Mission), "TravelAdvances", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.TravelAdvances), true)]
 [assembly: EdmRelationshipAttribute("DatabaseModel", "FK__Trip__MID__1920BF5C", "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Mission), "Trip", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Trip), true)]
 [assembly: EdmRelationshipAttribute("DatabaseModel", "FK__Receipt__REPID__2B3F6F97", "Report", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Report), "Receipt", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Receipt), true)]
+[assembly: EdmRelationshipAttribute("DatabaseModel", "EmployeeMission", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Employee), "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Mission))]
 
 #endregion
 
@@ -131,22 +130,6 @@ namespace VitsWCF
             }
         }
         private ObjectSet<Employee> _Employee;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<EmployeeMission> EmployeeMission
-        {
-            get
-            {
-                if ((_EmployeeMission == null))
-                {
-                    _EmployeeMission = base.CreateObjectSet<EmployeeMission>("EmployeeMission");
-                }
-                return _EmployeeMission;
-            }
-        }
-        private ObjectSet<EmployeeMission> _EmployeeMission;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -270,14 +253,6 @@ namespace VitsWCF
         public void AddToEmployee(Employee employee)
         {
             base.AddObject("Employee", employee);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the EmployeeMission EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToEmployeeMission(EmployeeMission employeeMission)
-        {
-            base.AddObject("EmployeeMission", employeeMission);
         }
     
         /// <summary>
@@ -847,28 +822,6 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DatabaseModel", "FK__EmployeeMis__EID__2E1BDC42", "EmployeeMission")]
-        public EntityCollection<EmployeeMission> EmployeeMission
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<EmployeeMission>("DatabaseModel.FK__EmployeeMis__EID__2E1BDC42", "EmployeeMission");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<EmployeeMission>("DatabaseModel.FK__EmployeeMis__EID__2E1BDC42", "EmployeeMission", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("DatabaseModel", "FK__Mission__Manager__0EA330E9", "Mission")]
         public EntityCollection<Mission> Mission
         {
@@ -950,154 +903,6 @@ namespace VitsWCF
                 }
             }
         }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DatabaseModel", Name="EmployeeMission")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class EmployeeMission : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new EmployeeMission object.
-        /// </summary>
-        /// <param name="eID">Initial value of the EID property.</param>
-        /// <param name="mID">Initial value of the MID property.</param>
-        /// <param name="from">Initial value of the From property.</param>
-        /// <param name="to">Initial value of the To property.</param>
-        public static EmployeeMission CreateEmployeeMission(global::System.Byte eID, global::System.Byte mID, global::System.DateTime from, global::System.DateTime to)
-        {
-            EmployeeMission employeeMission = new EmployeeMission();
-            employeeMission.EID = eID;
-            employeeMission.MID = mID;
-            employeeMission.From = from;
-            employeeMission.To = to;
-            return employeeMission;
-        }
-
-        #endregion
-
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Byte EID
-        {
-            get
-            {
-                return _EID;
-            }
-            set
-            {
-                if (_EID != value)
-                {
-                    OnEIDChanging(value);
-                    ReportPropertyChanging("EID");
-                    _EID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("EID");
-                    OnEIDChanged();
-                }
-            }
-        }
-        private global::System.Byte _EID;
-        partial void OnEIDChanging(global::System.Byte value);
-        partial void OnEIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Byte MID
-        {
-            get
-            {
-                return _MID;
-            }
-            set
-            {
-                if (_MID != value)
-                {
-                    OnMIDChanging(value);
-                    ReportPropertyChanging("MID");
-                    _MID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("MID");
-                    OnMIDChanged();
-                }
-            }
-        }
-        private global::System.Byte _MID;
-        partial void OnMIDChanging(global::System.Byte value);
-        partial void OnMIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime From
-        {
-            get
-            {
-                return _From;
-            }
-            set
-            {
-                if (_From != value)
-                {
-                    OnFromChanging(value);
-                    ReportPropertyChanging("From");
-                    _From = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("From");
-                    OnFromChanged();
-                }
-            }
-        }
-        private global::System.DateTime _From;
-        partial void OnFromChanging(global::System.DateTime value);
-        partial void OnFromChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime To
-        {
-            get
-            {
-                return _To;
-            }
-            set
-            {
-                if (_To != value)
-                {
-                    OnToChanging(value);
-                    ReportPropertyChanging("To");
-                    _To = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("To");
-                    OnToChanged();
-                }
-            }
-        }
-        private global::System.DateTime _To;
-        partial void OnToChanging(global::System.DateTime value);
-        partial void OnToChanged();
-
-        #endregion
-
-    
-        #region Navigation Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1105,72 +910,18 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DatabaseModel", "FK__EmployeeMis__EID__2E1BDC42", "Employee")]
-        public Employee Employee
+        [EdmRelationshipNavigationPropertyAttribute("DatabaseModel", "EmployeeMission", "Mission")]
+        public EntityCollection<Mission> Mission1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DatabaseModel.FK__EmployeeMis__EID__2E1BDC42", "Employee").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DatabaseModel.FK__EmployeeMis__EID__2E1BDC42", "Employee").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Employee> EmployeeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DatabaseModel.FK__EmployeeMis__EID__2E1BDC42", "Employee");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Mission>("DatabaseModel.EmployeeMission", "Mission");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Employee>("DatabaseModel.FK__EmployeeMis__EID__2E1BDC42", "Employee", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DatabaseModel", "FK__EmployeeMis__MID__2F10007B", "Mission")]
-        public Mission Mission
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DatabaseModel.FK__EmployeeMis__MID__2F10007B", "Mission").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DatabaseModel.FK__EmployeeMis__MID__2F10007B", "Mission").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Mission> MissionReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DatabaseModel.FK__EmployeeMis__MID__2F10007B", "Mission");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Mission>("DatabaseModel.FK__EmployeeMis__MID__2F10007B", "Mission", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Mission>("DatabaseModel.EmployeeMission", "Mission", value);
                 }
             }
         }
@@ -1308,6 +1059,30 @@ namespace VitsWCF
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> StartDate
+        {
+            get
+            {
+                return _StartDate;
+            }
+            set
+            {
+                OnStartDateChanging(value);
+                ReportPropertyChanging("StartDate");
+                _StartDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StartDate");
+                OnStartDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _StartDate;
+        partial void OnStartDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnStartDateChanged();
 
         #endregion
 
@@ -1348,28 +1123,6 @@ namespace VitsWCF
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Employee>("DatabaseModel.FK__Mission__Manager__0EA330E9", "Employee", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DatabaseModel", "FK__EmployeeMis__MID__2F10007B", "EmployeeMission")]
-        public EntityCollection<EmployeeMission> EmployeeMission
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<EmployeeMission>("DatabaseModel.FK__EmployeeMis__MID__2F10007B", "EmployeeMission");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<EmployeeMission>("DatabaseModel.FK__EmployeeMis__MID__2F10007B", "EmployeeMission", value);
                 }
             }
         }
@@ -1474,6 +1227,28 @@ namespace VitsWCF
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip>("DatabaseModel.FK__Trip__MID__1920BF5C", "Trip", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DatabaseModel", "EmployeeMission", "Employee")]
+        public EntityCollection<Employee> Employee1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Employee>("DatabaseModel.EmployeeMission", "Employee");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Employee>("DatabaseModel.EmployeeMission", "Employee", value);
                 }
             }
         }
@@ -2094,8 +1869,7 @@ namespace VitsWCF
         /// <param name="mID">Initial value of the MID property.</param>
         /// <param name="expenses">Initial value of the Expenses property.</param>
         /// <param name="car">Initial value of the Car property.</param>
-        /// <param name="miles">Initial value of the Miles property.</param>
-        public static Report CreateReport(global::System.Byte rEPID, global::System.Byte eID, global::System.Byte mID, global::System.Int32 expenses, global::System.Boolean car, global::System.Int32 miles)
+        public static Report CreateReport(global::System.Byte rEPID, global::System.Byte eID, global::System.Byte mID, global::System.Int32 expenses, global::System.Boolean car)
         {
             Report report = new Report();
             report.REPID = rEPID;
@@ -2103,7 +1877,6 @@ namespace VitsWCF
             report.MID = mID;
             report.Expenses = expenses;
             report.Car = car;
-            report.Miles = miles;
             return report;
         }
 
@@ -2237,9 +2010,9 @@ namespace VitsWCF
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 Miles
+        public Nullable<global::System.Int32> Miles
         {
             get
             {
@@ -2254,8 +2027,8 @@ namespace VitsWCF
                 OnMilesChanged();
             }
         }
-        private global::System.Int32 _Miles;
-        partial void OnMilesChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _Miles;
+        partial void OnMilesChanging(Nullable<global::System.Int32> value);
         partial void OnMilesChanged();
 
         #endregion

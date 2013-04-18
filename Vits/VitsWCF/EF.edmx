@@ -12,9 +12,7 @@
           <EntitySet Name="EmployeeMission" EntityType="DatabaseModel.Store.EmployeeMission" store:Type="Tables" store:Schema="dbo" store:Name="EmployeeMission">
             <DefiningQuery>SELECT 
       [EmployeeMission].[EID] AS [EID], 
-      [EmployeeMission].[MID] AS [MID], 
-      [EmployeeMission].[From] AS [From], 
-      [EmployeeMission].[To] AS [To]
+      [EmployeeMission].[MID] AS [MID]
       FROM [dbo].[EmployeeMission] AS [EmployeeMission]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Mission" EntityType="DatabaseModel.Store.Mission" store:Type="Tables" Schema="dbo" />
@@ -117,19 +115,15 @@
           <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="64" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'C:\USERS\RICKARD\DOCUMENTS\GITHUB\VITS-UTBILDNINGAR\VITS\VITS\APP_DATA\DATABASE.MDF.dbo.EmployeeMission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'C:\USERS\RICKARD\DOCUMENTS\GITHUB\VITS-UTBILDNINGAR\VITS\VITSWCF\APP_DATA\DATABASE.MDF.dbo.EmployeeMission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="EmployeeMission">
           <Key>
             <PropertyRef Name="EID" />
             <PropertyRef Name="MID" />
-            <PropertyRef Name="From" />
-            <PropertyRef Name="To" />
           </Key>
           <Property Name="EID" Type="tinyint" Nullable="false" />
           <Property Name="MID" Type="tinyint" Nullable="false" />
-          <Property Name="From" Type="datetime" Nullable="false" />
-          <Property Name="To" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Mission">
           <Key>
@@ -139,6 +133,7 @@
           <Property Name="OID" Type="tinyint" Nullable="false" />
           <Property Name="Manager" Type="tinyint" Nullable="false" />
           <Property Name="Description" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="StartDate" Type="datetime" />
         </EntityType>
         <EntityType Name="Office">
           <Key>
@@ -174,7 +169,7 @@
           <Property Name="MID" Type="tinyint" Nullable="false" />
           <Property Name="Expenses" Type="int" Nullable="false" />
           <Property Name="Car" Type="bit" Nullable="false" />
-          <Property Name="Miles" Type="int" Nullable="false" />
+          <Property Name="Miles" Type="int" />
         </EntityType>
         <EntityType Name="TravelAdvances">
           <Key>
@@ -188,7 +183,7 @@
           <Property Name="MID" Type="tinyint" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'C:\USERS\RICKARD\DOCUMENTS\GITHUB\VITS-UTBILDNINGAR\VITS\VITS\APP_DATA\DATABASE.MDF.dbo.Trip' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'C:\USERS\RICKARD\DOCUMENTS\GITHUB\VITS-UTBILDNINGAR\VITS\VITSWCF\APP_DATA\DATABASE.MDF.dbo.Trip' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="Trip">
           <Key>
@@ -380,7 +375,6 @@
           <EntitySet Name="CostCenter" EntityType="DatabaseModel.CostCenter" />
           <EntitySet Name="Country" EntityType="DatabaseModel.Country" />
           <EntitySet Name="Employee" EntityType="DatabaseModel.Employee" />
-          <EntitySet Name="EmployeeMission" EntityType="DatabaseModel.EmployeeMission" />
           <EntitySet Name="Mission" EntityType="DatabaseModel.Mission" />
           <EntitySet Name="Office" EntityType="DatabaseModel.Office" />
           <EntitySet Name="Receipt" EntityType="DatabaseModel.Receipt" />
@@ -399,10 +393,6 @@
             <End Role="Country" EntitySet="Country" />
             <End Role="Trip" EntitySet="Trip" />
           </AssociationSet>
-          <AssociationSet Name="FK__EmployeeMis__EID__2E1BDC42" Association="DatabaseModel.FK__EmployeeMis__EID__2E1BDC42">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="EmployeeMission" EntitySet="EmployeeMission" />
-          </AssociationSet>
           <AssociationSet Name="FK__Mission__Manager__0EA330E9" Association="DatabaseModel.FK__Mission__Manager__0EA330E9">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Mission" EntitySet="Mission" />
@@ -418,10 +408,6 @@
           <AssociationSet Name="FK__Trip__EID__182C9B23" Association="DatabaseModel.FK__Trip__EID__182C9B23">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Trip" EntitySet="Trip" />
-          </AssociationSet>
-          <AssociationSet Name="FK__EmployeeMis__MID__2F10007B" Association="DatabaseModel.FK__EmployeeMis__MID__2F10007B">
-            <End Role="Mission" EntitySet="Mission" />
-            <End Role="EmployeeMission" EntitySet="EmployeeMission" />
           </AssociationSet>
           <AssociationSet Name="FK__Mission__OID__0DAF0CB0" Association="DatabaseModel.FK__Mission__OID__0DAF0CB0">
             <End Role="Office" EntitySet="Office" />
@@ -442,6 +428,10 @@
           <AssociationSet Name="FK__Receipt__REPID__2B3F6F97" Association="DatabaseModel.FK__Receipt__REPID__2B3F6F97">
             <End Role="Report" EntitySet="Report" />
             <End Role="Receipt" EntitySet="Receipt" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeeMission" Association="DatabaseModel.EmployeeMission">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Mission" EntitySet="Mission" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="CostCenter">
@@ -474,25 +464,11 @@
           <Property Name="IdNumber" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
           <Property Name="Manager" Type="Boolean" Nullable="false" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="EmployeeMission" Relationship="DatabaseModel.FK__EmployeeMis__EID__2E1BDC42" FromRole="Employee" ToRole="EmployeeMission" />
           <NavigationProperty Name="Mission" Relationship="DatabaseModel.FK__Mission__Manager__0EA330E9" FromRole="Employee" ToRole="Mission" />
           <NavigationProperty Name="Report" Relationship="DatabaseModel.FK__Report__EID__1ED998B2" FromRole="Employee" ToRole="Report" />
           <NavigationProperty Name="TravelAdvances" Relationship="DatabaseModel.FK__TravelAdvan__EID__15502E78" FromRole="Employee" ToRole="TravelAdvances" />
           <NavigationProperty Name="Trip" Relationship="DatabaseModel.FK__Trip__EID__182C9B23" FromRole="Employee" ToRole="Trip" />
-        </EntityType>
-        <EntityType Name="EmployeeMission">
-          <Key>
-            <PropertyRef Name="EID" />
-            <PropertyRef Name="MID" />
-            <PropertyRef Name="From" />
-            <PropertyRef Name="To" />
-          </Key>
-          <Property Name="EID" Type="Byte" Nullable="false" />
-          <Property Name="MID" Type="Byte" Nullable="false" />
-          <Property Name="From" Type="DateTime" Nullable="false" />
-          <Property Name="To" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="Employee" Relationship="DatabaseModel.FK__EmployeeMis__EID__2E1BDC42" FromRole="EmployeeMission" ToRole="Employee" />
-          <NavigationProperty Name="Mission" Relationship="DatabaseModel.FK__EmployeeMis__MID__2F10007B" FromRole="EmployeeMission" ToRole="Mission" />
+          <NavigationProperty Name="Mission1" Relationship="DatabaseModel.EmployeeMission" FromRole="Employee" ToRole="Mission" />
         </EntityType>
         <EntityType Name="Mission">
           <Key>
@@ -502,12 +478,13 @@
           <Property Name="OID" Type="Byte" Nullable="false" />
           <Property Name="Manager" Type="Byte" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="StartDate" Type="DateTime" />
           <NavigationProperty Name="Employee" Relationship="DatabaseModel.FK__Mission__Manager__0EA330E9" FromRole="Mission" ToRole="Employee" />
-          <NavigationProperty Name="EmployeeMission" Relationship="DatabaseModel.FK__EmployeeMis__MID__2F10007B" FromRole="Mission" ToRole="EmployeeMission" />
           <NavigationProperty Name="Office" Relationship="DatabaseModel.FK__Mission__OID__0DAF0CB0" FromRole="Mission" ToRole="Office" />
           <NavigationProperty Name="Report" Relationship="DatabaseModel.FK__Report__MID__1FCDBCEB" FromRole="Mission" ToRole="Report" />
           <NavigationProperty Name="TravelAdvances" Relationship="DatabaseModel.FK__TravelAdvan__MID__164452B1" FromRole="Mission" ToRole="TravelAdvances" />
           <NavigationProperty Name="Trip" Relationship="DatabaseModel.FK__Trip__MID__1920BF5C" FromRole="Mission" ToRole="Trip" />
+          <NavigationProperty Name="Employee1" Relationship="DatabaseModel.EmployeeMission" FromRole="Mission" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Office">
           <Key>
@@ -547,7 +524,7 @@
           <Property Name="MID" Type="Byte" Nullable="false" />
           <Property Name="Expenses" Type="Int32" Nullable="false" />
           <Property Name="Car" Type="Boolean" Nullable="false" />
-          <Property Name="Miles" Type="Int32" Nullable="false" />
+          <Property Name="Miles" Type="Int32" />
           <NavigationProperty Name="Employee" Relationship="DatabaseModel.FK__Report__EID__1ED998B2" FromRole="Report" ToRole="Employee" />
           <NavigationProperty Name="Mission" Relationship="DatabaseModel.FK__Report__MID__1FCDBCEB" FromRole="Report" ToRole="Mission" />
           <NavigationProperty Name="Receipt" Relationship="DatabaseModel.FK__Receipt__REPID__2B3F6F97" FromRole="Report" ToRole="Receipt" />
@@ -617,18 +594,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__EmployeeMis__EID__2E1BDC42">
-          <End Role="Employee" Type="DatabaseModel.Employee" Multiplicity="1" />
-          <End Role="EmployeeMission" Type="DatabaseModel.EmployeeMission" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="EID" />
-            </Principal>
-            <Dependent Role="EmployeeMission">
-              <PropertyRef Name="EID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Mission__Manager__0EA330E9">
           <End Role="Employee" Type="DatabaseModel.Employee" Multiplicity="1" />
           <End Role="Mission" Type="DatabaseModel.Mission" Multiplicity="*" />
@@ -674,18 +639,6 @@
             </Principal>
             <Dependent Role="Trip">
               <PropertyRef Name="EID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__EmployeeMis__MID__2F10007B">
-          <End Role="Mission" Type="DatabaseModel.Mission" Multiplicity="1" />
-          <End Role="EmployeeMission" Type="DatabaseModel.EmployeeMission" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Mission">
-              <PropertyRef Name="MID" />
-            </Principal>
-            <Dependent Role="EmployeeMission">
-              <PropertyRef Name="MID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -749,6 +702,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="EmployeeMission">
+          <End Role="Employee" Type="DatabaseModel.Employee" Multiplicity="*" />
+          <End Role="Mission" Type="DatabaseModel.Mission" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -786,16 +743,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="EmployeeMission">
-            <EntityTypeMapping TypeName="DatabaseModel.EmployeeMission">
-              <MappingFragment StoreEntitySet="EmployeeMission">
-                <ScalarProperty Name="EID" ColumnName="EID" />
-                <ScalarProperty Name="MID" ColumnName="MID" />
-                <ScalarProperty Name="From" ColumnName="From" />
-                <ScalarProperty Name="To" ColumnName="To" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Mission">
             <EntityTypeMapping TypeName="DatabaseModel.Mission">
               <MappingFragment StoreEntitySet="Mission">
@@ -803,6 +750,7 @@
                 <ScalarProperty Name="OID" ColumnName="OID" />
                 <ScalarProperty Name="Manager" ColumnName="Manager" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -868,6 +816,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <AssociationSetMapping Name="EmployeeMission" TypeName="DatabaseModel.EmployeeMission" StoreEntitySet="EmployeeMission">
+            <EndProperty Name="Employee">
+              <ScalarProperty Name="EID" ColumnName="EID" />
+            </EndProperty>
+            <EndProperty Name="Mission">
+              <ScalarProperty Name="MID" ColumnName="MID" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -888,93 +844,103 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="EF">
-        <EntityTypeShape EntityType="DatabaseModel.CostCenter" Width="1.5" PointX="11.25" PointY="3.875" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Country" Width="1.5" PointX="1.5" PointY="2.75" Height="1.7879850260416657" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Employee" Width="1.5" PointX="0.75" PointY="5.875" Height="3.7109993489583335" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.EmployeeMission" Width="1.5" PointX="3" PointY="6.625" Height="2.1725878906250005" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Mission" Width="1.5" PointX="6" PointY="6.25" Height="2.9417936197916665" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Office" Width="1.5" PointX="3.75" PointY="2.375" Height="2.7494921874999996" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Receipt" Width="1.5" PointX="13.5" PointY="6.25" Height="2.9417936197916674" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Report" Width="1.5" PointX="8.25" PointY="6.375" Height="2.7494921875000005" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.TravelAdvances" Width="1.5" PointX="11.25" PointY="6.375" Height="2.5571907552083308" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Trip" Width="1.5" PointX="8.25" PointY="2.375" Height="2.5571907552083353" IsExpanded="true" />
+      <Diagram Name="EF" ZoomLevel="55">
+        <EntityTypeShape EntityType="DatabaseModel.CostCenter" Width="1.5" PointX="8.25" PointY="2.375" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Country" Width="1.5" PointX="1.5" PointY="9.25" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Employee" Width="1.5" PointX="0.75" PointY="4.25" Height="3.7109993489583335" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Mission" Width="1.5" PointX="3" PointY="4.5" Height="3.1340950520833335" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Office" Width="1.5" PointX="0.75" PointY="0.75" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Receipt" Width="1.5" PointX="10.5" PointY="4.625" Height="2.9417936197916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Report" Width="1.5" PointX="5.25" PointY="4.75" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.TravelAdvances" Width="1.5" PointX="8.25" PointY="4.875" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Trip" Width="1.5" PointX="5.25" PointY="0.875" Height="2.5571907552083317" IsExpanded="true" />
         <AssociationConnector Association="DatabaseModel.FK__Receipt__CCID__2C3393D0" ManuallyRouted="false">
-          <ConnectorPoint PointX="12.75" PointY="4.672841796875" />
-          <ConnectorPoint PointX="14.25" PointY="4.672841796875" />
-          <ConnectorPoint PointX="14.25" PointY="6.25" />
+          <ConnectorPoint PointX="9.75" PointY="3.172841796875" />
+          <ConnectorPoint PointX="11.25" PointY="3.172841796875" />
+          <ConnectorPoint PointX="11.25" PointY="4.625" />
         </AssociationConnector>
         <AssociationConnector Association="DatabaseModel.FK__Office__CID__08EA5793" ManuallyRouted="false">
-          <ConnectorPoint PointX="3" PointY="3.6439925130208328" />
-          <ConnectorPoint PointX="3.75" PointY="3.6439925130208328" />
+          <ConnectorPoint PointX="2.5937505" PointY="9.25" />
+          <ConnectorPoint PointX="2.5937505" PointY="2.12474609375" />
+          <ConnectorPoint PointX="2.25" PointY="2.12474609375" />
         </AssociationConnector>
         <AssociationConnector Association="DatabaseModel.FK__Trip__CID__1A14E395" ManuallyRouted="false">
-          <ConnectorPoint PointX="3" PointY="2.75" />
-          <ConnectorPoint PointX="3.375" PointY="2.375" />
-          <ConnectorPoint PointX="3.375" PointY="2" />
-          <ConnectorPoint PointX="7.875" PointY="2" />
-          <ConnectorPoint PointX="8.25" PointY="2.375" />
-        </AssociationConnector>
-        <AssociationConnector Association="DatabaseModel.FK__EmployeeMis__EID__2E1BDC42" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="7.7112939453125" />
-          <ConnectorPoint PointX="3" PointY="7.7112939453125" />
+          <ConnectorPoint PointX="3" PointY="9.2511528461538468" />
+          <ConnectorPoint PointX="3.3761528461538468" PointY="8.875" />
+          <ConnectorPoint PointX="4.875" PointY="8.875" />
+          <ConnectorPoint PointX="4.875" PointY="3.8071907552083317" />
+          <ConnectorPoint PointX="5.25" PointY="3.4321907552083317" />
         </AssociationConnector>
         <AssociationConnector Association="DatabaseModel.FK__Mission__Manager__0EA330E9" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="9.0259407552083335" />
-          <ConnectorPoint PointX="6" PointY="9.0259407552083335" />
+          <ConnectorPoint PointX="2.25" PointY="6.0670475260416667" />
+          <ConnectorPoint PointX="2.5104171666666666" PointY="6.0670475260416659" />
+          <ConnectorPoint PointX="2.6770838333333336" PointY="6.0670475260416667" />
+          <ConnectorPoint PointX="3" PointY="6.0670475260416667" />
         </AssociationConnector>
         <AssociationConnector Association="DatabaseModel.FK__Report__EID__1ED998B2" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="9.420146484375" />
-          <ConnectorPoint PointX="9" PointY="9.420146484375" />
-          <ConnectorPoint PointX="9" PointY="9.1244921875" />
+          <ConnectorPoint PointX="2.25" PointY="7.8287972005208335" />
+          <ConnectorPoint PointX="2.5104171666666666" PointY="7.8287972005208326" />
+          <ConnectorPoint PointX="2.6770838333333336" PointY="7.8287972005208335" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="7.8287972005208326" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="7.8287972005208335" />
+          <ConnectorPoint PointX="6" PointY="7.8287972005208335" />
+          <ConnectorPoint PointX="6" PointY="7.4994921875" />
         </AssociationConnector>
         <AssociationConnector Association="DatabaseModel.FK__TravelAdvan__EID__15502E78" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="9.3059675520833327" />
-          <ConnectorPoint PointX="8.9166666666666661" PointY="9.3059675520833327" />
-          <ConnectorPoint PointX="9.0833333333333339" PointY="9.3059675520833327" />
-          <ConnectorPoint PointX="12" PointY="9.3059675520833327" />
-          <ConnectorPoint PointX="12" PointY="8.9321907552083317" />
+          <ConnectorPoint PointX="2.25" PointY="7.7314436263020827" />
+          <ConnectorPoint PointX="2.5104171666666666" PointY="7.7314436263020818" />
+          <ConnectorPoint PointX="2.6770838333333336" PointY="7.7314436263020827" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="7.7314436263020818" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="7.7314436263020827" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="7.7314436263020818" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="7.7314436263020827" />
+          <ConnectorPoint PointX="9" PointY="7.7314436263020827" />
+          <ConnectorPoint PointX="9" PointY="7.4321907552083317" />
         </AssociationConnector>
         <AssociationConnector Association="DatabaseModel.FK__Trip__EID__182C9B23" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="5.875" />
-          <ConnectorPoint PointX="2.625" PointY="5.5" />
-          <ConnectorPoint PointX="4.822916666666667" PointY="5.4999999999999991" />
-          <ConnectorPoint PointX="4.989583333333333" PointY="5.5" />
-          <ConnectorPoint PointX="6.6354141666666671" PointY="5.4999999999999991" />
-          <ConnectorPoint PointX="6.8020808333333331" PointY="5.5" />
-          <ConnectorPoint PointX="9" PointY="5.5" />
-          <ConnectorPoint PointX="9" PointY="4.9321907552083353" />
-        </AssociationConnector>
-        <AssociationConnector Association="DatabaseModel.FK__EmployeeMis__MID__2F10007B" ManuallyRouted="false">
-          <ConnectorPoint PointX="6" PointY="7.7112939453125" />
-          <ConnectorPoint PointX="4.5" PointY="7.7112939453125" />
+          <ConnectorPoint PointX="2.25" PointY="4.3123066923076925" />
+          <ConnectorPoint PointX="2.5348249349011205" PointY="4.0274817574065711" />
+          <ConnectorPoint PointX="2.6526760650988792" PointY="3.9096306272088133" />
+          <ConnectorPoint PointX="2.9375" PointY="3.6248066923076925" />
+          <ConnectorPoint PointX="2.9375" PointY="2.1223433776041651" />
+          <ConnectorPoint PointX="3.6666666666666665" PointY="2.1223433776041647" />
+          <ConnectorPoint PointX="3.8333333333333335" PointY="2.1223433776041651" />
+          <ConnectorPoint PointX="5.25" PointY="2.1223433776041651" />
         </AssociationConnector>
         <AssociationConnector Association="DatabaseModel.FK__Mission__OID__0DAF0CB0" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.90625" PointY="5.1244921875" />
-          <ConnectorPoint PointX="4.90625" PointY="6.40625" />
-          <ConnectorPoint PointX="6" PointY="6.40625" />
+          <ConnectorPoint PointX="2.25" PointY="1.4361716888020826" />
+          <ConnectorPoint PointX="3.75" PointY="1.4361716888020826" />
+          <ConnectorPoint PointX="3.75" PointY="4.5" />
         </AssociationConnector>
         <AssociationConnector Association="DatabaseModel.FK__Report__MID__1FCDBCEB" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.5" PointY="7.74974609375" />
-          <ConnectorPoint PointX="8.25" PointY="7.74974609375" />
+          <ConnectorPoint PointX="4.5" PointY="6.12474609375" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="6.1247460937499989" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="6.12474609375" />
+          <ConnectorPoint PointX="5.25" PointY="6.12474609375" />
         </AssociationConnector>
         <AssociationConnector Association="DatabaseModel.FK__TravelAdvan__MID__164452B1" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.5" PointY="6.25" />
-          <ConnectorPoint PointX="7.875" PointY="5.875" />
-          <ConnectorPoint PointX="7.875" PointY="6" />
-          <ConnectorPoint PointX="10.875" PointY="6" />
-          <ConnectorPoint PointX="11.25" PointY="6.375" />
+          <ConnectorPoint PointX="4.5" PointY="4.59375" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="4.5937499999999991" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="4.59375" />
+          <ConnectorPoint PointX="9" PointY="4.59375" />
+          <ConnectorPoint PointX="9" PointY="4.875" />
         </AssociationConnector>
         <AssociationConnector Association="DatabaseModel.FK__Trip__MID__1920BF5C" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.7187475" PointY="6.25" />
-          <ConnectorPoint PointX="6.7187475" PointY="3.6848478776041684" />
-          <ConnectorPoint PointX="8.25" PointY="3.6848478776041684" />
+          <ConnectorPoint PointX="4.1562525" PointY="4.5" />
+          <ConnectorPoint PointX="4.1562525" PointY="2.7772670664062487" />
+          <ConnectorPoint PointX="5.25" PointY="2.7772670664062487" />
         </AssociationConnector>
         <AssociationConnector Association="DatabaseModel.FK__Receipt__REPID__2B3F6F97" ManuallyRouted="false">
-          <ConnectorPoint PointX="9.75" PointY="9.0595914713541656" />
-          <ConnectorPoint PointX="11.916666666666666" PointY="9.0595914713541656" />
-          <ConnectorPoint PointX="12.083333333333334" PointY="9.0595914713541656" />
-          <ConnectorPoint PointX="13.5" PointY="9.0595914713541656" />
+          <ConnectorPoint PointX="6.75" PointY="4.78125" />
+          <ConnectorPoint PointX="8.9166666666666661" PointY="4.7812499999999991" />
+          <ConnectorPoint PointX="9.0833333333333339" PointY="4.78125" />
+          <ConnectorPoint PointX="10.5" PointY="4.78125" />
+        </AssociationConnector>
+        <AssociationConnector Association="DatabaseModel.EmployeeMission" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="5.2210237630208329" />
+          <ConnectorPoint PointX="2.5104171666666666" PointY="5.221023763020832" />
+          <ConnectorPoint PointX="2.6770838333333336" PointY="5.2210237630208329" />
+          <ConnectorPoint PointX="3" PointY="5.2210237630208329" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
