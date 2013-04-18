@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text.RegularExpressions;
 
-namespace Vits
+namespace Vits.Klasser
 {
     public static class Validator
     {
