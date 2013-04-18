@@ -58,7 +58,6 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
-    <Content Include="Contentpages\RapportIntro.aspx" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="Service References\ServiceReference1\Service1.disco" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
@@ -67,8 +66,8 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="WebProfileBuilder.user" />
     <Content Include="Contentpages\RapportIntro.aspx" />
+    <Content Include="WebProfileBuilder.user" />
     <Content Include="obj\Debug\TempPE\Service References.ServiceReference1.Reference.cs.dll" />
     <Content Include="obj\Debug\Vits.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Vits.dll" />
@@ -131,13 +130,6 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Contentpages\RapportIntro.aspx.cs">
-      <DependentUpon>RapportIntro.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contentpages\RapportIntro.aspx.designer.cs">
-      <DependentUpon>RapportIntro.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -151,7 +143,6 @@
     <Compile Include="Klasser\Epost.cs" />
     <Compile Include="Klasser\Global.cs" />
     <Compile Include="Klasser\Traktamente.cs" />
-    <Compile Include="Klasser\Global.cs" />
     <Compile Include="Klasser\Validator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ServiceReference1\Reference.cs">
@@ -172,6 +163,13 @@
     </Compile>
     <Compile Include="Contentpages\Rapport.aspx.designer.cs">
       <DependentUpon>Rapport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contentpages\RapportIntro.aspx.cs">
+      <DependentUpon>RapportIntro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contentpages\RapportIntro.aspx.designer.cs">
+      <DependentUpon>RapportIntro.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebProfile.cs" />
   </ItemGroup>

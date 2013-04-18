@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Vits {
-    
-    
-    public partial class WebForm2 {
-        
+namespace Vits
+{
+
+
+    public partial class WebForm3
+    {
+
         /// <summary>
         /// txtName control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Vits {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label txtName;
-        
+
         /// <summary>
         /// txtEID control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Vits {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label txtEID;
-        
+
         /// <summary>
         /// txtChooseMission control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Vits {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label txtChooseMission;
-        
+
         /// <summary>
         /// ddlChooseMission control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace Vits {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlChooseMission;
-        
+
         /// <summary>
         /// txtCustomer control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace Vits {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label txtCustomer;
-        
+
         /// <summary>
         /// txtCustomerInfo control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace Vits {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label txtCustomerInfo;
-        
+
         /// <summary>
         /// txtMissionDescription control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace Vits {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label txtMissionDescription;
-        
+
         /// <summary>
         /// txtMissionDescriptionInfo control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace Vits {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label txtMissionDescriptionInfo;
-        
+
         /// <summary>
         /// txtMissionPeriod control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace Vits {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label txtMissionPeriod;
-        
+
         /// <summary>
         /// txtMissionPeriodInfo control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace Vits {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label txtMissionPeriodInfo;
-        
+
         /// <summary>
         /// MissionManager control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace Vits {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label MissionManager;
-        
+
         /// <summary>
         /// MissionManagerInfo control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace Vits {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label MissionManagerInfo;
-        
+
         /// <summary>
         /// btnTillRapport control.
         /// </summary>

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Vits.Klasser
 {
-    public static class Global
+    public class Global
     {
         public static String currentMission;
     }

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Vits
 {
-    public partial class WebForm2 : System.Web.UI.Page
+    public partial class WebForm3 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -17,10 +17,7 @@ namespace Vits
         protected void btnTillRapport_Click(object sender, EventArgs e)
         {
             Klasser.Global.currentMission = ddlChooseMission.SelectedValue.ToString();
-            Response.Redirect("~/Contentpages/Rapport.aspx"); 
-            
-            
-            
+            Response.Redirect("~/Contentpages/Rapport.aspx");
         }
     }
 }
