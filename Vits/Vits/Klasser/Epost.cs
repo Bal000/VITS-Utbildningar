@@ -19,7 +19,7 @@ using System.Text;
 using System.Net.Mail;
 using System.Net;
 
-namespace SendMail
+namespace Vits.Klasser
 {
     public static class Epost
     {

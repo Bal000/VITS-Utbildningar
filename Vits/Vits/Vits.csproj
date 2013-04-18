@@ -142,7 +142,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Klasser\Epost.cs" />
     <Compile Include="Klasser\Global.cs" />
+    <Compile Include="Klasser\Traktamente.cs" />
     <Compile Include="Klasser\Validator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ServiceReference1\Reference.cs">

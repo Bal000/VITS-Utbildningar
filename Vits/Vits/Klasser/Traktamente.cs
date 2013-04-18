@@ -80,7 +80,7 @@ using System.Text;
 using System.IO;
 using System.Net;
 
-namespace traktamente
+namespace Vits.Klasser
 {
     class Traktamente
     {

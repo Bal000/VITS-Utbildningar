@@ -17,7 +17,10 @@ namespace Vits
         protected void btnTillRapport_Click(object sender, EventArgs e)
         {
             Klasser.Global.currentMission = ddlChooseMission.SelectedValue.ToString();
-            Response.Redirect("~/Contentpages/Rapport.aspx");       
+            Response.Redirect("~/Contentpages/Rapport.aspx"); 
+            
+            
+            
         }
     }
 }
