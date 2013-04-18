@@ -11,19 +11,55 @@ namespace Vits
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ddlChef.Items.Add("Välj chef");
-            ddlKontor.Items.Add("Välj uppdragskontor");
-
-        }
-
-        protected void btnSkapaUppdrag_Click(object sender, EventArgs e)
-        {
             
+
         }
 
-        protected void Kalender_SelectionChanged(object sender, EventArgs e)
+        protected void btnEditMission_Click(object sender, EventArgs e)
         {
-            tbDatum.Text = Kalender.SelectedDate.ToString("yyyy-MM-dd");
+            btnEditMission.Visible = false;
+            btnAddMission.Visible = false;
+            btnAddMission2.Visible = false;
+            btnAvbryt.Visible = true;
+            btnSave.Visible = true;
+
+            ddManager.Enabled = true;
+            ddOffice.Enabled = true;
+            tbDescription.Enabled = true;
+            Calendar.Enabled = true;
+        }
+
+        protected void btnAddMission_Click(object sender, EventArgs e)
+        {
+            btnEditMission.Visible = false;
+            btnAddMission.Visible = false;
+            btnAddMission2.Visible = true;
+            btnAvbryt.Visible = true;
+            btnSave.Visible = false;
+
+            ddManager.Enabled = true;
+            ddOffice.Enabled = true;
+            tbDescription.Enabled = true;
+            Calendar.Enabled = true;
+        }
+
+        protected void btnAvbryt_Click(object sender, EventArgs e)
+        {
+            btnEditMission.Visible = true;
+            btnAddMission.Visible = true;
+            btnAddMission2.Visible = false;
+            btnAvbryt.Visible = false;
+            btnSave.Visible = false;
+
+            ddManager.Enabled = false;
+            ddOffice.Enabled = false;
+            tbDescription.Enabled = false;
+            Calendar.Enabled = false;
+        }
+
+        protected void Calendar_SelectionChanged(object sender, EventArgs e)
+        {
+            tbDate.Text = Calendar.SelectedDate.ToString("yyyy-MM-dd");
         }
 
         

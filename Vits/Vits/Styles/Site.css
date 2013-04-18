@@ -447,6 +447,14 @@ div.UserList
     position: relative;
     margin-left: 50px;
 }
+div.MissionList
+{
+    width:200px;
+    height:250px;
+    float: left;
+    position: relative;
+    margin-left: 50px;
+}
 .ButtonSpace
 {
     margin-left: 36px;
