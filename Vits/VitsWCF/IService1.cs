@@ -14,7 +14,7 @@ namespace VitsWCF
     {
 
         [OperationContract]
-        string GetData(int value);
+        Employee GetEmployee(int ID);
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);

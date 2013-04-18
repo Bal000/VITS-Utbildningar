@@ -32,16 +32,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="EmployeeMission">
-      <EntityTypeMapping TypeName="DatabaseModel.EmployeeMission">
-        <MappingFragment StoreEntitySet="EmployeeMission">
-          <ScalarProperty Name="EID" ColumnName="EID" />
-          <ScalarProperty Name="MID" ColumnName="MID" />
-          <ScalarProperty Name="From" ColumnName="From" />
-          <ScalarProperty Name="To" ColumnName="To" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Mission">
       <EntityTypeMapping TypeName="DatabaseModel.Mission">
         <MappingFragment StoreEntitySet="Mission">
@@ -49,6 +39,7 @@
           <ScalarProperty Name="OID" ColumnName="OID" />
           <ScalarProperty Name="Manager" ColumnName="Manager" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -114,5 +105,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="EmployeeMission" TypeName="DatabaseModel.EmployeeMission" StoreEntitySet="EmployeeMission">
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="EID" ColumnName="EID" />
+      </EndProperty>
+      <EndProperty Name="Mission">
+        <ScalarProperty Name="MID" ColumnName="MID" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

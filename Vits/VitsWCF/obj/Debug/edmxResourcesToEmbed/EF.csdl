@@ -4,7 +4,6 @@
     <EntitySet Name="CostCenter" EntityType="DatabaseModel.CostCenter" />
     <EntitySet Name="Country" EntityType="DatabaseModel.Country" />
     <EntitySet Name="Employee" EntityType="DatabaseModel.Employee" />
-    <EntitySet Name="EmployeeMission" EntityType="DatabaseModel.EmployeeMission" />
     <EntitySet Name="Mission" EntityType="DatabaseModel.Mission" />
     <EntitySet Name="Office" EntityType="DatabaseModel.Office" />
     <EntitySet Name="Receipt" EntityType="DatabaseModel.Receipt" />
@@ -23,10 +22,6 @@
       <End Role="Country" EntitySet="Country" />
       <End Role="Trip" EntitySet="Trip" />
     </AssociationSet>
-    <AssociationSet Name="FK__EmployeeMis__EID__2E1BDC42" Association="DatabaseModel.FK__EmployeeMis__EID__2E1BDC42">
-      <End Role="Employee" EntitySet="Employee" />
-      <End Role="EmployeeMission" EntitySet="EmployeeMission" />
-    </AssociationSet>
     <AssociationSet Name="FK__Mission__Manager__0EA330E9" Association="DatabaseModel.FK__Mission__Manager__0EA330E9">
       <End Role="Employee" EntitySet="Employee" />
       <End Role="Mission" EntitySet="Mission" />
@@ -42,10 +37,6 @@
     <AssociationSet Name="FK__Trip__EID__182C9B23" Association="DatabaseModel.FK__Trip__EID__182C9B23">
       <End Role="Employee" EntitySet="Employee" />
       <End Role="Trip" EntitySet="Trip" />
-    </AssociationSet>
-    <AssociationSet Name="FK__EmployeeMis__MID__2F10007B" Association="DatabaseModel.FK__EmployeeMis__MID__2F10007B">
-      <End Role="Mission" EntitySet="Mission" />
-      <End Role="EmployeeMission" EntitySet="EmployeeMission" />
     </AssociationSet>
     <AssociationSet Name="FK__Mission__OID__0DAF0CB0" Association="DatabaseModel.FK__Mission__OID__0DAF0CB0">
       <End Role="Office" EntitySet="Office" />
@@ -66,6 +57,10 @@
     <AssociationSet Name="FK__Receipt__REPID__2B3F6F97" Association="DatabaseModel.FK__Receipt__REPID__2B3F6F97">
       <End Role="Report" EntitySet="Report" />
       <End Role="Receipt" EntitySet="Receipt" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeMission" Association="DatabaseModel.EmployeeMission">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Mission" EntitySet="Mission" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="CostCenter">
@@ -98,25 +93,11 @@
     <Property Name="IdNumber" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
     <Property Name="Manager" Type="Boolean" Nullable="false" />
     <Property Name="Email" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="EmployeeMission" Relationship="DatabaseModel.FK__EmployeeMis__EID__2E1BDC42" FromRole="Employee" ToRole="EmployeeMission" />
     <NavigationProperty Name="Mission" Relationship="DatabaseModel.FK__Mission__Manager__0EA330E9" FromRole="Employee" ToRole="Mission" />
     <NavigationProperty Name="Report" Relationship="DatabaseModel.FK__Report__EID__1ED998B2" FromRole="Employee" ToRole="Report" />
     <NavigationProperty Name="TravelAdvances" Relationship="DatabaseModel.FK__TravelAdvan__EID__15502E78" FromRole="Employee" ToRole="TravelAdvances" />
     <NavigationProperty Name="Trip" Relationship="DatabaseModel.FK__Trip__EID__182C9B23" FromRole="Employee" ToRole="Trip" />
-  </EntityType>
-  <EntityType Name="EmployeeMission">
-    <Key>
-      <PropertyRef Name="EID" />
-      <PropertyRef Name="MID" />
-      <PropertyRef Name="From" />
-      <PropertyRef Name="To" />
-    </Key>
-    <Property Name="EID" Type="Byte" Nullable="false" />
-    <Property Name="MID" Type="Byte" Nullable="false" />
-    <Property Name="From" Type="DateTime" Nullable="false" />
-    <Property Name="To" Type="DateTime" Nullable="false" />
-    <NavigationProperty Name="Employee" Relationship="DatabaseModel.FK__EmployeeMis__EID__2E1BDC42" FromRole="EmployeeMission" ToRole="Employee" />
-    <NavigationProperty Name="Mission" Relationship="DatabaseModel.FK__EmployeeMis__MID__2F10007B" FromRole="EmployeeMission" ToRole="Mission" />
+    <NavigationProperty Name="Mission1" Relationship="DatabaseModel.EmployeeMission" FromRole="Employee" ToRole="Mission" />
   </EntityType>
   <EntityType Name="Mission">
     <Key>
@@ -126,12 +107,13 @@
     <Property Name="OID" Type="Byte" Nullable="false" />
     <Property Name="Manager" Type="Byte" Nullable="false" />
     <Property Name="Description" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="StartDate" Type="DateTime" />
     <NavigationProperty Name="Employee" Relationship="DatabaseModel.FK__Mission__Manager__0EA330E9" FromRole="Mission" ToRole="Employee" />
-    <NavigationProperty Name="EmployeeMission" Relationship="DatabaseModel.FK__EmployeeMis__MID__2F10007B" FromRole="Mission" ToRole="EmployeeMission" />
     <NavigationProperty Name="Office" Relationship="DatabaseModel.FK__Mission__OID__0DAF0CB0" FromRole="Mission" ToRole="Office" />
     <NavigationProperty Name="Report" Relationship="DatabaseModel.FK__Report__MID__1FCDBCEB" FromRole="Mission" ToRole="Report" />
     <NavigationProperty Name="TravelAdvances" Relationship="DatabaseModel.FK__TravelAdvan__MID__164452B1" FromRole="Mission" ToRole="TravelAdvances" />
     <NavigationProperty Name="Trip" Relationship="DatabaseModel.FK__Trip__MID__1920BF5C" FromRole="Mission" ToRole="Trip" />
+    <NavigationProperty Name="Employee1" Relationship="DatabaseModel.EmployeeMission" FromRole="Mission" ToRole="Employee" />
   </EntityType>
   <EntityType Name="Office">
     <Key>
@@ -171,7 +153,7 @@
     <Property Name="MID" Type="Byte" Nullable="false" />
     <Property Name="Expenses" Type="Int32" Nullable="false" />
     <Property Name="Car" Type="Boolean" Nullable="false" />
-    <Property Name="Miles" Type="Int32" Nullable="false" />
+    <Property Name="Miles" Type="Int32" />
     <NavigationProperty Name="Employee" Relationship="DatabaseModel.FK__Report__EID__1ED998B2" FromRole="Report" ToRole="Employee" />
     <NavigationProperty Name="Mission" Relationship="DatabaseModel.FK__Report__MID__1FCDBCEB" FromRole="Report" ToRole="Mission" />
     <NavigationProperty Name="Receipt" Relationship="DatabaseModel.FK__Receipt__REPID__2B3F6F97" FromRole="Report" ToRole="Receipt" />
@@ -241,18 +223,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__EmployeeMis__EID__2E1BDC42">
-    <End Role="Employee" Type="DatabaseModel.Employee" Multiplicity="1" />
-    <End Role="EmployeeMission" Type="DatabaseModel.EmployeeMission" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Employee">
-        <PropertyRef Name="EID" />
-      </Principal>
-      <Dependent Role="EmployeeMission">
-        <PropertyRef Name="EID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__Mission__Manager__0EA330E9">
     <End Role="Employee" Type="DatabaseModel.Employee" Multiplicity="1" />
     <End Role="Mission" Type="DatabaseModel.Mission" Multiplicity="*" />
@@ -298,18 +268,6 @@
       </Principal>
       <Dependent Role="Trip">
         <PropertyRef Name="EID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__EmployeeMis__MID__2F10007B">
-    <End Role="Mission" Type="DatabaseModel.Mission" Multiplicity="1" />
-    <End Role="EmployeeMission" Type="DatabaseModel.EmployeeMission" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Mission">
-        <PropertyRef Name="MID" />
-      </Principal>
-      <Dependent Role="EmployeeMission">
-        <PropertyRef Name="MID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -372,5 +330,9 @@
         <PropertyRef Name="REPID" />
       </Dependent>
     </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeMission">
+    <End Role="Employee" Type="DatabaseModel.Employee" Multiplicity="*" />
+    <End Role="Mission" Type="DatabaseModel.Mission" Multiplicity="*" />
   </Association>
 </Schema>
