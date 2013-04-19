@@ -133,11 +133,22 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Contentpages\HanteraAnvandare.aspx.cs">
+      <DependentUpon>HanteraAnvandare.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contentpages\HanteraAnvandare.aspx.designer.cs">
+      <DependentUpon>HanteraAnvandare.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contentpages\HanteraKunder.aspx.cs">
+      <DependentUpon>HanteraKunder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Contentpages\HanteraKunder.aspx.designer.cs">
       <DependentUpon>HanteraKunder.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contentpages\HanteraUppdrag.aspx.cs">
       <DependentUpon>HanteraUppdrag.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Contentpages\HanteraUppdrag.aspx.designer.cs">
       <DependentUpon>HanteraUppdrag.aspx</DependentUpon>
