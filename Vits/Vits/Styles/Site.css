@@ -423,3 +423,58 @@ font-weight: bold;
 /*--Avslutar Rapport sidan--*/
 
 /*--RapportIntro sidan--*/
+
+div.List
+{
+    display:inline;
+    float:left;
+    position:relative;
+    margin-left: 50px;
+    top: 0px;
+    left: 0px;
+    width: 256px;
+}
+    
+div.FormWrap
+{
+    display:inline;
+    float:left;
+    position:relative;
+    width:486px;
+    top: 0px;
+    left: 0px;
+    background-color: #C8DCFE;
+}
+div.Form
+{
+    margin-left: 50px;
+    width:191px;
+    display:inline;
+    float:left;
+    position:relative;
+    background-color: #C8DCFE;
+    top: 0px;
+    left: 0px;
+}
+div.btnDiv
+{
+    display:inline;
+    float:right;
+    position:relative;
+    width: 185px;
+    top: 0px;
+    left: 0px;
+}
+div.btnRow
+{
+    width:165px;
+    margin-right: 50px;
+    display:inline;
+    float:left;
+    position:relative;
+}
+
+.ButtonSpace
+{
+    margin-left: 50px;
+}

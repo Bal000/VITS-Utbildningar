@@ -12,12 +12,13 @@
     <h1>Lägg till användare</h1>
     <br />
     
-    <div class="UserList">
-    <asp:Label ID="Label8" runat="server" Text="Lista över alla användare:"></asp:Label>
+    <div class="List">
+    <asp:Label ID="Label8" runat="server" Text="Lista över alla användare:"></asp:Label><br />
     <asp:ListBox ID="UserList" runat="server" Height="250px" Width="199px"></asp:ListBox>
     </div>
     
     <div class="FormWrap">
+    </br>
         <div class="Form">
             <asp:Label ID="label1" runat="server" Text="Förnamn:"></asp:Label><br />
             <asp:TextBox ID="tbFirstName" runat="server" Width="164px" Enabled="False"></asp:TextBox><br />
@@ -42,20 +43,25 @@
                 <asp:ListItem Selected="True" Text="Konsult"></asp:ListItem>
                 <asp:ListItem Text="Chef"></asp:ListItem>
             </asp:RadioButtonList><br />
-        </div>
-        <div class="ButtonDiv">
-            <asp:Button ID="btnEditUser" runat="server" Text="Ändra uppgifter" 
-                Width="164px" onclick="btnEditUser_Click" />
-            <asp:Button ID="btnAddUser" runat="server" Text="Lägg till användare" 
-                Width="164px" class="ButtonSpace" onclick="btnAddUser_Click"/>
             <br />
-            <asp:Button ID="btnAvbryt" runat="server" Text="Avbryt" Width="164px" 
-                onclick="btnAvbryt_Click" Visible="False" />
-            <asp:Button ID="btnSave" runat="server" Text="Spara ändringar" Width="164px" 
-                class="ButtonSpace" onclick="btnSave_Click" Visible="False"/>
-            <asp:Button ID="btnAddUser2" runat="server" Text="Lägg till användare"  Width="164px"
-                class="ButtonSpace" Visible="False" />
+            <div class="Buttons">
+                <asp:Button ID="btnEditUser" runat="server" Text="Ändra uppgifter" 
+                    Width="164px" onclick="btnEditUser_Click" />
+                <asp:Button ID="btnAddUser" runat="server" Text="Lägg till användare" 
+                    Width="164px"  onclick="btnAddUser_Click"/>
+                <br />
+                <asp:Button ID="btnAvbryt" runat="server" Text="Avbryt" Width="164px" 
+                    onclick="btnAvbryt_Click" Visible="False" />
+                <asp:Button ID="btnSave" runat="server" Text="Spara ändringar" Width="164px" 
+                     onclick="btnSave_Click" Visible="False"/>
+                <asp:Button ID="btnAddUser2" runat="server" Text="Lägg till användare"  Width="164px"
+                     Visible="False" />
+            </div>
+            <br />
+            <br />
+
         </div>
+            
         </div>
         </div>
  

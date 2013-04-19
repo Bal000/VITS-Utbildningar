@@ -85,24 +85,6 @@ namespace Vits {
         protected global::System.Web.UI.WebControls.TextBox Tbadress;
         
         /// <summary>
-        /// btnAddOffice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddOffice;
-        
-        /// <summary>
-        /// btnAvbryt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAvbryt;
-        
-        /// <summary>
         /// Label4 control.
         /// </summary>
         /// <remarks>
@@ -155,6 +137,24 @@ namespace Vits {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddLand;
+        
+        /// <summary>
+        /// btnAddOffice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddOffice;
+        
+        /// <summary>
+        /// btnAvbryt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAvbryt;
         
         /// <summary>
         /// btnEditOffice control.

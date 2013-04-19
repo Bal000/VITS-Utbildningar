@@ -121,15 +121,6 @@ namespace Vits {
         protected global::System.Web.UI.WebControls.Button btnEditMission;
         
         /// <summary>
-        /// btnAddMission control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddMission;
-        
-        /// <summary>
         /// btnSave control.
         /// </summary>
         /// <remarks>
@@ -137,6 +128,15 @@ namespace Vits {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSave;
+        
+        /// <summary>
+        /// btnAddMission control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddMission;
         
         /// <summary>
         /// btnAddMission2 control.
