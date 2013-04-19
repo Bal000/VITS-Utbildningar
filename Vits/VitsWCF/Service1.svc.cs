@@ -28,14 +28,5 @@ namespace VitsWCF
             }
             return composite;
         }
-
-        public Employee GetEmployee(int ID)
-        {
-            using (var context = new DatabaseEntities())
-            {
-                Employee person =(Employee) context.Employee.Where(x => x.EID == ID);
-                return person;
-            }
-        }
     }
 }

@@ -37,7 +37,8 @@
                 <asp:TextBox ID="txtBoxDescription" runat="server"></asp:TextBox>
                 <br />
                 <br />
-                <asp:Button ID="btnAddReceipt" runat="server" Text="Lägg till kvitto" />
+                <asp:Button ID="btnAddReceipt" runat="server" Text="Lägg till utgift" 
+                    onclick="btnAddReceipt_Click" />
         </div>
         <div class="ContentRight">
             <asp:GridView ID="gvReciept" runat="server" CellPadding="4" ForeColor="#333333" 
@@ -96,6 +97,4 @@
     </div>
 
     </div><%--Avslutar ContentWrapper--%>
-
-
 </asp:Content>

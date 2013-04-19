@@ -59,7 +59,6 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="Properties\DataSources\VitsWCF.CompositeType.datasource" />
     <None Include="Service References\ServiceReference1\Service1.disco" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />
@@ -67,10 +66,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="bin\Vits.dll" />
-    <Content Include="bin\Vits.pdb" />
-    <Content Include="bin\VitsWCF.dll" />
-    <Content Include="bin\VitsWCF.pdb" />
     <Content Include="Contentpages\RapportIntro.aspx" />
     <Content Include="WebProfileBuilder.user" />
     <Content Include="obj\Debug\TempPE\Service References.ServiceReference1.Reference.cs.dll" />
@@ -95,16 +90,7 @@
     <None Include="Service References\ServiceReference1\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\Service13.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\Service131.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\ServiceReference1\Vits.ServiceReference1.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\Vits.ServiceReference1.Employee.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
