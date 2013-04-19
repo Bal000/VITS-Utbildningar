@@ -5,8 +5,13 @@ using System.Web;
 
 namespace Vits.Klasser
 {
-    public class Global
+    public static class Global
     {
         public static String currentMission;
+
+        public static void PopUp(String meddelande) 
+        {
+            HttpContext.Current.Response.Write("<SCRIPT LANGUAGE=\"JavaScript\">alert(\"" + meddelande + "\")</SCRIPT>");
+        }
     }
 }

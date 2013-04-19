@@ -1,71 +1,4 @@
 ﻿/*
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Net;
-using System.IO;
-
-
-
-namespace traktamente
-{
-    public partial class Form1 : Form
-    {
-        private String              sokvag_traktamente_fil, sokvag_traktamente_adress;
-        private Traktamente         traktamente;         
-        private List<Traktamente>   lstTraktamente;
-        
-        public Form1()
-        {
-            InitializeComponent();
-
-            sokvag_traktamente_fil      = @"trakt.html";
-            sokvag_traktamente_adress   = "http://www.skatteverket.se/privat/skatter/arbeteinkomst/traktamente/utlandstraktamente.4.2b543913a42158acf800016035.html";
-            textBox1.Text               = sokvag_traktamente_adress;
-           
-            lstTraktamente              = new List<Traktamente>();
-            traktamente                 = new Traktamente("" , 0);
-            label2.Visible              = false;
-        }
-
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            rensaTidigareSok();
-            lstTraktamente = traktamente.HamtaUtlandstraktamenten(textBox1.Text, sokvag_traktamente_fil); 
-            
-            for (int i = 0; i < lstTraktamente.Count; i++)
-            {
-                dataGridView1.Rows.Add(lstTraktamente[i].Land, lstTraktamente[i].Kronor);
-            }
-
-            label2.Visible = false;
-        }
-
-
-
-        private void rensaTidigareSok()
-        {
-            label2.Visible = true;
-            label2.Text = "Hämtar...";
-            label2.Refresh();
-
-            dataGridView1.Rows.Clear();
-            dataGridView1.Refresh();
-            lstTraktamente.Clear();
-        }
-    }
-}
-*/
-
-
-/*
  * (c) Johan Svensk 2013
  * 
  * Några länder har inget traktamente på Skatteverkets lista, hänvisar till annat land. Där har jag satt 0 kr som traktamente.
@@ -118,8 +51,9 @@ namespace Vits.Klasser
                 {
                     client.DownloadFile(webbadr, lokalfil);
                 }
-                catch
+                catch (Exception e)
                 {
+                    Console.WriteLine(e.Message);
                     Console.WriteLine("ERROR in Traktamente: Fel adress???");
                     Environment.Exit(1);
                 }
