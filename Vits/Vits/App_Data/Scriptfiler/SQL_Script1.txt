@@ -1,0 +1,110 @@
+
+
+
+CREATE TABLE Employee
+(
+EID tinyint NOT NULL PRIMARY KEY IDENTITY, 
+FirstName nvarchar(64) NOT NULL, 
+LastName nvarchar(64) NOT NULL, 
+Adress nvarchar(64) NOT NULL, 
+ZipCode nvarchar(64) NOT NULL, 
+City nvarchar(64) NOT NULL, 
+IdNumber nvarchar(64) NOT NULL, 
+Manager BIT NOT NULL,  
+Email nvarchar(64) NOT NULL
+)
+
+
+
+CREATE TABLE Country
+(
+CID tinyint NOT NULL PRIMARY KEY IDENTITY, 
+Name nvarchar(64) NOT NULL
+)
+
+
+
+CREATE TABLE Office
+(
+OID tinyint NOT NULL PRIMARY KEY IDENTITY, 
+Name nvarchar(64) NOT NULL, 
+OrgNumber int NOT NULL, 
+Adress nvarchar(64) NOT NULL, 
+ZipCode int NOT NULL, 
+City nvarchar(64) NOT NULL, 
+CID tinyint NOT NULL FOREIGN KEY REFERENCES Country(CID)
+)
+
+
+
+CREATE TABLE Mission
+(
+MID tinyint NOT NULL PRIMARY KEY IDENTITY, 
+OID tinyint NOT NULL FOREIGN KEY REFERENCES Office(OID), 
+Manager tinyint NOT NULL FOREIGN KEY REFERENCES Employee(EID), 
+Description varchar(200) NOT NULL, 
+)
+
+
+
+CREATE TABLE TravelAdvances
+(
+TID tinyint NOT NULL PRIMARY KEY IDENTITY, 
+Total int NOT NULL, 
+Approved BIT NOT NULL DEFAULT 0, 
+Date DateTime NOT NULL DEFAULT GETDATE(), 
+EID tinyint NOT NULL FOREIGN KEY REFERENCES Employee(EID), 
+MID tinyint NOT NULL FOREIGN KEY REFERENCES Mission(MID), 
+)
+
+
+CREATE TABLE Trip
+(
+EID tinyint NOT NULL FOREIGN KEY REFERENCES Employee(EID), 
+MID tinyint NOT NULL FOREIGN KEY REFERENCES Mission(MID), 
+CID tinyint NOT NULL FOREIGN KEY REFERENCES Country(CID), 
+StartDate DateTime NOT NULL, 
+StopDate DateTime 
+)
+
+
+
+CREATE TABLE Report
+(
+REPID tinyint NOT NULL PRIMARY KEY IDENTITY, 
+EID tinyint NOT NULL FOREIGN KEY REFERENCES Employee(EID), 
+MID tinyint NOT NULL FOREIGN KEY REFERENCES Mission(MID), 
+Expenses int NOT NULL DEFAULT 0, 
+Car bit NOT NULL DEFAULT 0, 
+Miles int NOT NULL DEFAULT 0
+)
+
+
+
+CREATE TABLE CostCenter
+(
+CCID tinyint NOT NULL PRIMARY KEY IDENTITY, 
+Name nvarchar(64) NOT NULL,  
+)
+
+CREATE TABLE Receipt
+(
+RECID tinyint NOT NULL PRIMARY KEY IDENTITY, 
+REPID  tinyint NOT NULL FOREIGN KEY REFERENCES Report(REPID), 
+CCID tinyint NOT NULL FOREIGN KEY REFERENCES CostCenter(CCID), 
+Sum int NOT NULL, 
+VAT int NOT NULL, 
+[From] DateTime NOT NULL, 
+[To] DateTime NOT NULL, 
+Description nvarchar(200)
+)
+
+
+
+CREATE TABLE EmployeeMission
+(
+EID tinyint NOT NULL FOREIGN KEY REFERENCES Employee(EID), 
+MID tinyint NOT NULL FOREIGN KEY REFERENCES Mission(MID), 
+[From] DateTime NOT NULL, 
+[To] DateTime NOT NULL
+)
