@@ -70,6 +70,7 @@
     <Content Include="Contentpages\HanteraKunder.aspx" />
     <Content Include="Contentpages\HanteraUppdrag.aspx" />
     <Content Include="Contentpages\RapportIntro.aspx" />
+    <Content Include="Contentpages\RapportSammanställning.aspx" />
     <Content Include="WebProfileBuilder.user" />
     <Content Include="obj\Debug\TempPE\Service References.ServiceReference1.Reference.cs.dll" />
     <Content Include="obj\Debug\Vits.csproj.FileListAbsolute.txt" />
@@ -135,6 +136,7 @@
     </Compile>
     <Compile Include="Contentpages\HanteraAnvandare.aspx.cs">
       <DependentUpon>HanteraAnvandare.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Contentpages\HanteraAnvandare.aspx.designer.cs">
       <DependentUpon>HanteraAnvandare.aspx</DependentUpon>
@@ -193,6 +195,13 @@
     </Compile>
     <Compile Include="Contentpages\RapportIntro.aspx.designer.cs">
       <DependentUpon>RapportIntro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contentpages\RapportSammanställning.aspx.cs">
+      <DependentUpon>RapportSammanställning.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contentpages\RapportSammanställning.aspx.designer.cs">
+      <DependentUpon>RapportSammanställning.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebProfile.cs" />
   </ItemGroup>
