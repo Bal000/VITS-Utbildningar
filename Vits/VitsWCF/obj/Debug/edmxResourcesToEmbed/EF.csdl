@@ -62,6 +62,29 @@
       <End Role="Employee" EntitySet="Employee" />
       <End Role="Mission" EntitySet="Mission" />
     </AssociationSet>
+    <EntitySet Name="Deviation" EntityType="DatabaseModel.Deviation" />
+    <EntitySet Name="Expense" EntityType="DatabaseModel.Expense" />
+    <AssociationSet Name="FK__Expense__CCID__30F848ED" Association="DatabaseModel.FK__Expense__CCID__30F848ED">
+      <End Role="CostCenter" EntitySet="CostCenter" />
+      <End Role="Expense" EntitySet="Expense" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Deviation__REPID__2B3F6F97" Association="DatabaseModel.FK__Deviation__REPID__2B3F6F97">
+      <End Role="Report" EntitySet="Report" />
+      <End Role="Deviation" EntitySet="Deviation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Expense__REPID__300424B4" Association="DatabaseModel.FK__Expense__REPID__300424B4">
+      <End Role="Report" EntitySet="Report" />
+      <End Role="Expense" EntitySet="Expense" />
+    </AssociationSet>
+    <EntitySet Name="Subsistence" EntityType="DatabaseModel.Subsistence" />
+    <AssociationSet Name="FK__Subsistence__CID__37A5467C" Association="DatabaseModel.FK__Subsistence__CID__37A5467C">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Subsistence" EntitySet="Subsistence" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Subsisten__REPID__36B12243" Association="DatabaseModel.FK__Subsisten__REPID__36B12243">
+      <End Role="Report" EntitySet="Report" />
+      <End Role="Subsistence" EntitySet="Subsistence" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="CostCenter">
     <Key>
@@ -70,6 +93,7 @@
     <Property Name="CCID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Receipt" Relationship="DatabaseModel.FK__Receipt__CCID__2C3393D0" FromRole="CostCenter" ToRole="Receipt" />
+    <NavigationProperty Name="Expense" Relationship="DatabaseModel.FK__Expense__CCID__30F848ED" FromRole="CostCenter" ToRole="Expense" />
   </EntityType>
   <EntityType Name="Country">
     <Key>
@@ -79,6 +103,7 @@
     <Property Name="Name" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Office" Relationship="DatabaseModel.FK__Office__CID__08EA5793" FromRole="Country" ToRole="Office" />
     <NavigationProperty Name="Trip" Relationship="DatabaseModel.FK__Trip__CID__1A14E395" FromRole="Country" ToRole="Trip" />
+    <NavigationProperty Name="Subsistence" Relationship="DatabaseModel.FK__Subsistence__CID__37A5467C" FromRole="Country" ToRole="Subsistence" />
   </EntityType>
   <EntityType Name="Employee">
     <Key>
@@ -157,6 +182,9 @@
     <NavigationProperty Name="Employee" Relationship="DatabaseModel.FK__Report__EID__1ED998B2" FromRole="Report" ToRole="Employee" />
     <NavigationProperty Name="Mission" Relationship="DatabaseModel.FK__Report__MID__1FCDBCEB" FromRole="Report" ToRole="Mission" />
     <NavigationProperty Name="Receipt" Relationship="DatabaseModel.FK__Receipt__REPID__2B3F6F97" FromRole="Report" ToRole="Receipt" />
+    <NavigationProperty Name="Deviation" Relationship="DatabaseModel.FK__Deviation__REPID__2B3F6F97" FromRole="Report" ToRole="Deviation" />
+    <NavigationProperty Name="Expense" Relationship="DatabaseModel.FK__Expense__REPID__300424B4" FromRole="Report" ToRole="Expense" />
+    <NavigationProperty Name="Subsistence" Relationship="DatabaseModel.FK__Subsisten__REPID__36B12243" FromRole="Report" ToRole="Subsistence" />
   </EntityType>
   <EntityType Name="TravelAdvances">
     <Key>
@@ -334,5 +362,102 @@
   <Association Name="EmployeeMission">
     <End Role="Employee" Type="DatabaseModel.Employee" Multiplicity="*" />
     <End Role="Mission" Type="DatabaseModel.Mission" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Deviation">
+    <Key>
+      <PropertyRef Name="DID" />
+    </Key>
+    <Property Type="Byte" Name="DID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Byte" Name="REPID" Nullable="false" />
+    <Property Type="DateTime" Name="StartDate" Nullable="false" />
+    <Property Type="DateTime" Name="StopDate" Nullable="false" />
+    <NavigationProperty Name="Report" Relationship="DatabaseModel.FK__Deviation__REPID__2B3F6F97" FromRole="Deviation" ToRole="Report" />
+  </EntityType>
+  <EntityType Name="Expense">
+    <Key>
+      <PropertyRef Name="EXPID" />
+    </Key>
+    <Property Type="Byte" Name="EXPID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Byte" Name="REPID" Nullable="false" />
+    <Property Type="Byte" Name="CCID" Nullable="false" />
+    <Property Type="Int32" Name="Sum" Nullable="false" />
+    <Property Type="Int32" Name="VAT" Nullable="false" />
+    <Property Type="DateTime" Name="From" Nullable="false" />
+    <Property Type="DateTime" Name="To" />
+    <Property Type="String" Name="Description" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CostCenter" Relationship="DatabaseModel.FK__Expense__CCID__30F848ED" FromRole="Expense" ToRole="CostCenter" />
+    <NavigationProperty Name="Report" Relationship="DatabaseModel.FK__Expense__REPID__300424B4" FromRole="Expense" ToRole="Report" />
+  </EntityType>
+  <Association Name="FK__Expense__CCID__30F848ED">
+    <End Type="DatabaseModel.CostCenter" Role="CostCenter" Multiplicity="1" />
+    <End Type="DatabaseModel.Expense" Role="Expense" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CostCenter">
+        <PropertyRef Name="CCID" />
+      </Principal>
+      <Dependent Role="Expense">
+        <PropertyRef Name="CCID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Deviation__REPID__2B3F6F97">
+    <End Type="DatabaseModel.Report" Role="Report" Multiplicity="1" />
+    <End Type="DatabaseModel.Deviation" Role="Deviation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Report">
+        <PropertyRef Name="REPID" />
+      </Principal>
+      <Dependent Role="Deviation">
+        <PropertyRef Name="REPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Expense__REPID__300424B4">
+    <End Type="DatabaseModel.Report" Role="Report" Multiplicity="1" />
+    <End Type="DatabaseModel.Expense" Role="Expense" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Report">
+        <PropertyRef Name="REPID" />
+      </Principal>
+      <Dependent Role="Expense">
+        <PropertyRef Name="REPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Subsistence">
+    <Key>
+      <PropertyRef Name="SID" />
+    </Key>
+    <Property Type="Byte" Name="SID" Nullable="false" />
+    <Property Type="String" Name="REPID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Byte" Name="CID" Nullable="false" />
+    <Property Type="Int32" Name="SUM" />
+    <Property Type="DateTime" Name="DATE" />
+    <NavigationProperty Name="Country" Relationship="DatabaseModel.FK__Subsistence__CID__37A5467C" FromRole="Subsistence" ToRole="Country" />
+    <NavigationProperty Name="Report" Relationship="DatabaseModel.FK__Subsisten__REPID__36B12243" FromRole="Subsistence" ToRole="Report" />
+  </EntityType>
+  <Association Name="FK__Subsistence__CID__37A5467C">
+    <End Type="DatabaseModel.Country" Role="Country" Multiplicity="1" />
+    <End Type="DatabaseModel.Subsistence" Role="Subsistence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="Subsistence">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Subsisten__REPID__36B12243">
+    <End Type="DatabaseModel.Report" Role="Report" Multiplicity="1" />
+    <End Type="DatabaseModel.Subsistence" Role="Subsistence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Report">
+        <PropertyRef Name="REPID" />
+      </Principal>
+      <Dependent Role="Subsistence">
+        <PropertyRef Name="REPID" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
 </Schema>

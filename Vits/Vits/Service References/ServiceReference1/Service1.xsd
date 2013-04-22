@@ -13,24 +13,47 @@
       <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Car" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Deviation" nillable="true" type="tns:ArrayOfDeviation" />
           <xs:element minOccurs="0" name="EID" type="xs:unsignedByte" />
           <xs:element minOccurs="0" name="Employee" nillable="true" type="tns:Employee" />
           <xs:element minOccurs="0" name="EmployeeReference" nillable="true" type="q1:EntityReferenceOfEmployeeEo6k46yw" />
+          <xs:element minOccurs="0" name="Expense" nillable="true" type="tns:ArrayOfExpense" />
           <xs:element minOccurs="0" name="Expenses" type="xs:int" />
           <xs:element minOccurs="0" name="MID" type="xs:unsignedByte" />
-          <xs:element minOccurs="0" name="Miles" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Miles" type="xs:int" />
           <xs:element minOccurs="0" name="Mission" nillable="true" type="tns:Mission" />
           <xs:element minOccurs="0" name="MissionReference" nillable="true" type="q1:EntityReferenceOfMissionEo6k46yw" />
-          <xs:element minOccurs="0" name="REPID" type="xs:unsignedByte" />
-          <xs:element minOccurs="0" name="Receipt" nillable="true" type="tns:ArrayOfReceipt" />
+          <xs:element minOccurs="0" name="REPID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Subsistence" nillable="true" type="tns:ArrayOfSubsistence" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Report" nillable="true" type="tns:Report" />
-  <xs:complexType name="Employee">
+  <xs:complexType name="ArrayOfDeviation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Deviation" nillable="true" type="tns:Deviation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeviation" nillable="true" type="tns:ArrayOfDeviation" />
+  <xs:complexType name="Deviation">
     <xs:complexContent mixed="false">
       <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q2:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DID" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="REPID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Report" nillable="true" type="tns:Report" />
+          <xs:element minOccurs="0" name="ReportReference" nillable="true" type="q2:EntityReferenceOfReportEo6k46yw" />
+          <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StopDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Deviation" nillable="true" type="tns:Deviation" />
+  <xs:complexType name="Employee">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q3:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Adress" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
@@ -59,19 +82,19 @@
   <xs:element name="ArrayOfMission" nillable="true" type="tns:ArrayOfMission" />
   <xs:complexType name="Mission">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q3:EntityObject">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q4:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Employee" nillable="true" type="tns:Employee" />
           <xs:element minOccurs="0" name="Employee1" nillable="true" type="tns:ArrayOfEmployee" />
-          <xs:element minOccurs="0" name="EmployeeReference" nillable="true" type="q3:EntityReferenceOfEmployeeEo6k46yw" />
+          <xs:element minOccurs="0" name="EmployeeReference" nillable="true" type="q4:EntityReferenceOfEmployeeEo6k46yw" />
           <xs:element minOccurs="0" name="MID" type="xs:unsignedByte" />
           <xs:element minOccurs="0" name="Manager" type="xs:unsignedByte" />
           <xs:element minOccurs="0" name="OID" type="xs:unsignedByte" />
           <xs:element minOccurs="0" name="Office" nillable="true" type="tns:Office" />
-          <xs:element minOccurs="0" name="OfficeReference" nillable="true" type="q3:EntityReferenceOfOfficeEo6k46yw" />
+          <xs:element minOccurs="0" name="OfficeReference" nillable="true" type="q4:EntityReferenceOfOfficeEo6k46yw" />
           <xs:element minOccurs="0" name="Report" nillable="true" type="tns:ArrayOfReport" />
-          <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
           <xs:element minOccurs="0" name="TravelAdvances" nillable="true" type="tns:ArrayOfTravelAdvances" />
           <xs:element minOccurs="0" name="Trip" nillable="true" type="tns:ArrayOfTrip" />
         </xs:sequence>
@@ -87,13 +110,13 @@
   <xs:element name="ArrayOfEmployee" nillable="true" type="tns:ArrayOfEmployee" />
   <xs:complexType name="Office">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q4:EntityObject">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q5:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Adress" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CID" type="xs:unsignedByte" />
           <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Country" nillable="true" type="tns:Country" />
-          <xs:element minOccurs="0" name="CountryReference" nillable="true" type="q4:EntityReferenceOfCountryEo6k46yw" />
+          <xs:element minOccurs="0" name="CountryReference" nillable="true" type="q5:EntityReferenceOfCountryEo6k46yw" />
           <xs:element minOccurs="0" name="Mission" nillable="true" type="tns:ArrayOfMission" />
           <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="OID" type="xs:unsignedByte" />
@@ -106,11 +129,12 @@
   <xs:element name="Office" nillable="true" type="tns:Office" />
   <xs:complexType name="Country">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q5:EntityObject">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q6:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="CID" type="xs:unsignedByte" />
           <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Office" nillable="true" type="tns:ArrayOfOffice" />
+          <xs:element minOccurs="0" name="Subsistence" nillable="true" type="tns:ArrayOfSubsistence" />
           <xs:element minOccurs="0" name="Trip" nillable="true" type="tns:ArrayOfTrip" />
         </xs:sequence>
       </xs:extension>
@@ -123,6 +147,30 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfOffice" nillable="true" type="tns:ArrayOfOffice" />
+  <xs:complexType name="ArrayOfSubsistence">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Subsistence" nillable="true" type="tns:Subsistence" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubsistence" nillable="true" type="tns:ArrayOfSubsistence" />
+  <xs:complexType name="Subsistence">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q7:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CID" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="Country" nillable="true" type="tns:Country" />
+          <xs:element minOccurs="0" name="CountryReference" nillable="true" type="q7:EntityReferenceOfCountryEo6k46yw" />
+          <xs:element minOccurs="0" name="DATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="REPID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Report" nillable="true" type="tns:Report" />
+          <xs:element minOccurs="0" name="ReportReference" nillable="true" type="q7:EntityReferenceOfReportEo6k46yw" />
+          <xs:element minOccurs="0" name="SID" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="SUM" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Subsistence" nillable="true" type="tns:Subsistence" />
   <xs:complexType name="ArrayOfTrip">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Trip" nillable="true" type="tns:Trip" />
@@ -131,17 +179,17 @@
   <xs:element name="ArrayOfTrip" nillable="true" type="tns:ArrayOfTrip" />
   <xs:complexType name="Trip">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q6:EntityObject">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q8:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="CID" type="xs:unsignedByte" />
           <xs:element minOccurs="0" name="Country" nillable="true" type="tns:Country" />
-          <xs:element minOccurs="0" name="CountryReference" nillable="true" type="q6:EntityReferenceOfCountryEo6k46yw" />
+          <xs:element minOccurs="0" name="CountryReference" nillable="true" type="q8:EntityReferenceOfCountryEo6k46yw" />
           <xs:element minOccurs="0" name="EID" type="xs:unsignedByte" />
           <xs:element minOccurs="0" name="Employee" nillable="true" type="tns:Employee" />
-          <xs:element minOccurs="0" name="EmployeeReference" nillable="true" type="q6:EntityReferenceOfEmployeeEo6k46yw" />
+          <xs:element minOccurs="0" name="EmployeeReference" nillable="true" type="q8:EntityReferenceOfEmployeeEo6k46yw" />
           <xs:element minOccurs="0" name="MID" type="xs:unsignedByte" />
           <xs:element minOccurs="0" name="Mission" nillable="true" type="tns:Mission" />
-          <xs:element minOccurs="0" name="MissionReference" nillable="true" type="q6:EntityReferenceOfMissionEo6k46yw" />
+          <xs:element minOccurs="0" name="MissionReference" nillable="true" type="q8:EntityReferenceOfMissionEo6k46yw" />
           <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
           <xs:element minOccurs="0" name="StopDate" nillable="true" type="xs:dateTime" />
         </xs:sequence>
@@ -163,16 +211,16 @@
   <xs:element name="ArrayOfTravelAdvances" nillable="true" type="tns:ArrayOfTravelAdvances" />
   <xs:complexType name="TravelAdvances">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q7:EntityObject">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q9:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Approved" type="xs:boolean" />
           <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
           <xs:element minOccurs="0" name="EID" type="xs:unsignedByte" />
           <xs:element minOccurs="0" name="Employee" nillable="true" type="tns:Employee" />
-          <xs:element minOccurs="0" name="EmployeeReference" nillable="true" type="q7:EntityReferenceOfEmployeeEo6k46yw" />
+          <xs:element minOccurs="0" name="EmployeeReference" nillable="true" type="q9:EntityReferenceOfEmployeeEo6k46yw" />
           <xs:element minOccurs="0" name="MID" type="xs:unsignedByte" />
           <xs:element minOccurs="0" name="Mission" nillable="true" type="tns:Mission" />
-          <xs:element minOccurs="0" name="MissionReference" nillable="true" type="q7:EntityReferenceOfMissionEo6k46yw" />
+          <xs:element minOccurs="0" name="MissionReference" nillable="true" type="q9:EntityReferenceOfMissionEo6k46yw" />
           <xs:element minOccurs="0" name="TID" type="xs:unsignedByte" />
           <xs:element minOccurs="0" name="Total" type="xs:int" />
         </xs:sequence>
@@ -180,40 +228,40 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="TravelAdvances" nillable="true" type="tns:TravelAdvances" />
-  <xs:complexType name="ArrayOfReceipt">
+  <xs:complexType name="ArrayOfExpense">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Receipt" nillable="true" type="tns:Receipt" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Expense" nillable="true" type="tns:Expense" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfReceipt" nillable="true" type="tns:ArrayOfReceipt" />
-  <xs:complexType name="Receipt">
+  <xs:element name="ArrayOfExpense" nillable="true" type="tns:ArrayOfExpense" />
+  <xs:complexType name="Expense">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q8:EntityObject">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q10:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="CCID" type="xs:unsignedByte" />
           <xs:element minOccurs="0" name="CostCenter" nillable="true" type="tns:CostCenter" />
-          <xs:element minOccurs="0" name="CostCenterReference" nillable="true" type="q8:EntityReferenceOfCostCenterEo6k46yw" />
+          <xs:element minOccurs="0" name="CostCenterReference" nillable="true" type="q10:EntityReferenceOfCostCenterEo6k46yw" />
           <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EXPID" type="xs:unsignedByte" />
           <xs:element minOccurs="0" name="From" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="RECID" type="xs:unsignedByte" />
-          <xs:element minOccurs="0" name="REPID" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="REPID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Report" nillable="true" type="tns:Report" />
-          <xs:element minOccurs="0" name="ReportReference" nillable="true" type="q8:EntityReferenceOfReportEo6k46yw" />
+          <xs:element minOccurs="0" name="ReportReference" nillable="true" type="q10:EntityReferenceOfReportEo6k46yw" />
           <xs:element minOccurs="0" name="Sum" type="xs:int" />
-          <xs:element minOccurs="0" name="To" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="To" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="VAT" type="xs:int" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="Receipt" nillable="true" type="tns:Receipt" />
+  <xs:element name="Expense" nillable="true" type="tns:Expense" />
   <xs:complexType name="CostCenter">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q9:EntityObject">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q11:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="CCID" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="Expense" nillable="true" type="tns:ArrayOfExpense" />
           <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Receipt" nillable="true" type="tns:ArrayOfReceipt" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

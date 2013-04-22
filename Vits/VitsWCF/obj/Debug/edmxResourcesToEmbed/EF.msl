@@ -56,20 +56,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Receipt">
-      <EntityTypeMapping TypeName="DatabaseModel.Receipt">
-        <MappingFragment StoreEntitySet="Receipt">
-          <ScalarProperty Name="RECID" ColumnName="RECID" />
-          <ScalarProperty Name="REPID" ColumnName="REPID" />
-          <ScalarProperty Name="CCID" ColumnName="CCID" />
-          <ScalarProperty Name="Sum" ColumnName="Sum" />
-          <ScalarProperty Name="VAT" ColumnName="VAT" />
-          <ScalarProperty Name="From" ColumnName="From" />
-          <ScalarProperty Name="To" ColumnName="To" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Report">
       <EntityTypeMapping TypeName="DatabaseModel.Report">
         <MappingFragment StoreEntitySet="Report">
@@ -113,5 +99,40 @@
         <ScalarProperty Name="MID" ColumnName="MID" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="Deviation">
+      <EntityTypeMapping TypeName="DatabaseModel.Deviation">
+        <MappingFragment StoreEntitySet="Deviation">
+          <ScalarProperty Name="StopDate" ColumnName="StopDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="REPID" ColumnName="REPID" />
+          <ScalarProperty Name="DID" ColumnName="DID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Expense">
+      <EntityTypeMapping TypeName="DatabaseModel.Expense">
+        <MappingFragment StoreEntitySet="Expense">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="To" ColumnName="To" />
+          <ScalarProperty Name="From" ColumnName="From" />
+          <ScalarProperty Name="VAT" ColumnName="VAT" />
+          <ScalarProperty Name="Sum" ColumnName="Sum" />
+          <ScalarProperty Name="CCID" ColumnName="CCID" />
+          <ScalarProperty Name="REPID" ColumnName="REPID" />
+          <ScalarProperty Name="EXPID" ColumnName="EXPID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subsistence">
+      <EntityTypeMapping TypeName="DatabaseModel.Subsistence">
+        <MappingFragment StoreEntitySet="Subsistence">
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="SUM" ColumnName="SUM" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="REPID" ColumnName="REPID" />
+          <ScalarProperty Name="SID" ColumnName="SID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

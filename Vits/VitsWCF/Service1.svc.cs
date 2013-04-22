@@ -32,7 +32,7 @@ namespace VitsWCF
         public void SaveReport(Report report)
         {
 
-            using (var context = new DatabaseEntities())
+            using (var context = new VitsDBEntities())
             {
                 //Report rep = new Report
                 //{
@@ -52,7 +52,7 @@ namespace VitsWCF
 
         public void SaveOffice(Office office)
         {
-            using (var context = new DatabaseEntities())
+            using (var context = new VitsDBEntities())
             {
                 context.Office.AddObject(office);
                 context.SaveChanges();
@@ -61,7 +61,7 @@ namespace VitsWCF
 
         public void SaveMission(Mission mission)
         {
-            using (var context = new DatabaseEntities())
+            using (var context = new VitsDBEntities())
             {
                 context.Mission.AddObject(mission);
                 context.SaveChanges();
@@ -70,7 +70,7 @@ namespace VitsWCF
 
         public void SaveTrip(Trip trip)
         {
-            using (var context = new DatabaseEntities())
+            using (var context = new VitsDBEntities())
             {
                 context.Trip.AddObject(trip);
                 context.SaveChanges();
@@ -79,7 +79,7 @@ namespace VitsWCF
 
         public void SaveTravelAdvances(TravelAdvances travelAdvances)
         {
-            using (var context = new DatabaseEntities())
+            using (var context = new VitsDBEntities())
             {
                 context.TravelAdvances.AddObject(travelAdvances);
                 context.SaveChanges();
@@ -88,7 +88,7 @@ namespace VitsWCF
 
         public void SaveEmployee(Employee employee)
         {
-            using (var context = new DatabaseEntities())
+            using (var context = new VitsDBEntities())
             {
                 context.Employee.AddObject(employee);
                 context.SaveChanges();
@@ -97,7 +97,7 @@ namespace VitsWCF
 
         public void SaveExpense(Expense expense)
         {
-            using (var context = new DatabaseEntities())
+            using (var context = new VitsDBEntities())
             {
                 context.Expense.AddObject(expense);
                 context.SaveChanges();
@@ -106,7 +106,7 @@ namespace VitsWCF
 
         public void SaveDeviation(Deviation deviation)
         {
-            using (var context = new DatabaseEntities())
+            using (var context = new VitsDBEntities())
             {
                 context.Deviation.AddObject(deviation);
                 context.SaveChanges();
@@ -114,7 +114,7 @@ namespace VitsWCF
         }
         public void SaveCountry(Country country)
         {
-            using (var context = new DatabaseEntities())
+            using (var context = new VitsDBEntities())
             {
                 context.Country.AddObject(country);
                 context.SaveChanges();
@@ -124,7 +124,7 @@ namespace VitsWCF
         public void SaveCostCenter(CostCenter costcenter)
         {
 
-            using (var context = new DatabaseEntities())
+            using (var context = new VitsDBEntities())
             {
                 context.CostCenter.AddObject(costcenter);
                 context.SaveChanges();
