@@ -32,6 +32,9 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DatabaseModel", "FK__Trip__MID__1920BF5C", "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Mission), "Trip", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Trip), true)]
 [assembly: EdmRelationshipAttribute("DatabaseModel", "FK__Receipt__REPID__2B3F6F97", "Report", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Report), "Receipt", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Receipt), true)]
 [assembly: EdmRelationshipAttribute("DatabaseModel", "EmployeeMission", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Employee), "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Mission))]
+[assembly: EdmRelationshipAttribute("DatabaseModel", "FK__Expense__CCID__30F848ED", "CostCenter", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.CostCenter), "Expense", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Expense), true)]
+[assembly: EdmRelationshipAttribute("DatabaseModel", "FK__Deviation__REPID__2B3F6F97", "Report", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Report), "Deviation", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Deviation), true)]
+[assembly: EdmRelationshipAttribute("DatabaseModel", "FK__Expense__REPID__300424B4", "Report", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Report), "Expense", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Expense), true)]
 
 #endregion
 
@@ -226,6 +229,38 @@ namespace VitsWCF
             }
         }
         private ObjectSet<Trip> _Trip;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Deviation> Deviation
+        {
+            get
+            {
+                if ((_Deviation == null))
+                {
+                    _Deviation = base.CreateObjectSet<Deviation>("Deviation");
+                }
+                return _Deviation;
+            }
+        }
+        private ObjectSet<Deviation> _Deviation;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Expense> Expense
+        {
+            get
+            {
+                if ((_Expense == null))
+                {
+                    _Expense = base.CreateObjectSet<Expense>("Expense");
+                }
+                return _Expense;
+            }
+        }
+        private ObjectSet<Expense> _Expense;
 
         #endregion
 
@@ -301,6 +336,22 @@ namespace VitsWCF
         public void AddToTrip(Trip trip)
         {
             base.AddObject("Trip", trip);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Deviation EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToDeviation(Deviation deviation)
+        {
+            base.AddObject("Deviation", deviation);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Expense EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToExpense(Expense expense)
+        {
+            base.AddObject("Expense", expense);
         }
 
         #endregion
@@ -412,6 +463,28 @@ namespace VitsWCF
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Receipt>("DatabaseModel.FK__Receipt__CCID__2C3393D0", "Receipt", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DatabaseModel", "FK__Expense__CCID__30F848ED", "Expense")]
+        public EntityCollection<Expense> Expense
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Expense>("DatabaseModel.FK__Expense__CCID__30F848ED", "Expense");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Expense>("DatabaseModel.FK__Expense__CCID__30F848ED", "Expense", value);
                 }
             }
         }
@@ -543,6 +616,183 @@ namespace VitsWCF
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip>("DatabaseModel.FK__Trip__CID__1A14E395", "Trip", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DatabaseModel", Name="Deviation")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Deviation : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Deviation object.
+        /// </summary>
+        /// <param name="dID">Initial value of the DID property.</param>
+        /// <param name="rEPID">Initial value of the REPID property.</param>
+        /// <param name="startDate">Initial value of the StartDate property.</param>
+        /// <param name="stopDate">Initial value of the StopDate property.</param>
+        public static Deviation CreateDeviation(global::System.Byte dID, global::System.Byte rEPID, global::System.DateTime startDate, global::System.DateTime stopDate)
+        {
+            Deviation deviation = new Deviation();
+            deviation.DID = dID;
+            deviation.REPID = rEPID;
+            deviation.StartDate = startDate;
+            deviation.StopDate = stopDate;
+            return deviation;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte DID
+        {
+            get
+            {
+                return _DID;
+            }
+            set
+            {
+                if (_DID != value)
+                {
+                    OnDIDChanging(value);
+                    ReportPropertyChanging("DID");
+                    _DID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("DID");
+                    OnDIDChanged();
+                }
+            }
+        }
+        private global::System.Byte _DID;
+        partial void OnDIDChanging(global::System.Byte value);
+        partial void OnDIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte REPID
+        {
+            get
+            {
+                return _REPID;
+            }
+            set
+            {
+                OnREPIDChanging(value);
+                ReportPropertyChanging("REPID");
+                _REPID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("REPID");
+                OnREPIDChanged();
+            }
+        }
+        private global::System.Byte _REPID;
+        partial void OnREPIDChanging(global::System.Byte value);
+        partial void OnREPIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime StartDate
+        {
+            get
+            {
+                return _StartDate;
+            }
+            set
+            {
+                OnStartDateChanging(value);
+                ReportPropertyChanging("StartDate");
+                _StartDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StartDate");
+                OnStartDateChanged();
+            }
+        }
+        private global::System.DateTime _StartDate;
+        partial void OnStartDateChanging(global::System.DateTime value);
+        partial void OnStartDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime StopDate
+        {
+            get
+            {
+                return _StopDate;
+            }
+            set
+            {
+                OnStopDateChanging(value);
+                ReportPropertyChanging("StopDate");
+                _StopDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StopDate");
+                OnStopDateChanged();
+            }
+        }
+        private global::System.DateTime _StopDate;
+        partial void OnStopDateChanging(global::System.DateTime value);
+        partial void OnStopDateChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DatabaseModel", "FK__Deviation__REPID__2B3F6F97", "Report")]
+        public Report Report
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DatabaseModel.FK__Deviation__REPID__2B3F6F97", "Report").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DatabaseModel.FK__Deviation__REPID__2B3F6F97", "Report").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Report> ReportReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DatabaseModel.FK__Deviation__REPID__2B3F6F97", "Report");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Report>("DatabaseModel.FK__Deviation__REPID__2B3F6F97", "Report", value);
                 }
             }
         }
@@ -922,6 +1172,321 @@ namespace VitsWCF
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Mission>("DatabaseModel.EmployeeMission", "Mission", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DatabaseModel", Name="Expense")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Expense : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Expense object.
+        /// </summary>
+        /// <param name="eXPID">Initial value of the EXPID property.</param>
+        /// <param name="rEPID">Initial value of the REPID property.</param>
+        /// <param name="cCID">Initial value of the CCID property.</param>
+        /// <param name="sum">Initial value of the Sum property.</param>
+        /// <param name="vAT">Initial value of the VAT property.</param>
+        /// <param name="from">Initial value of the From property.</param>
+        public static Expense CreateExpense(global::System.Byte eXPID, global::System.Byte rEPID, global::System.Byte cCID, global::System.Int32 sum, global::System.Int32 vAT, global::System.DateTime from)
+        {
+            Expense expense = new Expense();
+            expense.EXPID = eXPID;
+            expense.REPID = rEPID;
+            expense.CCID = cCID;
+            expense.Sum = sum;
+            expense.VAT = vAT;
+            expense.From = from;
+            return expense;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte EXPID
+        {
+            get
+            {
+                return _EXPID;
+            }
+            set
+            {
+                if (_EXPID != value)
+                {
+                    OnEXPIDChanging(value);
+                    ReportPropertyChanging("EXPID");
+                    _EXPID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("EXPID");
+                    OnEXPIDChanged();
+                }
+            }
+        }
+        private global::System.Byte _EXPID;
+        partial void OnEXPIDChanging(global::System.Byte value);
+        partial void OnEXPIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte REPID
+        {
+            get
+            {
+                return _REPID;
+            }
+            set
+            {
+                OnREPIDChanging(value);
+                ReportPropertyChanging("REPID");
+                _REPID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("REPID");
+                OnREPIDChanged();
+            }
+        }
+        private global::System.Byte _REPID;
+        partial void OnREPIDChanging(global::System.Byte value);
+        partial void OnREPIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte CCID
+        {
+            get
+            {
+                return _CCID;
+            }
+            set
+            {
+                OnCCIDChanging(value);
+                ReportPropertyChanging("CCID");
+                _CCID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CCID");
+                OnCCIDChanged();
+            }
+        }
+        private global::System.Byte _CCID;
+        partial void OnCCIDChanging(global::System.Byte value);
+        partial void OnCCIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Sum
+        {
+            get
+            {
+                return _Sum;
+            }
+            set
+            {
+                OnSumChanging(value);
+                ReportPropertyChanging("Sum");
+                _Sum = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Sum");
+                OnSumChanged();
+            }
+        }
+        private global::System.Int32 _Sum;
+        partial void OnSumChanging(global::System.Int32 value);
+        partial void OnSumChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 VAT
+        {
+            get
+            {
+                return _VAT;
+            }
+            set
+            {
+                OnVATChanging(value);
+                ReportPropertyChanging("VAT");
+                _VAT = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("VAT");
+                OnVATChanged();
+            }
+        }
+        private global::System.Int32 _VAT;
+        partial void OnVATChanging(global::System.Int32 value);
+        partial void OnVATChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime From
+        {
+            get
+            {
+                return _From;
+            }
+            set
+            {
+                OnFromChanging(value);
+                ReportPropertyChanging("From");
+                _From = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("From");
+                OnFromChanged();
+            }
+        }
+        private global::System.DateTime _From;
+        partial void OnFromChanging(global::System.DateTime value);
+        partial void OnFromChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> To
+        {
+            get
+            {
+                return _To;
+            }
+            set
+            {
+                OnToChanging(value);
+                ReportPropertyChanging("To");
+                _To = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("To");
+                OnToChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _To;
+        partial void OnToChanging(Nullable<global::System.DateTime> value);
+        partial void OnToChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DatabaseModel", "FK__Expense__CCID__30F848ED", "CostCenter")]
+        public CostCenter CostCenter
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CostCenter>("DatabaseModel.FK__Expense__CCID__30F848ED", "CostCenter").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CostCenter>("DatabaseModel.FK__Expense__CCID__30F848ED", "CostCenter").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<CostCenter> CostCenterReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CostCenter>("DatabaseModel.FK__Expense__CCID__30F848ED", "CostCenter");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CostCenter>("DatabaseModel.FK__Expense__CCID__30F848ED", "CostCenter", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DatabaseModel", "FK__Expense__REPID__300424B4", "Report")]
+        public Report Report
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DatabaseModel.FK__Expense__REPID__300424B4", "Report").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DatabaseModel.FK__Expense__REPID__300424B4", "Report").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Report> ReportReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DatabaseModel.FK__Expense__REPID__300424B4", "Report");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Report>("DatabaseModel.FK__Expense__REPID__300424B4", "Report", value);
                 }
             }
         }
@@ -2130,6 +2695,50 @@ namespace VitsWCF
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Receipt>("DatabaseModel.FK__Receipt__REPID__2B3F6F97", "Receipt", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DatabaseModel", "FK__Deviation__REPID__2B3F6F97", "Deviation")]
+        public EntityCollection<Deviation> Deviation
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Deviation>("DatabaseModel.FK__Deviation__REPID__2B3F6F97", "Deviation");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Deviation>("DatabaseModel.FK__Deviation__REPID__2B3F6F97", "Deviation", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DatabaseModel", "FK__Expense__REPID__300424B4", "Expense")]
+        public EntityCollection<Expense> Expense
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Expense>("DatabaseModel.FK__Expense__REPID__300424B4", "Expense");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Expense>("DatabaseModel.FK__Expense__REPID__300424B4", "Expense", value);
                 }
             }
         }

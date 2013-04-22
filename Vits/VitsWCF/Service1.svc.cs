@@ -28,5 +28,108 @@ namespace VitsWCF
             }
             return composite;
         }
+
+        public void SaveReport(Report report)
+        {
+
+            using (var context = new DatabaseEntities())
+            {
+                //Report rep = new Report
+                //{
+                //    EID = report.EID,
+                //    MID = report.MID,
+                //    Expenses = report.Expenses,
+                //    Car = report.Car,
+                //    Miles = report.Miles
+
+                //};
+
+                context.Report.AddObject(report);
+                context.SaveChanges();
+            }
+
+        }
+
+        public void SaveOffice(Office office)
+        {
+            using (var context = new DatabaseEntities())
+            {
+                context.Office.AddObject(office);
+                context.SaveChanges();
+            }
+        }
+
+        public void SaveMission(Mission mission)
+        {
+            using (var context = new DatabaseEntities())
+            {
+                context.Mission.AddObject(mission);
+                context.SaveChanges();
+            }
+        }
+
+        public void SaveTrip(Trip trip)
+        {
+            using (var context = new DatabaseEntities())
+            {
+                context.Trip.AddObject(trip);
+                context.SaveChanges();
+            }
+        }
+
+        public void SaveTravelAdvances(TravelAdvances travelAdvances)
+        {
+            using (var context = new DatabaseEntities())
+            {
+                context.TravelAdvances.AddObject(travelAdvances);
+                context.SaveChanges();
+            }
+        }
+
+        public void SaveEmployee(Employee employee)
+        {
+            using (var context = new DatabaseEntities())
+            {
+                context.Employee.AddObject(employee);
+                context.SaveChanges();
+            }
+        }
+
+        public void SaveExpense(Expense expense)
+        {
+            using (var context = new DatabaseEntities())
+            {
+                context.Expense.AddObject(expense);
+                context.SaveChanges();
+            }
+        }
+
+        public void SaveDeviation(Deviation deviation)
+        {
+            using (var context = new DatabaseEntities())
+            {
+                context.Deviation.AddObject(deviation);
+                context.SaveChanges();
+            }
+        }
+        public void SaveCountry(Country country)
+        {
+            using (var context = new DatabaseEntities())
+            {
+                context.Country.AddObject(country);
+                context.SaveChanges();
+            }
+        }
+
+        public void SaveCostCenter(CostCenter costcenter)
+        {
+
+            using (var context = new DatabaseEntities())
+            {
+                context.CostCenter.AddObject(costcenter);
+                context.SaveChanges();
+
+            }
+        }
     }
 }

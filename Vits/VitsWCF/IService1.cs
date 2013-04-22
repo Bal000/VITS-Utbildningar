@@ -19,6 +19,39 @@ namespace VitsWCF
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
+        [OperationContract]
+        void SaveReport(Report report);
+
+        [OperationContract]
+        void SaveOffice(Office office);
+
+        [OperationContract]
+        void SaveMission(Mission mission);
+
+        [OperationContract]
+        void SaveTrip(Trip trip);
+        
+        [OperationContract]
+        void SaveTravelAdvances(TravelAdvances travelAdvances);
+
+        [OperationContract]
+        void SaveEmployee(Employee employee);
+
+        [OperationContract]
+        void SaveExpense(Expense expense);
+
+        [OperationContract]
+        void SaveDeviation(Deviation deviation);
+
+        [OperationContract]
+        void SaveCountry(Country country);
+
+        [OperationContract]
+        void SaveCostCenter(CostCenter costcenter);
+        
+
+
+
         // TODO: Add your service operations here
     }
 
