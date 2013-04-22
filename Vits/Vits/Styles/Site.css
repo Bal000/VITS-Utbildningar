@@ -524,3 +524,80 @@ div.btnRow
 
 /*--SLUT Felix och Esams adminsidor--*/
 
+/*RapportSammanställning Page*/
+
+.Consult_LeftContent
+{
+    width: 550px;
+    height: 150px;
+    border: 1px solid black;
+    margin-top: 5px;
+    margin-left: 5px;
+    float: left;
+}
+
+.Consult_LeftContentWrapper
+{
+    width: 560px;
+    height: 500px;
+    border: 1px solid black;
+    float: left;
+    margin-top: 5px;
+}
+
+.Consult_RightContent
+{
+    width: 250px;
+    height: 450px;
+    border: 1px solid black;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.Consult_RightContentWrapper
+{
+    width: 260px;
+    height: 500px;
+    border: 1px solid black;
+    float: left;
+    margin-top: 5px;
+    margin-left: 50px;
+}
+
+.Consult_DisBlock
+{
+    display: block;
+    font-family: Georgia, Sans-Serif;
+    margin-left: 5px;
+}
+
+.Consult_DisInline
+{
+    display: inline;
+    font-family: Georgia, Sans-Serif;
+    margin-left: 5px;
+}
+
+#Consult_ReportHeader
+{
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Georgia, Sans-Serif;
+    text-align: center;
+}
+
+.Consult_ReportHeaderText
+{
+    width: 100%;
+    height: auto;
+    border: 2px solid black;
+}
+
+
+#Expense_Header
+{
+    font-family: Georgia, Sans-Serif;
+    text-align: center;
+}
+
+
