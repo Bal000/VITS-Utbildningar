@@ -315,17 +315,7 @@ div.accountInfo
 {
      
 }
-
-/*------ Rapport-sidan --------*/
-
- div.ContentWrapper
- {  
-     height: 1200px;
-     width: 100%;
-     overflow: hidden;
-     background: #fff;
-  }
-  
+/*--Rapport Intro sidan--*/
   div.ContentWrapperIntro
   {  
      width: 50%;
@@ -334,64 +324,118 @@ div.accountInfo
      margin-left: auto;
      margin-right: auto;
   }
+  
+   .ContentMissionInfo
+ {
+    border: 2px solid pink;
+    margin: 5px 25px 5px 5px;
+    width: 275px;
+    float: left;
+        
+ }
+/*--Slut på rapport intro sidan--*/
+
+/*------ Rapport-sidan --------*/
+
+
+
+ div.ContentWrapper
+ {  
+     height: 100%;
+     width: 100%;
+     overflow: hidden;
+     background: #fff;
+  }
  
  div.ContentLeft
  { 
     float: left;
-    width: 40%;
-    height: 400px;
+    width: 70%;
+    height: 60%;
     border: 1px solid red;
     
  }
  
- div.ContentCenter
- {  border: 1px solid black;
-    width: 34%;
-    height: 600px;   
-    float: left;
-    
-  }
- 
  div.ContentRight
  {   
-    float: right;
-    width: 25%;
-    height: 600px;
+    float: left;
+    width: 28%;
+    height: 100%;
     border: 1px solid green;
+    margin:auto;
  }
  
- div.ContentFooter
- {     
-     float: left;
-     width: 100%;
-     height: 1000px;
-     display: inline;
+ div.CarDiv
+ {
+     border: 1px solid black;
      
+     margin-left: 2%;
+     margin-bottom:5%;
+     height: 10%;
  }
- div.GWDiv
+
+div.SubsistenceDiv
+{
+    border: 1px solid black;
+    
+    height: 35%;
+    margin-left:2%;
+    margin-bottom:5%;
+}
+
+div.ReceiptDiv
+{
+    border: 1px solid black;
+    height: 20%;
+    margin-left:2%;
+    margin-bottom:5%;
+    clear:both;
+}    
+  
+ div.ContentFooterLeft
+ {
+     width: 30%;
+     margin-bottom: 2%;
+     float: left;
+     border: 1px solid black;
+ }
+ div.ContentFooterRight
+ {
+     width: 60%;
+     padding-top:6%;
+     float: left;
+     border: 1px solid green;
+ }
+ 
+ .CalendarFromDiv
+ {
+     width:60%;
+     float:left;
+ }
+ 
+ .CalendarToDiv
+ {
+     width:60%;
+     float:left;
+ }
+ .BtnAddTract
+ {
+ float:right;
+ margin-left:5%;    
+ 
+ }
+ 
+  div.GWDiv
  {
      text-align: center;
+     border: 1px solid blue;
  }
  
  .NoLineBreak
  {
      display: inline;
- }
- div.ContentFooterLeft
- {
-     width: 50%;
-     height: 300px;
-     float: left;
-     display: inline-block;
-     border: 1px solid black;
- }
- div.ContentFooterRight
- {
-     width: 49%;
-     height: 300px;
-     float: left;
-     display: inline-block;
-     border: 1px solid black;
+     height: 20px;
+     width: 20px;
  }
  
  p.ClearFix
@@ -421,142 +465,4 @@ div.accountInfo
 font-weight: bold;    
 }
 /*--Avslutar Rapport sidan--*/
-
-/*--RapportIntro sidan--*/
-
-div.List
-{
-    display:inline;
-    float:left;
-    position:relative;
-    margin-left: 50px;
-    top: 0px;
-    left: 0px;
-    width: 256px;
-}
-    
-div.FormWrap
-{
-    display:inline;
-    float:left;
-    position:relative;
-    width:486px;
-    top: 0px;
-    left: 0px;
-    background-color: #C8DCFE;
-}
-div.Form
-{
-    margin-left: 50px;
-    width:191px;
-    display:inline;
-    float:left;
-    position:relative;
-    background-color: #C8DCFE;
-    top: 0px;
-    left: 0px;
-}
-div.btnDiv
-{
-    display:inline;
-    float:right;
-    position:relative;
-    width: 185px;
-    top: 0px;
-    left: 0px;
-}
-div.btnRow
-{
-    width:165px;
-    margin-right: 50px;
-    display:inline;
-    float:left;
-    position:relative;
-}
-
-.ButtonSpace
-{
-    margin-left: 50px;
-}
-
-/*RapportSammanställning Page*/
-
-.Consult_LeftContent
-{
-    width: 550px;
-    height: 150px;
-    border: 1px solid black;
-    margin-top: 5px;
-    margin-left: 5px;
-    float:left;
-}
-
-.Consult_LeftContentWrapper
-{
-    width:560px;
-    height: 500px;
-    border: 1px solid black;
-    float:left;
-    margin-top: 5px;
-}
-
-.Consult_RightContent
-{
-    width: 250px;
-    height: 450px;
-    border: 1px solid black;
-    margin-left: 5px;
-    margin-top: 5px;
-   
-}
-
-.Consult_RightContentWrapper
-{
-    width: 260px;
-    height: 500px;
-    border: 1px solid black;
-    float:left;
-    margin-top: 5px;
-    margin-left: 50px;
-}
-
-.Consult_DisBlock
-{
-    display:block;  
-    font-family: Georgia, Sans-Serif;
-    margin-left: 5px;
-}
-
-.Consult_DisInline
-{
-    display:inline;
-    font-family: Georgia, Sans-Serif;
-    margin-left: 5px;
-    
-}
-
-#Consult_ReportHeader
-{
-    font-weight:bold;
-    font-size: 20px;
-    font-family:Georgia, Sans-Serif;
-    text-align: center;
-}
-
-.Consult_ReportHeaderText
-{
-    width:100%;
-    height: auto;
-    border: 2px solid black;
-}
-
-#Expense_Header
-{
-    font-family:Georgia, Sans-Serif;
-    text-align: center;
-}
-
-
-
-
 

@@ -13,13 +13,13 @@ namespace Vits {
     public partial class WebForm1 {
         
         /// <summary>
-        /// txtOwnCar control.
+        /// lblOwnCar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtOwnCar;
+        protected global::System.Web.UI.WebControls.Label lblOwnCar;
         
         /// <summary>
         /// cbOwnCar control.
@@ -49,22 +49,76 @@ namespace Vits {
         protected global::System.Web.UI.WebControls.TextBox txtlOWnCar;
         
         /// <summary>
-        /// txtAbnormalTravel control.
+        /// lblFooterCountryLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtAbnormalTravel;
+        protected global::System.Web.UI.WebControls.Label lblFooterCountryLabel;
         
         /// <summary>
-        /// cbAbnormalTravel control.
+        /// ddlTractCountry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbAbnormalTravel;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTractCountry;
+        
+        /// <summary>
+        /// lblFrom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFrom;
+        
+        /// <summary>
+        /// calFrom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calFrom;
+        
+        /// <summary>
+        /// lblTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTo;
+        
+        /// <summary>
+        /// calTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calTo;
+        
+        /// <summary>
+        /// BtnAddTract control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnAddTract;
+        
+        /// <summary>
+        /// GWTract control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GWTract;
         
         /// <summary>
         /// txtCategory control.
@@ -175,6 +229,15 @@ namespace Vits {
         protected global::System.Web.UI.WebControls.Button btnAddReceipt;
         
         /// <summary>
+        /// txtExpenseList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtExpenseList;
+        
+        /// <summary>
         /// gvReciept control.
         /// </summary>
         /// <remarks>
@@ -191,77 +254,5 @@ namespace Vits {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTotal;
-        
-        /// <summary>
-        /// lblFooterCountryLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFooterCountryLabel;
-        
-        /// <summary>
-        /// ddlTractCountry control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTractCountry;
-        
-        /// <summary>
-        /// lblFrom control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFrom;
-        
-        /// <summary>
-        /// calFrom control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar calFrom;
-        
-        /// <summary>
-        /// lblTo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTo;
-        
-        /// <summary>
-        /// calTo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar calTo;
-        
-        /// <summary>
-        /// BtnAddTract control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAddTract;
-        
-        /// <summary>
-        /// GWTract control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GWTract;
     }
 }
