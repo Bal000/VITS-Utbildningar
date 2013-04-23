@@ -1,6 +1,9 @@
 ﻿/* DEFAULTS
 ----------------------------------------------------------*/
-
+.ValidationLabel
+{
+    color:Red;
+}
 body   
 {
     background: #b6b7bc;
@@ -49,6 +52,7 @@ h1, h2, h3, h4, h5, h6
 
 h1
 {
+    margin-left: 25px;
     font-size: 1.6em;
     padding-bottom: 0px;
     margin-bottom: 0px;
@@ -454,6 +458,17 @@ div.FormWrap
     left: 0px;
     background-color: #C8DCFE;
 }
+div.FormWrapRF
+{
+    display:inline;
+    float:left;
+    position:relative;
+    width:486px;
+    top: 0px;
+    left: 0px;
+    background-color: #C8DCFE;
+    margin-left: 50px;
+}
 div.Form
 {
     margin-left: 50px;
@@ -465,6 +480,7 @@ div.Form
     top: 0px;
     left: 0px;
 }
+
 div.btnDiv
 {
     display:inline;
