@@ -267,4 +267,10 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="CostCenter" nillable="true" type="tns:CostCenter" />
+  <xs:complexType name="ArrayOfCostCenter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CostCenter" nillable="true" type="tns:CostCenter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCostCenter" nillable="true" type="tns:ArrayOfCostCenter" />
 </xs:schema>

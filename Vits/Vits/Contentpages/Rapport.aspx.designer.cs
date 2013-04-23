@@ -184,6 +184,15 @@ namespace Vits {
         protected global::System.Web.UI.WebControls.Button btnAddReceipt;
         
         /// <summary>
+        /// UpdatePanel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+        
+        /// <summary>
         /// gvReciept control.
         /// </summary>
         /// <remarks>

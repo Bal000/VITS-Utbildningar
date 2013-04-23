@@ -283,19 +283,19 @@ namespace Vits.ServiceReference1 {
         private bool ManagerField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Vits.ServiceReference1.Mission[] MissionField;
+        private System.Collections.Generic.List<Vits.ServiceReference1.Mission> MissionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Vits.ServiceReference1.Mission[] Mission1Field;
+        private System.Collections.Generic.List<Vits.ServiceReference1.Mission> Mission1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Vits.ServiceReference1.Report[] ReportField;
+        private System.Collections.Generic.List<Vits.ServiceReference1.Report> ReportField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Vits.ServiceReference1.TravelAdvances[] TravelAdvancesField;
+        private System.Collections.Generic.List<Vits.ServiceReference1.TravelAdvances> TravelAdvancesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Vits.ServiceReference1.Trip[] TripField;
+        private System.Collections.Generic.List<Vits.ServiceReference1.Trip> TripField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ZipCodeField;
@@ -405,7 +405,7 @@ namespace Vits.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Vits.ServiceReference1.Mission[] Mission {
+        public System.Collections.Generic.List<Vits.ServiceReference1.Mission> Mission {
             get {
                 return this.MissionField;
             }
@@ -418,7 +418,7 @@ namespace Vits.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Vits.ServiceReference1.Mission[] Mission1 {
+        public System.Collections.Generic.List<Vits.ServiceReference1.Mission> Mission1 {
             get {
                 return this.Mission1Field;
             }
@@ -431,7 +431,7 @@ namespace Vits.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Vits.ServiceReference1.Report[] Report {
+        public System.Collections.Generic.List<Vits.ServiceReference1.Report> Report {
             get {
                 return this.ReportField;
             }
@@ -444,7 +444,7 @@ namespace Vits.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Vits.ServiceReference1.TravelAdvances[] TravelAdvances {
+        public System.Collections.Generic.List<Vits.ServiceReference1.TravelAdvances> TravelAdvances {
             get {
                 return this.TravelAdvancesField;
             }
@@ -457,7 +457,7 @@ namespace Vits.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Vits.ServiceReference1.Trip[] Trip {
+        public System.Collections.Generic.List<Vits.ServiceReference1.Trip> Trip {
             get {
                 return this.TripField;
             }
@@ -496,7 +496,7 @@ namespace Vits.ServiceReference1 {
         private Vits.ServiceReference1.Employee EmployeeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Vits.ServiceReference1.Employee[] Employee1Field;
+        private System.Collections.Generic.List<Vits.ServiceReference1.Employee> Employee1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Vits.ServiceReference1.EntityReferenceOfEmployeeEo6k46yw EmployeeReferenceField;
@@ -517,16 +517,16 @@ namespace Vits.ServiceReference1 {
         private Vits.ServiceReference1.EntityReferenceOfOfficeEo6k46yw OfficeReferenceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Vits.ServiceReference1.Report[] ReportField;
+        private System.Collections.Generic.List<Vits.ServiceReference1.Report> ReportField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime StartDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Vits.ServiceReference1.TravelAdvances[] TravelAdvancesField;
+        private System.Collections.Generic.List<Vits.ServiceReference1.TravelAdvances> TravelAdvancesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Vits.ServiceReference1.Trip[] TripField;
+        private System.Collections.Generic.List<Vits.ServiceReference1.Trip> TripField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Description {
@@ -555,7 +555,7 @@ namespace Vits.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Vits.ServiceReference1.Employee[] Employee1 {
+        public System.Collections.Generic.List<Vits.ServiceReference1.Employee> Employee1 {
             get {
                 return this.Employee1Field;
             }
@@ -646,7 +646,7 @@ namespace Vits.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Vits.ServiceReference1.Report[] Report {
+        public System.Collections.Generic.List<Vits.ServiceReference1.Report> Report {
             get {
                 return this.ReportField;
             }
@@ -672,7 +672,7 @@ namespace Vits.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Vits.ServiceReference1.TravelAdvances[] TravelAdvances {
+        public System.Collections.Generic.List<Vits.ServiceReference1.TravelAdvances> TravelAdvances {
             get {
                 return this.TravelAdvancesField;
             }
@@ -685,7 +685,7 @@ namespace Vits.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Vits.ServiceReference1.Trip[] Trip {
+        public System.Collections.Generic.List<Vits.ServiceReference1.Trip> Trip {
             get {
                 return this.TripField;
             }
@@ -720,7 +720,7 @@ namespace Vits.ServiceReference1 {
         private Vits.ServiceReference1.EntityReferenceOfCountryEo6k46yw CountryReferenceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Vits.ServiceReference1.Mission[] MissionField;
+        private System.Collections.Generic.List<Vits.ServiceReference1.Mission> MissionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
@@ -800,7 +800,7 @@ namespace Vits.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Vits.ServiceReference1.Mission[] Mission {
+        public System.Collections.Generic.List<Vits.ServiceReference1.Mission> Mission {
             get {
                 return this.MissionField;
             }
@@ -878,13 +878,13 @@ namespace Vits.ServiceReference1 {
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Vits.ServiceReference1.Office[] OfficeField;
+        private System.Collections.Generic.List<Vits.ServiceReference1.Office> OfficeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Vits.ServiceReference1.Subsistence[] SubsistenceField;
+        private System.Collections.Generic.List<Vits.ServiceReference1.Subsistence> SubsistenceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Vits.ServiceReference1.Trip[] TripField;
+        private System.Collections.Generic.List<Vits.ServiceReference1.Trip> TripField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public byte CID {
@@ -913,7 +913,7 @@ namespace Vits.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Vits.ServiceReference1.Office[] Office {
+        public System.Collections.Generic.List<Vits.ServiceReference1.Office> Office {
             get {
                 return this.OfficeField;
             }
@@ -926,7 +926,7 @@ namespace Vits.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Vits.ServiceReference1.Subsistence[] Subsistence {
+        public System.Collections.Generic.List<Vits.ServiceReference1.Subsistence> Subsistence {
             get {
                 return this.SubsistenceField;
             }
@@ -939,7 +939,7 @@ namespace Vits.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Vits.ServiceReference1.Trip[] Trip {
+        public System.Collections.Generic.List<Vits.ServiceReference1.Trip> Trip {
             get {
                 return this.TripField;
             }
@@ -1662,7 +1662,7 @@ namespace Vits.ServiceReference1 {
         private byte CCIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Vits.ServiceReference1.Expense[] ExpenseField;
+        private System.Collections.Generic.List<Vits.ServiceReference1.Expense> ExpenseField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
@@ -1681,7 +1681,7 @@ namespace Vits.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Vits.ServiceReference1.Expense[] Expense {
+        public System.Collections.Generic.List<Vits.ServiceReference1.Expense> Expense {
             get {
                 return this.ExpenseField;
             }
@@ -1717,7 +1717,7 @@ namespace Vits.ServiceReference1 {
         private bool CarField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Vits.ServiceReference1.Deviation[] DeviationField;
+        private System.Collections.Generic.List<Vits.ServiceReference1.Deviation> DeviationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private byte EIDField;
@@ -1729,7 +1729,7 @@ namespace Vits.ServiceReference1 {
         private Vits.ServiceReference1.EntityReferenceOfEmployeeEo6k46yw EmployeeReferenceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Vits.ServiceReference1.Expense[] ExpenseField;
+        private System.Collections.Generic.List<Vits.ServiceReference1.Expense> ExpenseField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ExpensesField;
@@ -1750,7 +1750,7 @@ namespace Vits.ServiceReference1 {
         private string REPIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Vits.ServiceReference1.Subsistence[] SubsistenceField;
+        private System.Collections.Generic.List<Vits.ServiceReference1.Subsistence> SubsistenceField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool Car {
@@ -1766,7 +1766,7 @@ namespace Vits.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Vits.ServiceReference1.Deviation[] Deviation {
+        public System.Collections.Generic.List<Vits.ServiceReference1.Deviation> Deviation {
             get {
                 return this.DeviationField;
             }
@@ -1818,7 +1818,7 @@ namespace Vits.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Vits.ServiceReference1.Expense[] Expense {
+        public System.Collections.Generic.List<Vits.ServiceReference1.Expense> Expense {
             get {
                 return this.ExpenseField;
             }
@@ -1909,7 +1909,7 @@ namespace Vits.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Vits.ServiceReference1.Subsistence[] Subsistence {
+        public System.Collections.Generic.List<Vits.ServiceReference1.Subsistence> Subsistence {
             get {
                 return this.SubsistenceField;
             }
@@ -1935,7 +1935,7 @@ namespace Vits.ServiceReference1 {
         private string EntityContainerNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Vits.ServiceReference1.EntityKeyMember[] EntityKeyValuesField;
+        private System.Collections.Generic.List<Vits.ServiceReference1.EntityKeyMember> EntityKeyValuesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EntitySetNameField;
@@ -1964,7 +1964,7 @@ namespace Vits.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Vits.ServiceReference1.EntityKeyMember[] EntityKeyValues {
+        public System.Collections.Generic.List<Vits.ServiceReference1.EntityKeyMember> EntityKeyValues {
             get {
                 return this.EntityKeyValuesField;
             }
@@ -2019,27 +2019,28 @@ namespace Vits.ServiceReference1 {
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CompositeType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Report))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Deviation[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.Deviation>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Deviation))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Employee))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Mission[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.Mission>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Mission))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Employee[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.Employee>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Office))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Country))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Office[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Subsistence[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.Office>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.Subsistence>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Subsistence))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Trip[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.Trip>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Trip))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Report[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.TravelAdvances[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.Report>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.TravelAdvances>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.TravelAdvances))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Expense[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.Expense>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Expense))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CostCenter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.CostCenter>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.EntityKey))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.EntityKeyMember[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.EntityKeyMember>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.EntityObject))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.StructuralObject))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.EntityReferenceOfReportEo6k46yw))]
@@ -2239,6 +2240,9 @@ namespace Vits.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SaveCostCenter", ReplyAction="http://tempuri.org/IService1/SaveCostCenterResponse")]
         void SaveCostCenter(Vits.ServiceReference1.CostCenter costcenter);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCostCenterList", ReplyAction="http://tempuri.org/IService1/GetCostCenterListResponse")]
+        System.Collections.Generic.List<Vits.ServiceReference1.CostCenter> GetCostCenterList();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2314,6 +2318,10 @@ namespace Vits.ServiceReference1 {
         
         public void SaveCostCenter(Vits.ServiceReference1.CostCenter costcenter) {
             base.Channel.SaveCostCenter(costcenter);
+        }
+        
+        public System.Collections.Generic.List<Vits.ServiceReference1.CostCenter> GetCostCenterList() {
+            return base.Channel.GetCostCenterList();
         }
     }
 }

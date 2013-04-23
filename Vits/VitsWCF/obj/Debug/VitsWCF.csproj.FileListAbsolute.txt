@@ -11,12 +11,12 @@ C:\Users\Aslam\Documents\GitHub\VITS-Utbildningar\Vits\VitsWCF\obj\Debug\VitsWCF
 C:\Users\Aslam\Documents\GitHub\VITS-Utbildningar\Vits\VitsWCF\bin\VitsWCF.dll
 C:\Users\Aslam\Documents\GitHub\VITS-Utbildningar\Vits\VitsWCF\bin\VitsWCF.pdb
 C:\Users\Aslam\Documents\GitHub\VITS-Utbildningar\Vits\VitsWCF\obj\Debug\VitsWCF.dll
+C:\Users\Michael\Documents\GitHub\VITS-Utbildningar\Vits\VitsWCF\bin\VitsWCF.dll
+C:\Users\Michael\Documents\GitHub\VITS-Utbildningar\Vits\VitsWCF\bin\VitsWCF.pdb
+C:\Users\Michael\Documents\GitHub\VITS-Utbildningar\Vits\VitsWCF\obj\Debug\VitsWCF.dll
+C:\Users\Michael\Documents\GitHub\VITS-Utbildningar\Vits\VitsWCF\obj\Debug\VitsWCF.pdb
 C:\Users\Daniel\Documents\GitHub\VITS-Utbildningar\Vits\VitsWCF\bin\VitsWCF.dll
 C:\Users\Daniel\Documents\GitHub\VITS-Utbildningar\Vits\VitsWCF\bin\VitsWCF.pdb
 C:\Users\Daniel\Documents\GitHub\VITS-Utbildningar\Vits\VitsWCF\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Daniel\Documents\GitHub\VITS-Utbildningar\Vits\VitsWCF\obj\Debug\VitsWCF.dll
 C:\Users\Daniel\Documents\GitHub\VITS-Utbildningar\Vits\VitsWCF\obj\Debug\VitsWCF.pdb
-C:\Users\Michael\Documents\GitHub\VITS-Utbildningar\Vits\VitsWCF\bin\VitsWCF.dll
-C:\Users\Michael\Documents\GitHub\VITS-Utbildningar\Vits\VitsWCF\bin\VitsWCF.pdb
-C:\Users\Michael\Documents\GitHub\VITS-Utbildningar\Vits\VitsWCF\obj\Debug\VitsWCF.dll
-C:\Users\Michael\Documents\GitHub\VITS-Utbildningar\Vits\VitsWCF\obj\Debug\VitsWCF.pdb

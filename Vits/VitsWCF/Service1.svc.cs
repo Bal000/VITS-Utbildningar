@@ -131,5 +131,20 @@ namespace VitsWCF
 
             }
         }
+
+        public List<CostCenter> GetCostCenterList()
+        {
+            List<CostCenter> costCenterList;
+
+            using (var context = new VitsDBEntities())
+            {
+                context.ContextOptions.LazyLoadingEnabled = false;
+                costCenterList = (from c in context.CostCenter
+                                  orderby c.Name
+                                  select c).ToList();
+            }
+
+            return costCenterList;
+        }
     }
 }

@@ -23,7 +23,7 @@
         <div class="ContentCenter">
             <asp:Label ID="txtCategory" runat="server" Text="Kategori" CssClass="lblBold"></asp:Label><br />
             <asp:DropDownList ID="ddlCategory" runat="server">
-                <asp:ListItem>Dummy</asp:ListItem>
+                <asp:ListItem>Välj Kategori</asp:ListItem>
             </asp:DropDownList>
             <br />
             <asp:Label ID="txtDate" runat="server" Text="Datum" CssClass="lblBold"></asp:Label><br />
@@ -39,15 +39,19 @@
             <asp:TextBox ID="txtBoxDescription" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:Button ID="btnAddReceipt" runat="server" Text="Lägg till utgift" />
+            <asp:Button ID="btnAddReceipt" runat="server" Text="Lägg till utgift" 
+                onclick="btnAddReceipt_Click" />
         </div>
         <div class="ContentRight">
-            <asp:GridView ID="gvReciept" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:UpdatePanel ID="UpdatePanel2" OnDataBinding="btnAddReceipt_Click" runat="server">
+            <ContentTemplate>
+            <asp:GridView ID="gvReciept" runat="server" CellPadding="4" ForeColor="#333333" 
+                GridLines="None" AutoGenerateColumns="False" onload="Click">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
-                    <asp:BoundField HeaderText="Kategori" />
-                    <asp:BoundField HeaderText="Belopp" />
-                    <asp:ButtonField Text="Button" />
+                    <asp:BoundField HeaderText="Belopp" DataField="Sum" />
+                    <asp:BoundField DataField="Description" HeaderText="Beskrivning" 
+                        SortExpression="Description" />
                 </Columns>
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -60,6 +64,8 @@
                 <SortedDescendingCellStyle BackColor="#FFFDF8" />
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
+            </ContentTemplate>
+            </asp:UpdatePanel>
             <br />
             <asp:Label ID="lblTotal" runat="server" Text="Totalt: " CssClass="lblBold"></asp:Label>
         </div>

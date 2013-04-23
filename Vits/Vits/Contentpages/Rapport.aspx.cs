@@ -12,21 +12,26 @@ namespace Vits
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        private List<ServiceReference1.Expense> expense;
+        private List<ServiceReference1.Expense> expenseList;
         private List<Klasser.Traktamente> lstAllaTraktamenten;
         private List<Klasser.Traktamente> lstTraktamenteGrid;
         private List<String> lstRadioKnappar;
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             ID = Guid.NewGuid().ToString();
+            FillCategoryDropDown();
             lstAllaTraktamenten = new List<Klasser.Traktamente>();
             lstTraktamenteGrid = new List<Klasser.Traktamente>();
-            lstRadioKnappar = new List<String>();                         
+            lstRadioKnappar = new List<String>();
+            expenseList = new List<ServiceReference1.Expense>();
             FillCountry();
+            
+            
+           
 
-            
-            
+
+
             if (Session["RADIO"] != null)
             {
                 lstRadioKnappar = (List<String>)Session["RADIO"];
@@ -43,14 +48,14 @@ namespace Vits
         {
             String sokvagTraktamenteFil = @"c:\vits\trakt.html";
             lstAllaTraktamenten = Klasser.Traktamente.HamtaUtlandstraktamenten(Klasser.Global.sokvagTraktamenteAdress, sokvagTraktamenteFil);
-            
+
             for (int i = 0; i < lstAllaTraktamenten.Count; i++)
             {
                 ddlCountry.Items.Add(lstAllaTraktamenten[i].Land);
                 ddlTractCountry.Items.Add(lstAllaTraktamenten[i].Land);
             }
         }
-       
+
         //lägg till
         protected void btnTract_Click(object sender, EventArgs e)
         {
@@ -62,17 +67,17 @@ namespace Vits
                 lstTraktamenteGrid = (List<Klasser.Traktamente>)Session["TRAKT"];
             }
             Klasser.Traktamente tm = new Klasser.Traktamente(lstAllaTraktamenten[ddlIndex].Land,
-                                                                lstAllaTraktamenten[ddlIndex].Kronor,
-                                                                calFrom.SelectedDate.ToShortDateString());
+                                                            lstAllaTraktamenten[ddlIndex].Kronor,
+                                                            calFrom.SelectedDate.ToShortDateString());
             lstTraktamenteGrid.Add(tm);
             Response.Write("Antal objekt: " + lstTraktamenteGrid.Count);
             Session["TRAKT"] = lstTraktamenteGrid;
-   
+
             gwTract.DataSource = lstTraktamenteGrid;
             gwTract.DataBind();
 
             BeraknaTraktamente();
-            
+
         }
 
         // ta bort
@@ -133,7 +138,7 @@ namespace Vits
             }
 
             Session["TRAKT"] = lstTraktamenteGrid;
-            
+
         }
 
 
@@ -143,7 +148,7 @@ namespace Vits
             {
                 lstRadioKnappar = (List<String>)Session["RADIO"];
             }
-            for (int i = 0; i < lstTraktamenteGrid.Count-1; i++)
+            for (int i = 0; i < lstTraktamenteGrid.Count - 1; i++)
             {
                 RadioButtonList rbl = (RadioButtonList)gwTract.Rows[i].FindControl("RadioButtonList1");
                 if (rbl != null)
@@ -154,11 +159,11 @@ namespace Vits
             Session["RADIO"] = lstRadioKnappar;
         }
 
-        
+
         // avdrag procent
         protected int BeraknaAvdrag(String avdrag, int kronor)
         {
-            int avdragProcent; 
+            int avdragProcent;
             float nyTrakt = (float)kronor;
             bool b = int.TryParse(avdrag, out avdragProcent);
             if (!b)
@@ -169,7 +174,7 @@ namespace Vits
 
             switch (avdragProcent)
             {
-                case 0: 
+                case 0:
                     {
                         nyTrakt = (float)kronor;
                         break;
@@ -201,19 +206,105 @@ namespace Vits
 
         protected void btnAddReceipt_Click(object sender, EventArgs e)
         {
-            if (ID != "")
+            
 
+            if (ID != "")
             {
                 ServiceReference1.Expense expenseObj = new ServiceReference1.Expense();
                 expenseObj.REPID = ID;
-                //expenseOjb.CostCenter = ddlCategory.SelectedValue;
+                string value = ddlCategory.SelectedValue.ToString();
+                int newVal = 0;
+
+                switch (value)
+                {
+                    case "Mat":
+                        {
+                            newVal = 1;
+                            break;
+                        }
+                    case "Transport": 
+                        {
+                            newVal = 2;
+                            break;
+                    }
+                    case "Boende":
+                        {
+                            newVal = 3;
+                            break;
+                        }
+                    case "Övrigt": 
+                        {
+                            newVal = 4;
+                            break;
+                        }
+                
+                }
+                
+               
+                expenseObj.CCID = (byte) newVal;
                 expenseObj.From = Convert.ToDateTime(txtBoxDateFrom.Text);
                 expenseObj.To = Convert.ToDateTime(txtBoxDateTo.Text);
                 expenseObj.Sum = int.Parse(txtBoxAmount.Text);
-                
+                expenseObj.Description = txtBoxDescription.Text;
+
+                if (ddlCountry.SelectedValue.ToString().Equals("Sverige"))
+                {
+                    switch (ddlCategory.SelectedValue.ToString())
+                    {
+                        case "Mat":
+                            {
+                                expenseObj.VAT = 12;
+                                break;
+                            }
+                        case "Transport":
+                            {
+                                expenseObj.VAT = 6;
+                                break;
+                            }
+
+                        case "Boende":
+                            {
+                                expenseObj.VAT = 25;
+                                break;
+                            }
+                        case "Övrigt":
+                            {
+                                expenseObj.VAT = 25;
+                                break;
+                            }
+                        default:
+                            {
+                                expenseObj.VAT = 0;
+                                break;
+                            }
+                    }
+                }
+                else
+                {
+                    expenseObj.VAT = 0;
+                }
 
 
-                
+                expenseList.Add(expenseObj);
+            }
+
+            
+                FillExpenseGrid();
+        }
+
+        protected void FillCategoryDropDown()
+        {
+            using (var client = new ServiceReference1.Service1Client())
+            {
+                List<ServiceReference1.CostCenter> costCenterList = client.GetCostCenterList();
+
+                ddlCategory.DataSource = costCenterList;
+
+                foreach (ServiceReference1.CostCenter cost in costCenterList)
+                {
+                    ddlCategory.Items.Add(cost.Name);
+                }
+
             }
         }
 
@@ -226,6 +317,17 @@ namespace Vits
             Double result2 = result.TotalDays;
 
             lblTest.Text = result2.ToString();
+        }
+
+        protected void FillExpenseGrid()
+        {   
+            gvReciept.DataSource = expenseList;
+            gvReciept.DataBind();
+        }
+
+        protected void Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

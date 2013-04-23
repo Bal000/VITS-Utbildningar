@@ -48,6 +48,9 @@ namespace VitsWCF
 
         [OperationContract]
         void SaveCostCenter(CostCenter costcenter);
+
+        [OperationContract]
+        List<CostCenter> GetCostCenterList();
         
 
 
