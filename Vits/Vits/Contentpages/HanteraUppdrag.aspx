@@ -34,7 +34,8 @@
                 <asp:Button ID="btnSave" runat="server" Text="Spara" 
                     Visible="False" Width="164px" />
                 <asp:Button ID="btnAddMission" runat="server"  
-                    Text="Lägg till uppdrag" Visible="False" Width="164px" />
+                    Text="Lägg till uppdrag" Visible="False" Width="164px" 
+                    onclick="btnAddMission_Click1" />
             
                 <asp:Button ID="btnAddMission2" runat="server"
                     Text="Lägg till uppdrag" Width="164px" onclick="btnAddMission_Click" />

@@ -62,6 +62,17 @@ namespace Vits
             tbDate.Text = Calendar.SelectedDate.ToString("yyyy-MM-dd");
         }
 
+        protected void btnAddMission_Click1(object sender, EventArgs e)
+        {
+            ServiceReference1.Mission mission = new ServiceReference1.Mission;
+
+            mission.OID = byte.Parse(ddOffice.SelectedValue);
+            mission.MID = byte.Parse(ddManager.SelectedValue);
+            mission.Description = tbDescription.Text;
+            mission.StartDate = DateTime.Parse(tbDate.Text);
+
+        }
+
         
     }
 }

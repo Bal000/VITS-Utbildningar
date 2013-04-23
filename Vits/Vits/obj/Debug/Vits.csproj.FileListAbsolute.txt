@@ -30,3 +30,4 @@ C:\Users\Aslam\Documents\GitHub\VITS-Utbildningar\Vits\Vits\obj\Debug\Vits.cspro
 C:\Users\Aslam\Documents\GitHub\VITS-Utbildningar\Vits\Vits\obj\Debug\Vits.dll
 C:\Users\Aslam\Documents\GitHub\VITS-Utbildningar\Vits\Vits\obj\Debug\Vits.pdb
 C:\Users\Daniel\Documents\GitHub\VITS-Utbildningar\Vits\Vits\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Ibrahim\Documents\GitHub\VITS-Utbildningar\Vits\Vits\obj\Debug\ResolveAssemblyReference.cache
