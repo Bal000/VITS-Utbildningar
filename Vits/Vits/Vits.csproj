@@ -164,6 +164,7 @@
     </Compile>
     <Compile Include="Contentpages\Reseforskott.aspx.cs">
       <DependentUpon>Reseforskott.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Contentpages\Reseforskott.aspx.designer.cs">
       <DependentUpon>Reseforskott.aspx</DependentUpon>

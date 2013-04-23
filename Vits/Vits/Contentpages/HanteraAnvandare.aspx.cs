@@ -102,8 +102,8 @@ namespace Vits.Contentpages
             btnAvbryt.Visible = true;
             btnEditUser.Visible = false;
             btnAddUser.Visible = false;
-<<<<<<< HEAD
-=======
+
+
             tbAdress.Enabled = true;
             tbCity.Enabled = true;
             tbEmail.Enabled = true;
@@ -133,7 +133,7 @@ namespace Vits.Contentpages
 
 
         
->>>>>>> ändring i contentpages
+
         }
 
         private void buttonsAddUser2()
