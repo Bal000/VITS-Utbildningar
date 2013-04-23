@@ -12,7 +12,6 @@ namespace Vits
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        string ID;
         private List<ServiceReference1.Expense> expense;
         private List<Klasser.Traktamente> lstAllaTraktamenten;
         private List<Klasser.Traktamente> lstTraktamenteGrid;
@@ -33,16 +32,6 @@ namespace Vits
                 lstRadioKnappar = (List<String>)Session["RADIO"];
                 Debug.WriteLine(lstRadioKnappar.Count + "<--- längd radio");
                 RadioButtonList rbl = new RadioButtonList();
-                // TEST
-                for (int i = 0; i < lstRadioKnappar.Count; i++)
-                {
-                    rbl = (RadioButtonList)gwTract.Rows[i].FindControl("RadioButtonList1");
-                    //rbl.SelectedItem.Value = lstRadioKnappar[i];
-                    rbl.SelectedIndex = 1;
-                    Debug.WriteLine(lstRadioKnappar[i] + "<--- page load listan");
-                }
-                //Session["RADIO"] = lstRadioKnappar;
-                // Slut
             }
 
 
@@ -62,11 +51,6 @@ namespace Vits
             }
         }
        
-
-
-        
-             
-
         //lägg till
         protected void btnTract_Click(object sender, EventArgs e)
         {
@@ -83,26 +67,11 @@ namespace Vits
             lstTraktamenteGrid.Add(tm);
             Response.Write("Antal objekt: " + lstTraktamenteGrid.Count);
             Session["TRAKT"] = lstTraktamenteGrid;
-                        
-            
-            // TEST
-                for (int i = 0; i < lstTraktamenteGrid.Count-1; i++)
-                {
-                    RadioButtonList rbl = (RadioButtonList)gwTract.Rows[i].FindControl("RadioButtonList1");
-                    if (rbl != null)
-                    {
-                        if (rbl.SelectedItem != null)
-                        {
-                            Debug.WriteLine(rbl.SelectedItem.Value + "< ---- value");
-                            lstRadioKnappar.Add(rbl.SelectedItem.Value);
-                        }
-                    }
-                }
-                Session["RADIO"] = lstRadioKnappar;
-            // Slut
-
+   
             gwTract.DataSource = lstTraktamenteGrid;
             gwTract.DataBind();
+
+            BeraknaTraktamente();
             
         }
 
@@ -248,6 +217,15 @@ namespace Vits
             }
         }
 
-        
+        protected void BeraknaTraktamente()
+        {
+            DateTime fromDate = calFrom.SelectedDate.Date;
+            DateTime toDate = calTo.SelectedDate.Date;
+
+            TimeSpan result = fromDate.Subtract(toDate);
+            Double result2 = result.TotalDays;
+
+            lblTest.Text = result2.ToString();
+        }
     }
 }

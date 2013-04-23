@@ -6,10 +6,6 @@ C:\Users\Michael\Documents\GitHub\Vits-Utbildning\Vits\Vits\bin\Vits.dll
 C:\Users\Michael\Documents\GitHub\Vits-Utbildning\Vits\Vits\bin\Vits.pdb
 C:\Users\Michael\Documents\GitHub\Vits-Utbildning\Vits\Vits\obj\Debug\Vits.dll
 C:\Users\Michael\Documents\GitHub\Vits-Utbildning\Vits\Vits\obj\Debug\Vits.pdb
-C:\Users\Michael\Documents\GitHub\VITS-Utbildningar\Vits\Vits\bin\Vits.dll
-C:\Users\Michael\Documents\GitHub\VITS-Utbildningar\Vits\Vits\bin\Vits.pdb
-C:\Users\Michael\Documents\GitHub\VITS-Utbildningar\Vits\Vits\obj\Debug\Vits.dll
-C:\Users\Michael\Documents\GitHub\VITS-Utbildningar\Vits\Vits\obj\Debug\Vits.pdb
 C:\Users\Rickard\Documents\GitHub\VITS-Utbildningar\Vits\Vits\bin\Vits.dll
 C:\Users\Rickard\Documents\GitHub\VITS-Utbildningar\Vits\Vits\bin\Vits.pdb
 C:\Users\Rickard\Documents\GitHub\VITS-Utbildningar\Vits\Vits\obj\Debug\Vits.dll
@@ -30,3 +26,7 @@ C:\Users\Aslam\Documents\GitHub\VITS-Utbildningar\Vits\Vits\obj\Debug\Vits.cspro
 C:\Users\Aslam\Documents\GitHub\VITS-Utbildningar\Vits\Vits\obj\Debug\Vits.dll
 C:\Users\Aslam\Documents\GitHub\VITS-Utbildningar\Vits\Vits\obj\Debug\Vits.pdb
 C:\Users\Daniel\Documents\GitHub\VITS-Utbildningar\Vits\Vits\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Michael\Documents\GitHub\VITS-Utbildningar\Vits\Vits\bin\Vits.dll
+C:\Users\Michael\Documents\GitHub\VITS-Utbildningar\Vits\Vits\bin\Vits.pdb
+C:\Users\Michael\Documents\GitHub\VITS-Utbildningar\Vits\Vits\obj\Debug\Vits.dll
+C:\Users\Michael\Documents\GitHub\VITS-Utbildningar\Vits\Vits\obj\Debug\Vits.pdb
