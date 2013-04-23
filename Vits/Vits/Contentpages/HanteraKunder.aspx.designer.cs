@@ -22,6 +22,15 @@ namespace Vits {
         protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
+        /// lblOfficeList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOfficeList;
+        
+        /// <summary>
         /// OfficeList control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,15 @@ namespace Vits {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// lblName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblName;
         
         /// <summary>
         /// Tbnamn control.
@@ -58,6 +76,15 @@ namespace Vits {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
+        /// lblOrgNr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOrgNr;
+        
+        /// <summary>
         /// Tborgnummer control.
         /// </summary>
         /// <remarks>
@@ -74,6 +101,15 @@ namespace Vits {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
+        
+        /// <summary>
+        /// lblAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAddress;
         
         /// <summary>
         /// Tbadress control.
@@ -94,6 +130,15 @@ namespace Vits {
         protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
+        /// lblZipCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblZipCode;
+        
+        /// <summary>
         /// Tbzipcode control.
         /// </summary>
         /// <remarks>
@@ -112,6 +157,15 @@ namespace Vits {
         protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
+        /// lblCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCity;
+        
+        /// <summary>
         /// Tbcity control.
         /// </summary>
         /// <remarks>
@@ -128,6 +182,15 @@ namespace Vits {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label6;
+        
+        /// <summary>
+        /// lblCoutry control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCoutry;
         
         /// <summary>
         /// ddLand control.

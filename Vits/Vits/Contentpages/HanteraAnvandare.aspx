@@ -13,31 +13,61 @@
     <br />
     
     <div class="List">
-    <asp:Label ID="Label8" runat="server" Text="Lista över alla användare:"></asp:Label><br />
+    <asp:Label ID="Label8" runat="server" Text="Lista över alla användare:"></asp:Label>
+    <asp:Label ID="lblUserList" CssClass="ValidationLabel" runat="server" Text="Välj en användare!"
+                Visible="False"></asp:Label>
+    
+    <br />
     <asp:ListBox ID="UserList" runat="server" Height="250px" Width="199px"></asp:ListBox>
     </div>
     
     <div class="FormWrap">
-    </br>
+    <br/ >
         <div class="Form">
-            <asp:Label ID="label1" runat="server" Text="Förnamn:"></asp:Label><br />
+            <asp:Label ID="label1" runat="server" Text="Förnamn:"></asp:Label>
+            <asp:Label ID="lblFirstName" CssClass="ValidationLabel" runat="server" 
+                Visible="False"></asp:Label>
+            <br />
             <asp:TextBox ID="tbFirstName" runat="server" Width="164px" Enabled="False"></asp:TextBox><br />
-            <asp:Label ID="label2" runat="server" Text="Efternamn:"></asp:Label><br />
+            <asp:Label ID="label2" runat="server" Text="Efternamn:"></asp:Label>
+            
+            <asp:Label ID="lblLastName" CssClass="ValidationLabel" runat="server" 
+                Visible="False"></asp:Label><br />
             <asp:TextBox ID="tbLastName" runat="server" Width="164px" Enabled="False"></asp:TextBox><br />
-            <asp:Label ID="label3" runat="server" Text="Adress:"></asp:Label><br />
+            <asp:Label ID="label3" runat="server" Text="Adress:"></asp:Label>
+            
+            <asp:Label ID="lblAdress" CssClass="ValidationLabel" runat="server" 
+                Visible="False"></asp:Label>
+            <br />
             <asp:TextBox ID="tbAdress" runat="server" Width="164px" Enabled="False"></asp:TextBox><br />
-            <asp:Label ID="label4" runat="server" Text="Postnummer:"></asp:Label><br />
+            <asp:Label ID="label4" runat="server" Text="Postnummer:"></asp:Label>
+            
+            <asp:Label ID="lblZipCode" CssClass="ValidationLabel" runat="server" 
+                Visible="False"></asp:Label><br />
             <asp:TextBox ID="tbZipCode" runat="server" Width="164px" Enabled="False"></asp:TextBox><br />
             
         </div>
         <div class="Form">
-            <asp:Label ID="label5" runat="server" Text="Stad:"></asp:Label><br />
+            <asp:Label ID="label5" runat="server" Text="Stad:"></asp:Label>
+            
+            <asp:Label ID="lblCity" CssClass="ValidationLabel" runat="server" 
+                Visible="False"></asp:Label>
+            <br />
             <asp:TextBox ID="tbCity" runat="server" Width="164px" Enabled="False"></asp:TextBox><br />
-            <asp:Label ID="label6" runat="server" Text="Personnummer:"></asp:Label><br />
+            <asp:Label ID="label6" runat="server" Text="Personnummer:"></asp:Label>
+            
+            <asp:Label ID="lblID" CssClass="ValidationLabel" runat="server" Visible="False"></asp:Label><br />
             <asp:TextBox ID="tbID" runat="server" Width="164px" Enabled="False"></asp:TextBox><br />
-            <asp:Label ID="label7" runat="server" Text="Emailadress:"></asp:Label><br />
+            <asp:Label ID="label7" runat="server" Text="Emailadress:"></asp:Label>
+            
+            <asp:Label ID="lblEmail" CssClass="ValidationLabel" runat="server" 
+                Visible="False"></asp:Label>
+            <br />
             <asp:TextBox ID="tbEmail" runat="server" Width="164px" Enabled="False"></asp:TextBox><br />
             <asp:Label ID="Label9" runat="server" Text="Välj roll:"></asp:Label>
+            
+            <asp:Label ID="lblRole" CssClass="ValidationLabel" runat="server" 
+                Visible="False"></asp:Label>
 
             <asp:RadioButtonList ID="radiobutton" runat="server" Enabled="False">
                 <asp:ListItem Selected="True" Text="Konsult"></asp:ListItem>
@@ -55,16 +85,18 @@
                 <asp:Button ID="btnSave" runat="server" Text="Spara ändringar" Width="164px" 
                      onclick="btnSave_Click" Visible="False"/>
                 <asp:Button ID="btnAddUser2" runat="server" Text="Lägg till användare"  Width="164px"
-                     Visible="False" />
+                     Visible="False" onclick="btnAddUser2_Click" />
             </div>
             <br />
             <br />
 
         </div>
-            
-        </div>
-        </div>
- 
+             <br />
     
+        </div>
+         <br />
+    
+        </div>
+
 
 </asp:Content>

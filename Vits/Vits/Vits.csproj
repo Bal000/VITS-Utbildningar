@@ -71,6 +71,7 @@
     <Content Include="Contentpages\HanteraUppdrag.aspx" />
     <Content Include="Contentpages\RapportIntro.aspx" />
     <Content Include="Contentpages\RapportSammanställning.aspx" />
+    <Content Include="Contentpages\Reseforskott.aspx" />
     <Content Include="WebProfileBuilder.user" />
     <Content Include="obj\Debug\TempPE\Service References.ServiceReference1.Reference.cs.dll" />
     <Content Include="obj\Debug\Vits.csproj.FileListAbsolute.txt" />
@@ -160,6 +161,13 @@
     </Compile>
     <Compile Include="Contentpages\HanteraUppdrag.aspx.designer.cs">
       <DependentUpon>HanteraUppdrag.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contentpages\Reseforskott.aspx.cs">
+      <DependentUpon>Reseforskott.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contentpages\Reseforskott.aspx.designer.cs">
+      <DependentUpon>Reseforskott.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

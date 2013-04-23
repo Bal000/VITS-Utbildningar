@@ -22,6 +22,15 @@ namespace Vits.Contentpages {
         protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
+        /// lblUserList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUserList;
+        
+        /// <summary>
         /// UserList control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,15 @@ namespace Vits.Contentpages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label1;
+        
+        /// <summary>
+        /// lblFirstName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFirstName;
         
         /// <summary>
         /// tbFirstName control.
@@ -58,6 +76,15 @@ namespace Vits.Contentpages {
         protected global::System.Web.UI.WebControls.Label label2;
         
         /// <summary>
+        /// lblLastName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLastName;
+        
+        /// <summary>
         /// tbLastName control.
         /// </summary>
         /// <remarks>
@@ -74,6 +101,15 @@ namespace Vits.Contentpages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label3;
+        
+        /// <summary>
+        /// lblAdress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAdress;
         
         /// <summary>
         /// tbAdress control.
@@ -94,6 +130,15 @@ namespace Vits.Contentpages {
         protected global::System.Web.UI.WebControls.Label label4;
         
         /// <summary>
+        /// lblZipCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblZipCode;
+        
+        /// <summary>
         /// tbZipCode control.
         /// </summary>
         /// <remarks>
@@ -110,6 +155,15 @@ namespace Vits.Contentpages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label5;
+        
+        /// <summary>
+        /// lblCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCity;
         
         /// <summary>
         /// tbCity control.
@@ -130,6 +184,15 @@ namespace Vits.Contentpages {
         protected global::System.Web.UI.WebControls.Label label6;
         
         /// <summary>
+        /// lblID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblID;
+        
+        /// <summary>
         /// tbID control.
         /// </summary>
         /// <remarks>
@@ -148,6 +211,15 @@ namespace Vits.Contentpages {
         protected global::System.Web.UI.WebControls.Label label7;
         
         /// <summary>
+        /// lblEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEmail;
+        
+        /// <summary>
         /// tbEmail control.
         /// </summary>
         /// <remarks>
@@ -164,6 +236,15 @@ namespace Vits.Contentpages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label9;
+        
+        /// <summary>
+        /// lblRole control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRole;
         
         /// <summary>
         /// radiobutton control.
