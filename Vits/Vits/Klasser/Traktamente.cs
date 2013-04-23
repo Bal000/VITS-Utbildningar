@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Net;
+using System.Diagnostics;
 
 namespace Vits.Klasser
 {
@@ -19,11 +20,13 @@ namespace Vits.Klasser
     {
         private String _land;
         private int _kronor;
+        private String _datum;
 
-        public Traktamente(String inLand, int inKronor)
+        public Traktamente(String inLand, int inKronor, String inDatum)
         {
             _land = inLand;
             _kronor = inKronor;
+            _datum = inDatum;
         }
         
         public String Land 
@@ -36,26 +39,40 @@ namespace Vits.Klasser
             get { return _kronor; }
             set { _kronor = value; }
         }
+        public String Datum
+        {
+            get { return _datum; }
+            set { _datum = value; }
+        }
         
         
         
-        public List<Traktamente> HamtaUtlandstraktamenten(string webbadr, string lokalfil)
+        public static List<Traktamente> HamtaUtlandstraktamenten(String webbadr, String lokalfil)
         {
             List<string> lstLandTraktamente = new List<string>();
             List<Traktamente> lstTraktTmp = new List<Traktamente>();
             int hopp;
-
-            using (WebClient client = new WebClient())
+            
+            if (!Directory.Exists(@"c:\vits"))
             {
-                try
+                Directory.CreateDirectory(@"c:\vits");
+                Debug.WriteLine("Skapar mapp c:\\vits");
+            }
+
+            if (!File.Exists(@"c:\vits\trakt.html"))
+            {
+                Debug.WriteLine("Hämtar från Skatteverket.se");
+                using (WebClient client = new WebClient())
                 {
-                    client.DownloadFile(webbadr, lokalfil);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.Message);
-                    Console.WriteLine("ERROR in Traktamente: Fel adress???");
-                    Environment.Exit(1);
+                    try
+                    {
+                        client.DownloadFile(webbadr, lokalfil);
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.WriteLine(e.Message);
+                        Debug.WriteLine("ERROR in Traktamente: Fel adress???");
+                    }
                 }
             }
 
@@ -97,7 +114,7 @@ namespace Vits.Klasser
                 String land = lstLandTraktamente[hopp];
                 int kronor = int.Parse(lstLandTraktamente[hopp + 1].Replace(" ", ""));
                 
-                lstTraktTmp.Add(new Traktamente(land, kronor));
+                lstTraktTmp.Add(new Traktamente(land, kronor, new DateTime().ToShortDateString()));
                 hopp += 2;
             }
 
@@ -106,7 +123,7 @@ namespace Vits.Klasser
 
 
 
-        private String StripHTML(String inString)
+        private static String StripHTML(String inString)
         {
             char[] array = new char[inString.Length];
             int arrayIndex = 0;

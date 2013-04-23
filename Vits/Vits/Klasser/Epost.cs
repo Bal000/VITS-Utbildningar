@@ -18,6 +18,7 @@ using System.Linq;
 using System.Text;
 using System.Net.Mail;
 using System.Net;
+using System.Diagnostics;
 
 namespace Vits.Klasser
 {
@@ -46,7 +47,7 @@ namespace Vits.Klasser
             }
             catch (Exception ex)
             {
-                Console.WriteLine("\n\n----------------------------------------\n" + 
+                Debug.WriteLine("\n\n----------------------------------------\n" + 
                                         " > Skicka EPOST: " + ex.Message + 
                                         "\n > Ansluten till Internet?" +
                                     "\n----------------------------------------\n");
