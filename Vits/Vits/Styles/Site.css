@@ -391,39 +391,6 @@ div.ReceiptDiv
     margin-bottom:5%;
     clear:both;
 }    
-  
- div.ContentFooterLeft
- {
-     width: 30%;
-     margin-bottom: 2%;
-     float: left;
-     border: 1px solid black;
- }
- div.ContentFooterRight
- {
-     width: 60%;
-     padding-top:6%;
-     float: left;
-     border: 1px solid green;
- }
- 
- .CalendarFromDiv
- {
-     width:60%;
-     float:left;
- }
- 
- .CalendarToDiv
- {
-     width:60%;
-     float:left;
- }
- .BtnAddTract
- {
- float:right;
- margin-left:5%;    
- 
- }
  
   div.GWDiv
  {

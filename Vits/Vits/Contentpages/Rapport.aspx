@@ -15,31 +15,7 @@
                 <asp:TextBox ID="txtlOWnCar" runat="server" Visible="False"></asp:TextBox>
                 <br />
             </div>
-            <%--Nedan samlar jag information om Traktamenten i en egen div inom ContentLeft--%>
-            <div class="SubsistenceDiv">
-                <div class="ContentFooterLeft">
-                    <asp:Label ID="lblFooterCountryLabel" runat="server" Text="Välj land:"></asp:Label><br />
-                    <asp:DropDownList ID="ddlTractCountry" runat="server">
-                    </asp:DropDownList>
-                    <div id="CalendarFromDiv" class="CalendarFromDiv">
-                        <asp:Label ID="lblFrom" runat="server" Text="Från:" CssClass="lblBold"></asp:Label><br />
-                        <asp:Calendar ID="calFrom" runat="server" CssClass="NoLineBreak" Height="125px" Width="164px"
-                            OnSelectionChanged="calFrom_SelectionChanged"></asp:Calendar>
-                    </div>
-                </div>
-                <div class="ContentFooterRight">
-                    <div id="CalendarToDiv" class="CalendarToDiv">
-                        <asp:Label ID="lblTo" runat="server" Text="Till:" CssClass="lblBold"></asp:Label><br />
-                        <asp:Calendar ID="calTo" runat="server" CssClass="NoLineBreak" OnSelectionChanged="calTo_SelectionChanged">
-                        </asp:Calendar>
-                    </div>
-                    <br />
-                    <div class="BtnAddTract">
-                        <asp:Button ID="BtnAddTract" Text="Lägg till" runat="server" Height="20px" Width="74px" />
-                    </div>
-                </div>
-                
-            </div>
+         
             <%--Nedan samlar jag information om Kvitton i en egen div inom ContentLeft.--%>
             <div class="ReceiptDiv">
                 <asp:Label ID="txtCategory" runat="server" Text="Kategori" CssClass="lblBold"></asp:Label><br />
@@ -60,7 +36,8 @@
                 <asp:TextBox ID="txtBoxDescription" runat="server"></asp:TextBox>
                 <br />
                 <br />
-                <asp:Button ID="btnAddReceipt" runat="server" Text="Lägg till utgift" />
+                <asp:Button ID="btnAddReceipt" runat="server" Text="Lägg till utgift" 
+                    onclick="btnAddReceipt_Click" />
             </div>
         </div>
         <div class="ContentRight">

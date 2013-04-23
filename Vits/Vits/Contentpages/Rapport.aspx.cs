@@ -6,17 +6,21 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 using System.Diagnostics;
+using System.Text;
 
 namespace Vits
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        string ID;
+        private List<ServiceReference1.Expense> expense;
         private List<Klasser.Traktamente> lstAllaTraktamenten;
         private List<Klasser.Traktamente> lstTraktamenteGrid;
         private List<String> lstRadioKnappar;
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            ID = Guid.NewGuid().ToString();
             lstAllaTraktamenten = new List<Klasser.Traktamente>();
             lstTraktamenteGrid = new List<Klasser.Traktamente>();
             lstRadioKnappar = new List<String>();                         
@@ -224,6 +228,24 @@ namespace Vits
                     }
             }
             return (int)Math.Round(nyTrakt);
+        }
+
+        protected void btnAddReceipt_Click(object sender, EventArgs e)
+        {
+            if (ID != "")
+
+            {
+                ServiceReference1.Expense expenseObj = new ServiceReference1.Expense();
+                expenseObj.REPID = ID;
+                //expenseOjb.CostCenter = ddlCategory.SelectedValue;
+                expenseObj.From = Convert.ToDateTime(txtBoxDateFrom.Text);
+                expenseObj.To = Convert.ToDateTime(txtBoxDateTo.Text);
+                expenseObj.Sum = int.Parse(txtBoxAmount.Text);
+                
+
+
+                
+            }
         }
 
         
