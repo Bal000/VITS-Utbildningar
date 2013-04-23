@@ -102,6 +102,38 @@ namespace Vits.Contentpages
             btnAvbryt.Visible = true;
             btnEditUser.Visible = false;
             btnAddUser.Visible = false;
+<<<<<<< HEAD
+=======
+            tbAdress.Enabled = true;
+            tbCity.Enabled = true;
+            tbEmail.Enabled = true;
+            tbFirstName.Enabled = true;
+            tbID.Enabled = true;
+            tbLastName.Enabled = true;
+            tbZipCode.Enabled = true;
+            radiobutton.Enabled = true;
+
+            ServiceReference1.Employee employee = new ServiceReference1.Employee();
+
+            employee.FirstName = tbFirstName.Text;
+            employee.LastName = tbLastName.Text;
+            employee.Adress = tbAdress.Text;
+            employee.ZipCode = tbZipCode.Text;
+            employee.City = tbCity.Text;
+            employee.IdNumber = tbID.Text;
+            employee.Email = tbEmail.Text;
+
+            if(radiobutton.SelectedIndex == 0){
+                employee.Manager = false;
+            }
+            else{
+                employee.Manager = true;
+            }
+            
+
+
+        
+>>>>>>> ändring i contentpages
         }
 
         private void buttonsAddUser2()

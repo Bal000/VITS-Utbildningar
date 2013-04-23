@@ -4,18 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.ServiceModel;
+
 
 namespace Vits
 {
     public partial class HanteraKunder : System.Web.UI.Page
     {
-        string Name = "";
-        string Adress = "";
-        string City = "";
-        string Organisationnumber = "";
-        string Zipcode = "";
-        string Country = "";
-
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -23,127 +18,77 @@ namespace Vits
 
         protected void btnEditOffice_Click(object sender, EventArgs e)
         {
-            if ((OfficeList.SelectedValue) == null)
-            {
-                lblOfficeList.Visible = true;
-
-            }
-            else
-            {
-                buttonsEditoffice();
-                setFieldsEnabled(true);
-            }
+            btnAvbryt.Visible = true;
+            btnSaveOffice.Visible = true;
+            btnEditOffice.Visible = false;
+            btnAddOffice.Visible = false;
+            Tbadress.Enabled = true;
+            Tbcity.Enabled = true;
+            Tbnamn.Enabled = true;
+            Tborgnummer.Enabled = true;
+            Tbzipcode.Enabled = true;
+            ddLand.Enabled = true;
+            
+            
         }
-
-        
 
         protected void btnAvbryt_Click(object sender, EventArgs e)
         {
-            buttonsAvbryt();
-            setFieldsEnabled(false);
-            OfficeList.SelectedValue = "";
-            resetFields();
+            btnAddOffice2.Visible = false;
+            btnAvbryt.Visible = false;
+            btnSaveOffice.Visible = false;
+            btnEditOffice.Visible = true;
+            btnAddOffice.Visible = true;
+            Tbadress.Enabled = false;
+            Tbcity.Enabled = false;
+            Tbnamn.Enabled = false;
+            Tborgnummer.Enabled = false;
+            Tbzipcode.Enabled = false;
+            ddLand.Enabled = false;
         }
 
         protected void btnAddOffice_Click(object sender, EventArgs e)
-        {
-            buttonsAddoffice();
-            setFieldsEnabled(true);
-            resetFields();
-            OfficeList.SelectedValue = null;
-        }
-
-        protected void btnSaveOffice_Click(object sender, EventArgs e)
-        {
-            buttonsSaveOffice();
-            setFieldsEnabled(false);
-            OfficeList.SelectedValue = null;
-            setAttributes();
-            resetFields();
-        }
-
-        
-        
-
-        protected void btnAddOffice2_Click(object sender, EventArgs e)
-        {
-            buttonsAddOffice2();
-            setFieldsEnabled(false);
-            OfficeList.SelectedValue = null;
-
-            setAttributes();
-            resetFields();
-        }
-
-        private void buttonsAddoffice()
         {
             btnAvbryt.Visible = true;
             btnAddOffice2.Visible = true;
             btnSaveOffice.Visible = false;
             btnEditOffice.Visible = false;
             btnAddOffice.Visible = false;
+            Tbadress.Enabled = true;
+            Tbcity.Enabled = true;
+            Tbnamn.Enabled = true;
+            Tborgnummer.Enabled = true;
+            Tbzipcode.Enabled = true;
+            ddLand.Enabled = true;
 
-        }
-        private void buttonsAvbryt()
-        {
-            btnAddOffice2.Visible = false;
-            btnAvbryt.Visible = false;
-            btnSaveOffice.Visible = false;
-            btnEditOffice.Visible = true;
-            btnAddOffice.Visible = true;
-        }
-        private void buttonsSaveOffice()
-        {
-            btnAvbryt.Visible = false;
-            btnSaveOffice.Visible = false;
-            btnEditOffice.Visible = true;
-            btnAddOffice.Visible = true;
-        }
-        private void buttonsEditoffice()
-        {
-            btnAvbryt.Visible = true;
-            btnSaveOffice.Visible = true;
-            btnEditOffice.Visible = false;
-            btnAddOffice.Visible = false;
-        }
-        private void buttonsAddOffice2()
-        {
-            btnAddOffice2.Visible = false;
-            btnAvbryt.Visible = false;
-            btnSaveOffice.Visible = false;
-            btnEditOffice.Visible = true;
-            btnAddOffice.Visible = true;
-        }
+            ServiceReference1.Office office = new ServiceReference1.Office();
+            office.Adress = Tbadress.Text;
+            office.City = Tbcity.Text;
+           // office.Country = int.Parse(ddLand.SelectedItem);//
+            office.OrgNumber = int.Parse(Tborgnummer.Text);
+            office.ZipCode = int.Parse(Tbzipcode.Text);
+            office.Name = Tbnamn.Text;
+
+            
+            
+
 
         
-        protected void setFieldsEnabled(bool x)
-        {
-            Tbadress.Enabled = x;
-            Tbcity.Enabled = x;
-            Tbnamn.Enabled = x;
-            Tborgnummer.Enabled = x;
-            Tbzipcode.Enabled = x;
-            ddLand.Enabled = x;
-        }
-        protected void resetFields()
-        {
-            Tbnamn.Text = "";
-            Tbadress.Text = "";
-            Tbcity.Text = "";
-            Tborgnummer.Text = "";
-            Tbzipcode.Text = "";
-            ddLand.SelectedValue = null;
         }
 
-        protected void setAttributes()
+        protected void btnSaveOffice_Click(object sender, EventArgs e)
         {
-            Name = Tbnamn.Text;
-            Adress = Tbadress.Text;
-            City = Tbcity.Text;
-            Organisationnumber = Tborgnummer.Text;
-            Zipcode = Tbzipcode.Text;
-            Country = ddLand.SelectedValue.ToString();
+            btnAvbryt.Visible = false;
+            btnSaveOffice.Visible = false;
+            btnEditOffice.Visible = true;
+            btnAddOffice.Visible = true;
+            Tbadress.Enabled = false;
+            Tbcity.Enabled = false;
+            Tbnamn.Enabled = false;
+            Tborgnummer.Enabled = false;
+            Tbzipcode.Enabled = false;
+            ddLand.Enabled = false;
+            OfficeList.SelectedValue = null;
         }
     }
-
 }
