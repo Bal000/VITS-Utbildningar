@@ -48,7 +48,12 @@ namespace VitsWCF
 
         [OperationContract]
         void SaveCostCenter(CostCenter costcenter);
-        
+
+
+
+        [OperationContract]
+        List<Employee> GetEmployees();
+
 
 
 
