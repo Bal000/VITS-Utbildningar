@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RapportIntro.aspx.cs" Inherits="Vits.WebForm3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+<link href="~/Styles/RapportIntro.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
      <div class="Content">
