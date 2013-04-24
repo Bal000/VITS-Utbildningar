@@ -95,7 +95,7 @@
                                 <asp:TemplateField ShowHeader="false" HeaderText="Avdrag för Måltid">
                                     <ItemTemplate>
                                         <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" Font-Size="Small">
-                                            <asp:ListItem Value="0">Ej avdrag</asp:ListItem>
+                                            <asp:ListItem Value="0" Selected="True">Ej avdrag</asp:ListItem>
                                             <asp:ListItem Value="1">Frukost</asp:ListItem>
                                             <asp:ListItem Value="2">Lunch eller Middag</asp:ListItem>
                                             <asp:ListItem Value="3">Lunch och Middag</asp:ListItem>
@@ -120,7 +120,7 @@
                             <SortedDescendingCellStyle BackColor="#CAC9C9" />
                             <SortedDescendingHeaderStyle BackColor="#00547E" />
                         </asp:GridView>
-                        <asp:Button ID="Button2" runat="server" Text="Beräkna" OnClick="Button2_Click" />
+                        <asp:Button ID="Button2tmp" runat="server" Text="Beräkna" OnClick="Button2tmp_Click" />
                     </div>
                 </ContentTemplate>
                 <Triggers> <%--Tvingar fram Post-back från Remove-knappen--%>

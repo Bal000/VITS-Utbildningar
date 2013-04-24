@@ -15,47 +15,52 @@ namespace Vits
         private List<ServiceReference1.Expense> expense;
         private List<Klasser.Traktamente> lstAllaTraktamenten;
         private List<Klasser.Traktamente> lstTraktamenteGrid;
-        private List<String> lstRadioKnappar;
-        
+        private List<Klasser.Traktamente> lstTraktTillRapport;
+        private List<DateTime> lstAvvikelserTillRapport;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             ID = Guid.NewGuid().ToString();
             lstAllaTraktamenten = new List<Klasser.Traktamente>();
             lstTraktamenteGrid = new List<Klasser.Traktamente>();
-            lstRadioKnappar = new List<String>();                         
+            lstTraktTillRapport = new List<Klasser.Traktamente>();
+            lstAvvikelserTillRapport = new List<DateTime>();
+
+            lstTraktTillRapport.Clear();
             FillCountry();
-
-            
-            
-            if (Session["RADIO"] != null)
-            {
-                lstRadioKnappar = (List<String>)Session["RADIO"];
-                Debug.WriteLine(lstRadioKnappar.Count + "<--- längd radio");
-                RadioButtonList rbl = new RadioButtonList();
-            }
-
 
         }
 
 
+// ________________________________________________ BÖRJAN TRAKTAMENTEN / AVVIKELSER ______________________________________________________
 
+
+        // ------------------------------------------------------------------------------------------------------
+        // Fyll dropdown
         protected void FillCountry()
         {
+            lstAllaTraktamenten.Clear();
+            ddlCountry.Items.Clear();
+            ddlTractCountry.Items.Clear();
+
             String sokvagTraktamenteFil = @"c:\vits\trakt.html";
             lstAllaTraktamenten = Klasser.Traktamente.HamtaUtlandstraktamenten(Klasser.Global.sokvagTraktamenteAdress, sokvagTraktamenteFil);
-            
+
             for (int i = 0; i < lstAllaTraktamenten.Count; i++)
             {
                 ddlCountry.Items.Add(lstAllaTraktamenten[i].Land);
                 ddlTractCountry.Items.Add(lstAllaTraktamenten[i].Land);
             }
         }
-       
-        //lägg till
-        protected void btnTract_Click(object sender, EventArgs e)
+
+
+
+
+        // ------------------------------------------------------------------------------------------------------
+        // Lägg till
+        protected void LaggTillTraktGrid(DateTime date)
         {
             int ddlIndex = ddlTractCountry.SelectedIndex;
-            lstRadioKnappar.Clear(); // test
 
             if (Session["TRAKT"] != null)
             {
@@ -63,50 +68,35 @@ namespace Vits
             }
             Klasser.Traktamente tm = new Klasser.Traktamente(lstAllaTraktamenten[ddlIndex].Land,
                                                                 lstAllaTraktamenten[ddlIndex].Kronor,
-                                                                calFrom.SelectedDate.ToShortDateString());
+                                                                date.ToShortDateString());
             lstTraktamenteGrid.Add(tm);
             Response.Write("Antal objekt: " + lstTraktamenteGrid.Count);
             Session["TRAKT"] = lstTraktamenteGrid;
-   
+
+            lstTraktamenteGrid = lstTraktamenteGrid.OrderBy(x => x.Datum).ToList();
             gwTract.DataSource = lstTraktamenteGrid;
             gwTract.DataBind();
-
-            BeraknaTraktamente();
-            
-        }
-
-        // ta bort
-        protected void gwTract_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName == "remove")
-            {
-                int index = Convert.ToInt32(e.CommandArgument);
-                if (index >= 0)
-                {
-                    RadioButtonList rbl = (RadioButtonList)gwTract.Rows[index].FindControl("RadioButtonList1");
-                    if (rbl != null)
-                    {
-                        if (Session["TRAKT"] != null)
-                        {
-                            lstTraktamenteGrid = (List<Klasser.Traktamente>)Session["TRAKT"];
-                        }
-
-                        lstTraktamenteGrid.RemoveAt(index);
-                        Response.Write("Antal objekt: " + lstTraktamenteGrid.Count);
-                        Session["TRAKT"] = lstTraktamenteGrid;
-
-                        gwTract.DataSource = lstTraktamenteGrid;
-                        gwTract.DataBind();
-                    }
-                }
-            }
         }
 
 
-        // beräkna
-        protected void Button2_Click(object sender, EventArgs e)
+
+
+        // ------------------------------------------------------------------------------------------------------
+        //Välj datum (period)
+        protected void btnTract_Click(object sender, EventArgs e)
         {
-            List<Klasser.Traktamente> lstBerakna = new List<Klasser.Traktamente>();
+            ValjDatumForTraktamente();
+        }
+
+
+
+
+        // ------------------------------------------------------------------------------------------------------
+        //  Beräkna Traktamenten + Avvikelser. Till Rapport
+        // ------------------------------------------------------------------------------------------------------
+        // knapp
+        protected void Button2tmp_Click(object sender, EventArgs e)
+        {
             int ddlIndex = ddlTractCountry.SelectedIndex;
 
             if (Session["TRAKT"] != null)
@@ -119,46 +109,93 @@ namespace Vits
                 RadioButtonList rbl = (RadioButtonList)gwTract.Rows[i].FindControl("RadioButtonList1");
                 if (rbl != null)
                 {
-                    //String valtAvdrag = rbl.SelectedItem.Text; // ändra till Value istället (säkrare!!!)
+                    //String valtAvdrag = rbl.SelectedItem.Text; // Vilket avdrag = text
                     int nyttTraktamente = BeraknaAvdrag(rbl.SelectedItem.Value, lstTraktamenteGrid[i].Kronor); // Traktamente - avdrag (mat)
-                    lstBerakna.Add(new Klasser.Traktamente(lstTraktamenteGrid[i].Land, nyttTraktamente, lstTraktamenteGrid[i].Datum));
+                    lstTraktTillRapport.Add(new Klasser.Traktamente(lstTraktamenteGrid[i].Land, nyttTraktamente, lstTraktamenteGrid[i].Datum));
                 }
-            }
-
-            for (int i = 0; i < lstBerakna.Count; i++)
-            {
-                Debug.WriteLine(lstBerakna[i].Datum + " " +
-                                    lstBerakna[i].Land + " " +
-                                    lstBerakna[i].Kronor);
             }
 
             Session["TRAKT"] = lstTraktamenteGrid;
-            
+
+
+            lstAvvikelserTillRapport = Avvikelser(); // beräka avvikelser
+
+            Debug.WriteLine("\n\n---------- Traktamente / Avvikelser ----------");
+            for (int i = 0; i < lstAvvikelserTillRapport.Count; i++)
+            {
+                Debug.WriteLine("Avvikelse: " + lstAvvikelserTillRapport[i].ToShortDateString());
+            }
+            for (int i = 0; i < lstTraktTillRapport.Count; i++)
+            {
+                Debug.WriteLine("Traktamente: " + lstTraktTillRapport[i].Datum + " " + lstTraktTillRapport[i].Land + " " + lstTraktTillRapport[i].Kronor);
+            }
+            Debug.WriteLine("---------- SLUT RAPPORT ----------\n\n");
         }
 
 
-        protected void Save_Radio()
+
+
+        // ------------------------------------------------------------------------------------------------------
+        // Väljer vilka datum som man ska ha traktamente
+        protected void ValjDatumForTraktamente()
         {
-            if (Session["RADIO"] != null)
+            DateTime fromDate = calFrom.SelectedDate.Date;
+            DateTime toDate = calTo.SelectedDate.Date;
+
+            TimeSpan result = toDate.Subtract(fromDate);
+            Double result2 = result.TotalDays + 1;
+
+            DateTime date = fromDate;
+
+            for (int i = 0; i < result2; i++)
             {
-                lstRadioKnappar = (List<String>)Session["RADIO"];
+                LaggTillTraktGrid(date);
+                date = date.AddDays(1);
             }
-            for (int i = 0; i < lstTraktamenteGrid.Count-1; i++)
-            {
-                RadioButtonList rbl = (RadioButtonList)gwTract.Rows[i].FindControl("RadioButtonList1");
-                if (rbl != null)
-                {
-                    lstRadioKnappar.Add(rbl.SelectedItem.Value);
-                }
-            }
-            Session["RADIO"] = lstRadioKnappar;
         }
 
-        
+
+
+
+        // ------------------------------------------------------------------------------------------------------
+        //Avvikelser
+        protected List<DateTime> Avvikelser()
+        {
+            lstTraktTillRapport = lstTraktTillRapport.OrderBy(x => x.Datum).ToList();
+            DateTime dateStart = Convert.ToDateTime(lstTraktTillRapport[0].Datum);
+            DateTime dateStop = Convert.ToDateTime(lstTraktTillRapport[lstTraktTillRapport.Count - 1].Datum);
+            List<DateTime> lstAvTmp = new List<DateTime>();
+            int i = 0;
+
+            while (dateStart <= dateStop)
+            {
+                if (dateStart.ToShortDateString() == lstTraktTillRapport[i].Datum)
+                {
+                    //Debug.WriteLine("yep");
+                    i++;
+                }
+                else
+                {
+                    //Debug.WriteLine("Avvikelse: " + dateStart.ToShortDateString());
+
+                    //DateTime nd = new DateTime();
+                    //nd = dateStart;
+                    lstAvTmp.Add(dateStart);
+                }
+
+                dateStart = dateStart.AddDays(1);
+            }
+            return lstAvTmp;
+        }
+
+
+
+
+        // ------------------------------------------------------------------------------------------------------
         // avdrag procent
         protected int BeraknaAvdrag(String avdrag, int kronor)
         {
-            int avdragProcent; 
+            int avdragProcent;
             float nyTrakt = (float)kronor;
             bool b = int.TryParse(avdrag, out avdragProcent);
             if (!b)
@@ -169,7 +206,7 @@ namespace Vits
 
             switch (avdragProcent)
             {
-                case 0: 
+                case 0:
                     {
                         nyTrakt = (float)kronor;
                         break;
@@ -199,10 +236,51 @@ namespace Vits
             return (int)Math.Round(nyTrakt);
         }
 
+
+
+
+        // ------------------------------------------------------------------------------------------------------
+        // ta bort
+        protected void gwTract_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "remove")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                if (index >= 0)
+                {
+                    RadioButtonList rbl = (RadioButtonList)gwTract.Rows[index].FindControl("RadioButtonList1");
+                    if (rbl != null)
+                    {
+                        if (Session["TRAKT"] != null)
+                        {
+                            lstTraktamenteGrid = (List<Klasser.Traktamente>)Session["TRAKT"];
+                        }
+
+                        lstTraktamenteGrid.RemoveAt(index);
+                        Response.Write("Antal objekt: " + lstTraktamenteGrid.Count);
+                        Session["TRAKT"] = lstTraktamenteGrid;
+
+                        gwTract.DataSource = lstTraktamenteGrid;
+                        gwTract.DataBind();
+                    }
+                }
+            }
+        }
+// ________________________________________________ SLUT TRAKTAMENTEN / AVVIKELSER ________________________________________________
+
+        
+
+
+
+
+        protected void btnAddReceipt_Click1(object sender, EventArgs e)
+        {
+
+        }
+
         protected void btnAddReceipt_Click(object sender, EventArgs e)
         {
             if (ID != "")
-
             {
                 ServiceReference1.Expense expenseObj = new ServiceReference1.Expense();
                 expenseObj.REPID = ID;
@@ -210,27 +288,7 @@ namespace Vits
                 expenseObj.From = Convert.ToDateTime(txtBoxDateFrom.Text);
                 expenseObj.To = Convert.ToDateTime(txtBoxDateTo.Text);
                 expenseObj.Sum = int.Parse(txtBoxAmount.Text);
-                
-
-
-                
             }
-        }
-
-        protected void BeraknaTraktamente()
-        {
-            DateTime fromDate = calFrom.SelectedDate.Date;
-            DateTime toDate = calTo.SelectedDate.Date;
-
-            TimeSpan result = fromDate.Subtract(toDate);
-            Double result2 = result.TotalDays;
-
-            lblTest.Text = result2.ToString();
-        }
-
-        protected void btnAddReceipt_Click1(object sender, EventArgs e)
-        {
-
         }
     }
 }
