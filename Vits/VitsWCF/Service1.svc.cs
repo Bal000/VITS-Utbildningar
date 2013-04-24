@@ -131,5 +131,23 @@ namespace VitsWCF
 
             }
         }
+
+
+        public List<Employee> GetEmployees()
+        {
+            List<Employee> employees = new List<Employee>();
+
+
+            using (var context = new VitsDBEntities())
+            {
+                context.ContextOptions.LazyLoadingEnabled = true;
+                employees = (from e in context.Employee
+                             select e).ToList();
+            }
+
+
+
+            return employees;
+        }
     }
 }

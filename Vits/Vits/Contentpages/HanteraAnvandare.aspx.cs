@@ -6,6 +6,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Management;
 using System.Web.Security;
+using System.Collections.Generic;
+using System.Linq;
+using System.IO;
+using System.Diagnostics;
+using System.Text;
+using System.ServiceModel;
+using Vits.ServiceReference1;
+
 
 namespace Vits.Contentpages
 {
@@ -23,6 +31,16 @@ namespace Vits.Contentpages
         protected void Page_Load(object sender, EventArgs e)
         {
             
+            List<Employee> employees = new List<Employee>();
+            var client = new ServiceReference1.Service1Client();
+            
+                employees = client.GetEmployees();
+            
+            for (int i = 0; i < employees.Count; i++)
+            {
+                UserList.Items.Add(employees[i].FirstName + " " + employees[i].LastName + ", " + employees[i].IdNumber);
+            }
+             
         }
 
         protected void btnEditUser_Click(object sender, EventArgs e)
