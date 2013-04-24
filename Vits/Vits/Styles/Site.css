@@ -4,7 +4,7 @@
 {
     color:Red;
 }
-body
+body   
 {
     background: #b6b7bc;
     font-size: .80em;
@@ -37,7 +37,7 @@ p
 }
 
 
-/* HEADINGS
+/* HEADINGS   
 ----------------------------------------------------------*/
 
 h1, h2, h3, h4, h5, h6
@@ -79,7 +79,7 @@ h5, h6
     font-size: 1em;
 }
 
-/* this rule styles <h1> and <h2> tags that are the
+/* this rule styles <h1> and <h2> tags that are the 
 first child of the left and right table columns */
 .rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
 {
@@ -87,7 +87,7 @@ first child of the left and right table columns */
 }
 
 
-/* PRIMARY LAYOUT ELEMENTS
+/* PRIMARY LAYOUT ELEMENTS   
 ----------------------------------------------------------*/
 
 .page
@@ -147,7 +147,7 @@ first child of the left and right table columns */
 }
 
 
-/* TAB MENU
+/* TAB MENU   
 ----------------------------------------------------------*/
 
 div.hideSkiplink
@@ -196,7 +196,7 @@ div.menu ul li a:active
     text-decoration: none;
 }
 
-/* FORM ELEMENTS
+/* FORM ELEMENTS   
 ----------------------------------------------------------*/
 
 fieldset
@@ -206,7 +206,7 @@ fieldset
     border: 1px solid #ccc;
 }
 
-fieldset p
+fieldset p 
 {
     margin: 2px 12px 10px 10px;
 }
@@ -216,25 +216,25 @@ fieldset.login label, fieldset.register label, fieldset.changePassword label
     display: block;
 }
 
-fieldset label.inline
+fieldset label.inline 
 {
     display: inline;
 }
 
-legend
+legend 
 {
     font-size: 1.1em;
     font-weight: 600;
     padding: 2px 4px 8px 4px;
 }
 
-input.textEntry
+input.textEntry 
 {
     width: 320px;
     border: 1px solid #ccc;
 }
 
-input.passwordEntry
+input.passwordEntry 
 {
     width: 320px;
     border: 1px solid #ccc;
@@ -245,7 +245,7 @@ div.accountInfo
     width: 42%;
 }
 
-/* MISC
+/* MISC  
 ----------------------------------------------------------*/
 
 .clear
@@ -319,8 +319,124 @@ div.accountInfo
 {
      
 }
+/*--Rapport Intro sidan--*/
+  div.ContentWrapperIntro
+  {  
+     width: 50%;
+     overflow: hidden;
+     background: #fff;
+     margin-left: auto;
+     margin-right: auto;
+  }
+  
+   .ContentMissionInfo
+ {
+    border: 2px solid pink;
+    margin: 5px 25px 5px 5px;
+    width: 275px;
+    float: left;
+        
+ }
+/*--Slut på rapport intro sidan--*/
+
+/*------ Rapport-sidan --------*/
 
 
+
+ div.ContentWrapper
+ {  
+     height: 2000px;
+     width: 100%;
+     overflow: hidden;
+     background: #fff;
+  }
+ 
+ div.ContentLeft
+ { 
+    float: left;
+    width: 70%;
+    height: 60%;
+    border: 1px solid red;
+    
+ }
+ 
+ div.ContentRight
+ {   
+    float: left;
+    width: 28%;
+    height: 100%;
+    border: 1px solid green;
+    margin:auto;
+ }
+ 
+ div.CarDiv
+ {
+     border: 1px solid black;
+     
+     margin-left: 2%;
+     margin-bottom:5%;
+     height: 10%;
+ }
+
+div.SubsistenceDiv
+{
+    border: 1px solid black;
+    
+    height: 35%;
+    margin-left:2%;
+    margin-bottom:5%;
+}
+
+div.ReceiptDiv
+{
+    border: 1px solid black;
+    height: 20%;
+    margin-left:2%;
+    margin-bottom:5%;
+    clear:both;
+}    
+ 
+  div.GWDiv
+ {
+     text-align: center;
+     border: 1px solid blue;
+     width: 100%;
+ }
+ 
+ .NoLineBreak
+ {
+     display: inline;
+     height: 20px;
+     width: 20px;
+ }
+ 
+ p.ClearFix
+ {
+     clear:both;
+ }
+ 
+ .ContentMissionInfo
+ {
+    border: 2px solid pink;
+    margin: 5px 25px 5px 5px;
+    width: 275px;
+    float: left;
+        
+ }
+ 
+ div.ContentAbnormalTravel
+ {
+    width: 90%;
+    height: 100px;
+    border: 2px solid pink;
+    margin: 5px 5px 5px 5px;
+ }
+
+.lblBold
+{
+font-weight: bold;    
+}
+/*--Avslutar Rapport sidan--*/
 /*--Start Felix och Esams adminsidor--*/
 div.List
 {
@@ -469,9 +585,11 @@ div.btnRow
 }
 
 div.ContentFooter
- {
+ {     
      float: left;
      width: 100%;
      height: 1000px;
-     display: inline;
+     display: inline;   
  }
+
+
