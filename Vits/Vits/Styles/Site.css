@@ -345,7 +345,7 @@ div.accountInfo
 
  div.ContentWrapper
  {  
-     height: 100%;
+     height: 2000px;
      width: 100%;
      overflow: hidden;
      background: #fff;
@@ -400,6 +400,7 @@ div.ReceiptDiv
  {
      text-align: center;
      border: 1px solid blue;
+     width: 100%;
  }
  
  .NoLineBreak
@@ -582,5 +583,13 @@ div.btnRow
     font-family: Georgia, Sans-Serif;
     text-align: center;
 }
+
+div.ContentFooter
+ {     
+     float: left;
+     width: 100%;
+     height: 1000px;
+     display: inline;   
+ }
 
 

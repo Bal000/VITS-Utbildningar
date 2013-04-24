@@ -39,9 +39,6 @@ namespace Vits
         // Fyll dropdown
         protected void FillCountry()
         {
-            lstAllaTraktamenten.Clear();
-            ddlCountry.Items.Clear();
-            ddlTractCountry.Items.Clear();
 
             String sokvagTraktamenteFil = @"c:\vits\trakt.html";
             lstAllaTraktamenten = Klasser.Traktamente.HamtaUtlandstraktamenten(Klasser.Global.sokvagTraktamenteAdress, sokvagTraktamenteFil);
@@ -152,6 +149,8 @@ namespace Vits
                 LaggTillTraktGrid(date);
                 date = date.AddDays(1);
             }
+            ddlTractCountry.Items.Clear();
+            FillCountry();
         }
 
 
