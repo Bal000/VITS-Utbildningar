@@ -84,6 +84,9 @@ namespace Vits
         protected void btnTract_Click(object sender, EventArgs e)
         {
             ValjDatumForTraktamente();
+            ddlTractCountry.Items.Clear();
+            ddlCountry.Items.Clear();
+            FillCountry();
             //Response.Write("Antal objekt i Trakt-GridView: " + lstTraktamenteGrid.Count);
         }
 
@@ -151,8 +154,6 @@ namespace Vits
                 LaggTillTraktGrid(date);
                 date = date.AddDays(1);
             }
-            ddlTractCountry.Items.Clear();
-            FillCountry();
         }
 
 
