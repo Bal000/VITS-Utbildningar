@@ -1,0 +1,413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VitsDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="VitsDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CostCenter" EntityType="VitsDBModel.CostCenter" />
+    <EntitySet Name="Country" EntityType="VitsDBModel.Country" />
+    <EntitySet Name="Deviation" EntityType="VitsDBModel.Deviation" />
+    <EntitySet Name="Employee" EntityType="VitsDBModel.Employee" />
+    <EntitySet Name="Expense" EntityType="VitsDBModel.Expense" />
+    <EntitySet Name="Mission" EntityType="VitsDBModel.Mission" />
+    <EntitySet Name="Office" EntityType="VitsDBModel.Office" />
+    <EntitySet Name="Report" EntityType="VitsDBModel.Report" />
+    <EntitySet Name="Subsistence" EntityType="VitsDBModel.Subsistence" />
+    <EntitySet Name="TravelAdvances" EntityType="VitsDBModel.TravelAdvances" />
+    <EntitySet Name="Trip" EntityType="VitsDBModel.Trip" />
+    <AssociationSet Name="FK__Expense__CCID__30F848ED" Association="VitsDBModel.FK__Expense__CCID__30F848ED">
+      <End Role="CostCenter" EntitySet="CostCenter" />
+      <End Role="Expense" EntitySet="Expense" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Office__CID__145C0A3F" Association="VitsDBModel.FK__Office__CID__145C0A3F">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Office" EntitySet="Office" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Subsistence__CID__37A5467C" Association="VitsDBModel.FK__Subsistence__CID__37A5467C">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Subsistence" EntitySet="Subsistence" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Trip__CID__21B6055D" Association="VitsDBModel.FK__Trip__CID__21B6055D">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Trip" EntitySet="Trip" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Deviation__REPID__2B3F6F97" Association="VitsDBModel.FK__Deviation__REPID__2B3F6F97">
+      <End Role="Report" EntitySet="Report" />
+      <End Role="Deviation" EntitySet="Deviation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mission__Manager__182C9B23" Association="VitsDBModel.FK__Mission__Manager__182C9B23">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Mission" EntitySet="Mission" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Report__EID__24927208" Association="VitsDBModel.FK__Report__EID__24927208">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Report" EntitySet="Report" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TravelAdvan__EID__1CF15040" Association="VitsDBModel.FK__TravelAdvan__EID__1CF15040">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="TravelAdvances" EntitySet="TravelAdvances" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Trip__EID__1FCDBCEB" Association="VitsDBModel.FK__Trip__EID__1FCDBCEB">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Trip" EntitySet="Trip" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Expense__REPID__300424B4" Association="VitsDBModel.FK__Expense__REPID__300424B4">
+      <End Role="Report" EntitySet="Report" />
+      <End Role="Expense" EntitySet="Expense" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mission__OID__173876EA" Association="VitsDBModel.FK__Mission__OID__173876EA">
+      <End Role="Office" EntitySet="Office" />
+      <End Role="Mission" EntitySet="Mission" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Report__MID__25869641" Association="VitsDBModel.FK__Report__MID__25869641">
+      <End Role="Mission" EntitySet="Mission" />
+      <End Role="Report" EntitySet="Report" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TravelAdvan__MID__1DE57479" Association="VitsDBModel.FK__TravelAdvan__MID__1DE57479">
+      <End Role="Mission" EntitySet="Mission" />
+      <End Role="TravelAdvances" EntitySet="TravelAdvances" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Trip__MID__20C1E124" Association="VitsDBModel.FK__Trip__MID__20C1E124">
+      <End Role="Mission" EntitySet="Mission" />
+      <End Role="Trip" EntitySet="Trip" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Subsisten__REPID__36B12243" Association="VitsDBModel.FK__Subsisten__REPID__36B12243">
+      <End Role="Report" EntitySet="Report" />
+      <End Role="Subsistence" EntitySet="Subsistence" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeMission" Association="VitsDBModel.EmployeeMission">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Mission" EntitySet="Mission" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CostCenter">
+    <Key>
+      <PropertyRef Name="CCID" />
+    </Key>
+    <Property Name="CCID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Expense" Relationship="VitsDBModel.FK__Expense__CCID__30F848ED" FromRole="CostCenter" ToRole="Expense" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="CID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Office" Relationship="VitsDBModel.FK__Office__CID__145C0A3F" FromRole="Country" ToRole="Office" />
+    <NavigationProperty Name="Subsistence" Relationship="VitsDBModel.FK__Subsistence__CID__37A5467C" FromRole="Country" ToRole="Subsistence" />
+    <NavigationProperty Name="Trip" Relationship="VitsDBModel.FK__Trip__CID__21B6055D" FromRole="Country" ToRole="Trip" />
+  </EntityType>
+  <EntityType Name="Deviation">
+    <Key>
+      <PropertyRef Name="DID" />
+    </Key>
+    <Property Name="DID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="REPID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" />
+    <Property Name="StopDate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Report" Relationship="VitsDBModel.FK__Deviation__REPID__2B3F6F97" FromRole="Deviation" ToRole="Report" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EID" />
+    </Key>
+    <Property Name="EID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="Adress" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="IdNumber" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="Manager" Type="Boolean" Nullable="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Mission" Relationship="VitsDBModel.FK__Mission__Manager__182C9B23" FromRole="Employee" ToRole="Mission" />
+    <NavigationProperty Name="Report" Relationship="VitsDBModel.FK__Report__EID__24927208" FromRole="Employee" ToRole="Report" />
+    <NavigationProperty Name="TravelAdvances" Relationship="VitsDBModel.FK__TravelAdvan__EID__1CF15040" FromRole="Employee" ToRole="TravelAdvances" />
+    <NavigationProperty Name="Trip" Relationship="VitsDBModel.FK__Trip__EID__1FCDBCEB" FromRole="Employee" ToRole="Trip" />
+    <NavigationProperty Name="Mission1" Relationship="VitsDBModel.EmployeeMission" FromRole="Employee" ToRole="Mission" />
+  </EntityType>
+  <EntityType Name="Expense">
+    <Key>
+      <PropertyRef Name="EXPID" />
+    </Key>
+    <Property Name="EXPID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="REPID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CCID" Type="Byte" Nullable="false" />
+    <Property Name="Sum" Type="Int32" Nullable="false" />
+    <Property Name="VAT" Type="Int32" Nullable="false" />
+    <Property Name="From" Type="DateTime" Nullable="false" />
+    <Property Name="To" Type="DateTime" />
+    <Property Name="Description" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="CostCenter" Relationship="VitsDBModel.FK__Expense__CCID__30F848ED" FromRole="Expense" ToRole="CostCenter" />
+    <NavigationProperty Name="Report" Relationship="VitsDBModel.FK__Expense__REPID__300424B4" FromRole="Expense" ToRole="Report" />
+  </EntityType>
+  <EntityType Name="Mission">
+    <Key>
+      <PropertyRef Name="MID" />
+    </Key>
+    <Property Name="MID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OID" Type="Byte" Nullable="false" />
+    <Property Name="Manager" Type="Byte" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="VitsDBModel.FK__Mission__Manager__182C9B23" FromRole="Mission" ToRole="Employee" />
+    <NavigationProperty Name="Office" Relationship="VitsDBModel.FK__Mission__OID__173876EA" FromRole="Mission" ToRole="Office" />
+    <NavigationProperty Name="Report" Relationship="VitsDBModel.FK__Report__MID__25869641" FromRole="Mission" ToRole="Report" />
+    <NavigationProperty Name="TravelAdvances" Relationship="VitsDBModel.FK__TravelAdvan__MID__1DE57479" FromRole="Mission" ToRole="TravelAdvances" />
+    <NavigationProperty Name="Trip" Relationship="VitsDBModel.FK__Trip__MID__20C1E124" FromRole="Mission" ToRole="Trip" />
+    <NavigationProperty Name="Employee1" Relationship="VitsDBModel.EmployeeMission" FromRole="Mission" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Office">
+    <Key>
+      <PropertyRef Name="OID" />
+    </Key>
+    <Property Name="OID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="OrgNumber" Type="Int32" Nullable="false" />
+    <Property Name="Adress" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="ZipCode" Type="Int32" Nullable="false" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="CID" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Country" Relationship="VitsDBModel.FK__Office__CID__145C0A3F" FromRole="Office" ToRole="Country" />
+    <NavigationProperty Name="Mission" Relationship="VitsDBModel.FK__Mission__OID__173876EA" FromRole="Office" ToRole="Mission" />
+  </EntityType>
+  <EntityType Name="Report">
+    <Key>
+      <PropertyRef Name="REPID" />
+    </Key>
+    <Property Name="REPID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="EID" Type="Byte" Nullable="false" />
+    <Property Name="MID" Type="Byte" Nullable="false" />
+    <Property Name="Expenses" Type="Int32" Nullable="false" />
+    <Property Name="Car" Type="Boolean" Nullable="false" />
+    <Property Name="Miles" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Deviation" Relationship="VitsDBModel.FK__Deviation__REPID__2B3F6F97" FromRole="Report" ToRole="Deviation" />
+    <NavigationProperty Name="Employee" Relationship="VitsDBModel.FK__Report__EID__24927208" FromRole="Report" ToRole="Employee" />
+    <NavigationProperty Name="Expense" Relationship="VitsDBModel.FK__Expense__REPID__300424B4" FromRole="Report" ToRole="Expense" />
+    <NavigationProperty Name="Mission" Relationship="VitsDBModel.FK__Report__MID__25869641" FromRole="Report" ToRole="Mission" />
+    <NavigationProperty Name="Subsistence" Relationship="VitsDBModel.FK__Subsisten__REPID__36B12243" FromRole="Report" ToRole="Subsistence" />
+  </EntityType>
+  <EntityType Name="Subsistence">
+    <Key>
+      <PropertyRef Name="SID" />
+    </Key>
+    <Property Name="SID" Type="Byte" Nullable="false" />
+    <Property Name="REPID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CID" Type="Byte" Nullable="false" />
+    <Property Name="SUM" Type="Int32" />
+    <Property Name="DATE" Type="DateTime" />
+    <NavigationProperty Name="Country" Relationship="VitsDBModel.FK__Subsistence__CID__37A5467C" FromRole="Subsistence" ToRole="Country" />
+    <NavigationProperty Name="Report" Relationship="VitsDBModel.FK__Subsisten__REPID__36B12243" FromRole="Subsistence" ToRole="Report" />
+  </EntityType>
+  <EntityType Name="TravelAdvances">
+    <Key>
+      <PropertyRef Name="TID" />
+    </Key>
+    <Property Name="TID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Total" Type="Int32" Nullable="false" />
+    <Property Name="Approved" Type="Boolean" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" />
+    <Property Name="EID" Type="Byte" Nullable="false" />
+    <Property Name="MID" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="VitsDBModel.FK__TravelAdvan__EID__1CF15040" FromRole="TravelAdvances" ToRole="Employee" />
+    <NavigationProperty Name="Mission" Relationship="VitsDBModel.FK__TravelAdvan__MID__1DE57479" FromRole="TravelAdvances" ToRole="Mission" />
+  </EntityType>
+  <EntityType Name="Trip">
+    <Key>
+      <PropertyRef Name="EID" />
+      <PropertyRef Name="MID" />
+      <PropertyRef Name="CID" />
+      <PropertyRef Name="StartDate" />
+    </Key>
+    <Property Name="EID" Type="Byte" Nullable="false" />
+    <Property Name="MID" Type="Byte" Nullable="false" />
+    <Property Name="CID" Type="Byte" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" />
+    <Property Name="StopDate" Type="DateTime" />
+    <NavigationProperty Name="Country" Relationship="VitsDBModel.FK__Trip__CID__21B6055D" FromRole="Trip" ToRole="Country" />
+    <NavigationProperty Name="Employee" Relationship="VitsDBModel.FK__Trip__EID__1FCDBCEB" FromRole="Trip" ToRole="Employee" />
+    <NavigationProperty Name="Mission" Relationship="VitsDBModel.FK__Trip__MID__20C1E124" FromRole="Trip" ToRole="Mission" />
+  </EntityType>
+  <Association Name="FK__Expense__CCID__30F848ED">
+    <End Role="CostCenter" Type="VitsDBModel.CostCenter" Multiplicity="1" />
+    <End Role="Expense" Type="VitsDBModel.Expense" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CostCenter">
+        <PropertyRef Name="CCID" />
+      </Principal>
+      <Dependent Role="Expense">
+        <PropertyRef Name="CCID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Office__CID__145C0A3F">
+    <End Role="Country" Type="VitsDBModel.Country" Multiplicity="1" />
+    <End Role="Office" Type="VitsDBModel.Office" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="Office">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Subsistence__CID__37A5467C">
+    <End Role="Country" Type="VitsDBModel.Country" Multiplicity="1" />
+    <End Role="Subsistence" Type="VitsDBModel.Subsistence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="Subsistence">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Trip__CID__21B6055D">
+    <End Role="Country" Type="VitsDBModel.Country" Multiplicity="1" />
+    <End Role="Trip" Type="VitsDBModel.Trip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="Trip">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Deviation__REPID__2B3F6F97">
+    <End Role="Report" Type="VitsDBModel.Report" Multiplicity="1" />
+    <End Role="Deviation" Type="VitsDBModel.Deviation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Report">
+        <PropertyRef Name="REPID" />
+      </Principal>
+      <Dependent Role="Deviation">
+        <PropertyRef Name="REPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mission__Manager__182C9B23">
+    <End Role="Employee" Type="VitsDBModel.Employee" Multiplicity="1" />
+    <End Role="Mission" Type="VitsDBModel.Mission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EID" />
+      </Principal>
+      <Dependent Role="Mission">
+        <PropertyRef Name="Manager" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Report__EID__24927208">
+    <End Role="Employee" Type="VitsDBModel.Employee" Multiplicity="1" />
+    <End Role="Report" Type="VitsDBModel.Report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EID" />
+      </Principal>
+      <Dependent Role="Report">
+        <PropertyRef Name="EID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TravelAdvan__EID__1CF15040">
+    <End Role="Employee" Type="VitsDBModel.Employee" Multiplicity="1" />
+    <End Role="TravelAdvances" Type="VitsDBModel.TravelAdvances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EID" />
+      </Principal>
+      <Dependent Role="TravelAdvances">
+        <PropertyRef Name="EID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Trip__EID__1FCDBCEB">
+    <End Role="Employee" Type="VitsDBModel.Employee" Multiplicity="1" />
+    <End Role="Trip" Type="VitsDBModel.Trip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EID" />
+      </Principal>
+      <Dependent Role="Trip">
+        <PropertyRef Name="EID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Expense__REPID__300424B4">
+    <End Role="Report" Type="VitsDBModel.Report" Multiplicity="1" />
+    <End Role="Expense" Type="VitsDBModel.Expense" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Report">
+        <PropertyRef Name="REPID" />
+      </Principal>
+      <Dependent Role="Expense">
+        <PropertyRef Name="REPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mission__OID__173876EA">
+    <End Role="Office" Type="VitsDBModel.Office" Multiplicity="1" />
+    <End Role="Mission" Type="VitsDBModel.Mission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Office">
+        <PropertyRef Name="OID" />
+      </Principal>
+      <Dependent Role="Mission">
+        <PropertyRef Name="OID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Report__MID__25869641">
+    <End Role="Mission" Type="VitsDBModel.Mission" Multiplicity="1" />
+    <End Role="Report" Type="VitsDBModel.Report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mission">
+        <PropertyRef Name="MID" />
+      </Principal>
+      <Dependent Role="Report">
+        <PropertyRef Name="MID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TravelAdvan__MID__1DE57479">
+    <End Role="Mission" Type="VitsDBModel.Mission" Multiplicity="1" />
+    <End Role="TravelAdvances" Type="VitsDBModel.TravelAdvances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mission">
+        <PropertyRef Name="MID" />
+      </Principal>
+      <Dependent Role="TravelAdvances">
+        <PropertyRef Name="MID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Trip__MID__20C1E124">
+    <End Role="Mission" Type="VitsDBModel.Mission" Multiplicity="1" />
+    <End Role="Trip" Type="VitsDBModel.Trip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mission">
+        <PropertyRef Name="MID" />
+      </Principal>
+      <Dependent Role="Trip">
+        <PropertyRef Name="MID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Subsisten__REPID__36B12243">
+    <End Role="Report" Type="VitsDBModel.Report" Multiplicity="1" />
+    <End Role="Subsistence" Type="VitsDBModel.Subsistence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Report">
+        <PropertyRef Name="REPID" />
+      </Principal>
+      <Dependent Role="Subsistence">
+        <PropertyRef Name="REPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeMission">
+    <End Role="Employee" Type="VitsDBModel.Employee" Multiplicity="*" />
+    <End Role="Mission" Type="VitsDBModel.Mission" Multiplicity="*" />
+  </Association>
+</Schema>

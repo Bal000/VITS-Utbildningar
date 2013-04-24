@@ -118,7 +118,6 @@ namespace Vits
             Calendar.Enabled = x;
         }
 
-<<<<<<< HEAD
         protected void resetFields()
         {
             ddOffice.SelectedValue = "";
@@ -136,10 +135,10 @@ namespace Vits
             Description = tbDescription.Text;
             Date = Calendar.SelectedDate;
         }
-=======
+
         protected void btnAddMission_Click1(object sender, EventArgs e)
         {
-            ServiceReference1.Mission mission = new ServiceReference1.Mission;
+            ServiceReference1.Mission mission = new ServiceReference1.Mission();
 
             mission.OID = byte.Parse(ddOffice.SelectedValue);
             mission.MID = byte.Parse(ddManager.SelectedValue);
@@ -148,7 +147,6 @@ namespace Vits
 
         }
 
->>>>>>> ändring i contentpages
         
     }
 }
