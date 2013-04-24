@@ -28,9 +28,6 @@ namespace Vits
             lstAvvikelserTillRapport = new List<DateTime>();
         
             lstTraktTillRapport.Clear();
-            //lstAllaTraktamenten.Clear();
-            //ddlCountry.Items.Clear();
-            //ddlTractCountry.Items.Clear();
             FillCountry();
         }
 
@@ -44,10 +41,6 @@ namespace Vits
         // Fyll dropdown
         protected void FillCountry()
         {
-            //lstAllaTraktamenten.Clear();
-            //ddlCountry.Items.Clear();
-            //ddlTractCountry.Items.Clear();
-
             String sokvagTraktamenteFil = @"c:\vits\trakt.html";
             lstAllaTraktamenten = Klasser.Traktamente.HamtaUtlandstraktamenten(Klasser.Global.sokvagTraktamenteAdress, sokvagTraktamenteFil);
             
@@ -75,7 +68,6 @@ namespace Vits
                                                                 lstAllaTraktamenten[ddlIndex].Kronor,
                                                                 date.ToShortDateString());
             lstTraktamenteGrid.Add(tm);
-            Response.Write("Antal objekt: " + lstTraktamenteGrid.Count);
             Session["TRAKT"] = lstTraktamenteGrid;
 
             lstTraktamenteGrid = lstTraktamenteGrid.OrderBy(x => x.Datum).ToList();
@@ -91,7 +83,8 @@ namespace Vits
         //Välj datum (period)
         protected void btnTract_Click(object sender, EventArgs e)
         {
-            ValjDatumForTraktamente();            
+            ValjDatumForTraktamente();
+            //Response.Write("Antal objekt i Trakt-GridView: " + lstTraktamenteGrid.Count);
         }
 
 
@@ -288,8 +281,8 @@ namespace Vits
                 ServiceReference1.Expense expenseObj = new ServiceReference1.Expense();
                 expenseObj.REPID = ID;
                 //expenseOjb.CostCenter = ddlCategory.SelectedValue;
-                expenseObj.From = Convert.ToDateTime(txtBoxDateFrom.Text);
-                expenseObj.To = Convert.ToDateTime(txtBoxDateTo.Text);
+                //expenseObj.From = Convert.ToDateTime(txtBoxDateFrom.Text);
+                //expenseObj.To = Convert.ToDateTime(txtBoxDateTo.Text);
                 expenseObj.Sum = int.Parse(txtBoxAmount.Text);
             }
         }
