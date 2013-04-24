@@ -118,6 +118,9 @@ namespace Vits.Klasser
                 hopp += 2;
             }
 
+            lstTraktTmp.Add(new Traktamente("Sverige", 220, new DateTime().ToShortDateString()));
+            lstTraktTmp = lstTraktTmp.OrderBy(x => x.Land).ToList();
+            
             return lstTraktTmp;
         }
 
