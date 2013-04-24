@@ -12,7 +12,7 @@ namespace Vits
         string Office = "";
         string Manager = "";
         string Description = "";
-        DateTime x = new DateTime();
+        DateTime Date = new DateTime();
         
 
         protected void Page_Load(object sender, EventArgs e)
@@ -54,6 +54,16 @@ namespace Vits
         protected void btnAddMission2_Click(object sender, EventArgs e)
         {
             setFields();
+            ServiceReference1.Employee testemployee = new ServiceReference1.Employee();
+            ServiceReference1.Office testoffice = new ServiceReference1.Office();
+            ServiceReference1.Mission mission = new ServiceReference1.Mission();
+            mission.Description = Description;
+            mission.Office = testoffice;
+            mission.Employee = testemployee;
+            mission.StartDate = Date;
+
+
+
             buttonsAddMission2();
             setFieldsEnabled(false);
         }
@@ -129,13 +139,11 @@ namespace Vits
         }
         protected void setFields()
         {
-            DateTime Date = x;
             Office = ddOffice.SelectedValue.ToString();
             Manager = ddManager.SelectedValue.ToString();
             Description = tbDescription.Text;
             Date = Calendar.SelectedDate;
         }
-
         protected void btnAddMission_Click1(object sender, EventArgs e)
         {
             ServiceReference1.Mission mission = new ServiceReference1.Mission();

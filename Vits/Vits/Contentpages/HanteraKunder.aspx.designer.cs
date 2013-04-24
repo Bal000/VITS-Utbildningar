@@ -193,13 +193,13 @@ namespace Vits {
         protected global::System.Web.UI.WebControls.Label lblCoutry;
         
         /// <summary>
-        /// ddLand control.
+        /// ddlCountry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddLand;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCountry;
         
         /// <summary>
         /// btnAddOffice control.

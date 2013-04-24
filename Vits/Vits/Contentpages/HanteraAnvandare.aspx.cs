@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Management;
+using System.Web.Security;
 
 namespace Vits.Contentpages
 {
@@ -16,7 +18,7 @@ namespace Vits.Contentpages
         string ID = "";
         string LastName = "";
         string ZipCode = "";
-        string roll = "";
+        bool Manager = false;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -63,6 +65,34 @@ namespace Vits.Contentpages
         protected void btnAddUser2_Click(object sender, EventArgs e)
         {
             setAttributes();
+
+            ServiceReference1.Employee employee = new ServiceReference1.Employee();
+            employee.Adress = Adress;
+            employee.City = City;
+            employee.Email = Email;
+            employee.FirstName = FirstName;  
+            employee.LastName = LastName;
+            employee.ZipCode = ZipCode;
+            employee.IdNumber = ID; 
+            employee.Manager = Manager;
+
+            //Lägger till i databasen
+            ServiceReference1.Service1Client x = new ServiceReference1.Service1Client();
+            x.SaveEmployee(employee);
+
+            //Lägger till i WebProfiles för inloggning
+            System.Web.Security.Membership.CreateUser(ID, "pass123");
+            string roll = "";
+            if (Manager == true)
+            {
+                roll = "Admin";
+            }
+            else
+            {
+                roll = "User";
+            }
+            Roles.AddUserToRole(ID, roll);
+
             resetFields();
             buttonsAddUser2();
             setFieldsEnabled(false);
@@ -104,35 +134,8 @@ namespace Vits.Contentpages
             btnAddUser.Visible = false;
 
 
-            tbAdress.Enabled = true;
-            tbCity.Enabled = true;
-            tbEmail.Enabled = true;
-            tbFirstName.Enabled = true;
-            tbID.Enabled = true;
-            tbLastName.Enabled = true;
-            tbZipCode.Enabled = true;
-            radiobutton.Enabled = true;
+            setFieldsEnabled(true);
 
-            ServiceReference1.Employee employee = new ServiceReference1.Employee();
-
-            employee.FirstName = tbFirstName.Text;
-            employee.LastName = tbLastName.Text;
-            employee.Adress = tbAdress.Text;
-            employee.ZipCode = tbZipCode.Text;
-            employee.City = tbCity.Text;
-            employee.IdNumber = tbID.Text;
-            employee.Email = tbEmail.Text;
-
-            if(radiobutton.SelectedIndex == 0){
-                employee.Manager = false;
-            }
-            else{
-                employee.Manager = true;
-            }
-            
-
-
-        
 
         }
 
@@ -176,7 +179,14 @@ namespace Vits.Contentpages
             ID = tbID.Text;
             LastName = tbLastName.Text;
             ZipCode = tbZipCode.Text;
-            roll = radiobutton.SelectedValue.ToString();
+            if (radiobutton.SelectedValue.ToString() == "Konsult")
+            {
+                Manager = false;
+            }
+            else if(radiobutton.SelectedValue.ToString() == "Chef")
+            {
+                Manager = true;
+            }
         }
         
         

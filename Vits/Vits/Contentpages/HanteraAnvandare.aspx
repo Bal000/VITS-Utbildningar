@@ -85,7 +85,7 @@
                 <asp:Button ID="btnSave" runat="server" Text="Spara ändringar" Width="164px" 
                      onclick="btnSave_Click" Visible="False"/>
                 <asp:Button ID="btnAddUser2" runat="server" Text="Lägg till användare"  Width="164px"
-                     Visible="False" onclick="btnAddUser2_Click" />
+                     Visible="False" onclick="btnAddUser2_Click" /> 
             </div>
             <br />
             <br />

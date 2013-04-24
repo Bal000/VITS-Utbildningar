@@ -45,7 +45,7 @@
                 <asp:Label ID="Label6" runat="server" Text="Välj Land:"></asp:Label>
                 <asp:Label ID="lblCoutry" CssClass="ValidationLabel" runat="server" 
                 Visible="False"></asp:Label><br />
-                <asp:DropDownList ID="ddLand" runat="server" Height="25px" Width="164px" 
+                <asp:DropDownList ID="ddlCountry" runat="server" Height="25px" Width="164px" 
                     Enabled="False"></asp:DropDownList><br /><br />
 <br />
             
