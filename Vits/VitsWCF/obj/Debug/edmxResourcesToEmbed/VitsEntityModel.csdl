@@ -76,6 +76,20 @@
       <End Role="Employee" EntitySet="Employee" />
       <End Role="Mission" EntitySet="Mission" />
     </AssociationSet>
+    <EntitySet Name="TravelMethod" EntityType="VitsDBModel.TravelMethod" />
+    <EntitySet Name="TravelOrder" EntityType="VitsDBModel.TravelOrder" />
+    <AssociationSet Name="FK__TravelOrder__EID__3E52440B" Association="VitsDBModel.FK__TravelOrder__EID__3E52440B">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="TravelOrder" EntitySet="TravelOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TravelOrder__MID__3D5E1FD2" Association="VitsDBModel.FK__TravelOrder__MID__3D5E1FD2">
+      <End Role="Mission" EntitySet="Mission" />
+      <End Role="TravelOrder" EntitySet="TravelOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TravelOrde__TMID__3F466844" Association="VitsDBModel.FK__TravelOrde__TMID__3F466844">
+      <End Role="TravelMethod" EntitySet="TravelMethod" />
+      <End Role="TravelOrder" EntitySet="TravelOrder" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="CostCenter">
     <Key>
@@ -123,6 +137,7 @@
     <NavigationProperty Name="TravelAdvances" Relationship="VitsDBModel.FK__TravelAdvan__EID__1CF15040" FromRole="Employee" ToRole="TravelAdvances" />
     <NavigationProperty Name="Trip" Relationship="VitsDBModel.FK__Trip__EID__1FCDBCEB" FromRole="Employee" ToRole="Trip" />
     <NavigationProperty Name="Mission1" Relationship="VitsDBModel.EmployeeMission" FromRole="Employee" ToRole="Mission" />
+    <NavigationProperty Name="TravelOrder" Relationship="VitsDBModel.FK__TravelOrder__EID__3E52440B" FromRole="Employee" ToRole="TravelOrder" />
   </EntityType>
   <EntityType Name="Expense">
     <Key>
@@ -133,11 +148,10 @@
     <Property Name="CCID" Type="Byte" Nullable="false" />
     <Property Name="Sum" Type="Int32" Nullable="false" />
     <Property Name="VAT" Type="Int32" Nullable="false" />
-    <Property Name="From" Type="DateTime" Nullable="false" />
-    <Property Name="To" Type="DateTime" />
     <Property Name="Description" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="CostCenter" Relationship="VitsDBModel.FK__Expense__CCID__30F848ED" FromRole="Expense" ToRole="CostCenter" />
     <NavigationProperty Name="Report" Relationship="VitsDBModel.FK__Expense__REPID__300424B4" FromRole="Expense" ToRole="Report" />
+    <Property Type="DateTime" Name="Date" Nullable="false" />
   </EntityType>
   <EntityType Name="Mission">
     <Key>
@@ -154,6 +168,7 @@
     <NavigationProperty Name="TravelAdvances" Relationship="VitsDBModel.FK__TravelAdvan__MID__1DE57479" FromRole="Mission" ToRole="TravelAdvances" />
     <NavigationProperty Name="Trip" Relationship="VitsDBModel.FK__Trip__MID__20C1E124" FromRole="Mission" ToRole="Trip" />
     <NavigationProperty Name="Employee1" Relationship="VitsDBModel.EmployeeMission" FromRole="Mission" ToRole="Employee" />
+    <NavigationProperty Name="TravelOrder" Relationship="VitsDBModel.FK__TravelOrder__MID__3D5E1FD2" FromRole="Mission" ToRole="TravelOrder" />
   </EntityType>
   <EntityType Name="Office">
     <Key>
@@ -209,6 +224,7 @@
     <Property Name="MID" Type="Byte" Nullable="false" />
     <NavigationProperty Name="Employee" Relationship="VitsDBModel.FK__TravelAdvan__EID__1CF15040" FromRole="TravelAdvances" ToRole="Employee" />
     <NavigationProperty Name="Mission" Relationship="VitsDBModel.FK__TravelAdvan__MID__1DE57479" FromRole="TravelAdvances" ToRole="Mission" />
+    <Property Type="Boolean" Name="Answered" Nullable="false" />
   </EntityType>
   <EntityType Name="Trip">
     <Key>
@@ -409,5 +425,66 @@
   <Association Name="EmployeeMission">
     <End Role="Employee" Type="VitsDBModel.Employee" Multiplicity="*" />
     <End Role="Mission" Type="VitsDBModel.Mission" Multiplicity="*" />
+  </Association>
+  <EntityType Name="TravelMethod">
+    <Key>
+      <PropertyRef Name="TMID" />
+    </Key>
+    <Property Type="Byte" Name="TMID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TravelOrder" Relationship="VitsDBModel.FK__TravelOrde__TMID__3F466844" FromRole="TravelMethod" ToRole="TravelOrder" />
+  </EntityType>
+  <EntityType Name="TravelOrder">
+    <Key>
+      <PropertyRef Name="TID" />
+    </Key>
+    <Property Type="Byte" Name="TID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Byte" Name="MID" Nullable="false" />
+    <Property Type="Byte" Name="EID" Nullable="false" />
+    <Property Type="Byte" Name="TMID" Nullable="false" />
+    <Property Type="DateTime" Name="From" />
+    <Property Type="DateTime" Name="To" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Approved" Nullable="false" />
+    <Property Type="Boolean" Name="Answered" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="VitsDBModel.FK__TravelOrder__EID__3E52440B" FromRole="TravelOrder" ToRole="Employee" />
+    <NavigationProperty Name="Mission" Relationship="VitsDBModel.FK__TravelOrder__MID__3D5E1FD2" FromRole="TravelOrder" ToRole="Mission" />
+    <NavigationProperty Name="TravelMethod" Relationship="VitsDBModel.FK__TravelOrde__TMID__3F466844" FromRole="TravelOrder" ToRole="TravelMethod" />
+  </EntityType>
+  <Association Name="FK__TravelOrder__EID__3E52440B">
+    <End Type="VitsDBModel.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="VitsDBModel.TravelOrder" Role="TravelOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EID" />
+      </Principal>
+      <Dependent Role="TravelOrder">
+        <PropertyRef Name="EID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TravelOrder__MID__3D5E1FD2">
+    <End Type="VitsDBModel.Mission" Role="Mission" Multiplicity="1" />
+    <End Type="VitsDBModel.TravelOrder" Role="TravelOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mission">
+        <PropertyRef Name="MID" />
+      </Principal>
+      <Dependent Role="TravelOrder">
+        <PropertyRef Name="MID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TravelOrde__TMID__3F466844">
+    <End Type="VitsDBModel.TravelMethod" Role="TravelMethod" Multiplicity="1" />
+    <End Type="VitsDBModel.TravelOrder" Role="TravelOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TravelMethod">
+        <PropertyRef Name="TMID" />
+      </Principal>
+      <Dependent Role="TravelOrder">
+        <PropertyRef Name="TMID" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
 </Schema>

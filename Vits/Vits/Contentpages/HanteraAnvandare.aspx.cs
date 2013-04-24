@@ -6,8 +6,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Management;
 using System.Web.Security;
-using System.Collections.Generic;
-using System.Linq;
 using System.IO;
 using System.Diagnostics;
 using System.Text;
@@ -19,28 +17,34 @@ namespace Vits.Contentpages
 {
     public partial class HanteraAnvandare : System.Web.UI.Page
     {
-        string Adress = "";
-        string City = "";
-        string Email = "";
-        string FirstName = "";
-        string ID = "";
-        string LastName = "";
-        string ZipCode = "";
-        bool Manager = false;
+        string adress = "";
+        string city = "";
+        string email = "";
+        string firstname = "";
+        string idnumber = "";
+        string lastname = "";
+        string zipcode = "";
+        bool manager = false;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+           
             
+                fillUserList();
+                    
+        }
+
+        private void fillUserList()
+        {
             List<Employee> employees = new List<Employee>();
             var client = new ServiceReference1.Service1Client();
-            
-                employees = client.GetEmployees();
-            
+
+            employees = client.GetEmployees();
+
             for (int i = 0; i < employees.Count; i++)
             {
-                UserList.Items.Add(employees[i].FirstName + " " + employees[i].LastName + ", " + employees[i].IdNumber);
+                UserList.Items.Add(employees[i].IdNumber);
             }
-             
         }
 
         protected void btnEditUser_Click(object sender, EventArgs e)
@@ -85,23 +89,23 @@ namespace Vits.Contentpages
             setAttributes();
 
             ServiceReference1.Employee employee = new ServiceReference1.Employee();
-            employee.Adress = Adress;
-            employee.City = City;
-            employee.Email = Email;
-            employee.FirstName = FirstName;  
-            employee.LastName = LastName;
-            employee.ZipCode = ZipCode;
-            employee.IdNumber = ID; 
-            employee.Manager = Manager;
+            employee.Adress = adress;
+            employee.City = city;
+            employee.Email = email;
+            employee.FirstName = firstname;  
+            employee.LastName = lastname;
+            employee.ZipCode = zipcode;
+            employee.IdNumber = idnumber; 
+            employee.Manager = manager;
 
             //Lägger till i databasen
             ServiceReference1.Service1Client x = new ServiceReference1.Service1Client();
             x.SaveEmployee(employee);
 
             //Lägger till i WebProfiles för inloggning
-            System.Web.Security.Membership.CreateUser(ID, "pass123");
+            System.Web.Security.Membership.CreateUser(idnumber, "pass123");
             string roll = "";
-            if (Manager == true)
+            if (manager == true)
             {
                 roll = "Admin";
             }
@@ -109,12 +113,13 @@ namespace Vits.Contentpages
             {
                 roll = "User";
             }
-            Roles.AddUserToRole(ID, roll);
+            Roles.AddUserToRole(idnumber, roll);
 
             resetFields();
             buttonsAddUser2();
             setFieldsEnabled(false);
             UserList.SelectedValue = null;
+            fillUserList();
         }
 
         private void buttonsEditUser()
@@ -190,20 +195,20 @@ namespace Vits.Contentpages
         }
         protected void setAttributes()
         {
-            Adress = tbAdress.Text;
-            City = tbCity.Text;
-            Email = tbEmail.Text;
-            FirstName = tbFirstName.Text;
-            ID = tbID.Text;
-            LastName = tbLastName.Text;
-            ZipCode = tbZipCode.Text;
+            adress = tbAdress.Text;
+            city = tbCity.Text;
+            email = tbEmail.Text;
+            firstname = tbFirstName.Text;
+            idnumber = tbID.Text;
+            lastname = tbLastName.Text;
+            zipcode = tbZipCode.Text;
             if (radiobutton.SelectedValue.ToString() == "Konsult")
             {
-                Manager = false;
+                manager = false;
             }
             else if(radiobutton.SelectedValue.ToString() == "Chef")
             {
-                Manager = true;
+                manager = true;
             }
         }
         

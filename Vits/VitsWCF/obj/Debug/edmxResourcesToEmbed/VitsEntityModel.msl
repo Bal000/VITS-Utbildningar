@@ -45,13 +45,12 @@
     <EntitySetMapping Name="Expense">
       <EntityTypeMapping TypeName="VitsDBModel.Expense">
         <MappingFragment StoreEntitySet="Expense">
+          <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="EXPID" ColumnName="EXPID" />
           <ScalarProperty Name="REPID" ColumnName="REPID" />
           <ScalarProperty Name="CCID" ColumnName="CCID" />
           <ScalarProperty Name="Sum" ColumnName="Sum" />
           <ScalarProperty Name="VAT" ColumnName="VAT" />
-          <ScalarProperty Name="From" ColumnName="From" />
-          <ScalarProperty Name="To" ColumnName="To" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -106,6 +105,7 @@
     <EntitySetMapping Name="TravelAdvances">
       <EntityTypeMapping TypeName="VitsDBModel.TravelAdvances">
         <MappingFragment StoreEntitySet="TravelAdvances">
+          <ScalarProperty Name="Answered" ColumnName="Answered" />
           <ScalarProperty Name="TID" ColumnName="TID" />
           <ScalarProperty Name="Total" ColumnName="Total" />
           <ScalarProperty Name="Approved" ColumnName="Approved" />
@@ -134,5 +134,28 @@
         <ScalarProperty Name="MID" ColumnName="MID" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="TravelMethod">
+      <EntityTypeMapping TypeName="VitsDBModel.TravelMethod">
+        <MappingFragment StoreEntitySet="TravelMethod">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TMID" ColumnName="TMID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TravelOrder">
+      <EntityTypeMapping TypeName="VitsDBModel.TravelOrder">
+        <MappingFragment StoreEntitySet="TravelOrder">
+          <ScalarProperty Name="Answered" ColumnName="Answered" />
+          <ScalarProperty Name="Approved" ColumnName="Approved" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="To" ColumnName="To" />
+          <ScalarProperty Name="From" ColumnName="From" />
+          <ScalarProperty Name="TMID" ColumnName="TMID" />
+          <ScalarProperty Name="EID" ColumnName="EID" />
+          <ScalarProperty Name="MID" ColumnName="MID" />
+          <ScalarProperty Name="TID" ColumnName="TID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

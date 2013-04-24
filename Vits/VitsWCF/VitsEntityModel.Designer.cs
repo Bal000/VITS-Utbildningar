@@ -34,6 +34,9 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("VitsDBModel", "FK__Trip__MID__20C1E124", "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Mission), "Trip", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Trip), true)]
 [assembly: EdmRelationshipAttribute("VitsDBModel", "FK__Subsisten__REPID__36B12243", "Report", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Report), "Subsistence", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Subsistence), true)]
 [assembly: EdmRelationshipAttribute("VitsDBModel", "EmployeeMission", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Employee), "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Mission))]
+[assembly: EdmRelationshipAttribute("VitsDBModel", "FK__TravelOrder__EID__3E52440B", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Employee), "TravelOrder", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.TravelOrder), true)]
+[assembly: EdmRelationshipAttribute("VitsDBModel", "FK__TravelOrder__MID__3D5E1FD2", "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Mission), "TravelOrder", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.TravelOrder), true)]
+[assembly: EdmRelationshipAttribute("VitsDBModel", "FK__TravelOrde__TMID__3F466844", "TravelMethod", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.TravelMethod), "TravelOrder", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.TravelOrder), true)]
 
 #endregion
 
@@ -260,6 +263,38 @@ namespace VitsWCF
             }
         }
         private ObjectSet<Trip> _Trip;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<TravelMethod> TravelMethod
+        {
+            get
+            {
+                if ((_TravelMethod == null))
+                {
+                    _TravelMethod = base.CreateObjectSet<TravelMethod>("TravelMethod");
+                }
+                return _TravelMethod;
+            }
+        }
+        private ObjectSet<TravelMethod> _TravelMethod;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<TravelOrder> TravelOrder
+        {
+            get
+            {
+                if ((_TravelOrder == null))
+                {
+                    _TravelOrder = base.CreateObjectSet<TravelOrder>("TravelOrder");
+                }
+                return _TravelOrder;
+            }
+        }
+        private ObjectSet<TravelOrder> _TravelOrder;
 
         #endregion
         #region AddTo Methods
@@ -350,6 +385,22 @@ namespace VitsWCF
         public void AddToTrip(Trip trip)
         {
             base.AddObject("Trip", trip);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the TravelMethod EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToTravelMethod(TravelMethod travelMethod)
+        {
+            base.AddObject("TravelMethod", travelMethod);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the TravelOrder EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToTravelOrder(TravelOrder travelOrder)
+        {
+            base.AddObject("TravelOrder", travelOrder);
         }
 
         #endregion
@@ -1162,6 +1213,28 @@ namespace VitsWCF
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("VitsDBModel", "FK__TravelOrder__EID__3E52440B", "TravelOrder")]
+        public EntityCollection<TravelOrder> TravelOrder
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TravelOrder>("VitsDBModel.FK__TravelOrder__EID__3E52440B", "TravelOrder");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TravelOrder>("VitsDBModel.FK__TravelOrder__EID__3E52440B", "TravelOrder", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -1184,8 +1257,8 @@ namespace VitsWCF
         /// <param name="cCID">Initial value of the CCID property.</param>
         /// <param name="sum">Initial value of the Sum property.</param>
         /// <param name="vAT">Initial value of the VAT property.</param>
-        /// <param name="from">Initial value of the From property.</param>
-        public static Expense CreateExpense(global::System.Byte eXPID, global::System.String rEPID, global::System.Byte cCID, global::System.Int32 sum, global::System.Int32 vAT, global::System.DateTime from)
+        /// <param name="date">Initial value of the Date property.</param>
+        public static Expense CreateExpense(global::System.Byte eXPID, global::System.String rEPID, global::System.Byte cCID, global::System.Int32 sum, global::System.Int32 vAT, global::System.DateTime date)
         {
             Expense expense = new Expense();
             expense.EXPID = eXPID;
@@ -1193,7 +1266,7 @@ namespace VitsWCF
             expense.CCID = cCID;
             expense.Sum = sum;
             expense.VAT = vAT;
-            expense.From = from;
+            expense.Date = date;
             return expense;
         }
 
@@ -1326,54 +1399,6 @@ namespace VitsWCF
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime From
-        {
-            get
-            {
-                return _From;
-            }
-            set
-            {
-                OnFromChanging(value);
-                ReportPropertyChanging("From");
-                _From = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("From");
-                OnFromChanged();
-            }
-        }
-        private global::System.DateTime _From;
-        partial void OnFromChanging(global::System.DateTime value);
-        partial void OnFromChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> To
-        {
-            get
-            {
-                return _To;
-            }
-            set
-            {
-                OnToChanging(value);
-                ReportPropertyChanging("To");
-                _To = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("To");
-                OnToChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _To;
-        partial void OnToChanging(Nullable<global::System.DateTime> value);
-        partial void OnToChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Description
@@ -1394,6 +1419,30 @@ namespace VitsWCF
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Date
+        {
+            get
+            {
+                return _Date;
+            }
+            set
+            {
+                OnDateChanging(value);
+                ReportPropertyChanging("Date");
+                _Date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Date");
+                OnDateChanged();
+            }
+        }
+        private global::System.DateTime _Date;
+        partial void OnDateChanging(global::System.DateTime value);
+        partial void OnDateChanged();
 
         #endregion
     
@@ -1797,6 +1846,28 @@ namespace VitsWCF
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Employee>("VitsDBModel.EmployeeMission", "Employee", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("VitsDBModel", "FK__TravelOrder__MID__3D5E1FD2", "TravelOrder")]
+        public EntityCollection<TravelOrder> TravelOrder
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TravelOrder>("VitsDBModel.FK__TravelOrder__MID__3D5E1FD2", "TravelOrder");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TravelOrder>("VitsDBModel.FK__TravelOrder__MID__3D5E1FD2", "TravelOrder", value);
                 }
             }
         }
@@ -2661,7 +2732,8 @@ namespace VitsWCF
         /// <param name="date">Initial value of the Date property.</param>
         /// <param name="eID">Initial value of the EID property.</param>
         /// <param name="mID">Initial value of the MID property.</param>
-        public static TravelAdvances CreateTravelAdvances(global::System.Byte tID, global::System.Int32 total, global::System.Boolean approved, global::System.DateTime date, global::System.Byte eID, global::System.Byte mID)
+        /// <param name="answered">Initial value of the Answered property.</param>
+        public static TravelAdvances CreateTravelAdvances(global::System.Byte tID, global::System.Int32 total, global::System.Boolean approved, global::System.DateTime date, global::System.Byte eID, global::System.Byte mID, global::System.Boolean answered)
         {
             TravelAdvances travelAdvances = new TravelAdvances();
             travelAdvances.TID = tID;
@@ -2670,6 +2742,7 @@ namespace VitsWCF
             travelAdvances.Date = date;
             travelAdvances.EID = eID;
             travelAdvances.MID = mID;
+            travelAdvances.Answered = answered;
             return travelAdvances;
         }
 
@@ -2822,6 +2895,30 @@ namespace VitsWCF
         private global::System.Byte _MID;
         partial void OnMIDChanging(global::System.Byte value);
         partial void OnMIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Answered
+        {
+            get
+            {
+                return _Answered;
+            }
+            set
+            {
+                OnAnsweredChanging(value);
+                ReportPropertyChanging("Answered");
+                _Answered = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Answered");
+                OnAnsweredChanged();
+            }
+        }
+        private global::System.Boolean _Answered;
+        partial void OnAnsweredChanging(global::System.Boolean value);
+        partial void OnAnsweredChanged();
 
         #endregion
     
@@ -2899,6 +2996,486 @@ namespace VitsWCF
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Mission>("VitsDBModel.FK__TravelAdvan__MID__1DE57479", "Mission", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="VitsDBModel", Name="TravelMethod")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class TravelMethod : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new TravelMethod object.
+        /// </summary>
+        /// <param name="tMID">Initial value of the TMID property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        public static TravelMethod CreateTravelMethod(global::System.Byte tMID, global::System.String name)
+        {
+            TravelMethod travelMethod = new TravelMethod();
+            travelMethod.TMID = tMID;
+            travelMethod.Name = name;
+            return travelMethod;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte TMID
+        {
+            get
+            {
+                return _TMID;
+            }
+            set
+            {
+                if (_TMID != value)
+                {
+                    OnTMIDChanging(value);
+                    ReportPropertyChanging("TMID");
+                    _TMID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("TMID");
+                    OnTMIDChanged();
+                }
+            }
+        }
+        private global::System.Byte _TMID;
+        partial void OnTMIDChanging(global::System.Byte value);
+        partial void OnTMIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("VitsDBModel", "FK__TravelOrde__TMID__3F466844", "TravelOrder")]
+        public EntityCollection<TravelOrder> TravelOrder
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TravelOrder>("VitsDBModel.FK__TravelOrde__TMID__3F466844", "TravelOrder");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TravelOrder>("VitsDBModel.FK__TravelOrde__TMID__3F466844", "TravelOrder", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="VitsDBModel", Name="TravelOrder")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class TravelOrder : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new TravelOrder object.
+        /// </summary>
+        /// <param name="tID">Initial value of the TID property.</param>
+        /// <param name="mID">Initial value of the MID property.</param>
+        /// <param name="eID">Initial value of the EID property.</param>
+        /// <param name="tMID">Initial value of the TMID property.</param>
+        /// <param name="approved">Initial value of the Approved property.</param>
+        /// <param name="answered">Initial value of the Answered property.</param>
+        public static TravelOrder CreateTravelOrder(global::System.Byte tID, global::System.Byte mID, global::System.Byte eID, global::System.Byte tMID, global::System.Boolean approved, global::System.Boolean answered)
+        {
+            TravelOrder travelOrder = new TravelOrder();
+            travelOrder.TID = tID;
+            travelOrder.MID = mID;
+            travelOrder.EID = eID;
+            travelOrder.TMID = tMID;
+            travelOrder.Approved = approved;
+            travelOrder.Answered = answered;
+            return travelOrder;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte TID
+        {
+            get
+            {
+                return _TID;
+            }
+            set
+            {
+                if (_TID != value)
+                {
+                    OnTIDChanging(value);
+                    ReportPropertyChanging("TID");
+                    _TID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("TID");
+                    OnTIDChanged();
+                }
+            }
+        }
+        private global::System.Byte _TID;
+        partial void OnTIDChanging(global::System.Byte value);
+        partial void OnTIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte MID
+        {
+            get
+            {
+                return _MID;
+            }
+            set
+            {
+                OnMIDChanging(value);
+                ReportPropertyChanging("MID");
+                _MID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MID");
+                OnMIDChanged();
+            }
+        }
+        private global::System.Byte _MID;
+        partial void OnMIDChanging(global::System.Byte value);
+        partial void OnMIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte EID
+        {
+            get
+            {
+                return _EID;
+            }
+            set
+            {
+                OnEIDChanging(value);
+                ReportPropertyChanging("EID");
+                _EID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EID");
+                OnEIDChanged();
+            }
+        }
+        private global::System.Byte _EID;
+        partial void OnEIDChanging(global::System.Byte value);
+        partial void OnEIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte TMID
+        {
+            get
+            {
+                return _TMID;
+            }
+            set
+            {
+                OnTMIDChanging(value);
+                ReportPropertyChanging("TMID");
+                _TMID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TMID");
+                OnTMIDChanged();
+            }
+        }
+        private global::System.Byte _TMID;
+        partial void OnTMIDChanging(global::System.Byte value);
+        partial void OnTMIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> From
+        {
+            get
+            {
+                return _From;
+            }
+            set
+            {
+                OnFromChanging(value);
+                ReportPropertyChanging("From");
+                _From = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("From");
+                OnFromChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _From;
+        partial void OnFromChanging(Nullable<global::System.DateTime> value);
+        partial void OnFromChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> To
+        {
+            get
+            {
+                return _To;
+            }
+            set
+            {
+                OnToChanging(value);
+                ReportPropertyChanging("To");
+                _To = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("To");
+                OnToChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _To;
+        partial void OnToChanging(Nullable<global::System.DateTime> value);
+        partial void OnToChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Approved
+        {
+            get
+            {
+                return _Approved;
+            }
+            set
+            {
+                OnApprovedChanging(value);
+                ReportPropertyChanging("Approved");
+                _Approved = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Approved");
+                OnApprovedChanged();
+            }
+        }
+        private global::System.Boolean _Approved;
+        partial void OnApprovedChanging(global::System.Boolean value);
+        partial void OnApprovedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Answered
+        {
+            get
+            {
+                return _Answered;
+            }
+            set
+            {
+                OnAnsweredChanging(value);
+                ReportPropertyChanging("Answered");
+                _Answered = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Answered");
+                OnAnsweredChanged();
+            }
+        }
+        private global::System.Boolean _Answered;
+        partial void OnAnsweredChanging(global::System.Boolean value);
+        partial void OnAnsweredChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("VitsDBModel", "FK__TravelOrder__EID__3E52440B", "Employee")]
+        public Employee Employee
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("VitsDBModel.FK__TravelOrder__EID__3E52440B", "Employee").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("VitsDBModel.FK__TravelOrder__EID__3E52440B", "Employee").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Employee> EmployeeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("VitsDBModel.FK__TravelOrder__EID__3E52440B", "Employee");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Employee>("VitsDBModel.FK__TravelOrder__EID__3E52440B", "Employee", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("VitsDBModel", "FK__TravelOrder__MID__3D5E1FD2", "Mission")]
+        public Mission Mission
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("VitsDBModel.FK__TravelOrder__MID__3D5E1FD2", "Mission").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("VitsDBModel.FK__TravelOrder__MID__3D5E1FD2", "Mission").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Mission> MissionReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("VitsDBModel.FK__TravelOrder__MID__3D5E1FD2", "Mission");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Mission>("VitsDBModel.FK__TravelOrder__MID__3D5E1FD2", "Mission", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("VitsDBModel", "FK__TravelOrde__TMID__3F466844", "TravelMethod")]
+        public TravelMethod TravelMethod
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TravelMethod>("VitsDBModel.FK__TravelOrde__TMID__3F466844", "TravelMethod").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TravelMethod>("VitsDBModel.FK__TravelOrde__TMID__3F466844", "TravelMethod").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<TravelMethod> TravelMethodReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TravelMethod>("VitsDBModel.FK__TravelOrde__TMID__3F466844", "TravelMethod");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TravelMethod>("VitsDBModel.FK__TravelOrde__TMID__3F466844", "TravelMethod", value);
                 }
             }
         }

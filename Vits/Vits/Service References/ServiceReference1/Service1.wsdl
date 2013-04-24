@@ -81,6 +81,12 @@
   <wsdl:message name="IService1_SaveCostCenter_OutputMessage">
     <wsdl:part name="parameters" element="tns:SaveCostCenterResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetEmployees_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployees" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -129,6 +135,10 @@
     <wsdl:operation name="SaveCostCenter">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SaveCostCenter" message="tns:IService1_SaveCostCenter_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/SaveCostCenterResponse" message="tns:IService1_SaveCostCenter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployees">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetEmployees" message="tns:IService1_GetEmployees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetEmployeesResponse" message="tns:IService1_GetEmployees_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -234,6 +244,15 @@
     </wsdl:operation>
     <wsdl:operation name="SaveCostCenter">
       <soap:operation soapAction="http://tempuri.org/IService1/SaveCostCenter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployees">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetEmployees" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
