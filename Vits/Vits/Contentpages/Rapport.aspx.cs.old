@@ -7,34 +7,29 @@ using System.Web.UI.WebControls;
 using System.IO;
 using System.Diagnostics;
 using System.Text;
-using Vits.ServiceReference1;
 
 namespace Vits
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
         private List<ServiceReference1.Expense> expense;
-        private List<Klasser.Traktamente>   lstAllaTraktamenten;
-        private List<Klasser.Traktamente>   lstTraktamenteGrid;
-        private List<Klasser.Traktamente>   lstTraktTillRapport;
-        private List<DateTime>              lstAvvikelserTillRapport;
-        
+        private List<Klasser.Traktamente> lstAllaTraktamenten;
+        private List<Klasser.Traktamente> lstTraktamenteGrid;
+        private List<Klasser.Traktamente> lstTraktTillRapport;
+        private List<DateTime> lstAvvikelserTillRapport;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             ID = Guid.NewGuid().ToString();
-            lstAllaTraktamenten     = new List<Klasser.Traktamente>();
-            lstTraktamenteGrid      = new List<Klasser.Traktamente>();
-            lstTraktTillRapport     = new List<Klasser.Traktamente>();
+            lstAllaTraktamenten = new List<Klasser.Traktamente>();
+            lstTraktamenteGrid = new List<Klasser.Traktamente>();
+            lstTraktTillRapport = new List<Klasser.Traktamente>();
             lstAvvikelserTillRapport = new List<DateTime>();
-        
+
             lstTraktTillRapport.Clear();
-            //lstAllaTraktamenten.Clear();
-            //ddlCountry.Items.Clear();
-            //ddlTractCountry.Items.Clear();
             FillCountry();
+
         }
-
-
 
 
 // ________________________________________________ BÖRJAN TRAKTAMENTEN / AVVIKELSER ______________________________________________________
@@ -44,13 +39,10 @@ namespace Vits
         // Fyll dropdown
         protected void FillCountry()
         {
-            //lstAllaTraktamenten.Clear();
-            //ddlCountry.Items.Clear();
-            //ddlTractCountry.Items.Clear();
 
             String sokvagTraktamenteFil = @"c:\vits\trakt.html";
             lstAllaTraktamenten = Klasser.Traktamente.HamtaUtlandstraktamenten(Klasser.Global.sokvagTraktamenteAdress, sokvagTraktamenteFil);
-            
+
             for (int i = 0; i < lstAllaTraktamenten.Count; i++)
             {
                 ddlCountry.Items.Add(lstAllaTraktamenten[i].Land);
@@ -66,7 +58,7 @@ namespace Vits
         protected void LaggTillTraktGrid(DateTime date)
         {
             int ddlIndex = ddlTractCountry.SelectedIndex;
-            
+
             if (Session["TRAKT"] != null)
             {
                 lstTraktamenteGrid = (List<Klasser.Traktamente>)Session["TRAKT"];
@@ -81,17 +73,16 @@ namespace Vits
             lstTraktamenteGrid = lstTraktamenteGrid.OrderBy(x => x.Datum).ToList();
             gwTract.DataSource = lstTraktamenteGrid;
             gwTract.DataBind();
-            
         }
-        
-        
-        
-        
+
+
+
+
         // ------------------------------------------------------------------------------------------------------
         //Välj datum (period)
         protected void btnTract_Click(object sender, EventArgs e)
         {
-            ValjDatumForTraktamente();            
+            ValjDatumForTraktamente();
         }
 
 
@@ -123,7 +114,7 @@ namespace Vits
 
             Session["TRAKT"] = lstTraktamenteGrid;
 
-            
+
             lstAvvikelserTillRapport = Avvikelser(); // beräka avvikelser
 
             Debug.WriteLine("\n\n---------- Traktamente / Avvikelser ----------");
@@ -174,7 +165,7 @@ namespace Vits
             DateTime dateStop = Convert.ToDateTime(lstTraktTillRapport[lstTraktTillRapport.Count - 1].Datum);
             List<DateTime> lstAvTmp = new List<DateTime>();
             int i = 0;
-                        
+
             while (dateStart <= dateStop)
             {
                 if (dateStart.ToShortDateString() == lstTraktTillRapport[i].Datum)
@@ -190,7 +181,7 @@ namespace Vits
                     //nd = dateStart;
                     lstAvTmp.Add(dateStart);
                 }
-                
+
                 dateStart = dateStart.AddDays(1);
             }
             return lstAvTmp;
@@ -203,7 +194,7 @@ namespace Vits
         // avdrag procent
         protected int BeraknaAvdrag(String avdrag, int kronor)
         {
-            int avdragProcent; 
+            int avdragProcent;
             float nyTrakt = (float)kronor;
             bool b = int.TryParse(avdrag, out avdragProcent);
             if (!b)
@@ -214,7 +205,7 @@ namespace Vits
 
             switch (avdragProcent)
             {
-                case 0: 
+                case 0:
                     {
                         nyTrakt = (float)kronor;
                         break;
@@ -275,15 +266,20 @@ namespace Vits
             }
         }
 // ________________________________________________ SLUT TRAKTAMENTEN / AVVIKELSER ________________________________________________
+
         
 
 
 
-        // ------------------------------------------------------------------------------------------------------
+
+        protected void btnAddReceipt_Click1(object sender, EventArgs e)
+        {
+
+        }
+
         protected void btnAddReceipt_Click(object sender, EventArgs e)
         {
             if (ID != "")
-
             {
                 ServiceReference1.Expense expenseObj = new ServiceReference1.Expense();
                 expenseObj.REPID = ID;
