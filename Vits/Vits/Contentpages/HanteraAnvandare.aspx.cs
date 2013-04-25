@@ -29,7 +29,7 @@ namespace Vits.Contentpages
         protected void Page_Load(object sender, EventArgs e)
         {
            
-            
+                
                 fillUserList();
                     
         }
@@ -46,6 +46,7 @@ namespace Vits.Contentpages
             for (int i = 0; i < employees.Count; i++)
             {
                 UserList.Items.Add(employees[i].IdNumber);
+                
             }
         }
 

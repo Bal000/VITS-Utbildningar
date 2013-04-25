@@ -18,39 +18,42 @@ namespace VitsWCF
 
 
         [OperationContract]
-        void SaveReport(Report report);
+        void SaveReport(CompositeReport report);
 
         [OperationContract]
-        void SaveOffice(Office office);
+        void SaveOffice(CompositeOffice office);
 
         [OperationContract]
-        void SaveMission(Mission mission);
+        void SaveMission(CompositeMission mission);
 
         [OperationContract]
-        void SaveTrip(Trip trip);
+        void SaveTrip(CompositeTrip trip);
         
         [OperationContract]
-        void SaveTravelAdvances(TravelAdvances travelAdvances);
+        void SaveTravelAdvances(CompositeTravelAdvances travelAdvances);
 
         [OperationContract]
         void SaveEmployee(CompositeEmployee employee);
 
         [OperationContract]
-        void SaveExpense(Expense expense);
+        void SaveExpense(CompositeExpense expense);
 
         [OperationContract]
-        void SaveDeviation(Deviation deviation);
+        void SaveDeviation(CompositeDeviation deviation);
 
         [OperationContract]
-        void SaveCountry(Country country);
+        void SaveCountry(CompositeCountry country);
 
         [OperationContract]
-        void SaveCostCenter(CostCenter costcenter);
+        void SaveCostCenter(CompositeCostCenter costcenter);
 
-
+        [OperationContract]
+        void SaveSubsistence(CompositeSubsistence subsistence);
 
         [OperationContract]
         List<CompositeEmployee> GetEmployees();
+
+
 
 
 
@@ -63,7 +66,9 @@ namespace VitsWCF
     [DataContract]
     public class CompositeOffice : Office
     {
+
     }
+
     [DataContract]
     public class CompositeEmployee : Employee
     {
@@ -124,5 +129,68 @@ namespace VitsWCF
         // set { manager = value; }
         // }
     }
-    
+
+    [DataContract]
+    public class CompositeCountry : Country
+    {
+
+    }
+
+    [DataContract]
+    public class CompositeSubsistence : Subsistence
+    {
+
+    }
+
+    [DataContract]
+    public class CompositeMission : Mission
+    {
+
+    }
+
+    [DataContract]
+    public class CompositeReport : Report
+    {
+
+    }
+
+    [DataContract]
+    public class CompositeTravelAdvances : TravelAdvances
+    {
+
+    }
+
+    [DataContract]
+    public class CompositeExpense : Expense
+    {
+
+    }
+
+    [DataContract]
+    public class CompositeCostCenter : CostCenter
+    {
+
+    }
+
+    [DataContract]
+    public class CompositeDeviation : Deviation
+    {
+
+    }
+    [DataContract]
+    public class CompositeTravelOrder : TravelOrder
+    {
+
+    }
+    [DataContract]
+    public class CompositeTravelMethod : TravelMethod
+    {
+
+    }
+    [DataContract]
+    public class CompositeTrip : Trip
+    {
+
+    }
+
 }

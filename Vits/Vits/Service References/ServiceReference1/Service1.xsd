@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VitsWCF" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VitsWCF" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:58782/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+  <xs:complexType name="CompositeReport">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Report">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CompositeReport" nillable="true" type="tns:CompositeReport" />
   <xs:complexType name="Report">
     <xs:complexContent mixed="false">
       <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
@@ -304,6 +312,38 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="CostCenter" nillable="true" type="tns:CostCenter" />
+  <xs:complexType name="CompositeOffice">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Office">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CompositeOffice" nillable="true" type="tns:CompositeOffice" />
+  <xs:complexType name="CompositeMission">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Mission">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CompositeMission" nillable="true" type="tns:CompositeMission" />
+  <xs:complexType name="CompositeTrip">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Trip">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CompositeTrip" nillable="true" type="tns:CompositeTrip" />
+  <xs:complexType name="CompositeTravelAdvances">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TravelAdvances">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CompositeTravelAdvances" nillable="true" type="tns:CompositeTravelAdvances" />
   <xs:complexType name="CompositeEmployee">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:Employee">
@@ -312,6 +352,46 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="CompositeEmployee" nillable="true" type="tns:CompositeEmployee" />
+  <xs:complexType name="CompositeExpense">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Expense">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CompositeExpense" nillable="true" type="tns:CompositeExpense" />
+  <xs:complexType name="CompositeDeviation">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Deviation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CompositeDeviation" nillable="true" type="tns:CompositeDeviation" />
+  <xs:complexType name="CompositeCountry">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Country">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CompositeCountry" nillable="true" type="tns:CompositeCountry" />
+  <xs:complexType name="CompositeCostCenter">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CostCenter">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CompositeCostCenter" nillable="true" type="tns:CompositeCostCenter" />
+  <xs:complexType name="CompositeSubsistence">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Subsistence">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CompositeSubsistence" nillable="true" type="tns:CompositeSubsistence" />
   <xs:complexType name="ArrayOfCompositeEmployee">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="CompositeEmployee" nillable="true" type="tns:CompositeEmployee" />

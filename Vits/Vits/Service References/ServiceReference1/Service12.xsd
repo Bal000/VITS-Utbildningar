@@ -18,7 +18,7 @@
   <xs:element name="SaveReport">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="report" nillable="true" type="q1:Report" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="report" nillable="true" type="q1:CompositeReport" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -30,7 +30,7 @@
   <xs:element name="SaveOffice">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="office" nillable="true" type="q2:Office" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="office" nillable="true" type="q2:CompositeOffice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -42,7 +42,7 @@
   <xs:element name="SaveMission">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="mission" nillable="true" type="q3:Mission" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="mission" nillable="true" type="q3:CompositeMission" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -54,7 +54,7 @@
   <xs:element name="SaveTrip">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="trip" nillable="true" type="q4:Trip" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="trip" nillable="true" type="q4:CompositeTrip" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -66,7 +66,7 @@
   <xs:element name="SaveTravelAdvances">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="travelAdvances" nillable="true" type="q5:TravelAdvances" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="travelAdvances" nillable="true" type="q5:CompositeTravelAdvances" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -90,7 +90,7 @@
   <xs:element name="SaveExpense">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="expense" nillable="true" type="q7:Expense" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="expense" nillable="true" type="q7:CompositeExpense" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -102,7 +102,7 @@
   <xs:element name="SaveDeviation">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="deviation" nillable="true" type="q8:Deviation" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="deviation" nillable="true" type="q8:CompositeDeviation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -114,7 +114,7 @@
   <xs:element name="SaveCountry">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="country" nillable="true" type="q9:Country" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="country" nillable="true" type="q9:CompositeCountry" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -126,11 +126,23 @@
   <xs:element name="SaveCostCenter">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="costcenter" nillable="true" type="q10:CostCenter" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="costcenter" nillable="true" type="q10:CompositeCostCenter" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SaveCostCenterResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveSubsistence">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="subsistence" nillable="true" type="q11:CompositeSubsistence" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveSubsistenceResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -143,7 +155,7 @@
   <xs:element name="GetEmployeesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="GetEmployeesResult" nillable="true" type="q11:ArrayOfCompositeEmployee" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="GetEmployeesResult" nillable="true" type="q12:ArrayOfCompositeEmployee" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

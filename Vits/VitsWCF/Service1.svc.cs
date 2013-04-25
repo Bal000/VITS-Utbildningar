@@ -17,61 +17,89 @@ namespace VitsWCF
             return string.Format("You entered: {0}", value);
         }
 
-       
-
-        public void SaveReport(Report report)
+        public void SaveReport(CompositeReport report)
         {
+                using (var context = new DATABASEVITSEntities())
+                {
+                    Report rep = new Report();
+                    rep.REPID = report.REPID;
+                    rep.EID = report.EID;
+                    rep.MID = report.MID;
+                    rep.Expenses = report.Expenses;
+                    rep.Car = report.Car;
+                    rep.Miles = report.Miles;
 
-            using (var context = new DATABASEVITSEntities())
-            {
-                //Report rep = new Report
-                //{
-                //    EID = report.EID,
-                //    MID = report.MID,
-                //    Expenses = report.Expenses,
-                //    Car = report.Car,
-                //    Miles = report.Miles
-
-                //};
-
-                context.Report.AddObject(report);
-                context.SaveChanges();
-            }
+                    context.Report.AddObject(rep);
+                    context.SaveChanges();
+                }
+             
+            
 
         }
 
-        public void SaveOffice(Office office)
+        public void SaveOffice(CompositeOffice office)
         {
             using (var context = new DATABASEVITSEntities())
             {
-                context.Office.AddObject(office);
-                context.SaveChanges();
-            }
-        }
+                Office off = new Office();
+                off.Name = office.Name;
+                off.OrgNumber = office.OrgNumber;
+                off.Adress = office.Adress;
+                off.ZipCode = office.ZipCode;
+                off.CID = office.CID;
+               
 
-        public void SaveMission(Mission mission)
-        {
-            using (var context = new DATABASEVITSEntities())
-            {
-                context.Mission.AddObject(mission);
+                context.Office.AddObject(off);
                 context.SaveChanges();
             }
         }
 
-        public void SaveTrip(Trip trip)
+        public void SaveMission(CompositeMission mission)
         {
             using (var context = new DATABASEVITSEntities())
             {
-                context.Trip.AddObject(trip);
+                Mission miss = new Mission();
+                miss.OID = mission.OID;
+                miss.Manager = mission.Manager;
+                miss.Description = mission.Description;
+                miss.StartDate = mission.StartDate;
+                
+                
+                context.Mission.AddObject(miss);
                 context.SaveChanges();
             }
         }
 
-        public void SaveTravelAdvances(TravelAdvances travelAdvances)
+        public void SaveTrip(CompositeTrip trip)
         {
             using (var context = new DATABASEVITSEntities())
             {
-                context.TravelAdvances.AddObject(travelAdvances);
+                Trip tri = new Trip();
+                tri.EID = trip.EID;
+                tri.MID = trip.MID;
+                tri.CID = trip.CID;
+                tri.StartDate = trip.StartDate;
+                tri.StopDate = trip.StopDate;
+                    
+                
+                context.Trip.AddObject(tri);
+                context.SaveChanges();
+            }
+        }
+
+        public void SaveTravelAdvances(CompositeTravelAdvances travelAdvances)
+        {
+            using (var context = new DATABASEVITSEntities())
+            {
+                TravelAdvances ta = new TravelAdvances();
+                ta.Total = travelAdvances.Total;
+                ta.Approved = travelAdvances.Approved;
+                ta.Answered = travelAdvances.Answered;
+                ta.Date = travelAdvances.Date;
+                ta.EID = travelAdvances.EID;
+                ta.MID = travelAdvances.MID;
+                
+                context.TravelAdvances.AddObject(ta);
                 context.SaveChanges();
             }
         }
@@ -95,40 +123,73 @@ namespace VitsWCF
             }
         }
 
-        public void SaveExpense(Expense expense)
+        public void SaveExpense(CompositeExpense expense)
         {
             using (var context = new DATABASEVITSEntities())
             {
-                context.Expense.AddObject(expense);
+                Expense exp = new Expense();
+                exp.REPID = expense.REPID;
+                exp.CCID = expense.CCID;
+                exp.Sum = expense.Sum;
+                exp.VAT = expense.VAT;
+                exp.Date = expense.Date;
+                exp.Description = expense.Description;
+
+                context.Expense.AddObject(exp);
                 context.SaveChanges();
             }
         }
 
-        public void SaveDeviation(Deviation deviation)
+        public void SaveSubsistence(CompositeSubsistence subsistence)
         {
             using (var context = new DATABASEVITSEntities())
             {
-                context.Deviation.AddObject(deviation);
+                Subsistence sub = new Subsistence();
+                sub.REPID = subsistence.REPID;
+                sub.CID = subsistence.CID;
+                sub.SUM = subsistence.SUM;
+                sub.DATE = subsistence.DATE;
+
+                context.Subsistence.AddObject(sub);
                 context.SaveChanges();
             }
         }
-        public void SaveCountry(Country country)
+
+        public void SaveDeviation(CompositeDeviation deviation)
         {
             using (var context = new DATABASEVITSEntities())
             {
-                context.Country.AddObject(country);
+                Deviation dev = new Deviation();
+                dev.REPID = deviation.REPID;
+                dev.StartDate = deviation.StartDate;
+                dev.StopDate = dev.StopDate;
+                
+                context.Deviation.AddObject(dev);
+                context.SaveChanges();
+            }
+        }
+        public void SaveCountry(CompositeCountry country)
+        {
+            using (var context = new DATABASEVITSEntities())
+            {
+                Country co = new Country();
+                co.Name = country.Name;
+                
+                context.Country.AddObject(co);
                 context.SaveChanges();
             }
         }
 
-        public void SaveCostCenter(CostCenter costcenter)
+        public void SaveCostCenter(CompositeCostCenter costcenter)
         {
-
             using (var context = new DATABASEVITSEntities())
             {
-                context.CostCenter.AddObject(costcenter);
+                CostCenter cc = new CostCenter();
+                cc.CCID = costcenter.CCID;
+                cc.Name = costcenter.Name;
+                
+                context.CostCenter.AddObject(cc);
                 context.SaveChanges();
-
             }
         }
 
@@ -152,6 +213,7 @@ namespace VitsWCF
                 return employees;
             }
         }
+
         public List<CompositeOffice> GetOffices()
         {
             using (var context = new DATABASEVITSEntities())
