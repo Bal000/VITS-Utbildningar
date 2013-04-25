@@ -15,67 +15,6 @@ namespace Vits.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/VitsWCF")]
-    [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool BoolValueField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StringValueField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
-            get {
-                return this.BoolValueField;
-            }
-            set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
-            get {
-                return this.StringValueField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="StructuralObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.EntityObject))]
@@ -89,6 +28,7 @@ namespace Vits.ServiceReference1 {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.TravelAdvances))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.TravelOrder))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.TravelMethod))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CompositeEmployee))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Expense))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CostCenter))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Report))]
@@ -131,6 +71,7 @@ namespace Vits.ServiceReference1 {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.TravelAdvances))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.TravelOrder))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.TravelMethod))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CompositeEmployee))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Expense))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CostCenter))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Report))]
@@ -260,6 +201,7 @@ namespace Vits.ServiceReference1 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Employee", Namespace="http://schemas.datacontract.org/2004/07/VitsWCF", IsReference=true)]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CompositeEmployee))]
     public partial class Employee : Vits.ServiceReference1.EntityObject {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1809,6 +1751,13 @@ namespace Vits.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeEmployee", Namespace="http://schemas.datacontract.org/2004/07/VitsWCF", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class CompositeEmployee : Vits.ServiceReference1.Employee {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Expense", Namespace="http://schemas.datacontract.org/2004/07/VitsWCF", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class Expense : Vits.ServiceReference1.EntityObject {
@@ -2355,7 +2304,6 @@ namespace Vits.ServiceReference1 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityKeyMember", Namespace="http://schemas.datacontract.org/2004/07/System.Data")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CompositeType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Report))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.Deviation>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Deviation))]
@@ -2379,6 +2327,8 @@ namespace Vits.ServiceReference1 {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.Expense>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Expense))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CostCenter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CompositeEmployee))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.CompositeEmployee>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.EntityKey))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.EntityKeyMember>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.EntityObject))]
@@ -2558,9 +2508,6 @@ namespace Vits.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
         string GetData(int value);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        Vits.ServiceReference1.CompositeType GetDataUsingDataContract(Vits.ServiceReference1.CompositeType composite);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SaveReport", ReplyAction="http://tempuri.org/IService1/SaveReportResponse")]
         void SaveReport(Vits.ServiceReference1.Report report);
         
@@ -2577,7 +2524,7 @@ namespace Vits.ServiceReference1 {
         void SaveTravelAdvances(Vits.ServiceReference1.TravelAdvances travelAdvances);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SaveEmployee", ReplyAction="http://tempuri.org/IService1/SaveEmployeeResponse")]
-        void SaveEmployee(Vits.ServiceReference1.Employee employee);
+        void SaveEmployee(Vits.ServiceReference1.CompositeEmployee employee);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SaveExpense", ReplyAction="http://tempuri.org/IService1/SaveExpenseResponse")]
         void SaveExpense(Vits.ServiceReference1.Expense expense);
@@ -2592,7 +2539,7 @@ namespace Vits.ServiceReference1 {
         void SaveCostCenter(Vits.ServiceReference1.CostCenter costcenter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEmployees", ReplyAction="http://tempuri.org/IService1/GetEmployeesResponse")]
-        System.Collections.Generic.List<Vits.ServiceReference1.Employee> GetEmployees();
+        System.Collections.Generic.List<Vits.ServiceReference1.CompositeEmployee> GetEmployees();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2626,10 +2573,6 @@ namespace Vits.ServiceReference1 {
             return base.Channel.GetData(value);
         }
         
-        public Vits.ServiceReference1.CompositeType GetDataUsingDataContract(Vits.ServiceReference1.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContract(composite);
-        }
-        
         public void SaveReport(Vits.ServiceReference1.Report report) {
             base.Channel.SaveReport(report);
         }
@@ -2650,7 +2593,7 @@ namespace Vits.ServiceReference1 {
             base.Channel.SaveTravelAdvances(travelAdvances);
         }
         
-        public void SaveEmployee(Vits.ServiceReference1.Employee employee) {
+        public void SaveEmployee(Vits.ServiceReference1.CompositeEmployee employee) {
             base.Channel.SaveEmployee(employee);
         }
         
@@ -2670,7 +2613,7 @@ namespace Vits.ServiceReference1 {
             base.Channel.SaveCostCenter(costcenter);
         }
         
-        public System.Collections.Generic.List<Vits.ServiceReference1.Employee> GetEmployees() {
+        public System.Collections.Generic.List<Vits.ServiceReference1.CompositeEmployee> GetEmployees() {
             return base.Channel.GetEmployees();
         }
     }

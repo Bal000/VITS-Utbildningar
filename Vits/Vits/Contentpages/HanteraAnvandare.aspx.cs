@@ -36,7 +36,9 @@ namespace Vits.Contentpages
 
         private void fillUserList()
         {
-            List<Employee> employees = new List<Employee>();
+            UserList.Items.Clear();
+
+            List<CompositeEmployee> employees = new List<CompositeEmployee>();
             var client = new ServiceReference1.Service1Client();
 
             employees = client.GetEmployees();
@@ -71,7 +73,7 @@ namespace Vits.Contentpages
         protected void btnAddUser_Click(object sender, EventArgs e)
         {
             buttonsAddUser();
-            UserList.SelectedValue = "";
+            UserList.SelectedValue = null;
             setFieldsEnabled(true);
             resetFields();
         }
@@ -88,7 +90,7 @@ namespace Vits.Contentpages
         {
             setAttributes();
 
-            ServiceReference1.Employee employee = new ServiceReference1.Employee();
+            ServiceReference1.CompositeEmployee employee = new ServiceReference1.CompositeEmployee();
             employee.Adress = adress;
             employee.City = city;
             employee.Email = email;

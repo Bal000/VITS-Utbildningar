@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VitsWCF" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VitsWCF" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:58782/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
-  <xs:complexType name="CompositeType">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="BoolValue" type="xs:boolean" />
-      <xs:element minOccurs="0" name="StringValue" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="CompositeType" nillable="true" type="tns:CompositeType" />
   <xs:complexType name="Report">
     <xs:complexContent mixed="false">
       <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
@@ -311,4 +304,18 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="CostCenter" nillable="true" type="tns:CostCenter" />
+  <xs:complexType name="CompositeEmployee">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Employee">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CompositeEmployee" nillable="true" type="tns:CompositeEmployee" />
+  <xs:complexType name="ArrayOfCompositeEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CompositeEmployee" nillable="true" type="tns:CompositeEmployee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCompositeEmployee" nillable="true" type="tns:ArrayOfCompositeEmployee" />
 </xs:schema>

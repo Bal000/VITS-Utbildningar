@@ -55,9 +55,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Vits_DB.mdf" />
-    <Content Include="App_Data\Vits_DB_log.ldf">
-      <DependentUpon>Vits_DB.mdf</DependentUpon>
+    <Content Include="App_Data\DATABASEVITS.mdf" />
+    <Content Include="App_Data\DATABASEVITS_log.ldf">
+      <DependentUpon>DATABASEVITS.mdf</DependentUpon>
     </Content>
     <Content Include="Service1.svc" />
     <Content Include="Web.config" />
