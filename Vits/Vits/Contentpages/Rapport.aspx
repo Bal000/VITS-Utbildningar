@@ -36,7 +36,8 @@
                 <asp:TextBox ID="txtBoxDescription" runat="server"></asp:TextBox>
                 <br />
                 <br />
-                <asp:Button ID="btnAddReceipt" runat="server" Text="Lägg till utgift" />
+                <asp:Button ID="btnAddReceipt" runat="server" Text="Lägg till utgift" 
+                    onclick="btnAddReceipt_Click" />
             </div>
         </div>
         <div class="ContentRight">

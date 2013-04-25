@@ -159,4 +159,28 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetExpenses">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExpensesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="GetExpensesResult" nillable="true" type="q13:ArrayOfCompositeExpense" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCostCenter">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCostCenterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="GetCostCenterResult" nillable="true" type="q14:ArrayOfCompositeCostCenter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

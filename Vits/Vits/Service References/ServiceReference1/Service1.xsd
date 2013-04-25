@@ -398,4 +398,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfCompositeEmployee" nillable="true" type="tns:ArrayOfCompositeEmployee" />
+  <xs:complexType name="ArrayOfCompositeExpense">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CompositeExpense" nillable="true" type="tns:CompositeExpense" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCompositeExpense" nillable="true" type="tns:ArrayOfCompositeExpense" />
+  <xs:complexType name="ArrayOfCompositeCostCenter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CompositeCostCenter" nillable="true" type="tns:CompositeCostCenter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCompositeCostCenter" nillable="true" type="tns:ArrayOfCompositeCostCenter" />
 </xs:schema>

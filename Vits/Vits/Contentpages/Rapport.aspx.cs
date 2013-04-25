@@ -21,6 +21,7 @@ namespace Vits
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            expense = new List<ServiceReference1.CompositeExpense>();
             ID = Guid.NewGuid().ToString();
             lstAllaTraktamenten     = new List<Klasser.Traktamente>();
             lstTraktamenteGrid      = new List<Klasser.Traktamente>();
@@ -297,9 +298,12 @@ namespace Vits
         // ------------------------------------------------------------------------------------------------------
         protected void btnAddReceipt_Click(object sender, EventArgs e)
         {
-            if (ID != "")
+            if (Session["EXPENSE"] != null)
+            {
+                expense = (List<ServiceReference1.CompositeExpense>)Session["EXPENSE"];
+            }
 
-            {if (ID != "")
+            if (ID != "")
             {
                 ServiceReference1.CompositeExpense expenseObj = new ServiceReference1.CompositeExpense();
                 expenseObj.REPID = ID;
@@ -381,8 +385,8 @@ namespace Vits
             
                 FillExpenseGrid();
 
-                
-            }
+                Session["EXPENSE"] = expense;
+            
         }
 
         protected void FillExpenseGrid()

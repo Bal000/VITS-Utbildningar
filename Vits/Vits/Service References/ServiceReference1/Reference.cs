@@ -2439,6 +2439,8 @@ namespace Vits.ServiceReference1 {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CompositeCostCenter))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CompositeSubsistence))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.CompositeEmployee>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.CompositeExpense>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.CompositeCostCenter>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.EntityKey))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.EntityKeyMember>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.EntityObject))]
@@ -2653,6 +2655,12 @@ namespace Vits.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEmployees", ReplyAction="http://tempuri.org/IService1/GetEmployeesResponse")]
         System.Collections.Generic.List<Vits.ServiceReference1.CompositeEmployee> GetEmployees();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetExpenses", ReplyAction="http://tempuri.org/IService1/GetExpensesResponse")]
+        System.Collections.Generic.List<Vits.ServiceReference1.CompositeExpense> GetExpenses();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCostCenter", ReplyAction="http://tempuri.org/IService1/GetCostCenterResponse")]
+        System.Collections.Generic.List<Vits.ServiceReference1.CompositeCostCenter> GetCostCenter();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2732,6 +2740,14 @@ namespace Vits.ServiceReference1 {
         
         public System.Collections.Generic.List<Vits.ServiceReference1.CompositeEmployee> GetEmployees() {
             return base.Channel.GetEmployees();
+        }
+        
+        public System.Collections.Generic.List<Vits.ServiceReference1.CompositeExpense> GetExpenses() {
+            return base.Channel.GetExpenses();
+        }
+        
+        public System.Collections.Generic.List<Vits.ServiceReference1.CompositeCostCenter> GetCostCenter() {
+            return base.Channel.GetCostCenter();
         }
     }
 }

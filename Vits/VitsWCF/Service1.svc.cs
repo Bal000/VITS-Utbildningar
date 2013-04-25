@@ -227,5 +227,39 @@ namespace VitsWCF
                 return offices;
             }
         }
+
+
+        public List<CompositeExpense> GetExpenses()
+        {
+            using (var context = new DATABASEVITSEntities())
+            {
+                List<CompositeExpense> expenses = new List<CompositeExpense>();
+                expenses = context.Expense.Select(x => new CompositeExpense
+                {
+                    EXPID = x.EXPID,
+                    REPID = x.REPID,
+                    CCID = x.CCID,
+                    Sum = x.Sum,
+                    VAT = x.VAT,
+                    Date = x.Date,
+                    Description = x.Description
+                }).ToList();
+                return expenses;
+            }
+        }
+
+        public List<CompositeCostCenter> GetCostCenter()
+        {
+            using (var context = new DATABASEVITSEntities())
+            {
+                List<CompositeCostCenter> costcenter = new List<CompositeCostCenter>();
+                costcenter = context.CostCenter.Select(x => new CompositeCostCenter
+                {
+                    CCID = x.CCID,
+                    Name = x.Name
+                }).ToList();
+                return costcenter;
+            }
+        }
     }
 }

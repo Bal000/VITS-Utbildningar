@@ -54,7 +54,11 @@ namespace VitsWCF
         List<CompositeEmployee> GetEmployees();
 
 
+        [OperationContract]
+        List<CompositeExpense> GetExpenses();
 
+        [OperationContract]
+        List<CompositeCostCenter> GetCostCenter();
 
 
 
