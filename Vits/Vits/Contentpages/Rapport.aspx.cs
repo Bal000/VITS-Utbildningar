@@ -72,8 +72,7 @@ namespace Vits
 
             lstTraktamenteGrid = lstTraktamenteGrid.OrderBy(x => x.Datum).ToList();
             gwTract.DataSource = lstTraktamenteGrid;
-            gwTract.DataBind();
-            
+            gwTract.DataBind();            
         }
         
         
@@ -100,6 +99,7 @@ namespace Vits
         protected void Button2tmp_Click(object sender, EventArgs e)
         {
             int ddlIndex = ddlTractCountry.SelectedIndex;
+            
 
             if (Session["TRAKT"] != null)
             {
@@ -119,6 +119,7 @@ namespace Vits
 
             Session["TRAKT"] = lstTraktamenteGrid;
 
+            lstTraktTillRapport = lstTraktTillRapport.OrderBy(x => x.Datum).ToList();
             
             lstAvvikelserTillRapport = Avvikelser(); // beräka avvikelser
 
@@ -163,7 +164,6 @@ namespace Vits
         //Avvikelser
         protected List<DateTime> Avvikelser()
         {
-            lstTraktTillRapport = lstTraktTillRapport.OrderBy(x => x.Datum).ToList();
             DateTime dateStart = Convert.ToDateTime(lstTraktTillRapport[0].Datum);
             DateTime dateStop = Convert.ToDateTime(lstTraktTillRapport[lstTraktTillRapport.Count - 1].Datum);
             List<DateTime> lstAvTmp = new List<DateTime>();
@@ -179,7 +179,6 @@ namespace Vits
                 else
                 {
                     //Debug.WriteLine("Avvikelse: " + dateStart.ToShortDateString());
-
                     //DateTime nd = new DateTime();
                     //nd = dateStart;
                     lstAvTmp.Add(dateStart);
