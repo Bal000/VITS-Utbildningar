@@ -1,0 +1,85 @@
+﻿body {
+}
+
+.ContentWrapper
+{
+    border: /*2px solid purple;*/
+    height: auto;
+}
+.Headline
+{
+    font-weight: bold;
+    font-size: large;    
+    
+}
+
+.InfoDiv
+{
+    margin-top: 5%;
+    height: 5%;
+    border-bottom: 1px solid black;
+    margin-left:5%;  
+    margin-right:5%;   
+}
+
+.TravelDiv
+{
+    height: 15%;
+   border-bottom: 1px solid black;
+    margin-left:5%; 
+    margin-right:5%;   
+}
+    
+.PurposeDiv
+{
+    height: 8%;
+   border-bottom: 1px solid black;    
+   margin-left:5%;
+   margin-right:5%;       
+}
+
+.TravelMethodDiv
+{
+    height: 10%;
+    border-bottom: 1px solid black;
+    margin-left:5%;
+    margin-right:5%;       
+}
+
+.ClearFix
+{
+    clear:both;
+    }
+    
+.CalRight
+{
+    float: left;
+    margin-left: 15%;
+    height: 205px;
+    width: 192px;
+}
+    
+.CalLeft
+{
+   float: left;
+    height: 205px;
+    width: 192px;
+}
+
+.txtBoxPurpose 
+{
+    width: 40%;
+    height: 60%;    
+}
+
+.cblTravelMethod
+{
+    background-color:#5087FC;
+       
+}
+
+.btnSend
+{
+    float:right;
+    margin-right:5%;    
+}
