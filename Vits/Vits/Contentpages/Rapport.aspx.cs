@@ -13,7 +13,7 @@ namespace Vits
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        private List<ServiceReference1.Expense> expense;
+        private List<ServiceReference1.CompositeExpense> expense;
         private List<Klasser.Traktamente>   lstAllaTraktamenten;
         private List<Klasser.Traktamente>   lstTraktamenteGrid;
         private List<Klasser.Traktamente>   lstTraktTillRapport;
@@ -29,9 +29,31 @@ namespace Vits
         
             lstTraktTillRapport.Clear();
             FillCountry();
+            FillCategoryDropDown();
+
+        }
+
+        //Börjar kod för Utgifter
+
+        protected void FillCategoryDropDown() 
+        {
+
+            using (var client = new ServiceReference1.Service1Client())
+            {
+                List<ServiceReference1.CompositeCostCenter> costCenterList = client.GetCostCenter();
+
+                ddlCategory.DataSource = costCenterList;
+
+                foreach (ServiceReference1.CompositeCostCenter cost in costCenterList)
+                {
+                    ddlCategory.Items.Add(cost.Name);
+                }
+
+            }
         }
 
 
+        //Slutar kod för Utgifter
 
 
 // ________________________________________________ BÖRJAN TRAKTAMENTEN / AVVIKELSER ______________________________________________________
@@ -277,14 +299,97 @@ namespace Vits
         {
             if (ID != "")
 
+            {if (ID != "")
             {
-                ServiceReference1.Expense expenseObj = new ServiceReference1.Expense();
+                ServiceReference1.CompositeExpense expenseObj = new ServiceReference1.CompositeExpense();
                 expenseObj.REPID = ID;
-                //expenseOjb.CostCenter = ddlCategory.SelectedValue;
-                //expenseObj.From = Convert.ToDateTime(txtBoxDateFrom.Text);
-                //expenseObj.To = Convert.ToDateTime(txtBoxDateTo.Text);
+                string value = ddlCategory.SelectedValue.ToString();
+                int newVal = 0;
+
+                switch (value)
+                {
+                    case "Mat":
+                        {
+                            newVal = 1;
+                            break;
+                        }
+                    case "Transport": 
+                        {
+                            newVal = 2;
+                            break;
+                    }
+                    case "Boende":
+                        {
+                            newVal = 3;
+                            break;
+                        }
+                    case "Övrigt": 
+                        {
+                            newVal = 4;
+                            break;
+                        }
+                
+                }
+                
+               
+                expenseObj.CCID = (byte) newVal;
+                expenseObj.Date = Convert.ToDateTime(txtBoxDate.Text);
                 expenseObj.Sum = int.Parse(txtBoxAmount.Text);
+                expenseObj.Description = txtBoxDescription.Text;
+
+                if (ddlCountry.SelectedValue.ToString().Equals("Sverige"))
+                {
+                    switch (ddlCategory.SelectedValue.ToString())
+                    {
+                        case "Mat":
+                            {
+                                expenseObj.VAT = 12;
+                                break;
+                            }
+                        case "Transport":
+                            {
+                                expenseObj.VAT = 6;
+                                break;
+                            }
+
+                        case "Boende":
+                            {
+                                expenseObj.VAT = 25;
+                                break;
+                            }
+                        case "Övrigt":
+                            {
+                                expenseObj.VAT = 25;
+                                break;
+                            }
+                        default:
+                            {
+                                expenseObj.VAT = 0;
+                                break;
+                            }
+                    }
+                }
+                else
+                {
+                    expenseObj.VAT = 0;
+                }
+
+
+                expense.Add(expenseObj);
+            }
+
+            
+                FillExpenseGrid();
+
+                
             }
         }
+
+        protected void FillExpenseGrid()
+        {
+            gvReciept.DataSource = expense;
+            gvReciept.DataBind();
+        }
+
     }
 }

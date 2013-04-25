@@ -10,8 +10,8 @@
  {
     float: left;
     width: 70%;
-    height: 600px;
-    border: 1px solid red;
+    height: 400px;
+    border-right: 1px solid black;
     
  }
  
@@ -19,14 +19,14 @@
  {
     float: left;
     width: 28%;
-    height: 600px;
+    height: 400px;
     border: 1px solid green;
     margin:auto;
  }
  
  div.CarDiv
  {
-     border: 1px solid black;
+     border-bottom: 1px solid black;
      
      margin-left: 2%;
      margin-bottom:5%;
@@ -43,8 +43,8 @@ div.SubsistenceDiv
 
 div.ReceiptDiv
 {
-    border: 1px solid black;
-    height: 20%;
+    
+    height: 70%;
     margin-left:2%;
     margin-bottom:5%;
     clear:both;

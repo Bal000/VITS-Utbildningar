@@ -2,7 +2,7 @@
     CodeBehind="Rapport.aspx.cs" Inherits="Vits.WebForm1" %>
     
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-<link href="~/Styles/Rapport.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/Rapport.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -25,8 +25,7 @@
                 </asp:DropDownList>
                 <br />
                 <asp:Label ID="txtDate" runat="server" Text="Datum" CssClass="lblBold"></asp:Label><br />
-                <asp:TextBox ID="txtBoxDateFrom" runat="server"></asp:TextBox>
-                <asp:TextBox ID="txtBoxDateTo" runat="server"></asp:TextBox><br />
+                <asp:TextBox ID="txtBoxDate" runat="server"></asp:TextBox><br />
                 <asp:Label ID="txtAmount" runat="server" Text="Belopp" CssClass="lblBold"></asp:Label><br />
                 <asp:TextBox ID="txtBoxAmount" runat="server"></asp:TextBox><br />
                 <asp:Label ID="txtCountry" runat="server" Text="Land" CssClass="lblBold"></asp:Label><br />
@@ -42,12 +41,17 @@
         </div>
         <div class="ContentRight">
             <asp:Label ID="txtExpenseList" runat="server" Text="Utgifts Lista:" CssClass="lblBold"></asp:Label>
-            <asp:GridView ID="gvReciept" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:UpdatePanel ID="UpdatePanel2" OnDataBinding="btnAddReceipt_Click" runat="server">
+            <ContentTemplate>
+            <asp:GridView ID="gvReciept" runat="server" CellPadding="4" ForeColor="#333333" 
+                    GridLines="None" AutoGenerateColumns="False">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
-                    <asp:BoundField HeaderText="Kategori" />
-                    <asp:BoundField HeaderText="Belopp" />
-                    <asp:ButtonField Text="Button" />
+                    <asp:BoundField HeaderText="Belopp" DataField="Sum" />
+                    <asp:BoundField DataField="Description" HeaderText="Beskrivning" 
+                        SortExpression="Description" />
+                    <asp:ButtonField ButtonType="Button" CommandName="Edit" Text="Ändra" />
+                    <asp:ButtonField ButtonType="Button" CommandName="Delete" Text="Ta bort" />
                 </Columns>
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -60,6 +64,8 @@
                 <SortedDescendingCellStyle BackColor="#FFFDF8" />
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
+            </ContentTemplate>
+            </asp:UpdatePanel>
             <br />
             <asp:Label ID="lblTotal" runat="server" Text="Totalt: " CssClass="lblBold"></asp:Label>
         </div>
