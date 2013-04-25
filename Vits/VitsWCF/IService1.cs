@@ -61,6 +61,10 @@ namespace VitsWCF
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
     [DataContract]
+    public class CompositeOffice : Office
+    {
+    }
+    [DataContract]
     public class CompositeEmployee : Employee
     {
         //string firstName = "";

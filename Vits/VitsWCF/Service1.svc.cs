@@ -152,5 +152,18 @@ namespace VitsWCF
                 return employees;
             }
         }
+        public List<CompositeOffice> GetOffices()
+        {
+            using (var context = new VitsDBEntities())
+            {
+                List<CompositeOffice> offices = new List<CompositeOffice>();
+                offices = context.Office.Select(x => new CompositeOffice
+                {
+                    
+                    
+                }).ToList();
+                return offices;
+            }
+        }
     }
 }
