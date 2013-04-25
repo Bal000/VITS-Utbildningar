@@ -22,7 +22,7 @@ namespace VitsWCF
         public void SaveReport(Report report)
         {
 
-            using (var context = new VitsDBEntities())
+            using (var context = new DATABASEVITSEntities())
             {
                 //Report rep = new Report
                 //{
@@ -42,7 +42,7 @@ namespace VitsWCF
 
         public void SaveOffice(Office office)
         {
-            using (var context = new VitsDBEntities())
+            using (var context = new DATABASEVITSEntities())
             {
                 context.Office.AddObject(office);
                 context.SaveChanges();
@@ -51,7 +51,7 @@ namespace VitsWCF
 
         public void SaveMission(Mission mission)
         {
-            using (var context = new VitsDBEntities())
+            using (var context = new DATABASEVITSEntities())
             {
                 context.Mission.AddObject(mission);
                 context.SaveChanges();
@@ -60,7 +60,7 @@ namespace VitsWCF
 
         public void SaveTrip(Trip trip)
         {
-            using (var context = new VitsDBEntities())
+            using (var context = new DATABASEVITSEntities())
             {
                 context.Trip.AddObject(trip);
                 context.SaveChanges();
@@ -69,7 +69,7 @@ namespace VitsWCF
 
         public void SaveTravelAdvances(TravelAdvances travelAdvances)
         {
-            using (var context = new VitsDBEntities())
+            using (var context = new DATABASEVITSEntities())
             {
                 context.TravelAdvances.AddObject(travelAdvances);
                 context.SaveChanges();
@@ -78,7 +78,7 @@ namespace VitsWCF
 
         public void SaveEmployee(CompositeEmployee employee)
         {
-            using (var context = new VitsDBEntities())
+            using (var context = new DATABASEVITSEntities())
             {
                 Employee emp = new Employee();
                 emp.Adress = employee.Adress;
@@ -97,7 +97,7 @@ namespace VitsWCF
 
         public void SaveExpense(Expense expense)
         {
-            using (var context = new VitsDBEntities())
+            using (var context = new DATABASEVITSEntities())
             {
                 context.Expense.AddObject(expense);
                 context.SaveChanges();
@@ -106,7 +106,7 @@ namespace VitsWCF
 
         public void SaveDeviation(Deviation deviation)
         {
-            using (var context = new VitsDBEntities())
+            using (var context = new DATABASEVITSEntities())
             {
                 context.Deviation.AddObject(deviation);
                 context.SaveChanges();
@@ -114,7 +114,7 @@ namespace VitsWCF
         }
         public void SaveCountry(Country country)
         {
-            using (var context = new VitsDBEntities())
+            using (var context = new DATABASEVITSEntities())
             {
                 context.Country.AddObject(country);
                 context.SaveChanges();
@@ -124,7 +124,7 @@ namespace VitsWCF
         public void SaveCostCenter(CostCenter costcenter)
         {
 
-            using (var context = new VitsDBEntities())
+            using (var context = new DATABASEVITSEntities())
             {
                 context.CostCenter.AddObject(costcenter);
                 context.SaveChanges();
@@ -135,7 +135,7 @@ namespace VitsWCF
 
         public List<CompositeEmployee> GetEmployees()
         {
-            using (var context = new VitsDBEntities())
+            using (var context = new DATABASEVITSEntities())
             {
                 List<CompositeEmployee> employees = new List<CompositeEmployee>();
                 employees = context.Employee.Select(x => new CompositeEmployee
@@ -154,7 +154,7 @@ namespace VitsWCF
         }
         public List<CompositeOffice> GetOffices()
         {
-            using (var context = new VitsDBEntities())
+            using (var context = new DATABASEVITSEntities())
             {
                 List<CompositeOffice> offices = new List<CompositeOffice>();
                 offices = context.Office.Select(x => new CompositeOffice

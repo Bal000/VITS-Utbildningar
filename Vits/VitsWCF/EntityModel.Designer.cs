@@ -47,32 +47,32 @@ namespace VitsWCF
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class VitsDBEntities : ObjectContext
+    public partial class DATABASEVITSEntities : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new VitsDBEntities object using the connection string found in the 'VitsDBEntities' section of the application configuration file.
+        /// Initializes a new DATABASEVITSEntities object using the connection string found in the 'DATABASEVITSEntities' section of the application configuration file.
         /// </summary>
-        public VitsDBEntities() : base("name=VitsDBEntities", "VitsDBEntities")
+        public DATABASEVITSEntities() : base("name=DATABASEVITSEntities", "DATABASEVITSEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new VitsDBEntities object.
+        /// Initialize a new DATABASEVITSEntities object.
         /// </summary>
-        public VitsDBEntities(string connectionString) : base(connectionString, "VitsDBEntities")
+        public DATABASEVITSEntities(string connectionString) : base(connectionString, "DATABASEVITSEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new VitsDBEntities object.
+        /// Initialize a new DATABASEVITSEntities object.
         /// </summary>
-        public VitsDBEntities(EntityConnection connection) : base(connection, "VitsDBEntities")
+        public DATABASEVITSEntities(EntityConnection connection) : base(connection, "DATABASEVITSEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
