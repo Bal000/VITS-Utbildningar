@@ -65,6 +65,7 @@
     <None Include="Service References\ServiceReference1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <Content Include="Contentpages\HanteraAnvandare.aspx" />
     <Content Include="Contentpages\HanteraKunder.aspx" />
@@ -101,10 +102,7 @@
     <None Include="Service References\ServiceReference1\Service133.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\Vits.ServiceReference1.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\Vits.ServiceReference1.Employee1.datasource">
+    <None Include="Service References\ServiceReference1\Vits.ServiceReference1.CompositeEmployee.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>

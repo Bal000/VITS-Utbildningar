@@ -17,18 +17,7 @@ namespace VitsWCF
             return string.Format("You entered: {0}", value);
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
-        {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
-        }
+       
 
         public void SaveReport(Report report)
         {
@@ -87,11 +76,21 @@ namespace VitsWCF
             }
         }
 
-        public void SaveEmployee(Employee employee)
+        public void SaveEmployee(CompositeEmployee employee)
         {
             using (var context = new VitsDBEntities())
             {
-                context.Employee.AddObject(employee);
+                Employee emp = new Employee();
+                emp.Adress = employee.Adress;
+                emp.City = employee.City;
+                emp.Email = employee.Email;
+                emp.FirstName = employee.FirstName;
+                emp.IdNumber = employee.IdNumber;
+                emp.LastName = employee.LastName;
+                emp.Manager = employee.Manager;
+                emp.ZipCode = employee.ZipCode;
+
+                context.Employee.AddObject(emp);
                 context.SaveChanges();
             }
         }
@@ -134,21 +133,24 @@ namespace VitsWCF
         }
 
 
-        public List<Employee> GetEmployees()
+        public List<CompositeEmployee> GetEmployees()
         {
-            List<Employee> employees = new List<Employee>();
-
-
             using (var context = new VitsDBEntities())
             {
-                context.ContextOptions.LazyLoadingEnabled = true;
-                employees = (from e in context.Employee
-                             select e).ToList();
+                List<CompositeEmployee> employees = new List<CompositeEmployee>();
+                employees = context.Employee.Select(x => new CompositeEmployee
+                {
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    Email = x.Email,
+                    Adress = x.Adress,
+                    ZipCode = x.ZipCode,
+                    City = x.City,
+                    IdNumber = x.IdNumber,
+                    Manager = x.Manager
+                }).ToList();
+                return employees;
             }
-            
-            Debug.WriteLine(employees[0].Email);
-
-            return employees;
         }
     }
 }

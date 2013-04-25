@@ -16,8 +16,6 @@ namespace VitsWCF
         [OperationContract]
         string GetData(int value);
 
-        [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
 
         [OperationContract]
         void SaveReport(Report report);
@@ -35,7 +33,7 @@ namespace VitsWCF
         void SaveTravelAdvances(TravelAdvances travelAdvances);
 
         [OperationContract]
-        void SaveEmployee(Employee employee);
+        void SaveEmployee(CompositeEmployee employee);
 
         [OperationContract]
         void SaveExpense(Expense expense);
@@ -52,7 +50,7 @@ namespace VitsWCF
 
 
         [OperationContract]
-        List<Employee> GetEmployees();
+        List<CompositeEmployee> GetEmployees();
 
 
 
@@ -63,23 +61,64 @@ namespace VitsWCF
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
     [DataContract]
-    public class CompositeType
+    public class CompositeEmployee : Employee
     {
-        bool boolValue = true;
-        string stringValue = "Hello ";
-
-        [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
-
-        [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
+        //string firstName = "";
+        //string lastName = "";
+        //string idNumber = "";
+        //string adress = "";
+        //string city = "";
+        //string email = "";
+        //string zipCode = "";
+        //bool manager;
+        //[DataMember]
+        //public string FIRSTNAME
+        //{
+        // get { return firstName; }
+        // set { firstName = value; }
+        //}
+        //[DataMember]
+        //public string LASTNAME
+        //{
+        // get { return lastName; }
+        // set { lastName = value; }
+        //}
+        //[DataMember]
+        //public string EMAIL
+        //{
+        // get { return email; }
+        // set { email = value; }
+        //}
+        // [DataMember]
+        //public string ZIPCODE
+        //{
+        // get { return zipCode; }
+        // set { zipCode = value; }
+        //}
+        // [DataMember]
+        //public string CITY
+        //{
+        // get { return city; }
+        // set { city = value; }
+        //}
+        // [DataMember]
+        //public string IDNUMBER
+        //{
+        // get { return idNumber; }
+        // set { idNumber = value; }
+        //}
+        // [DataMember]
+        // public string ADRESS
+        // {
+        // get { return adress; }
+        // set { adress = value; }
+        // }
+        // [DataMember]
+        // public bool MANAGER
+        // {
+        // get { return manager; }
+        // set { manager = value; }
+        // }
     }
+    
 }
