@@ -3,9 +3,14 @@
 <link href="~/Styles/Reseorder.css" rel="stylesheet" type="text/css" />  
 </asp:Content>
 
+  
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <%--Här börjar kod för Reseorder--%>
+ <%--Script Manager--%>
+  <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
 <div class="ContentWrapper">
+
 <div class="InfoDiv"><%--Påbörjar uppdrag och land div.--%>
     <asp:Label ID="lblHeadlineMission" CssClass="Headline" runat="server" Text="Uppdrag:"></asp:Label>
     
@@ -14,24 +19,34 @@
     
     <asp:Label ID="lblMissionCountry" runat="server" Text="Information från databas"></asp:Label>
 </div> <%--Avslutar uppdrag och land div.--%>
-
-
+   
 <div class="TravelDiv"> <%--Börjar avres/ankomstdatum div.--%>
     
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" OnDataBinding="calendarFromDate_SelectionChanged">
+    <ContentTemplate>
+      
 <div class="CalLeft">
     <asp:Label ID="lblTravelFromDate" CssClass="Headline" runat="server" Text="Avresedatum:"></asp:Label>
-    <asp:Calendar ID="calendarFromDate" runat="server"></asp:Calendar>
+    <asp:Calendar ID="calendarFromDate" runat="server" 
+        onselectionchanged="calendarFromDate_SelectionChanged"></asp:Calendar>
+    
     </br>
     <asp:TextBox ID="txtTravelFromDate" runat="server" Enabled="False"></asp:TextBox>
 </div>
+    </ContentTemplate>
+</asp:UpdatePanel>
 
+    <asp:UpdatePanel ID="UpdatePanel2" runat="server" OnDataBinding="calendarToDate_SelectionChanged">
+    <ContentTemplate>
 <div class="CalRight">
     <asp:Label ID="lblTravelToDate" CssClass="Headline" runat="server" Text="Ankomstdatum:"></asp:Label>
-    <asp:Calendar ID="calendarToDate" runat="server"></asp:Calendar>
+    <asp:Calendar ID="calendarToDate" runat="server" 
+        onselectionchanged="calendarToDate_SelectionChanged"></asp:Calendar>
     </br>
     <asp:TextBox ID="txtTravelToDate" runat="server" Enabled="False"></asp:TextBox>
 </div>
-
+</ContentTemplate>
+</asp:UpdatePanel>
 </div> <%--Avslutar avres/ankomstdatum div.--%>
 
 <div class="PurposeDiv"> <%--Påbörjar ändamål div.--%>

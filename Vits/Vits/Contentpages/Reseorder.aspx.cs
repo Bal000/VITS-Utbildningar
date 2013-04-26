@@ -13,5 +13,16 @@ namespace Vits
         {
 
         }
+
+        protected void calendarFromDate_SelectionChanged(object sender, EventArgs e)
+        {
+            txtTravelFromDate.Text = calendarFromDate.SelectedDate.ToString("yyyy-MM-dd");
+        }
+
+        protected void calendarToDate_SelectionChanged(object sender, EventArgs e)
+        {
+            txtTravelToDate.Text = calendarToDate.SelectedDate.ToString("yyyy-M-dd");
+        }
+
     }
 }
