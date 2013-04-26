@@ -395,5 +395,48 @@ namespace Vits
             gvReciept.DataBind();
         }
 
+        protected void btnSendReport_Click(object sender, EventArgs e)
+        {
+            BeraknaTraktamenteAvvikelser();
+        }
+
+        protected void BeraknaTraktamenteAvvikelser()
+        {
+            int ddlIndex = ddlTractCountry.SelectedIndex;
+
+
+            if (Session["TRAKT"] != null)
+            {
+                lstTraktamenteGrid = (List<Klasser.Traktamente>)Session["TRAKT"];
+            }
+
+            for (int i = 0; i < lstTraktamenteGrid.Count; i++)
+            {
+                RadioButtonList rbl = (RadioButtonList)gwTract.Rows[i].FindControl("RadioButtonList1");
+                if (rbl != null)
+                {
+                    //String valtAvdrag = rbl.SelectedItem.Text; // Vilket avdrag = text
+                    int nyttTraktamente = BeraknaAvdrag(rbl.SelectedItem.Value, lstTraktamenteGrid[i].Kronor); // Traktamente - avdrag (mat)
+                    lstTraktTillRapport.Add(new Klasser.Traktamente(lstTraktamenteGrid[i].Land, nyttTraktamente, lstTraktamenteGrid[i].Datum));
+                }
+            }
+
+            Session["TRAKT"] = lstTraktamenteGrid;
+
+            lstTraktTillRapport = lstTraktTillRapport.OrderBy(x => x.Datum).ToList();
+
+            lstAvvikelserTillRapport = Avvikelser(); // beräka avvikelser
+
+            Debug.WriteLine("\n\n---------- Traktamente / Avvikelser ----------");
+            for (int i = 0; i < lstAvvikelserTillRapport.Count; i++)
+            {
+                Debug.WriteLine("Avvikelse: " + lstAvvikelserTillRapport[i].ToShortDateString());
+            }
+            for (int i = 0; i < lstTraktTillRapport.Count; i++)
+            {
+                Debug.WriteLine("Traktamente: " + lstTraktTillRapport[i].Datum + " " + lstTraktTillRapport[i].Land + " " + lstTraktTillRapport[i].Kronor);
+            }
+            Debug.WriteLine("---------- SLUT RAPPORT ----------\n\n");
+        }
     }
 }

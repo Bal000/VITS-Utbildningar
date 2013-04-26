@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
     CodeBehind="Rapport.aspx.cs" Inherits="Vits.WebForm1" %>
-    
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <link href="~/Styles/Rapport.css" rel="stylesheet" type="text/css" />
 </asp:Content>
@@ -36,36 +36,34 @@
                 <asp:TextBox ID="txtBoxDescription" runat="server"></asp:TextBox>
                 <br />
                 <br />
-                <asp:Button ID="btnAddReceipt" runat="server" Text="Lägg till utgift" 
-                    onclick="btnAddReceipt_Click" />
+                <asp:Button ID="btnAddReceipt" runat="server" Text="Lägg till utgift" OnClick="btnAddReceipt_Click" />
             </div>
         </div>
         <div class="ContentRight">
             <asp:Label ID="txtExpenseList" runat="server" Text="Utgifts Lista:" CssClass="lblBold"></asp:Label>
             <asp:UpdatePanel ID="UpdatePanel2" OnDataBinding="btnAddReceipt_Click" runat="server">
-            <ContentTemplate>
-            <asp:GridView ID="gvReciept" runat="server" CellPadding="4" ForeColor="#333333" 
-                    GridLines="None" AutoGenerateColumns="False">
-                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                <Columns>
-                    <asp:BoundField HeaderText="Belopp" DataField="Sum" />
-                    <asp:BoundField DataField="Description" HeaderText="Beskrivning" 
-                        SortExpression="Description" />
-                    <asp:ButtonField ButtonType="Button" CommandName="Edit" Text="Ändra" />
-                    <asp:ButtonField ButtonType="Button" CommandName="Delete" Text="Ta bort" />
-                </Columns>
-                <EditRowStyle BackColor="#999999" />
-                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-            </asp:GridView>
-            </ContentTemplate>
+                <ContentTemplate>
+                    <asp:GridView ID="gvReciept" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None"
+                        AutoGenerateColumns="False" ShowHeaderWhenEmpty="True">
+                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                        <Columns>
+                            <asp:BoundField HeaderText="Belopp" DataField="Sum" />
+                            <asp:BoundField DataField="Description" HeaderText="Beskrivning" SortExpression="Description" />
+                            <asp:ButtonField ButtonType="Button" CommandName="Edit" Text="Ändra" />
+                            <asp:ButtonField ButtonType="Button" CommandName="Delete" Text="Ta bort" />
+                        </Columns>
+                        <EditRowStyle BackColor="#999999" />
+                        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                    </asp:GridView>
+                </ContentTemplate>
             </asp:UpdatePanel>
             <br />
             <asp:Label ID="lblTotal" runat="server" Text="Totalt: " CssClass="lblBold"></asp:Label>
@@ -79,7 +77,6 @@
                 <br />
                 <asp:DropDownList ID="ddlTractCountry" runat="server">
                 </asp:DropDownList>
-                                
             </div>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server" OnDataBinding="btnTract_Click"
                 UpdateMode="Conditional">
@@ -94,80 +91,80 @@
                     </div>
                     <div id="tractRight">
                         <div id="calFromDiv">
-                        <asp:Calendar ID="calFrom" runat="server" BackColor="White" 
-                                BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="Verdana"
-                            Font-Size="8pt" ForeColor="Black" height="180px" Width="200px">
-                            <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
-                            <NextPrevStyle VerticalAlign="Bottom" />
-                            <OtherMonthDayStyle ForeColor="#808080" />
-                            <SelectedDayStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
-                            <SelectorStyle BackColor="#CCCCCC" />
-                            <TitleStyle BackColor="#999999" BorderColor="Black" Font-Bold="True" />
-                            <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
-                            <WeekendDayStyle BackColor="#FFFFCC" />
-                        </asp:Calendar>
+                            <asp:Calendar ID="calFrom" runat="server" BackColor="White" BorderColor="#999999"
+                                CellPadding="4" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt"
+                                ForeColor="Black" Height="180px" Width="200px">
+                                <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
+                                <NextPrevStyle VerticalAlign="Bottom" />
+                                <OtherMonthDayStyle ForeColor="#808080" />
+                                <SelectedDayStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
+                                <SelectorStyle BackColor="#CCCCCC" />
+                                <TitleStyle BackColor="#999999" BorderColor="Black" Font-Bold="True" />
+                                <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
+                                <WeekendDayStyle BackColor="#FFFFCC" />
+                            </asp:Calendar>
                         </div>
                         <div id="calToDiv">
-                        <asp:Calendar ID="calTo" runat="server" BackColor="White" 
-                                BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="Verdana"
-                            Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px">
-                            <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
-                            <NextPrevStyle VerticalAlign="Bottom" />
-                            <OtherMonthDayStyle ForeColor="#808080" />
-                            <SelectedDayStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
-                            <SelectorStyle BackColor="#CCCCCC" />
-                            <TitleStyle BackColor="#999999" BorderColor="Black" Font-Bold="True" />
-                            <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
-                            <WeekendDayStyle BackColor="#FFFFCC" />
-                        </asp:Calendar>
+                            <asp:Calendar ID="calTo" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4"
+                                DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="Black"
+                                Height="180px" Width="200px">
+                                <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
+                                <NextPrevStyle VerticalAlign="Bottom" />
+                                <OtherMonthDayStyle ForeColor="#808080" />
+                                <SelectedDayStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
+                                <SelectorStyle BackColor="#CCCCCC" />
+                                <TitleStyle BackColor="#999999" BorderColor="Black" Font-Bold="True" />
+                                <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
+                                <WeekendDayStyle BackColor="#FFFFCC" />
+                            </asp:Calendar>
                         </div>
                         <div id="divBtnTract">
-                            <asp:Button ID="btnTract" runat="server" OnClick="btnTract_Click" Text="Lägg till" CssClass="btnTract" />
+                            <asp:Button ID="btnTract" runat="server" OnClick="btnTract_Click" Text="Lägg till"
+                                CssClass="btnTract" />
                         </div>
                     </div>
-                    <p class="clearBoth"></p>
-
+                    <p class="clearBoth">
+                    </p>
                     <div id="gwDiv">
                         <asp:GridView ID="gwTract" runat="server" Width="100%" AutoGenerateColumns="False"
-                                OnRowCommand="gwTract_RowCommand" Font-Size="Small" CellPadding="4" ForeColor="#333333"
-                                GridLines="None">
-                                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                                <Columns>
-                                    <asp:BoundField DataField="datum" HeaderText="Datum" />
-                                    <asp:BoundField DataField="land" HeaderText="Land" />
-                                    <%--<asp:BoundField DataField="kronor" HeaderText="Traktamente" />--%>
-                                    <asp:TemplateField ShowHeader="false" HeaderText="Avdrag för Måltid">
-                                        <ItemTemplate>
-                                            <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal"
-                                                Font-Size="Small">
-                                                <asp:ListItem Value="0" Selected="True">Ej avdrag</asp:ListItem>
-                                                <asp:ListItem Value="1">Frukost</asp:ListItem>
-                                                <asp:ListItem Value="2">Lunch eller Middag</asp:ListItem>
-                                                <asp:ListItem Value="3">Lunch och Middag</asp:ListItem>
-                                                <asp:ListItem Value="4">Frukost, Lunch och Middag</asp:ListItem>
-                                            </asp:RadioButtonList>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField ShowHeader="false" HeaderText="">
-                                        <ItemTemplate>
-                                            <asp:Button ID="Button1" runat="server" Text="Ta bort" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
-                                                CommandName="remove" />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                </Columns>
-                                <EditRowStyle BackColor="#999999" />
-                                <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" />
-                                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                                <RowStyle ForeColor="#333333" BackColor="#F7F6F3" />
-                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                            </asp:GridView>
-                        
-                        <asp:Button ID="Button2tmp" runat="server" Text="Beräkna" OnClick="Button2tmp_Click" />
+                            OnRowCommand="gwTract_RowCommand" Font-Size="Small" CellPadding="4" ForeColor="#333333"
+                            GridLines="None" ShowHeaderWhenEmpty="True">
+                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                            <Columns>
+                                <asp:BoundField DataField="datum" HeaderText="Datum" />
+                                <asp:BoundField DataField="land" HeaderText="Land" />
+                                <%--<asp:BoundField DataField="kronor" HeaderText="Traktamente" />--%>
+                                <asp:TemplateField ShowHeader="false" HeaderText="Avdrag för Måltid">
+                                    <ItemTemplate>
+                                        <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal"
+                                            Font-Size="Small">
+                                            <asp:ListItem Value="0" Selected="True">Ej avdrag</asp:ListItem>
+                                            <asp:ListItem Value="1">Frukost</asp:ListItem>
+                                            <asp:ListItem Value="2">Lunch eller Middag</asp:ListItem>
+                                            <asp:ListItem Value="3">Lunch och Middag</asp:ListItem>
+                                            <asp:ListItem Value="4">Frukost, Lunch och Middag</asp:ListItem>
+                                        </asp:RadioButtonList>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField ShowHeader="false" HeaderText="">
+                                    <ItemTemplate>
+                                        <asp:Button ID="Button1" runat="server" Text="Ta bort" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
+                                            CommandName="remove" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                            <EditRowStyle BackColor="#999999" />
+                            <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" />
+                            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                            <RowStyle ForeColor="#333333" BackColor="#F7F6F3" />
+                            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                        </asp:GridView>
+                       <%-- <asp:Button ID="Button2tmp" runat="server" Text="Beräkna" OnClick="Button2tmp_Click" />--%>
                     </div>
                 </ContentTemplate>
                 <Triggers>
@@ -177,6 +174,9 @@
                 </Triggers>
             </asp:UpdatePanel>
         </div>
+        <%--Avslutar subsistence div--%>
+        <asp:Button ID="btnSendReport" runat="server" Text="Skicka in" 
+            CssClass="btnSendReport" onclick="btnSendReport_Click" />
     </div>
     <%--Avslutar ContentWrapper--%>
 </asp:Content>

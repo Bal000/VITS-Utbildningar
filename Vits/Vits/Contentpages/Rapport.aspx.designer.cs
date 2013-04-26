@@ -274,12 +274,12 @@ namespace Vits {
         protected global::System.Web.UI.WebControls.GridView gwTract;
         
         /// <summary>
-        /// Button2tmp control.
+        /// btnSendReport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2tmp;
+        protected global::System.Web.UI.WebControls.Button btnSendReport;
     }
 }
