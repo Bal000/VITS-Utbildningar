@@ -16,7 +16,6 @@ namespace VitsWCF
         [OperationContract]
         string GetData(int value);
 
-
         [OperationContract]
         void SaveReport(CompositeReport report);
 
@@ -52,6 +51,17 @@ namespace VitsWCF
 
         [OperationContract]
         List<CompositeEmployee> GetEmployees();
+
+        [OperationContract]
+        CompositeEmployee GetEmployeeByIdNumber(string id);
+        
+        [OperationContract]
+        List<CompositeOffice> GetOffices();
+
+        //[OperationContract]
+        //CompositeReport GetReportsByEid(string idNumber);
+
+        
 
 
 
@@ -177,16 +187,19 @@ namespace VitsWCF
     {
 
     }
+
     [DataContract]
     public class CompositeTravelOrder : TravelOrder
     {
 
     }
+
     [DataContract]
     public class CompositeTravelMethod : TravelMethod
     {
 
     }
+
     [DataContract]
     public class CompositeTrip : Trip
     {

@@ -214,6 +214,31 @@ namespace VitsWCF
             }
         }
 
+        public CompositeEmployee GetEmployeeByIdNumber(string id)
+        {
+            using (var context = new DATABASEVITSEntities())
+            {
+                List<CompositeEmployee> employees = new List<CompositeEmployee>();
+                employees = 
+                    context.Employee.Where(employee => employee.IdNumber.Equals(id))
+                    .Select(x => new CompositeEmployee
+                {
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    Email = x.Email,
+                    Adress = x.Adress,
+                    ZipCode = x.ZipCode,
+                    City = x.City,
+                    IdNumber = x.IdNumber,
+                    Manager = x.Manager
+                }).ToList();
+
+                CompositeEmployee emp = employees[0];
+
+                return emp;
+            }
+        }
+
         public List<CompositeOffice> GetOffices()
         {
             using (var context = new DATABASEVITSEntities())
@@ -221,11 +246,44 @@ namespace VitsWCF
                 List<CompositeOffice> offices = new List<CompositeOffice>();
                 offices = context.Office.Select(x => new CompositeOffice
                 {
-                    
-                    
+                    Name = x.Name,
+                    OrgNumber = x.OrgNumber,
+                    Adress = x.Adress,
+                    ZipCode = x.ZipCode,
+                    City = x.City,
+                    CID = x.CID  
+                 
                 }).ToList();
                 return offices;
             }
         }
+
+        //public List<CompositeReport> GetReportsByEid(byte eid)
+        //{
+        //    using (var context = new DATABASEVITSEntities())
+        //    {
+        //        List<CompositeReport> report = new List<CompositeReport>();
+
+        //        int temp = (byte)eid;
+                
+        //        report =
+        //            context.Report.Where(report => report.EID == temp)
+        //            .Select(x => new CompositeReport
+        //            {
+        //                REPID = x.REPID,
+        //                EID = x.EID,
+        //                MID = x.MID,
+        //                Expenses = x.Expenses,
+        //                Car = x.Car,
+        //                Miles = x.Miles
+
+        //            }).ToList();
+
+        //        return report;
+        //    }
+        
+        //}
+        
+        
     }
 }

@@ -35,7 +35,3 @@ C:\Users\Daniel\Documents\GitHub\VITS-Utbildningar\Vits\Vits\bin\Vits.pdb
 C:\Users\Daniel\Documents\GitHub\VITS-Utbildningar\Vits\Vits\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Daniel\Documents\GitHub\VITS-Utbildningar\Vits\Vits\obj\Debug\Vits.dll
 C:\Users\Daniel\Documents\GitHub\VITS-Utbildningar\Vits\Vits\obj\Debug\Vits.pdb
-C:\Users\Michael\Documents\GitHub\VITS-Utbildningar\Vits\Vits\bin\Vits.dll
-C:\Users\Michael\Documents\GitHub\VITS-Utbildningar\Vits\Vits\bin\Vits.pdb
-C:\Users\Michael\Documents\GitHub\VITS-Utbildningar\Vits\Vits\obj\Debug\Vits.dll
-C:\Users\Michael\Documents\GitHub\VITS-Utbildningar\Vits\Vits\obj\Debug\Vits.pdb

@@ -398,4 +398,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfCompositeEmployee" nillable="true" type="tns:ArrayOfCompositeEmployee" />
+  <xs:complexType name="ArrayOfCompositeOffice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CompositeOffice" nillable="true" type="tns:CompositeOffice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCompositeOffice" nillable="true" type="tns:ArrayOfCompositeOffice" />
 </xs:schema>

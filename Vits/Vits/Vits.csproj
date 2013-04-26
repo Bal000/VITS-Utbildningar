@@ -108,6 +108,9 @@
     <None Include="Service References\ServiceReference1\Vits.ServiceReference1.CompositeEmployee.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ServiceReference1\Vits.ServiceReference1.CompositeOffice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
