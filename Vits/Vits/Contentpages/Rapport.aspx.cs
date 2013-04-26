@@ -298,6 +298,8 @@ namespace Vits
         // ------------------------------------------------------------------------------------------------------
         protected void btnAddReceipt_Click(object sender, EventArgs e)
         {
+            
+
             if (Session["EXPENSE"] != null)
             {
                 expense = (List<ServiceReference1.CompositeExpense>)Session["EXPENSE"];
@@ -380,11 +382,12 @@ namespace Vits
 
 
                 expense.Add(expenseObj);
+                
             }
 
             
                 FillExpenseGrid();
-
+                ClearExpenseFields();
                 Session["EXPENSE"] = expense;
             
         }
@@ -437,6 +440,13 @@ namespace Vits
                 Debug.WriteLine("Traktamente: " + lstTraktTillRapport[i].Datum + " " + lstTraktTillRapport[i].Land + " " + lstTraktTillRapport[i].Kronor);
             }
             Debug.WriteLine("---------- SLUT RAPPORT ----------\n\n");
+        }
+
+        protected void ClearExpenseFields()
+        {
+            txtBoxDate.Text = "";
+            txtBoxAmount.Text = "";
+            txtBoxDescription.Text = "";
         }
     }
 }

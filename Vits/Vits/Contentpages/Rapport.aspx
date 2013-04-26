@@ -21,7 +21,7 @@
             <div class="ReceiptDiv">
                 <asp:Label ID="txtCategory" runat="server" Text="Kategori" CssClass="lblBold"></asp:Label><br />
                 <asp:DropDownList ID="ddlCategory" runat="server">
-                    <asp:ListItem>Dummy</asp:ListItem>
+                    <asp:ListItem>Välj Kategori</asp:ListItem>
                 </asp:DropDownList>
                 <br />
                 <asp:Label ID="txtDate" runat="server" Text="Datum" CssClass="lblBold"></asp:Label><br />
