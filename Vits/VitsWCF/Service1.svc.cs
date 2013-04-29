@@ -204,6 +204,7 @@ namespace VitsWCF
                 List<CompositeEmployee> employees = new List<CompositeEmployee>();
                 employees = context.Employee.Select(x => new CompositeEmployee
                 {
+                    EID = x.EID, 
                     FirstName = x.FirstName,
                     LastName = x.LastName,
                     Email = x.Email,
@@ -226,6 +227,8 @@ namespace VitsWCF
                         //Finns inte någon employee med det specifikerade IDt
                     }
                 }
+                Debug.WriteLine(employees[0].FirstName);
+                Debug.WriteLine(employees[1].LastName);
                 return emp;
             }
         }

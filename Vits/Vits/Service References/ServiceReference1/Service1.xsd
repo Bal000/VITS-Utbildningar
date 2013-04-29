@@ -161,6 +161,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetMission">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMissionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="GetMissionResult" nillable="true" type="q13:CompositeMission" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetEmployeeByIdNumber">
     <xs:complexType>
       <xs:sequence>
@@ -185,7 +199,7 @@
   <xs:element name="GetOfficeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="GetOfficeResult" nillable="true" type="q13:CompositeOffice" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="GetOfficeResult" nillable="true" type="q14:CompositeOffice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -197,7 +211,7 @@
   <xs:element name="GetEmployeesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="GetEmployeesResult" nillable="true" type="q14:ArrayOfCompositeEmployee" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="GetEmployeesResult" nillable="true" type="q15:ArrayOfCompositeEmployee" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -209,7 +223,7 @@
   <xs:element name="GetExpensesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="GetExpensesResult" nillable="true" type="q15:ArrayOfCompositeExpense" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="GetExpensesResult" nillable="true" type="q16:ArrayOfCompositeExpense" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -221,7 +235,7 @@
   <xs:element name="GetCostCenterResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="GetCostCenterResult" nillable="true" type="q16:ArrayOfCompositeCostCenter" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="GetCostCenterResult" nillable="true" type="q17:ArrayOfCompositeCostCenter" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -235,7 +249,7 @@
   <xs:element name="GetMissionsByEidResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="GetMissionsByEidResult" nillable="true" type="q17:ArrayOfCompositeMission" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="GetMissionsByEidResult" nillable="true" type="q18:ArrayOfCompositeMission" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

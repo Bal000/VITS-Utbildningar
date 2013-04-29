@@ -13,7 +13,7 @@ namespace Vits
     {
 
         private List<Klasser.Traktamente> lstAllaTraktamenten;
-        string Name = "";
+        string OfficeName = "";
         string OrgNumber = "";
         string Address = "";
         string ZipCode = "";
@@ -57,15 +57,24 @@ namespace Vits
         {
             
             ServiceReference1.Country testland = new ServiceReference1.Country();
+            testland.CID = 1;
             
 
-            ServiceReference1.Office office = new ServiceReference1.Office();
+            ServiceReference1.CompositeOffice office = new ServiceReference1.CompositeOffice();
             office.Adress = Address;
             office.City = City;
             office.Country = testland;
-            office.OrgNumber = Convert.ToInt32(OrgNumber);
-            office.ZipCode = Convert.ToInt32(ZipCode);
-            office.Name = Name;
+            int n;
+            bool r = int.TryParse(OrgNumber, out n);
+            office.OrgNumber = n;
+            int n2;
+            bool r2 = int.TryParse(ZipCode, out n2);
+            office.ZipCode = n2;
+            office.Name = "Tja";
+
+            ServiceReference1.Service1Client x = new ServiceReference1.Service1Client();
+            
+            x.SaveOffice(office);
 
             buttonsAddOffice2();
             setFieldsEnabled(true);
@@ -74,7 +83,7 @@ namespace Vits
         {
             buttonsSaveOffice();
             setFieldsEnabled(false);
-            OfficeList.SelectedValue = null;
+            //OfficeList.SelectedValue = null;
         }
         private void setFieldsEnabled(bool x)
         {
@@ -89,7 +98,7 @@ namespace Vits
         {
             Address = Tbadress.Text;
             City = Tbcity.Text;
-            Name = Tbnamn.Text;
+            OfficeName = Tbnamn.Text;
             OrgNumber = Tborgnummer.Text;
             ZipCode = Tbzipcode.Text;
             Country = ddlCountry.SelectedValue.ToString();
@@ -132,6 +141,20 @@ namespace Vits
             btnSaveOffice.Visible = false;
             btnEditOffice.Visible = true;
             btnAddOffice.Visible = true;
+        }
+        protected void gwOffices_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int index = Convert.ToInt32(e.CommandArgument);
+            int id = Convert.ToInt32(gwOffices.DataKeys[index].Value.ToString());
+            ServiceReference1.CompositeOffice office = new ServiceReference1.CompositeOffice();
+            ServiceReference1.Service1Client x = new ServiceReference1.Service1Client();
+            office = x.GetOffice(id);
+
+            Tbnamn.Text = office.Name.ToString();
+            Tborgnummer.Text = office.OrgNumber.ToString();
+            Tbzipcode.Text = office.ZipCode.ToString();
+            Tbcity.Text = office.City.ToString();
+            Tbadress.Text = office.Adress.ToString();
         }
     }
 }

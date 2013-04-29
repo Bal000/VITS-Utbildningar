@@ -31,13 +31,22 @@ namespace Vits {
         protected global::System.Web.UI.WebControls.Label lblOfficeList;
         
         /// <summary>
-        /// OfficeList control.
+        /// gwOffices control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox OfficeList;
+        protected global::System.Web.UI.WebControls.GridView gwOffices;
+        
+        /// <summary>
+        /// SqlDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
         
         /// <summary>
         /// Label1 control.

@@ -55,6 +55,7 @@ namespace VitsWCF
         [OperationContract]
         CompositeEmployee GetEmployee(int eid);
 
+        [OperationContract]
         CompositeMission GetMission(int mid);
 
         [OperationContract]

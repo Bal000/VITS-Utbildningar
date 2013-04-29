@@ -2688,6 +2688,9 @@ namespace Vits.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEmployee", ReplyAction="http://tempuri.org/IService1/GetEmployeeResponse")]
         Vits.ServiceReference1.CompositeEmployee GetEmployee(int eid);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMission", ReplyAction="http://tempuri.org/IService1/GetMissionResponse")]
+        Vits.ServiceReference1.CompositeMission GetMission(int mid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEmployeeByIdNumber", ReplyAction="http://tempuri.org/IService1/GetEmployeeByIdNumberResponse")]
         int GetEmployeeByIdNumber(string idNumber);
         
@@ -2784,6 +2787,10 @@ namespace Vits.ServiceReference1 {
         
         public Vits.ServiceReference1.CompositeEmployee GetEmployee(int eid) {
             return base.Channel.GetEmployee(eid);
+        }
+        
+        public Vits.ServiceReference1.CompositeMission GetMission(int mid) {
+            return base.Channel.GetMission(mid);
         }
         
         public int GetEmployeeByIdNumber(string idNumber) {

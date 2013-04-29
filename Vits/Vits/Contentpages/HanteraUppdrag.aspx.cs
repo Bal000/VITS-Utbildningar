@@ -21,6 +21,7 @@ namespace Vits
 
         protected void btnEditMission_Click(object sender, EventArgs e)
         {
+            /*
             if((MissionList.SelectedValue) == null)
             {
                 MissionList.Visible = true;
@@ -29,12 +30,13 @@ namespace Vits
                 buttonsEditMission();
                 setFieldsEnabled(true);
             }
+             */
         }
 
         protected void btnAddMission_Click(object sender, EventArgs e)
         {
             buttonsAddMission();
-            MissionList.SelectedValue = null;
+            //MissionList.SelectedValue = null;
             setFieldsEnabled(true);
             resetFields();
         }
@@ -155,6 +157,19 @@ namespace Vits
 
         }
 
-        
+        protected void gwMissions_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int index = Convert.ToInt32(e.CommandArgument);
+            int id = Convert.ToInt32(gwMissions.DataKeys[index].Value.ToString());
+            ServiceReference1.CompositeMission mission = new ServiceReference1.CompositeMission();
+            ServiceReference1.Service1Client x = new ServiceReference1.Service1Client();
+            mission = x.GetMission(id);
+
+        }
+
+        protected void gwMissions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

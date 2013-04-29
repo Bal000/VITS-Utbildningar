@@ -30,28 +30,15 @@ namespace Vits.Contentpages
         {
            
                 
-                fillUserList();
+                //fillUserList();
                     
         }
 
-        private void fillUserList()
-        {
-            UserList.Items.Clear();
-
-            List<CompositeEmployee> employees = new List<CompositeEmployee>();
-            var client = new ServiceReference1.Service1Client();
-
-            employees = client.GetEmployees();
-
-            for (int i = 0; i < employees.Count; i++)
-            {
-                UserList.Items.Add(employees[i].IdNumber);
-                
-            }
-        }
+       
 
         protected void btnEditUser_Click(object sender, EventArgs e)
         {
+            /*
             if ((UserList.SelectedValue) == null)
             {
                 UserList.Visible = true;
@@ -62,19 +49,20 @@ namespace Vits.Contentpages
                 buttonsEditUser();
                 setFieldsEnabled(true);
             }
+             */
         }
 
         protected void btnAvbryt_Click(object sender, EventArgs e)
         {
             buttonsAvbryt();
-            UserList.SelectedValue = null;
+            //UserList.SelectedValue = null;
             setFieldsEnabled(false);
         }
 
         protected void btnAddUser_Click(object sender, EventArgs e)
         {
             buttonsAddUser();
-            UserList.SelectedValue = null;
+            //UserList.SelectedValue = null;
             setFieldsEnabled(true);
             resetFields();
         }
@@ -82,7 +70,7 @@ namespace Vits.Contentpages
         protected void btnSave_Click(object sender, EventArgs e)
         {
             buttonsSave();
-            UserList.SelectedValue = null;
+            //UserList.SelectedValue = null;
             setFieldsEnabled(false);
             setAttributes();
         }
@@ -121,8 +109,8 @@ namespace Vits.Contentpages
             resetFields();
             buttonsAddUser2();
             setFieldsEnabled(false);
-            UserList.SelectedValue = null;
-            fillUserList();
+            //UserList.SelectedValue = null;
+            //fillUserList();
         }
 
         private void buttonsEditUser()
@@ -213,6 +201,29 @@ namespace Vits.Contentpages
             {
                 manager = true;
             }
+        }
+
+        protected void gwUsers_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int index = Convert.ToInt32(e.CommandArgument);
+            int id = Convert.ToInt32(gwUsers.DataKeys[index].Value.ToString());
+            ServiceReference1.CompositeEmployee employee = new ServiceReference1.CompositeEmployee();
+            ServiceReference1.Service1Client x = new ServiceReference1.Service1Client();
+            employee = x.GetEmployee(id);
+
+            tbAdress.Text = employee.Adress.ToString();
+            tbCity.Text = employee.City;
+            tbEmail.Text = employee.Email;
+            tbFirstName.Text = employee.FirstName;
+            tbLastName.Text = employee.LastName;
+            tbID.Text = employee.IdNumber;
+            tbZipCode.Text = employee.ZipCode;
+           
+        }
+
+        protected void gwUsers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
         
         

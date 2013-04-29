@@ -9,8 +9,59 @@
         <asp:Label ID="Label1" runat="server" Text="Lista över alla uppdrag:"></asp:Label>
         <asp:Label ID="lblMissionList" CssClass="ValidationLabel" runat="server" Text="Välj ett uppdrag!"
                 Visible="False"></asp:Label>
+        <asp:GridView ID="gwMissions" onRowCommand="gwUsers_RowCommand" runat="server" AutoGenerateColumns="False" 
+            DataKeyNames="MID" DataSourceID="SqlDataSource1" 
+            onselectedindexchanged="gwMissions_SelectedIndexChanged">
+            <Columns>
+                <asp:TemplateField HeaderText="MID" SortExpression="MID" Visible="False">
+                    <EditItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("MID") %>'></asp:Label>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("MID") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="OID" SortExpression="OID" Visible="False">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("OID") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("OID") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Manager" SortExpression="Manager" 
+                    Visible="False">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Manager") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("Manager") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Description" SortExpression="Description">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Description") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("Description") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="StartDate" SortExpression="StartDate" 
+                    Visible="False">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("StartDate") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label5" runat="server" Text='<%# Bind("StartDate") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:ButtonField ButtonType="Button" Text="Visa information" />
+            </Columns>
+        </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:DATABASEVITSConnectionString %>" 
+            SelectCommand="SELECT * FROM [Mission]"></asp:SqlDataSource>
         <br />
-        <asp:ListBox ID="MissionList" runat="server" Height="250px" Width="199px"></asp:ListBox>
     </div>
     <div class="FormWrap">
     <br />
