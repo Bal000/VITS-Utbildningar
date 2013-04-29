@@ -61,14 +61,6 @@
     <None Include="Contentpages\Rapport.aspx.cs.old" />
     <None Include="Contentpages\Rapport.aspx.old" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="Service References\ServiceReference1\Service1.disco" />
-    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
-    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
-    <None Include="Service References\ServiceReference1\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Contentpages\HanteraAnvandare.aspx" />
     <Content Include="Contentpages\HanteraKunder.aspx" />
     <Content Include="Contentpages\HanteraUppdrag.aspx" />
@@ -76,6 +68,13 @@
     <Content Include="Contentpages\RapportSammanställning.aspx" />
     <Content Include="Contentpages\Reseforskott.aspx" />
     <Content Include="Contentpages\Reseorder.aspx" />
+    <None Include="Service References\ServiceReference1\Service1.disco" />
+    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="WebProfileBuilder.user" />
     <Content Include="obj\Debug\TempPE\Service References.ServiceReference1.Reference.cs.dll" />
     <Content Include="obj\Debug\Vits.csproj.FileListAbsolute.txt" />
@@ -96,13 +95,19 @@
     </Content>
     <Content Include="Contentpages\Rapport.aspx" />
     <None Include="Service References\ServiceReference1\Service1.wsdl" />
+    <None Include="Service References\ServiceReference1\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\Service11.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ServiceReference1\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\Service132.xsd">
+    <None Include="Service References\ServiceReference1\Service13.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\Service133.xsd">
+    <None Include="Service References\ServiceReference1\Service14.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference1\Vits.ServiceReference1.CompositeCostCenter.datasource">
@@ -112,6 +117,12 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReference1\Vits.ServiceReference1.CompositeExpense.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\Vits.ServiceReference1.CompositeMission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\Vits.ServiceReference1.CompositeOffice.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
@@ -252,14 +263,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ServiceReference1\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReference1\Service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\Service11.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\WebProfileBuilder\WebProfileBuilder.targets" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

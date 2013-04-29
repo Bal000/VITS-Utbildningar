@@ -16,7 +16,7 @@ namespace VitsWCF
         [OperationContract]
         string GetData(int value);
 
-
+        // Save operations for single objects.
         [OperationContract]
         void SaveReport(CompositeReport report);
 
@@ -50,9 +50,22 @@ namespace VitsWCF
         [OperationContract]
         void SaveSubsistence(CompositeSubsistence subsistence);
 
+       
+        //Get Single objects.
+        [OperationContract]
+        CompositeEmployee GetEmployee(int eid);
+
+        CompositeMission GetMission(int mid);
+
+        [OperationContract]
+        int GetEmployeeByIdNumber(string idNumber);
+
+        [OperationContract]
+        CompositeOffice GetOffice(int oid);
+
+        //Get methods for lists.
         [OperationContract]
         List<CompositeEmployee> GetEmployees();
-
 
         [OperationContract]
         List<CompositeExpense> GetExpenses();
@@ -60,6 +73,8 @@ namespace VitsWCF
         [OperationContract]
         List<CompositeCostCenter> GetCostCenter();
 
+        [OperationContract]
+        List<CompositeMission> GetMissionsByEid(int eid);
 
 
         // TODO: Add your service operations here

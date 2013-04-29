@@ -5,12 +5,6 @@
     <EntitySet Name="Country" EntityType="DATABASEVITSModel.Store.Country" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Deviation" EntityType="DATABASEVITSModel.Store.Deviation" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Employee" EntityType="DATABASEVITSModel.Store.Employee" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="EmployeeMission" EntityType="DATABASEVITSModel.Store.EmployeeMission" store:Type="Tables" store:Schema="dbo" store:Name="EmployeeMission">
-      <DefiningQuery>SELECT 
-      [EmployeeMission].[EID] AS [EID], 
-      [EmployeeMission].[MID] AS [MID]
-      FROM [dbo].[EmployeeMission] AS [EmployeeMission]</DefiningQuery>
-    </EntitySet>
     <EntitySet Name="Expense" EntityType="DATABASEVITSModel.Store.Expense" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Mission" EntityType="DATABASEVITSModel.Store.Mission" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Office" EntityType="DATABASEVITSModel.Store.Office" store:Type="Tables" Schema="dbo" />
@@ -28,25 +22,21 @@
       [Trip].[StopDate] AS [StopDate]
       FROM [dbo].[Trip] AS [Trip]</DefiningQuery>
     </EntitySet>
-    <AssociationSet Name="FK__Deviation__REPID__2C3393D0" Association="DATABASEVITSModel.Store.FK__Deviation__REPID__2C3393D0">
+    <AssociationSet Name="FK__Deviation__REPID__2D27B809" Association="DATABASEVITSModel.Store.FK__Deviation__REPID__2D27B809">
       <End Role="Report" EntitySet="Report" />
       <End Role="Deviation" EntitySet="Deviation" />
     </AssociationSet>
-    <AssociationSet Name="FK__EmployeeMis__EID__33D4B598" Association="DATABASEVITSModel.Store.FK__EmployeeMis__EID__33D4B598">
-      <End Role="Employee" EntitySet="Employee" />
-      <End Role="EmployeeMission" EntitySet="EmployeeMission" />
-    </AssociationSet>
-    <AssociationSet Name="FK__EmployeeMis__MID__34C8D9D1" Association="DATABASEVITSModel.Store.FK__EmployeeMis__MID__34C8D9D1">
-      <End Role="Mission" EntitySet="Mission" />
-      <End Role="EmployeeMission" EntitySet="EmployeeMission" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Expense__CCID__31EC6D26" Association="DATABASEVITSModel.Store.FK__Expense__CCID__31EC6D26">
+    <AssociationSet Name="FK__Expense__CCID__32E0915F" Association="DATABASEVITSModel.Store.FK__Expense__CCID__32E0915F">
       <End Role="CostCenter" EntitySet="CostCenter" />
       <End Role="Expense" EntitySet="Expense" />
     </AssociationSet>
-    <AssociationSet Name="FK__Expense__REPID__30F848ED" Association="DATABASEVITSModel.Store.FK__Expense__REPID__30F848ED">
+    <AssociationSet Name="FK__Expense__REPID__31EC6D26" Association="DATABASEVITSModel.Store.FK__Expense__REPID__31EC6D26">
       <End Role="Report" EntitySet="Report" />
       <End Role="Expense" EntitySet="Expense" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mission__EID__1920BF5C" Association="DATABASEVITSModel.Store.FK__Mission__EID__1920BF5C">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Mission" EntitySet="Mission" />
     </AssociationSet>
     <AssociationSet Name="FK__Mission__Manager__182C9B23" Association="DATABASEVITSModel.Store.FK__Mission__Manager__182C9B23">
       <End Role="Employee" EntitySet="Employee" />
@@ -60,51 +50,51 @@
       <End Role="Country" EntitySet="Country" />
       <End Role="Office" EntitySet="Office" />
     </AssociationSet>
-    <AssociationSet Name="FK__Report__EID__25869641" Association="DATABASEVITSModel.Store.FK__Report__EID__25869641">
+    <AssociationSet Name="FK__Report__EID__267ABA7A" Association="DATABASEVITSModel.Store.FK__Report__EID__267ABA7A">
       <End Role="Employee" EntitySet="Employee" />
       <End Role="Report" EntitySet="Report" />
     </AssociationSet>
-    <AssociationSet Name="FK__Report__MID__267ABA7A" Association="DATABASEVITSModel.Store.FK__Report__MID__267ABA7A">
+    <AssociationSet Name="FK__Report__MID__276EDEB3" Association="DATABASEVITSModel.Store.FK__Report__MID__276EDEB3">
       <End Role="Mission" EntitySet="Mission" />
       <End Role="Report" EntitySet="Report" />
     </AssociationSet>
-    <AssociationSet Name="FK__Subsisten__REPID__37A5467C" Association="DATABASEVITSModel.Store.FK__Subsisten__REPID__37A5467C">
+    <AssociationSet Name="FK__Subsisten__REPID__35BCFE0A" Association="DATABASEVITSModel.Store.FK__Subsisten__REPID__35BCFE0A">
       <End Role="Report" EntitySet="Report" />
       <End Role="Subsistence" EntitySet="Subsistence" />
     </AssociationSet>
-    <AssociationSet Name="FK__Subsistence__CID__38996AB5" Association="DATABASEVITSModel.Store.FK__Subsistence__CID__38996AB5">
+    <AssociationSet Name="FK__Subsistence__CID__36B12243" Association="DATABASEVITSModel.Store.FK__Subsistence__CID__36B12243">
       <End Role="Country" EntitySet="Country" />
       <End Role="Subsistence" EntitySet="Subsistence" />
     </AssociationSet>
-    <AssociationSet Name="FK__TravelAdvan__EID__1DE57479" Association="DATABASEVITSModel.Store.FK__TravelAdvan__EID__1DE57479">
+    <AssociationSet Name="FK__TravelAdvan__EID__1ED998B2" Association="DATABASEVITSModel.Store.FK__TravelAdvan__EID__1ED998B2">
       <End Role="Employee" EntitySet="Employee" />
       <End Role="TravelAdvances" EntitySet="TravelAdvances" />
     </AssociationSet>
-    <AssociationSet Name="FK__TravelAdvan__MID__1ED998B2" Association="DATABASEVITSModel.Store.FK__TravelAdvan__MID__1ED998B2">
+    <AssociationSet Name="FK__TravelAdvan__MID__1FCDBCEB" Association="DATABASEVITSModel.Store.FK__TravelAdvan__MID__1FCDBCEB">
       <End Role="Mission" EntitySet="Mission" />
       <End Role="TravelAdvances" EntitySet="TravelAdvances" />
     </AssociationSet>
-    <AssociationSet Name="FK__TravelOrde__TMID__3F466844" Association="DATABASEVITSModel.Store.FK__TravelOrde__TMID__3F466844">
+    <AssociationSet Name="FK__TravelOrde__TMID__3D5E1FD2" Association="DATABASEVITSModel.Store.FK__TravelOrde__TMID__3D5E1FD2">
       <End Role="TravelMethod" EntitySet="TravelMethod" />
       <End Role="TravelOrder" EntitySet="TravelOrder" />
     </AssociationSet>
-    <AssociationSet Name="FK__TravelOrder__EID__3E52440B" Association="DATABASEVITSModel.Store.FK__TravelOrder__EID__3E52440B">
+    <AssociationSet Name="FK__TravelOrder__EID__3C69FB99" Association="DATABASEVITSModel.Store.FK__TravelOrder__EID__3C69FB99">
       <End Role="Employee" EntitySet="Employee" />
       <End Role="TravelOrder" EntitySet="TravelOrder" />
     </AssociationSet>
-    <AssociationSet Name="FK__TravelOrder__MID__3D5E1FD2" Association="DATABASEVITSModel.Store.FK__TravelOrder__MID__3D5E1FD2">
+    <AssociationSet Name="FK__TravelOrder__MID__3B75D760" Association="DATABASEVITSModel.Store.FK__TravelOrder__MID__3B75D760">
       <End Role="Mission" EntitySet="Mission" />
       <End Role="TravelOrder" EntitySet="TravelOrder" />
     </AssociationSet>
-    <AssociationSet Name="FK__Trip__CID__22AA2996" Association="DATABASEVITSModel.Store.FK__Trip__CID__22AA2996">
+    <AssociationSet Name="FK__Trip__CID__239E4DCF" Association="DATABASEVITSModel.Store.FK__Trip__CID__239E4DCF">
       <End Role="Country" EntitySet="Country" />
       <End Role="Trip" EntitySet="Trip" />
     </AssociationSet>
-    <AssociationSet Name="FK__Trip__EID__20C1E124" Association="DATABASEVITSModel.Store.FK__Trip__EID__20C1E124">
+    <AssociationSet Name="FK__Trip__EID__21B6055D" Association="DATABASEVITSModel.Store.FK__Trip__EID__21B6055D">
       <End Role="Employee" EntitySet="Employee" />
       <End Role="Trip" EntitySet="Trip" />
     </AssociationSet>
-    <AssociationSet Name="FK__Trip__MID__21B6055D" Association="DATABASEVITSModel.Store.FK__Trip__MID__21B6055D">
+    <AssociationSet Name="FK__Trip__MID__22AA2996" Association="DATABASEVITSModel.Store.FK__Trip__MID__22AA2996">
       <End Role="Mission" EntitySet="Mission" />
       <End Role="Trip" EntitySet="Trip" />
     </AssociationSet>
@@ -113,21 +103,21 @@
     <Key>
       <PropertyRef Name="CCID" />
     </Key>
-    <Property Name="CCID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CCID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="64" />
   </EntityType>
   <EntityType Name="Country">
     <Key>
       <PropertyRef Name="CID" />
     </Key>
-    <Property Name="CID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="64" />
   </EntityType>
   <EntityType Name="Deviation">
     <Key>
       <PropertyRef Name="DID" />
     </Key>
-    <Property Name="DID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="REPID" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="StartDate" Type="datetime" Nullable="false" />
     <Property Name="StopDate" Type="datetime" Nullable="false" />
@@ -136,7 +126,7 @@
     <Key>
       <PropertyRef Name="EID" />
     </Key>
-    <Property Name="EID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EID" Type="int" Nullable="false" />
     <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="64" />
     <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="64" />
     <Property Name="Adress" Type="nvarchar" Nullable="false" MaxLength="64" />
@@ -146,24 +136,13 @@
     <Property Name="Manager" Type="bit" Nullable="false" />
     <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="64" />
   </EntityType>
-  <!--Errors Found During Generation:
-      warning 6002: The table/view 'C:\USERS\DANIEL\DOCUMENTS\GITHUB\VITS-UTBILDNINGAR\VITS\VITSWCF\APP_DATA\DATABASEVITS.MDF.dbo.EmployeeMission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-  <EntityType Name="EmployeeMission">
-    <Key>
-      <PropertyRef Name="EID" />
-      <PropertyRef Name="MID" />
-    </Key>
-    <Property Name="EID" Type="tinyint" Nullable="false" />
-    <Property Name="MID" Type="tinyint" Nullable="false" />
-  </EntityType>
   <EntityType Name="Expense">
     <Key>
       <PropertyRef Name="EXPID" />
     </Key>
-    <Property Name="EXPID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EXPID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="REPID" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="CCID" Type="tinyint" Nullable="false" />
+    <Property Name="CCID" Type="int" Nullable="false" />
     <Property Name="Sum" Type="int" Nullable="false" />
     <Property Name="VAT" Type="int" Nullable="false" />
     <Property Name="Date" Type="datetime" Nullable="false" />
@@ -173,31 +152,32 @@
     <Key>
       <PropertyRef Name="MID" />
     </Key>
-    <Property Name="MID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="OID" Type="tinyint" Nullable="false" />
-    <Property Name="Manager" Type="tinyint" Nullable="false" />
+    <Property Name="MID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OID" Type="int" Nullable="false" />
+    <Property Name="Manager" Type="int" Nullable="false" />
     <Property Name="Description" Type="varchar" Nullable="false" MaxLength="200" />
     <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Office">
     <Key>
       <PropertyRef Name="OID" />
     </Key>
-    <Property Name="OID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="64" />
     <Property Name="OrgNumber" Type="int" Nullable="false" />
     <Property Name="Adress" Type="nvarchar" Nullable="false" MaxLength="64" />
     <Property Name="ZipCode" Type="int" Nullable="false" />
     <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="64" />
-    <Property Name="CID" Type="tinyint" Nullable="false" />
+    <Property Name="CID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Report">
     <Key>
       <PropertyRef Name="REPID" />
     </Key>
     <Property Name="REPID" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="EID" Type="tinyint" Nullable="false" />
-    <Property Name="MID" Type="tinyint" Nullable="false" />
+    <Property Name="EID" Type="int" Nullable="false" />
+    <Property Name="MID" Type="int" Nullable="false" />
     <Property Name="Expenses" Type="int" Nullable="false" />
     <Property Name="Car" Type="bit" Nullable="false" />
     <Property Name="Miles" Type="int" Nullable="false" />
@@ -206,9 +186,9 @@
     <Key>
       <PropertyRef Name="SID" />
     </Key>
-    <Property Name="SID" Type="tinyint" Nullable="false" />
+    <Property Name="SID" Type="int" Nullable="false" />
     <Property Name="REPID" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="CID" Type="tinyint" Nullable="false" />
+    <Property Name="CID" Type="int" Nullable="false" />
     <Property Name="SUM" Type="int" />
     <Property Name="DATE" Type="date" />
   </EntityType>
@@ -216,29 +196,29 @@
     <Key>
       <PropertyRef Name="TID" />
     </Key>
-    <Property Name="TID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Total" Type="int" Nullable="false" />
     <Property Name="Approved" Type="bit" Nullable="false" />
     <Property Name="Answered" Type="bit" Nullable="false" />
     <Property Name="Date" Type="datetime" Nullable="false" />
-    <Property Name="EID" Type="tinyint" Nullable="false" />
-    <Property Name="MID" Type="tinyint" Nullable="false" />
+    <Property Name="EID" Type="int" Nullable="false" />
+    <Property Name="MID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="TravelMethod">
     <Key>
       <PropertyRef Name="TMID" />
     </Key>
-    <Property Name="TMID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TMID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
   </EntityType>
   <EntityType Name="TravelOrder">
     <Key>
       <PropertyRef Name="TID" />
     </Key>
-    <Property Name="TID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="MID" Type="tinyint" Nullable="false" />
-    <Property Name="EID" Type="tinyint" Nullable="false" />
-    <Property Name="TMID" Type="tinyint" Nullable="false" />
+    <Property Name="TID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MID" Type="int" Nullable="false" />
+    <Property Name="EID" Type="int" Nullable="false" />
+    <Property Name="TMID" Type="int" Nullable="false" />
     <Property Name="From" Type="date" />
     <Property Name="To" Type="date" />
     <Property Name="Description" Type="nvarchar" MaxLength="500" />
@@ -255,13 +235,13 @@
       <PropertyRef Name="CID" />
       <PropertyRef Name="StartDate" />
     </Key>
-    <Property Name="EID" Type="tinyint" Nullable="false" />
-    <Property Name="MID" Type="tinyint" Nullable="false" />
-    <Property Name="CID" Type="tinyint" Nullable="false" />
+    <Property Name="EID" Type="int" Nullable="false" />
+    <Property Name="MID" Type="int" Nullable="false" />
+    <Property Name="CID" Type="int" Nullable="false" />
     <Property Name="StartDate" Type="datetime" Nullable="false" />
     <Property Name="StopDate" Type="datetime" />
   </EntityType>
-  <Association Name="FK__Deviation__REPID__2C3393D0">
+  <Association Name="FK__Deviation__REPID__2D27B809">
     <End Role="Report" Type="DATABASEVITSModel.Store.Report" Multiplicity="1" />
     <End Role="Deviation" Type="DATABASEVITSModel.Store.Deviation" Multiplicity="*" />
     <ReferentialConstraint>
@@ -273,31 +253,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__EmployeeMis__EID__33D4B598">
-    <End Role="Employee" Type="DATABASEVITSModel.Store.Employee" Multiplicity="1" />
-    <End Role="EmployeeMission" Type="DATABASEVITSModel.Store.EmployeeMission" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Employee">
-        <PropertyRef Name="EID" />
-      </Principal>
-      <Dependent Role="EmployeeMission">
-        <PropertyRef Name="EID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__EmployeeMis__MID__34C8D9D1">
-    <End Role="Mission" Type="DATABASEVITSModel.Store.Mission" Multiplicity="1" />
-    <End Role="EmployeeMission" Type="DATABASEVITSModel.Store.EmployeeMission" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Mission">
-        <PropertyRef Name="MID" />
-      </Principal>
-      <Dependent Role="EmployeeMission">
-        <PropertyRef Name="MID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Expense__CCID__31EC6D26">
+  <Association Name="FK__Expense__CCID__32E0915F">
     <End Role="CostCenter" Type="DATABASEVITSModel.Store.CostCenter" Multiplicity="1" />
     <End Role="Expense" Type="DATABASEVITSModel.Store.Expense" Multiplicity="*" />
     <ReferentialConstraint>
@@ -309,7 +265,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Expense__REPID__30F848ED">
+  <Association Name="FK__Expense__REPID__31EC6D26">
     <End Role="Report" Type="DATABASEVITSModel.Store.Report" Multiplicity="1" />
     <End Role="Expense" Type="DATABASEVITSModel.Store.Expense" Multiplicity="*" />
     <ReferentialConstraint>
@@ -318,6 +274,18 @@
       </Principal>
       <Dependent Role="Expense">
         <PropertyRef Name="REPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mission__EID__1920BF5C">
+    <End Role="Employee" Type="DATABASEVITSModel.Store.Employee" Multiplicity="1" />
+    <End Role="Mission" Type="DATABASEVITSModel.Store.Mission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EID" />
+      </Principal>
+      <Dependent Role="Mission">
+        <PropertyRef Name="EID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -357,7 +325,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Report__EID__25869641">
+  <Association Name="FK__Report__EID__267ABA7A">
     <End Role="Employee" Type="DATABASEVITSModel.Store.Employee" Multiplicity="1" />
     <End Role="Report" Type="DATABASEVITSModel.Store.Report" Multiplicity="*" />
     <ReferentialConstraint>
@@ -369,7 +337,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Report__MID__267ABA7A">
+  <Association Name="FK__Report__MID__276EDEB3">
     <End Role="Mission" Type="DATABASEVITSModel.Store.Mission" Multiplicity="1" />
     <End Role="Report" Type="DATABASEVITSModel.Store.Report" Multiplicity="*" />
     <ReferentialConstraint>
@@ -381,7 +349,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Subsisten__REPID__37A5467C">
+  <Association Name="FK__Subsisten__REPID__35BCFE0A">
     <End Role="Report" Type="DATABASEVITSModel.Store.Report" Multiplicity="1" />
     <End Role="Subsistence" Type="DATABASEVITSModel.Store.Subsistence" Multiplicity="*" />
     <ReferentialConstraint>
@@ -393,7 +361,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Subsistence__CID__38996AB5">
+  <Association Name="FK__Subsistence__CID__36B12243">
     <End Role="Country" Type="DATABASEVITSModel.Store.Country" Multiplicity="1" />
     <End Role="Subsistence" Type="DATABASEVITSModel.Store.Subsistence" Multiplicity="*" />
     <ReferentialConstraint>
@@ -405,7 +373,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__TravelAdvan__EID__1DE57479">
+  <Association Name="FK__TravelAdvan__EID__1ED998B2">
     <End Role="Employee" Type="DATABASEVITSModel.Store.Employee" Multiplicity="1" />
     <End Role="TravelAdvances" Type="DATABASEVITSModel.Store.TravelAdvances" Multiplicity="*" />
     <ReferentialConstraint>
@@ -417,7 +385,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__TravelAdvan__MID__1ED998B2">
+  <Association Name="FK__TravelAdvan__MID__1FCDBCEB">
     <End Role="Mission" Type="DATABASEVITSModel.Store.Mission" Multiplicity="1" />
     <End Role="TravelAdvances" Type="DATABASEVITSModel.Store.TravelAdvances" Multiplicity="*" />
     <ReferentialConstraint>
@@ -429,7 +397,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__TravelOrde__TMID__3F466844">
+  <Association Name="FK__TravelOrde__TMID__3D5E1FD2">
     <End Role="TravelMethod" Type="DATABASEVITSModel.Store.TravelMethod" Multiplicity="1" />
     <End Role="TravelOrder" Type="DATABASEVITSModel.Store.TravelOrder" Multiplicity="*" />
     <ReferentialConstraint>
@@ -441,7 +409,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__TravelOrder__EID__3E52440B">
+  <Association Name="FK__TravelOrder__EID__3C69FB99">
     <End Role="Employee" Type="DATABASEVITSModel.Store.Employee" Multiplicity="1" />
     <End Role="TravelOrder" Type="DATABASEVITSModel.Store.TravelOrder" Multiplicity="*" />
     <ReferentialConstraint>
@@ -453,7 +421,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__TravelOrder__MID__3D5E1FD2">
+  <Association Name="FK__TravelOrder__MID__3B75D760">
     <End Role="Mission" Type="DATABASEVITSModel.Store.Mission" Multiplicity="1" />
     <End Role="TravelOrder" Type="DATABASEVITSModel.Store.TravelOrder" Multiplicity="*" />
     <ReferentialConstraint>
@@ -465,7 +433,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Trip__CID__22AA2996">
+  <Association Name="FK__Trip__CID__239E4DCF">
     <End Role="Country" Type="DATABASEVITSModel.Store.Country" Multiplicity="1" />
     <End Role="Trip" Type="DATABASEVITSModel.Store.Trip" Multiplicity="*" />
     <ReferentialConstraint>
@@ -477,7 +445,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Trip__EID__20C1E124">
+  <Association Name="FK__Trip__EID__21B6055D">
     <End Role="Employee" Type="DATABASEVITSModel.Store.Employee" Multiplicity="1" />
     <End Role="Trip" Type="DATABASEVITSModel.Store.Trip" Multiplicity="*" />
     <ReferentialConstraint>
@@ -489,7 +457,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Trip__MID__21B6055D">
+  <Association Name="FK__Trip__MID__22AA2996">
     <End Role="Mission" Type="DATABASEVITSModel.Store.Mission" Multiplicity="1" />
     <End Role="Trip" Type="DATABASEVITSModel.Store.Trip" Multiplicity="*" />
     <ReferentialConstraint>

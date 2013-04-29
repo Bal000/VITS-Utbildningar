@@ -1,186 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:58782/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/VitsWCF" />
-  <xs:element name="GetData">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="value" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetDataResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetDataResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveReport">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="report" nillable="true" type="q1:CompositeReport" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveReportResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveOffice">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="office" nillable="true" type="q2:CompositeOffice" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveOfficeResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveMission">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="mission" nillable="true" type="q3:CompositeMission" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveMissionResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveTrip">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="trip" nillable="true" type="q4:CompositeTrip" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveTripResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveTravelAdvances">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="travelAdvances" nillable="true" type="q5:CompositeTravelAdvances" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveTravelAdvancesResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveEmployee">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="employee" nillable="true" type="q6:CompositeEmployee" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveEmployeeResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveExpense">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="expense" nillable="true" type="q7:CompositeExpense" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveExpenseResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveDeviation">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="deviation" nillable="true" type="q8:CompositeDeviation" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveDeviationResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveCountry">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="country" nillable="true" type="q9:CompositeCountry" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveCountryResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveCostCenter">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="costcenter" nillable="true" type="q10:CompositeCostCenter" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveCostCenterResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveSubsistence">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="subsistence" nillable="true" type="q11:CompositeSubsistence" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveSubsistenceResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetEmployees">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetEmployeesResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="GetEmployeesResult" nillable="true" type="q12:ArrayOfCompositeEmployee" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetExpenses">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetExpensesResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="GetExpensesResult" nillable="true" type="q13:ArrayOfCompositeExpense" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetCostCenter">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetCostCenterResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/VitsWCF" minOccurs="0" name="GetCostCenterResult" nillable="true" type="q14:ArrayOfCompositeCostCenter" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/System.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:58782/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="EntityKey">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EntityContainerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EntityKeyValues" nillable="true" type="tns:ArrayOfEntityKeyMember" />
+      <xs:element minOccurs="0" name="EntitySetName" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="EntityKey" nillable="true" type="tns:EntityKey" />
+  <xs:complexType name="ArrayOfEntityKeyMember">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EntityKeyMember" nillable="true" type="tns:EntityKeyMember" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEntityKeyMember" nillable="true" type="tns:ArrayOfEntityKeyMember" />
+  <xs:complexType name="EntityKeyMember">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EntityKeyMember" nillable="true" type="tns:EntityKeyMember" />
 </xs:schema>

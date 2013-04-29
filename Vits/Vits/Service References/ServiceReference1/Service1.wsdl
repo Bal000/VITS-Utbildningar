@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:58782/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -81,6 +81,24 @@
   <wsdl:message name="IService1_SaveSubsistence_OutputMessage">
     <wsdl:part name="parameters" element="tns:SaveSubsistenceResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetEmployeeByIdNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeByIdNumber" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetEmployeeByIdNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeByIdNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetOffice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOffice" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetOffice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOfficeResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetEmployees_InputMessage">
     <wsdl:part name="parameters" element="tns:GetEmployees" />
   </wsdl:message>
@@ -98,6 +116,12 @@
   </wsdl:message>
   <wsdl:message name="IService1_GetCostCenter_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCostCenterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetMissionsByEid_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMissionsByEid" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetMissionsByEid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMissionsByEidResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
@@ -148,6 +172,18 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SaveSubsistence" message="tns:IService1_SaveSubsistence_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/SaveSubsistenceResponse" message="tns:IService1_SaveSubsistence_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetEmployee" message="tns:IService1_GetEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetEmployeeResponse" message="tns:IService1_GetEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeByIdNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetEmployeeByIdNumber" message="tns:IService1_GetEmployeeByIdNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetEmployeeByIdNumberResponse" message="tns:IService1_GetEmployeeByIdNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOffice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetOffice" message="tns:IService1_GetOffice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetOfficeResponse" message="tns:IService1_GetOffice_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetEmployees">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetEmployees" message="tns:IService1_GetEmployees_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetEmployeesResponse" message="tns:IService1_GetEmployees_OutputMessage" />
@@ -159,6 +195,10 @@
     <wsdl:operation name="GetCostCenter">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCostCenter" message="tns:IService1_GetCostCenter_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCostCenterResponse" message="tns:IService1_GetCostCenter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMissionsByEid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetMissionsByEid" message="tns:IService1_GetMissionsByEid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetMissionsByEidResponse" message="tns:IService1_GetMissionsByEid_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -271,6 +311,33 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetEmployee">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeByIdNumber">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetEmployeeByIdNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOffice">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetOffice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetEmployees">
       <soap:operation soapAction="http://tempuri.org/IService1/GetEmployees" style="document" />
       <wsdl:input>
@@ -291,6 +358,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetCostCenter">
       <soap:operation soapAction="http://tempuri.org/IService1/GetCostCenter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMissionsByEid">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetMissionsByEid" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

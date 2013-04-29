@@ -81,12 +81,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="EntityModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EntityModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Properties\Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +92,12 @@
     <Content Include="Properties\Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="EntityModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EntityModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -6,6 +6,8 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using System.Diagnostics;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace VitsWCF
 {
@@ -193,7 +195,108 @@ namespace VitsWCF
             }
         }
 
+        //Get single Objects.
 
+        public CompositeEmployee GetEmployee(int eid)
+        {
+            using (var context = new DATABASEVITSEntities())
+            {
+                List<CompositeEmployee> employees = new List<CompositeEmployee>();
+                employees = context.Employee.Select(x => new CompositeEmployee
+                {
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    Email = x.Email,
+                    Adress = x.Adress,
+                    ZipCode = x.ZipCode,
+                    City = x.City,
+                    IdNumber = x.IdNumber,
+                    Manager = x.Manager
+                }).ToList();
+
+                CompositeEmployee emp = new CompositeEmployee();
+                for (int i = 0; i < employees.Count; i++)
+                {
+                    if (employees[i].EID == eid)
+                    {
+                        emp = employees[i];
+                    }
+                    else
+                    {
+                        //Finns inte någon employee med det specifikerade IDt
+                    }
+                }
+                return emp;
+            }
+        }
+
+        public CompositeMission GetMission(int mid)
+        {
+            using (var context = new DATABASEVITSEntities())
+            {
+                List<CompositeMission> missions = new List<CompositeMission>();
+                missions = context.Mission.Select(x => new CompositeMission
+                {
+                    OID = x.MID,
+                    Description = x.Description,
+                    StartDate = x.StartDate,
+                    Manager = x.Manager
+
+                }).ToList();
+                CompositeMission mission = new CompositeMission();
+                for (int i = 0; i < missions.Count; i++)
+                {
+                    if (missions[i].OID == mid)
+                    {
+                        mission = missions[i];
+                    }
+                }
+                return mission;
+            }
+        }
+
+        public int GetEmployeeByIdNumber(string idNumber) 
+        {
+            using (var context = new DATABASEVITSEntities())
+            {
+                Employee emp = (from e in context.Employee
+                            where e.IdNumber.Equals(idNumber)
+                            select e).FirstOrDefault();
+
+                int eid = emp.EID;
+
+                return eid;
+            }
+        }
+
+        public CompositeOffice GetOffice(int oid)
+        {
+            using (var context = new DATABASEVITSEntities())
+            {
+                List<CompositeOffice> offices = new List<CompositeOffice>();
+                offices = context.Office.Select(x => new CompositeOffice
+                {
+
+
+                }).ToList();
+
+                CompositeOffice office = new CompositeOffice();
+                for (int i = 0; i < offices.Count; i++)
+                {
+                    if (offices[i].OID == oid)
+                    {
+                        office = offices[i];
+                    }
+                    else
+                    {
+                        //Finns inget office med IDt
+                    }
+                }
+                return office;
+            }
+        }
+       
+        //Get lists of Objects. 
         public List<CompositeEmployee> GetEmployees()
         {
             using (var context = new DATABASEVITSEntities())
@@ -221,13 +324,18 @@ namespace VitsWCF
                 List<CompositeOffice> offices = new List<CompositeOffice>();
                 offices = context.Office.Select(x => new CompositeOffice
                 {
-                    
-                    
+                    OID = x.OID,
+                    Name = x.Name,
+                    OrgNumber = x.OrgNumber,
+                    Adress = x.Adress,
+                    ZipCode = x.ZipCode,
+                    City = x.City,
+                    CID = x.CID                  
                 }).ToList();
+
                 return offices;
             }
         }
-
 
         public List<CompositeExpense> GetExpenses()
         {
@@ -259,6 +367,30 @@ namespace VitsWCF
                     Name = x.Name
                 }).ToList();
                 return costcenter;
+            }
+        }
+
+        public List<CompositeMission> GetMissionsByEid(int eid)
+        {
+            using (var context = new DATABASEVITSEntities())
+            {
+                List<CompositeMission> missions = new List<CompositeMission>();
+
+                missions = context.Mission.Where(x => x.EID.Equals(eid)).Select(y => new CompositeMission
+                {
+                    MID = y.MID,
+                    OID = y.OID,
+                    Manager = y.Manager,
+                    Description = y.Description,
+                    StartDate = y.StartDate,
+                    EID = y.EID
+
+                }).ToList();
+
+
+                return missions;
+
+                   
             }
         }
     }

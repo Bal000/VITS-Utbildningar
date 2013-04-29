@@ -18,25 +18,25 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Expense__CCID__31EC6D26", "CostCenter", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.CostCenter), "Expense", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Expense), true)]
+[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Expense__CCID__32E0915F", "CostCenter", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.CostCenter), "Expense", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Expense), true)]
 [assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Office__CID__145C0A3F", "Country", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Country), "Office", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Office), true)]
-[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Subsistence__CID__38996AB5", "Country", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Country), "Subsistence", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Subsistence), true)]
-[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Trip__CID__22AA2996", "Country", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Country), "Trip", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Trip), true)]
-[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Deviation__REPID__2C3393D0", "Report", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Report), "Deviation", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Deviation), true)]
+[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Subsistence__CID__36B12243", "Country", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Country), "Subsistence", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Subsistence), true)]
+[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Trip__CID__239E4DCF", "Country", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Country), "Trip", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Trip), true)]
+[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Deviation__REPID__2D27B809", "Report", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Report), "Deviation", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Deviation), true)]
+[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Mission__EID__1920BF5C", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Employee), "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Mission), true)]
 [assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Mission__Manager__182C9B23", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Employee), "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Mission), true)]
-[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Report__EID__25869641", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Employee), "Report", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Report), true)]
-[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__TravelAdvan__EID__1DE57479", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Employee), "TravelAdvances", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.TravelAdvances), true)]
-[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__TravelOrder__EID__3E52440B", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Employee), "TravelOrder", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.TravelOrder), true)]
-[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Trip__EID__20C1E124", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Employee), "Trip", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Trip), true)]
-[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Expense__REPID__30F848ED", "Report", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Report), "Expense", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Expense), true)]
+[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Report__EID__267ABA7A", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Employee), "Report", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Report), true)]
+[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__TravelAdvan__EID__1ED998B2", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Employee), "TravelAdvances", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.TravelAdvances), true)]
+[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__TravelOrder__EID__3C69FB99", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Employee), "TravelOrder", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.TravelOrder), true)]
+[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Trip__EID__21B6055D", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Employee), "Trip", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Trip), true)]
+[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Expense__REPID__31EC6D26", "Report", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Report), "Expense", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Expense), true)]
 [assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Mission__OID__173876EA", "Office", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Office), "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Mission), true)]
-[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Report__MID__267ABA7A", "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Mission), "Report", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Report), true)]
-[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__TravelAdvan__MID__1ED998B2", "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Mission), "TravelAdvances", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.TravelAdvances), true)]
-[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__TravelOrder__MID__3D5E1FD2", "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Mission), "TravelOrder", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.TravelOrder), true)]
-[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Trip__MID__21B6055D", "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Mission), "Trip", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Trip), true)]
-[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Subsisten__REPID__37A5467C", "Report", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Report), "Subsistence", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Subsistence), true)]
-[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__TravelOrde__TMID__3F466844", "TravelMethod", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.TravelMethod), "TravelOrder", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.TravelOrder), true)]
-[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "EmployeeMission", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Employee), "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Mission))]
+[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Report__MID__276EDEB3", "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Mission), "Report", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Report), true)]
+[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__TravelAdvan__MID__1FCDBCEB", "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Mission), "TravelAdvances", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.TravelAdvances), true)]
+[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__TravelOrder__MID__3B75D760", "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Mission), "TravelOrder", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.TravelOrder), true)]
+[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Trip__MID__22AA2996", "Mission", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Mission), "Trip", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Trip), true)]
+[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__Subsisten__REPID__35BCFE0A", "Report", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.Report), "Subsistence", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.Subsistence), true)]
+[assembly: EdmRelationshipAttribute("DATABASEVITSModel", "FK__TravelOrde__TMID__3D5E1FD2", "TravelMethod", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VitsWCF.TravelMethod), "TravelOrder", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VitsWCF.TravelOrder), true)]
 
 #endregion
 
@@ -426,7 +426,7 @@ namespace VitsWCF
         /// </summary>
         /// <param name="cCID">Initial value of the CCID property.</param>
         /// <param name="name">Initial value of the Name property.</param>
-        public static CostCenter CreateCostCenter(global::System.Byte cCID, global::System.String name)
+        public static CostCenter CreateCostCenter(global::System.Int32 cCID, global::System.String name)
         {
             CostCenter costCenter = new CostCenter();
             costCenter.CCID = cCID;
@@ -442,7 +442,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte CCID
+        public global::System.Int32 CCID
         {
             get
             {
@@ -460,8 +460,8 @@ namespace VitsWCF
                 }
             }
         }
-        private global::System.Byte _CCID;
-        partial void OnCCIDChanging(global::System.Byte value);
+        private global::System.Int32 _CCID;
+        partial void OnCCIDChanging(global::System.Int32 value);
         partial void OnCCIDChanged();
     
         /// <summary>
@@ -498,18 +498,18 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Expense__CCID__31EC6D26", "Expense")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Expense__CCID__32E0915F", "Expense")]
         public EntityCollection<Expense> Expense
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Expense>("DATABASEVITSModel.FK__Expense__CCID__31EC6D26", "Expense");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Expense>("DATABASEVITSModel.FK__Expense__CCID__32E0915F", "Expense");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Expense>("DATABASEVITSModel.FK__Expense__CCID__31EC6D26", "Expense", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Expense>("DATABASEVITSModel.FK__Expense__CCID__32E0915F", "Expense", value);
                 }
             }
         }
@@ -532,7 +532,7 @@ namespace VitsWCF
         /// </summary>
         /// <param name="cID">Initial value of the CID property.</param>
         /// <param name="name">Initial value of the Name property.</param>
-        public static Country CreateCountry(global::System.Byte cID, global::System.String name)
+        public static Country CreateCountry(global::System.Int32 cID, global::System.String name)
         {
             Country country = new Country();
             country.CID = cID;
@@ -548,7 +548,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte CID
+        public global::System.Int32 CID
         {
             get
             {
@@ -566,8 +566,8 @@ namespace VitsWCF
                 }
             }
         }
-        private global::System.Byte _CID;
-        partial void OnCIDChanging(global::System.Byte value);
+        private global::System.Int32 _CID;
+        partial void OnCIDChanging(global::System.Int32 value);
         partial void OnCIDChanged();
     
         /// <summary>
@@ -626,18 +626,18 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Subsistence__CID__38996AB5", "Subsistence")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Subsistence__CID__36B12243", "Subsistence")]
         public EntityCollection<Subsistence> Subsistence
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Subsistence>("DATABASEVITSModel.FK__Subsistence__CID__38996AB5", "Subsistence");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Subsistence>("DATABASEVITSModel.FK__Subsistence__CID__36B12243", "Subsistence");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Subsistence>("DATABASEVITSModel.FK__Subsistence__CID__38996AB5", "Subsistence", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Subsistence>("DATABASEVITSModel.FK__Subsistence__CID__36B12243", "Subsistence", value);
                 }
             }
         }
@@ -648,18 +648,18 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Trip__CID__22AA2996", "Trip")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Trip__CID__239E4DCF", "Trip")]
         public EntityCollection<Trip> Trip
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip>("DATABASEVITSModel.FK__Trip__CID__22AA2996", "Trip");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip>("DATABASEVITSModel.FK__Trip__CID__239E4DCF", "Trip");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip>("DATABASEVITSModel.FK__Trip__CID__22AA2996", "Trip", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip>("DATABASEVITSModel.FK__Trip__CID__239E4DCF", "Trip", value);
                 }
             }
         }
@@ -684,7 +684,7 @@ namespace VitsWCF
         /// <param name="rEPID">Initial value of the REPID property.</param>
         /// <param name="startDate">Initial value of the StartDate property.</param>
         /// <param name="stopDate">Initial value of the StopDate property.</param>
-        public static Deviation CreateDeviation(global::System.Byte dID, global::System.String rEPID, global::System.DateTime startDate, global::System.DateTime stopDate)
+        public static Deviation CreateDeviation(global::System.Int32 dID, global::System.String rEPID, global::System.DateTime startDate, global::System.DateTime stopDate)
         {
             Deviation deviation = new Deviation();
             deviation.DID = dID;
@@ -702,7 +702,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte DID
+        public global::System.Int32 DID
         {
             get
             {
@@ -720,8 +720,8 @@ namespace VitsWCF
                 }
             }
         }
-        private global::System.Byte _DID;
-        partial void OnDIDChanging(global::System.Byte value);
+        private global::System.Int32 _DID;
+        partial void OnDIDChanging(global::System.Int32 value);
         partial void OnDIDChanged();
     
         /// <summary>
@@ -806,16 +806,16 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Deviation__REPID__2C3393D0", "Report")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Deviation__REPID__2D27B809", "Report")]
         public Report Report
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DATABASEVITSModel.FK__Deviation__REPID__2C3393D0", "Report").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DATABASEVITSModel.FK__Deviation__REPID__2D27B809", "Report").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DATABASEVITSModel.FK__Deviation__REPID__2C3393D0", "Report").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DATABASEVITSModel.FK__Deviation__REPID__2D27B809", "Report").Value = value;
             }
         }
         /// <summary>
@@ -827,13 +827,13 @@ namespace VitsWCF
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DATABASEVITSModel.FK__Deviation__REPID__2C3393D0", "Report");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DATABASEVITSModel.FK__Deviation__REPID__2D27B809", "Report");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Report>("DATABASEVITSModel.FK__Deviation__REPID__2C3393D0", "Report", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Report>("DATABASEVITSModel.FK__Deviation__REPID__2D27B809", "Report", value);
                 }
             }
         }
@@ -863,7 +863,7 @@ namespace VitsWCF
         /// <param name="idNumber">Initial value of the IdNumber property.</param>
         /// <param name="manager">Initial value of the Manager property.</param>
         /// <param name="email">Initial value of the Email property.</param>
-        public static Employee CreateEmployee(global::System.Byte eID, global::System.String firstName, global::System.String lastName, global::System.String adress, global::System.String zipCode, global::System.String city, global::System.String idNumber, global::System.Boolean manager, global::System.String email)
+        public static Employee CreateEmployee(global::System.Int32 eID, global::System.String firstName, global::System.String lastName, global::System.String adress, global::System.String zipCode, global::System.String city, global::System.String idNumber, global::System.Boolean manager, global::System.String email)
         {
             Employee employee = new Employee();
             employee.EID = eID;
@@ -886,7 +886,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte EID
+        public global::System.Int32 EID
         {
             get
             {
@@ -904,8 +904,8 @@ namespace VitsWCF
                 }
             }
         }
-        private global::System.Byte _EID;
-        partial void OnEIDChanging(global::System.Byte value);
+        private global::System.Int32 _EID;
+        partial void OnEIDChanging(global::System.Int32 value);
         partial void OnEIDChanged();
     
         /// <summary>
@@ -1110,8 +1110,30 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Mission__Manager__182C9B23", "Mission")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Mission__EID__1920BF5C", "Mission")]
         public EntityCollection<Mission> Mission
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Mission>("DATABASEVITSModel.FK__Mission__EID__1920BF5C", "Mission");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Mission>("DATABASEVITSModel.FK__Mission__EID__1920BF5C", "Mission", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Mission__Manager__182C9B23", "Mission")]
+        public EntityCollection<Mission> Mission1
         {
             get
             {
@@ -1132,18 +1154,18 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Report__EID__25869641", "Report")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Report__EID__267ABA7A", "Report")]
         public EntityCollection<Report> Report
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Report>("DATABASEVITSModel.FK__Report__EID__25869641", "Report");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Report>("DATABASEVITSModel.FK__Report__EID__267ABA7A", "Report");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Report>("DATABASEVITSModel.FK__Report__EID__25869641", "Report", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Report>("DATABASEVITSModel.FK__Report__EID__267ABA7A", "Report", value);
                 }
             }
         }
@@ -1154,18 +1176,18 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__TravelAdvan__EID__1DE57479", "TravelAdvances")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__TravelAdvan__EID__1ED998B2", "TravelAdvances")]
         public EntityCollection<TravelAdvances> TravelAdvances
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TravelAdvances>("DATABASEVITSModel.FK__TravelAdvan__EID__1DE57479", "TravelAdvances");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TravelAdvances>("DATABASEVITSModel.FK__TravelAdvan__EID__1ED998B2", "TravelAdvances");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TravelAdvances>("DATABASEVITSModel.FK__TravelAdvan__EID__1DE57479", "TravelAdvances", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TravelAdvances>("DATABASEVITSModel.FK__TravelAdvan__EID__1ED998B2", "TravelAdvances", value);
                 }
             }
         }
@@ -1176,18 +1198,18 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__TravelOrder__EID__3E52440B", "TravelOrder")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__TravelOrder__EID__3C69FB99", "TravelOrder")]
         public EntityCollection<TravelOrder> TravelOrder
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TravelOrder>("DATABASEVITSModel.FK__TravelOrder__EID__3E52440B", "TravelOrder");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TravelOrder>("DATABASEVITSModel.FK__TravelOrder__EID__3C69FB99", "TravelOrder");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TravelOrder>("DATABASEVITSModel.FK__TravelOrder__EID__3E52440B", "TravelOrder", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TravelOrder>("DATABASEVITSModel.FK__TravelOrder__EID__3C69FB99", "TravelOrder", value);
                 }
             }
         }
@@ -1198,40 +1220,18 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Trip__EID__20C1E124", "Trip")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Trip__EID__21B6055D", "Trip")]
         public EntityCollection<Trip> Trip
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip>("DATABASEVITSModel.FK__Trip__EID__20C1E124", "Trip");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip>("DATABASEVITSModel.FK__Trip__EID__21B6055D", "Trip");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip>("DATABASEVITSModel.FK__Trip__EID__20C1E124", "Trip", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "EmployeeMission", "Mission")]
-        public EntityCollection<Mission> Mission1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Mission>("DATABASEVITSModel.EmployeeMission", "Mission");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Mission>("DATABASEVITSModel.EmployeeMission", "Mission", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip>("DATABASEVITSModel.FK__Trip__EID__21B6055D", "Trip", value);
                 }
             }
         }
@@ -1258,7 +1258,7 @@ namespace VitsWCF
         /// <param name="sum">Initial value of the Sum property.</param>
         /// <param name="vAT">Initial value of the VAT property.</param>
         /// <param name="date">Initial value of the Date property.</param>
-        public static Expense CreateExpense(global::System.Byte eXPID, global::System.String rEPID, global::System.Byte cCID, global::System.Int32 sum, global::System.Int32 vAT, global::System.DateTime date)
+        public static Expense CreateExpense(global::System.Int32 eXPID, global::System.String rEPID, global::System.Int32 cCID, global::System.Int32 sum, global::System.Int32 vAT, global::System.DateTime date)
         {
             Expense expense = new Expense();
             expense.EXPID = eXPID;
@@ -1278,7 +1278,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte EXPID
+        public global::System.Int32 EXPID
         {
             get
             {
@@ -1296,8 +1296,8 @@ namespace VitsWCF
                 }
             }
         }
-        private global::System.Byte _EXPID;
-        partial void OnEXPIDChanging(global::System.Byte value);
+        private global::System.Int32 _EXPID;
+        partial void OnEXPIDChanging(global::System.Int32 value);
         partial void OnEXPIDChanged();
     
         /// <summary>
@@ -1329,7 +1329,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte CCID
+        public global::System.Int32 CCID
         {
             get
             {
@@ -1344,8 +1344,8 @@ namespace VitsWCF
                 OnCCIDChanged();
             }
         }
-        private global::System.Byte _CCID;
-        partial void OnCCIDChanging(global::System.Byte value);
+        private global::System.Int32 _CCID;
+        partial void OnCCIDChanging(global::System.Int32 value);
         partial void OnCCIDChanged();
     
         /// <summary>
@@ -1454,16 +1454,16 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Expense__CCID__31EC6D26", "CostCenter")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Expense__CCID__32E0915F", "CostCenter")]
         public CostCenter CostCenter
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CostCenter>("DATABASEVITSModel.FK__Expense__CCID__31EC6D26", "CostCenter").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CostCenter>("DATABASEVITSModel.FK__Expense__CCID__32E0915F", "CostCenter").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CostCenter>("DATABASEVITSModel.FK__Expense__CCID__31EC6D26", "CostCenter").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CostCenter>("DATABASEVITSModel.FK__Expense__CCID__32E0915F", "CostCenter").Value = value;
             }
         }
         /// <summary>
@@ -1475,13 +1475,13 @@ namespace VitsWCF
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CostCenter>("DATABASEVITSModel.FK__Expense__CCID__31EC6D26", "CostCenter");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CostCenter>("DATABASEVITSModel.FK__Expense__CCID__32E0915F", "CostCenter");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CostCenter>("DATABASEVITSModel.FK__Expense__CCID__31EC6D26", "CostCenter", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CostCenter>("DATABASEVITSModel.FK__Expense__CCID__32E0915F", "CostCenter", value);
                 }
             }
         }
@@ -1492,16 +1492,16 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Expense__REPID__30F848ED", "Report")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Expense__REPID__31EC6D26", "Report")]
         public Report Report
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DATABASEVITSModel.FK__Expense__REPID__30F848ED", "Report").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DATABASEVITSModel.FK__Expense__REPID__31EC6D26", "Report").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DATABASEVITSModel.FK__Expense__REPID__30F848ED", "Report").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DATABASEVITSModel.FK__Expense__REPID__31EC6D26", "Report").Value = value;
             }
         }
         /// <summary>
@@ -1513,13 +1513,13 @@ namespace VitsWCF
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DATABASEVITSModel.FK__Expense__REPID__30F848ED", "Report");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DATABASEVITSModel.FK__Expense__REPID__31EC6D26", "Report");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Report>("DATABASEVITSModel.FK__Expense__REPID__30F848ED", "Report", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Report>("DATABASEVITSModel.FK__Expense__REPID__31EC6D26", "Report", value);
                 }
             }
         }
@@ -1545,7 +1545,8 @@ namespace VitsWCF
         /// <param name="manager">Initial value of the Manager property.</param>
         /// <param name="description">Initial value of the Description property.</param>
         /// <param name="startDate">Initial value of the StartDate property.</param>
-        public static Mission CreateMission(global::System.Byte mID, global::System.Byte oID, global::System.Byte manager, global::System.String description, global::System.DateTime startDate)
+        /// <param name="eID">Initial value of the EID property.</param>
+        public static Mission CreateMission(global::System.Int32 mID, global::System.Int32 oID, global::System.Int32 manager, global::System.String description, global::System.DateTime startDate, global::System.Int32 eID)
         {
             Mission mission = new Mission();
             mission.MID = mID;
@@ -1553,6 +1554,7 @@ namespace VitsWCF
             mission.Manager = manager;
             mission.Description = description;
             mission.StartDate = startDate;
+            mission.EID = eID;
             return mission;
         }
 
@@ -1564,7 +1566,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte MID
+        public global::System.Int32 MID
         {
             get
             {
@@ -1582,8 +1584,8 @@ namespace VitsWCF
                 }
             }
         }
-        private global::System.Byte _MID;
-        partial void OnMIDChanging(global::System.Byte value);
+        private global::System.Int32 _MID;
+        partial void OnMIDChanging(global::System.Int32 value);
         partial void OnMIDChanged();
     
         /// <summary>
@@ -1591,7 +1593,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte OID
+        public global::System.Int32 OID
         {
             get
             {
@@ -1606,8 +1608,8 @@ namespace VitsWCF
                 OnOIDChanged();
             }
         }
-        private global::System.Byte _OID;
-        partial void OnOIDChanging(global::System.Byte value);
+        private global::System.Int32 _OID;
+        partial void OnOIDChanging(global::System.Int32 value);
         partial void OnOIDChanged();
     
         /// <summary>
@@ -1615,7 +1617,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte Manager
+        public global::System.Int32 Manager
         {
             get
             {
@@ -1630,8 +1632,8 @@ namespace VitsWCF
                 OnManagerChanged();
             }
         }
-        private global::System.Byte _Manager;
-        partial void OnManagerChanging(global::System.Byte value);
+        private global::System.Int32 _Manager;
+        partial void OnManagerChanging(global::System.Int32 value);
         partial void OnManagerChanged();
     
         /// <summary>
@@ -1681,6 +1683,30 @@ namespace VitsWCF
         private global::System.DateTime _StartDate;
         partial void OnStartDateChanging(global::System.DateTime value);
         partial void OnStartDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 EID
+        {
+            get
+            {
+                return _EID;
+            }
+            set
+            {
+                OnEIDChanging(value);
+                ReportPropertyChanging("EID");
+                _EID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EID");
+                OnEIDChanged();
+            }
+        }
+        private global::System.Int32 _EID;
+        partial void OnEIDChanging(global::System.Int32 value);
+        partial void OnEIDChanged();
 
         #endregion
     
@@ -1692,8 +1718,46 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Mission__Manager__182C9B23", "Employee")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Mission__EID__1920BF5C", "Employee")]
         public Employee Employee
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__Mission__EID__1920BF5C", "Employee").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__Mission__EID__1920BF5C", "Employee").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Employee> EmployeeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__Mission__EID__1920BF5C", "Employee");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Employee>("DATABASEVITSModel.FK__Mission__EID__1920BF5C", "Employee", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Mission__Manager__182C9B23", "Employee")]
+        public Employee Employee1
         {
             get
             {
@@ -1709,7 +1773,7 @@ namespace VitsWCF
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Employee> EmployeeReference
+        public EntityReference<Employee> Employee1Reference
         {
             get
             {
@@ -1768,18 +1832,18 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Report__MID__267ABA7A", "Report")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Report__MID__276EDEB3", "Report")]
         public EntityCollection<Report> Report
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Report>("DATABASEVITSModel.FK__Report__MID__267ABA7A", "Report");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Report>("DATABASEVITSModel.FK__Report__MID__276EDEB3", "Report");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Report>("DATABASEVITSModel.FK__Report__MID__267ABA7A", "Report", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Report>("DATABASEVITSModel.FK__Report__MID__276EDEB3", "Report", value);
                 }
             }
         }
@@ -1790,18 +1854,18 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__TravelAdvan__MID__1ED998B2", "TravelAdvances")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__TravelAdvan__MID__1FCDBCEB", "TravelAdvances")]
         public EntityCollection<TravelAdvances> TravelAdvances
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TravelAdvances>("DATABASEVITSModel.FK__TravelAdvan__MID__1ED998B2", "TravelAdvances");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TravelAdvances>("DATABASEVITSModel.FK__TravelAdvan__MID__1FCDBCEB", "TravelAdvances");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TravelAdvances>("DATABASEVITSModel.FK__TravelAdvan__MID__1ED998B2", "TravelAdvances", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TravelAdvances>("DATABASEVITSModel.FK__TravelAdvan__MID__1FCDBCEB", "TravelAdvances", value);
                 }
             }
         }
@@ -1812,18 +1876,18 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__TravelOrder__MID__3D5E1FD2", "TravelOrder")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__TravelOrder__MID__3B75D760", "TravelOrder")]
         public EntityCollection<TravelOrder> TravelOrder
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TravelOrder>("DATABASEVITSModel.FK__TravelOrder__MID__3D5E1FD2", "TravelOrder");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TravelOrder>("DATABASEVITSModel.FK__TravelOrder__MID__3B75D760", "TravelOrder");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TravelOrder>("DATABASEVITSModel.FK__TravelOrder__MID__3D5E1FD2", "TravelOrder", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TravelOrder>("DATABASEVITSModel.FK__TravelOrder__MID__3B75D760", "TravelOrder", value);
                 }
             }
         }
@@ -1834,40 +1898,18 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Trip__MID__21B6055D", "Trip")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Trip__MID__22AA2996", "Trip")]
         public EntityCollection<Trip> Trip
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip>("DATABASEVITSModel.FK__Trip__MID__21B6055D", "Trip");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip>("DATABASEVITSModel.FK__Trip__MID__22AA2996", "Trip");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip>("DATABASEVITSModel.FK__Trip__MID__21B6055D", "Trip", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "EmployeeMission", "Employee")]
-        public EntityCollection<Employee> Employee1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Employee>("DATABASEVITSModel.EmployeeMission", "Employee");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Employee>("DATABASEVITSModel.EmployeeMission", "Employee", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip>("DATABASEVITSModel.FK__Trip__MID__22AA2996", "Trip", value);
                 }
             }
         }
@@ -1895,7 +1937,7 @@ namespace VitsWCF
         /// <param name="zipCode">Initial value of the ZipCode property.</param>
         /// <param name="city">Initial value of the City property.</param>
         /// <param name="cID">Initial value of the CID property.</param>
-        public static Office CreateOffice(global::System.Byte oID, global::System.String name, global::System.Int32 orgNumber, global::System.String adress, global::System.Int32 zipCode, global::System.String city, global::System.Byte cID)
+        public static Office CreateOffice(global::System.Int32 oID, global::System.String name, global::System.Int32 orgNumber, global::System.String adress, global::System.Int32 zipCode, global::System.String city, global::System.Int32 cID)
         {
             Office office = new Office();
             office.OID = oID;
@@ -1916,7 +1958,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte OID
+        public global::System.Int32 OID
         {
             get
             {
@@ -1934,8 +1976,8 @@ namespace VitsWCF
                 }
             }
         }
-        private global::System.Byte _OID;
-        partial void OnOIDChanging(global::System.Byte value);
+        private global::System.Int32 _OID;
+        partial void OnOIDChanging(global::System.Int32 value);
         partial void OnOIDChanged();
     
         /// <summary>
@@ -2063,7 +2105,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte CID
+        public global::System.Int32 CID
         {
             get
             {
@@ -2078,8 +2120,8 @@ namespace VitsWCF
                 OnCIDChanged();
             }
         }
-        private global::System.Byte _CID;
-        partial void OnCIDChanging(global::System.Byte value);
+        private global::System.Int32 _CID;
+        partial void OnCIDChanging(global::System.Int32 value);
         partial void OnCIDChanged();
 
         #endregion
@@ -2168,7 +2210,7 @@ namespace VitsWCF
         /// <param name="expenses">Initial value of the Expenses property.</param>
         /// <param name="car">Initial value of the Car property.</param>
         /// <param name="miles">Initial value of the Miles property.</param>
-        public static Report CreateReport(global::System.String rEPID, global::System.Byte eID, global::System.Byte mID, global::System.Int32 expenses, global::System.Boolean car, global::System.Int32 miles)
+        public static Report CreateReport(global::System.String rEPID, global::System.Int32 eID, global::System.Int32 mID, global::System.Int32 expenses, global::System.Boolean car, global::System.Int32 miles)
         {
             Report report = new Report();
             report.REPID = rEPID;
@@ -2215,7 +2257,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte EID
+        public global::System.Int32 EID
         {
             get
             {
@@ -2230,8 +2272,8 @@ namespace VitsWCF
                 OnEIDChanged();
             }
         }
-        private global::System.Byte _EID;
-        partial void OnEIDChanging(global::System.Byte value);
+        private global::System.Int32 _EID;
+        partial void OnEIDChanging(global::System.Int32 value);
         partial void OnEIDChanged();
     
         /// <summary>
@@ -2239,7 +2281,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte MID
+        public global::System.Int32 MID
         {
             get
             {
@@ -2254,8 +2296,8 @@ namespace VitsWCF
                 OnMIDChanged();
             }
         }
-        private global::System.Byte _MID;
-        partial void OnMIDChanging(global::System.Byte value);
+        private global::System.Int32 _MID;
+        partial void OnMIDChanging(global::System.Int32 value);
         partial void OnMIDChanged();
     
         /// <summary>
@@ -2340,18 +2382,18 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Deviation__REPID__2C3393D0", "Deviation")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Deviation__REPID__2D27B809", "Deviation")]
         public EntityCollection<Deviation> Deviation
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Deviation>("DATABASEVITSModel.FK__Deviation__REPID__2C3393D0", "Deviation");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Deviation>("DATABASEVITSModel.FK__Deviation__REPID__2D27B809", "Deviation");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Deviation>("DATABASEVITSModel.FK__Deviation__REPID__2C3393D0", "Deviation", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Deviation>("DATABASEVITSModel.FK__Deviation__REPID__2D27B809", "Deviation", value);
                 }
             }
         }
@@ -2362,16 +2404,16 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Report__EID__25869641", "Employee")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Report__EID__267ABA7A", "Employee")]
         public Employee Employee
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__Report__EID__25869641", "Employee").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__Report__EID__267ABA7A", "Employee").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__Report__EID__25869641", "Employee").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__Report__EID__267ABA7A", "Employee").Value = value;
             }
         }
         /// <summary>
@@ -2383,13 +2425,13 @@ namespace VitsWCF
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__Report__EID__25869641", "Employee");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__Report__EID__267ABA7A", "Employee");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Employee>("DATABASEVITSModel.FK__Report__EID__25869641", "Employee", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Employee>("DATABASEVITSModel.FK__Report__EID__267ABA7A", "Employee", value);
                 }
             }
         }
@@ -2400,18 +2442,18 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Expense__REPID__30F848ED", "Expense")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Expense__REPID__31EC6D26", "Expense")]
         public EntityCollection<Expense> Expense
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Expense>("DATABASEVITSModel.FK__Expense__REPID__30F848ED", "Expense");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Expense>("DATABASEVITSModel.FK__Expense__REPID__31EC6D26", "Expense");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Expense>("DATABASEVITSModel.FK__Expense__REPID__30F848ED", "Expense", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Expense>("DATABASEVITSModel.FK__Expense__REPID__31EC6D26", "Expense", value);
                 }
             }
         }
@@ -2422,16 +2464,16 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Report__MID__267ABA7A", "Mission")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Report__MID__276EDEB3", "Mission")]
         public Mission Mission
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__Report__MID__267ABA7A", "Mission").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__Report__MID__276EDEB3", "Mission").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__Report__MID__267ABA7A", "Mission").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__Report__MID__276EDEB3", "Mission").Value = value;
             }
         }
         /// <summary>
@@ -2443,13 +2485,13 @@ namespace VitsWCF
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__Report__MID__267ABA7A", "Mission");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__Report__MID__276EDEB3", "Mission");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Mission>("DATABASEVITSModel.FK__Report__MID__267ABA7A", "Mission", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Mission>("DATABASEVITSModel.FK__Report__MID__276EDEB3", "Mission", value);
                 }
             }
         }
@@ -2460,18 +2502,18 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Subsisten__REPID__37A5467C", "Subsistence")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Subsisten__REPID__35BCFE0A", "Subsistence")]
         public EntityCollection<Subsistence> Subsistence
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Subsistence>("DATABASEVITSModel.FK__Subsisten__REPID__37A5467C", "Subsistence");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Subsistence>("DATABASEVITSModel.FK__Subsisten__REPID__35BCFE0A", "Subsistence");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Subsistence>("DATABASEVITSModel.FK__Subsisten__REPID__37A5467C", "Subsistence", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Subsistence>("DATABASEVITSModel.FK__Subsisten__REPID__35BCFE0A", "Subsistence", value);
                 }
             }
         }
@@ -2495,7 +2537,7 @@ namespace VitsWCF
         /// <param name="sID">Initial value of the SID property.</param>
         /// <param name="rEPID">Initial value of the REPID property.</param>
         /// <param name="cID">Initial value of the CID property.</param>
-        public static Subsistence CreateSubsistence(global::System.Byte sID, global::System.String rEPID, global::System.Byte cID)
+        public static Subsistence CreateSubsistence(global::System.Int32 sID, global::System.String rEPID, global::System.Int32 cID)
         {
             Subsistence subsistence = new Subsistence();
             subsistence.SID = sID;
@@ -2512,7 +2554,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte SID
+        public global::System.Int32 SID
         {
             get
             {
@@ -2530,8 +2572,8 @@ namespace VitsWCF
                 }
             }
         }
-        private global::System.Byte _SID;
-        partial void OnSIDChanging(global::System.Byte value);
+        private global::System.Int32 _SID;
+        partial void OnSIDChanging(global::System.Int32 value);
         partial void OnSIDChanged();
     
         /// <summary>
@@ -2563,7 +2605,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte CID
+        public global::System.Int32 CID
         {
             get
             {
@@ -2578,8 +2620,8 @@ namespace VitsWCF
                 OnCIDChanged();
             }
         }
-        private global::System.Byte _CID;
-        partial void OnCIDChanging(global::System.Byte value);
+        private global::System.Int32 _CID;
+        partial void OnCIDChanging(global::System.Int32 value);
         partial void OnCIDChanged();
     
         /// <summary>
@@ -2640,16 +2682,16 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Subsistence__CID__38996AB5", "Country")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Subsistence__CID__36B12243", "Country")]
         public Country Country
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("DATABASEVITSModel.FK__Subsistence__CID__38996AB5", "Country").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("DATABASEVITSModel.FK__Subsistence__CID__36B12243", "Country").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("DATABASEVITSModel.FK__Subsistence__CID__38996AB5", "Country").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("DATABASEVITSModel.FK__Subsistence__CID__36B12243", "Country").Value = value;
             }
         }
         /// <summary>
@@ -2661,13 +2703,13 @@ namespace VitsWCF
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("DATABASEVITSModel.FK__Subsistence__CID__38996AB5", "Country");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("DATABASEVITSModel.FK__Subsistence__CID__36B12243", "Country");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Country>("DATABASEVITSModel.FK__Subsistence__CID__38996AB5", "Country", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Country>("DATABASEVITSModel.FK__Subsistence__CID__36B12243", "Country", value);
                 }
             }
         }
@@ -2678,16 +2720,16 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Subsisten__REPID__37A5467C", "Report")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Subsisten__REPID__35BCFE0A", "Report")]
         public Report Report
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DATABASEVITSModel.FK__Subsisten__REPID__37A5467C", "Report").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DATABASEVITSModel.FK__Subsisten__REPID__35BCFE0A", "Report").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DATABASEVITSModel.FK__Subsisten__REPID__37A5467C", "Report").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DATABASEVITSModel.FK__Subsisten__REPID__35BCFE0A", "Report").Value = value;
             }
         }
         /// <summary>
@@ -2699,13 +2741,13 @@ namespace VitsWCF
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DATABASEVITSModel.FK__Subsisten__REPID__37A5467C", "Report");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Report>("DATABASEVITSModel.FK__Subsisten__REPID__35BCFE0A", "Report");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Report>("DATABASEVITSModel.FK__Subsisten__REPID__37A5467C", "Report", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Report>("DATABASEVITSModel.FK__Subsisten__REPID__35BCFE0A", "Report", value);
                 }
             }
         }
@@ -2733,7 +2775,7 @@ namespace VitsWCF
         /// <param name="date">Initial value of the Date property.</param>
         /// <param name="eID">Initial value of the EID property.</param>
         /// <param name="mID">Initial value of the MID property.</param>
-        public static TravelAdvances CreateTravelAdvances(global::System.Byte tID, global::System.Int32 total, global::System.Boolean approved, global::System.Boolean answered, global::System.DateTime date, global::System.Byte eID, global::System.Byte mID)
+        public static TravelAdvances CreateTravelAdvances(global::System.Int32 tID, global::System.Int32 total, global::System.Boolean approved, global::System.Boolean answered, global::System.DateTime date, global::System.Int32 eID, global::System.Int32 mID)
         {
             TravelAdvances travelAdvances = new TravelAdvances();
             travelAdvances.TID = tID;
@@ -2754,7 +2796,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte TID
+        public global::System.Int32 TID
         {
             get
             {
@@ -2772,8 +2814,8 @@ namespace VitsWCF
                 }
             }
         }
-        private global::System.Byte _TID;
-        partial void OnTIDChanging(global::System.Byte value);
+        private global::System.Int32 _TID;
+        partial void OnTIDChanging(global::System.Int32 value);
         partial void OnTIDChanged();
     
         /// <summary>
@@ -2877,7 +2919,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte EID
+        public global::System.Int32 EID
         {
             get
             {
@@ -2892,8 +2934,8 @@ namespace VitsWCF
                 OnEIDChanged();
             }
         }
-        private global::System.Byte _EID;
-        partial void OnEIDChanging(global::System.Byte value);
+        private global::System.Int32 _EID;
+        partial void OnEIDChanging(global::System.Int32 value);
         partial void OnEIDChanged();
     
         /// <summary>
@@ -2901,7 +2943,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte MID
+        public global::System.Int32 MID
         {
             get
             {
@@ -2916,8 +2958,8 @@ namespace VitsWCF
                 OnMIDChanged();
             }
         }
-        private global::System.Byte _MID;
-        partial void OnMIDChanging(global::System.Byte value);
+        private global::System.Int32 _MID;
+        partial void OnMIDChanging(global::System.Int32 value);
         partial void OnMIDChanged();
 
         #endregion
@@ -2930,16 +2972,16 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__TravelAdvan__EID__1DE57479", "Employee")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__TravelAdvan__EID__1ED998B2", "Employee")]
         public Employee Employee
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__TravelAdvan__EID__1DE57479", "Employee").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__TravelAdvan__EID__1ED998B2", "Employee").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__TravelAdvan__EID__1DE57479", "Employee").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__TravelAdvan__EID__1ED998B2", "Employee").Value = value;
             }
         }
         /// <summary>
@@ -2951,13 +2993,13 @@ namespace VitsWCF
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__TravelAdvan__EID__1DE57479", "Employee");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__TravelAdvan__EID__1ED998B2", "Employee");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Employee>("DATABASEVITSModel.FK__TravelAdvan__EID__1DE57479", "Employee", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Employee>("DATABASEVITSModel.FK__TravelAdvan__EID__1ED998B2", "Employee", value);
                 }
             }
         }
@@ -2968,16 +3010,16 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__TravelAdvan__MID__1ED998B2", "Mission")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__TravelAdvan__MID__1FCDBCEB", "Mission")]
         public Mission Mission
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__TravelAdvan__MID__1ED998B2", "Mission").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__TravelAdvan__MID__1FCDBCEB", "Mission").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__TravelAdvan__MID__1ED998B2", "Mission").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__TravelAdvan__MID__1FCDBCEB", "Mission").Value = value;
             }
         }
         /// <summary>
@@ -2989,13 +3031,13 @@ namespace VitsWCF
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__TravelAdvan__MID__1ED998B2", "Mission");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__TravelAdvan__MID__1FCDBCEB", "Mission");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Mission>("DATABASEVITSModel.FK__TravelAdvan__MID__1ED998B2", "Mission", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Mission>("DATABASEVITSModel.FK__TravelAdvan__MID__1FCDBCEB", "Mission", value);
                 }
             }
         }
@@ -3018,7 +3060,7 @@ namespace VitsWCF
         /// </summary>
         /// <param name="tMID">Initial value of the TMID property.</param>
         /// <param name="name">Initial value of the Name property.</param>
-        public static TravelMethod CreateTravelMethod(global::System.Byte tMID, global::System.String name)
+        public static TravelMethod CreateTravelMethod(global::System.Int32 tMID, global::System.String name)
         {
             TravelMethod travelMethod = new TravelMethod();
             travelMethod.TMID = tMID;
@@ -3034,7 +3076,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte TMID
+        public global::System.Int32 TMID
         {
             get
             {
@@ -3052,8 +3094,8 @@ namespace VitsWCF
                 }
             }
         }
-        private global::System.Byte _TMID;
-        partial void OnTMIDChanging(global::System.Byte value);
+        private global::System.Int32 _TMID;
+        partial void OnTMIDChanging(global::System.Int32 value);
         partial void OnTMIDChanged();
     
         /// <summary>
@@ -3090,18 +3132,18 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__TravelOrde__TMID__3F466844", "TravelOrder")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__TravelOrde__TMID__3D5E1FD2", "TravelOrder")]
         public EntityCollection<TravelOrder> TravelOrder
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TravelOrder>("DATABASEVITSModel.FK__TravelOrde__TMID__3F466844", "TravelOrder");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TravelOrder>("DATABASEVITSModel.FK__TravelOrde__TMID__3D5E1FD2", "TravelOrder");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TravelOrder>("DATABASEVITSModel.FK__TravelOrde__TMID__3F466844", "TravelOrder", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TravelOrder>("DATABASEVITSModel.FK__TravelOrde__TMID__3D5E1FD2", "TravelOrder", value);
                 }
             }
         }
@@ -3128,7 +3170,7 @@ namespace VitsWCF
         /// <param name="tMID">Initial value of the TMID property.</param>
         /// <param name="approved">Initial value of the Approved property.</param>
         /// <param name="answered">Initial value of the Answered property.</param>
-        public static TravelOrder CreateTravelOrder(global::System.Byte tID, global::System.Byte mID, global::System.Byte eID, global::System.Byte tMID, global::System.Boolean approved, global::System.Boolean answered)
+        public static TravelOrder CreateTravelOrder(global::System.Int32 tID, global::System.Int32 mID, global::System.Int32 eID, global::System.Int32 tMID, global::System.Boolean approved, global::System.Boolean answered)
         {
             TravelOrder travelOrder = new TravelOrder();
             travelOrder.TID = tID;
@@ -3148,7 +3190,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte TID
+        public global::System.Int32 TID
         {
             get
             {
@@ -3166,8 +3208,8 @@ namespace VitsWCF
                 }
             }
         }
-        private global::System.Byte _TID;
-        partial void OnTIDChanging(global::System.Byte value);
+        private global::System.Int32 _TID;
+        partial void OnTIDChanging(global::System.Int32 value);
         partial void OnTIDChanged();
     
         /// <summary>
@@ -3175,7 +3217,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte MID
+        public global::System.Int32 MID
         {
             get
             {
@@ -3190,8 +3232,8 @@ namespace VitsWCF
                 OnMIDChanged();
             }
         }
-        private global::System.Byte _MID;
-        partial void OnMIDChanging(global::System.Byte value);
+        private global::System.Int32 _MID;
+        partial void OnMIDChanging(global::System.Int32 value);
         partial void OnMIDChanged();
     
         /// <summary>
@@ -3199,7 +3241,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte EID
+        public global::System.Int32 EID
         {
             get
             {
@@ -3214,8 +3256,8 @@ namespace VitsWCF
                 OnEIDChanged();
             }
         }
-        private global::System.Byte _EID;
-        partial void OnEIDChanging(global::System.Byte value);
+        private global::System.Int32 _EID;
+        partial void OnEIDChanging(global::System.Int32 value);
         partial void OnEIDChanged();
     
         /// <summary>
@@ -3223,7 +3265,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte TMID
+        public global::System.Int32 TMID
         {
             get
             {
@@ -3238,8 +3280,8 @@ namespace VitsWCF
                 OnTMIDChanged();
             }
         }
-        private global::System.Byte _TMID;
-        partial void OnTMIDChanging(global::System.Byte value);
+        private global::System.Int32 _TMID;
+        partial void OnTMIDChanging(global::System.Int32 value);
         partial void OnTMIDChanged();
     
         /// <summary>
@@ -3372,16 +3414,16 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__TravelOrder__EID__3E52440B", "Employee")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__TravelOrder__EID__3C69FB99", "Employee")]
         public Employee Employee
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__TravelOrder__EID__3E52440B", "Employee").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__TravelOrder__EID__3C69FB99", "Employee").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__TravelOrder__EID__3E52440B", "Employee").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__TravelOrder__EID__3C69FB99", "Employee").Value = value;
             }
         }
         /// <summary>
@@ -3393,13 +3435,13 @@ namespace VitsWCF
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__TravelOrder__EID__3E52440B", "Employee");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__TravelOrder__EID__3C69FB99", "Employee");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Employee>("DATABASEVITSModel.FK__TravelOrder__EID__3E52440B", "Employee", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Employee>("DATABASEVITSModel.FK__TravelOrder__EID__3C69FB99", "Employee", value);
                 }
             }
         }
@@ -3410,16 +3452,16 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__TravelOrder__MID__3D5E1FD2", "Mission")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__TravelOrder__MID__3B75D760", "Mission")]
         public Mission Mission
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__TravelOrder__MID__3D5E1FD2", "Mission").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__TravelOrder__MID__3B75D760", "Mission").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__TravelOrder__MID__3D5E1FD2", "Mission").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__TravelOrder__MID__3B75D760", "Mission").Value = value;
             }
         }
         /// <summary>
@@ -3431,13 +3473,13 @@ namespace VitsWCF
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__TravelOrder__MID__3D5E1FD2", "Mission");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__TravelOrder__MID__3B75D760", "Mission");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Mission>("DATABASEVITSModel.FK__TravelOrder__MID__3D5E1FD2", "Mission", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Mission>("DATABASEVITSModel.FK__TravelOrder__MID__3B75D760", "Mission", value);
                 }
             }
         }
@@ -3448,16 +3490,16 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__TravelOrde__TMID__3F466844", "TravelMethod")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__TravelOrde__TMID__3D5E1FD2", "TravelMethod")]
         public TravelMethod TravelMethod
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TravelMethod>("DATABASEVITSModel.FK__TravelOrde__TMID__3F466844", "TravelMethod").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TravelMethod>("DATABASEVITSModel.FK__TravelOrde__TMID__3D5E1FD2", "TravelMethod").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TravelMethod>("DATABASEVITSModel.FK__TravelOrde__TMID__3F466844", "TravelMethod").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TravelMethod>("DATABASEVITSModel.FK__TravelOrde__TMID__3D5E1FD2", "TravelMethod").Value = value;
             }
         }
         /// <summary>
@@ -3469,13 +3511,13 @@ namespace VitsWCF
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TravelMethod>("DATABASEVITSModel.FK__TravelOrde__TMID__3F466844", "TravelMethod");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TravelMethod>("DATABASEVITSModel.FK__TravelOrde__TMID__3D5E1FD2", "TravelMethod");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TravelMethod>("DATABASEVITSModel.FK__TravelOrde__TMID__3F466844", "TravelMethod", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TravelMethod>("DATABASEVITSModel.FK__TravelOrde__TMID__3D5E1FD2", "TravelMethod", value);
                 }
             }
         }
@@ -3500,7 +3542,7 @@ namespace VitsWCF
         /// <param name="mID">Initial value of the MID property.</param>
         /// <param name="cID">Initial value of the CID property.</param>
         /// <param name="startDate">Initial value of the StartDate property.</param>
-        public static Trip CreateTrip(global::System.Byte eID, global::System.Byte mID, global::System.Byte cID, global::System.DateTime startDate)
+        public static Trip CreateTrip(global::System.Int32 eID, global::System.Int32 mID, global::System.Int32 cID, global::System.DateTime startDate)
         {
             Trip trip = new Trip();
             trip.EID = eID;
@@ -3518,7 +3560,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte EID
+        public global::System.Int32 EID
         {
             get
             {
@@ -3536,8 +3578,8 @@ namespace VitsWCF
                 }
             }
         }
-        private global::System.Byte _EID;
-        partial void OnEIDChanging(global::System.Byte value);
+        private global::System.Int32 _EID;
+        partial void OnEIDChanging(global::System.Int32 value);
         partial void OnEIDChanged();
     
         /// <summary>
@@ -3545,7 +3587,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte MID
+        public global::System.Int32 MID
         {
             get
             {
@@ -3563,8 +3605,8 @@ namespace VitsWCF
                 }
             }
         }
-        private global::System.Byte _MID;
-        partial void OnMIDChanging(global::System.Byte value);
+        private global::System.Int32 _MID;
+        partial void OnMIDChanging(global::System.Int32 value);
         partial void OnMIDChanged();
     
         /// <summary>
@@ -3572,7 +3614,7 @@ namespace VitsWCF
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte CID
+        public global::System.Int32 CID
         {
             get
             {
@@ -3590,8 +3632,8 @@ namespace VitsWCF
                 }
             }
         }
-        private global::System.Byte _CID;
-        partial void OnCIDChanging(global::System.Byte value);
+        private global::System.Int32 _CID;
+        partial void OnCIDChanging(global::System.Int32 value);
         partial void OnCIDChanged();
     
         /// <summary>
@@ -3655,16 +3697,16 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Trip__CID__22AA2996", "Country")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Trip__CID__239E4DCF", "Country")]
         public Country Country
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("DATABASEVITSModel.FK__Trip__CID__22AA2996", "Country").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("DATABASEVITSModel.FK__Trip__CID__239E4DCF", "Country").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("DATABASEVITSModel.FK__Trip__CID__22AA2996", "Country").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("DATABASEVITSModel.FK__Trip__CID__239E4DCF", "Country").Value = value;
             }
         }
         /// <summary>
@@ -3676,13 +3718,13 @@ namespace VitsWCF
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("DATABASEVITSModel.FK__Trip__CID__22AA2996", "Country");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("DATABASEVITSModel.FK__Trip__CID__239E4DCF", "Country");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Country>("DATABASEVITSModel.FK__Trip__CID__22AA2996", "Country", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Country>("DATABASEVITSModel.FK__Trip__CID__239E4DCF", "Country", value);
                 }
             }
         }
@@ -3693,16 +3735,16 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Trip__EID__20C1E124", "Employee")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Trip__EID__21B6055D", "Employee")]
         public Employee Employee
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__Trip__EID__20C1E124", "Employee").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__Trip__EID__21B6055D", "Employee").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__Trip__EID__20C1E124", "Employee").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__Trip__EID__21B6055D", "Employee").Value = value;
             }
         }
         /// <summary>
@@ -3714,13 +3756,13 @@ namespace VitsWCF
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__Trip__EID__20C1E124", "Employee");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DATABASEVITSModel.FK__Trip__EID__21B6055D", "Employee");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Employee>("DATABASEVITSModel.FK__Trip__EID__20C1E124", "Employee", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Employee>("DATABASEVITSModel.FK__Trip__EID__21B6055D", "Employee", value);
                 }
             }
         }
@@ -3731,16 +3773,16 @@ namespace VitsWCF
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Trip__MID__21B6055D", "Mission")]
+        [EdmRelationshipNavigationPropertyAttribute("DATABASEVITSModel", "FK__Trip__MID__22AA2996", "Mission")]
         public Mission Mission
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__Trip__MID__21B6055D", "Mission").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__Trip__MID__22AA2996", "Mission").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__Trip__MID__21B6055D", "Mission").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__Trip__MID__22AA2996", "Mission").Value = value;
             }
         }
         /// <summary>
@@ -3752,13 +3794,13 @@ namespace VitsWCF
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__Trip__MID__21B6055D", "Mission");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Mission>("DATABASEVITSModel.FK__Trip__MID__22AA2996", "Mission");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Mission>("DATABASEVITSModel.FK__Trip__MID__21B6055D", "Mission", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Mission>("DATABASEVITSModel.FK__Trip__MID__22AA2996", "Mission", value);
                 }
             }
         }

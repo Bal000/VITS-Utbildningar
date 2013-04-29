@@ -63,6 +63,7 @@
           <ScalarProperty Name="Manager" ColumnName="Manager" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EID" ColumnName="EID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -149,13 +150,5 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="EmployeeMission" TypeName="DATABASEVITSModel.EmployeeMission" StoreEntitySet="EmployeeMission">
-      <EndProperty Name="Employee">
-        <ScalarProperty Name="EID" ColumnName="EID" />
-      </EndProperty>
-      <EndProperty Name="Mission">
-        <ScalarProperty Name="MID" ColumnName="MID" />
-      </EndProperty>
-    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

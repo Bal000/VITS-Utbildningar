@@ -9,9 +9,11 @@ namespace Vits
 {
     public partial class WebForm3 : System.Web.UI.Page
     {
+        string currentUser = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            currentUser = HttpContext.Current.User.Identity.Name;
         }
 
         protected void btnTillRapport_Click(object sender, EventArgs e)
