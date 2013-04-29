@@ -16,19 +16,21 @@ namespace Vits
         int eid = 0;
         List<CompositeMission> missList;
         
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
             missList = new List<CompositeMission>();
             currentUser = HttpContext.Current.User.Identity.Name;
-
+            FillMissonsDDL();
             
         }
 
         protected void btnTillRapport_Click(object sender, EventArgs e)
         {
-            Klasser.Global.currentMission = ddlChooseMission.SelectedValue.ToString();
-            Response.Redirect("~/Contentpages/Rapport.aspx");
+            
+           Session["currMission"] = ddlChooseMission.SelectedItem;
+           Response.Redirect("~/Contentpages/Rapport.aspx");
         }
 
         protected void FillMissonsDDL()
@@ -39,11 +41,14 @@ namespace Vits
 
                 missList = client.GetMissionsByEid(eid);
 
-                foreach (CompositeMission m in missList)
-                {
-                    ddlChooseMission.Items.Add(new ListItem(m.Office.Name + ", " + m.Description)); 
-                }
-            
+
+                ddlChooseMission.DataSource = missList;
+                ddlChooseMission.DataTextField = "Description";
+                ddlChooseMission.DataValueField = "Description";
+                ddlChooseMission.DataBind();
+
+
+
             }
         }
     }

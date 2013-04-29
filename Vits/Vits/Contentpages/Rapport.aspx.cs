@@ -19,6 +19,7 @@ namespace Vits
         private List<Klasser.Traktamente>   lstTraktTillRapport;
         private List<DateTime>              lstAvvikelserTillRapport;
         
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             expense = new List<ServiceReference1.CompositeExpense>();
