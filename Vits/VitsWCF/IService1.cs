@@ -52,6 +52,10 @@ namespace VitsWCF
 
        
         //Get Single objects.
+
+        [OperationContract]
+        int GetCountryIdByName(string name);
+
         [OperationContract]
         CompositeEmployee GetEmployee(int eid);
 

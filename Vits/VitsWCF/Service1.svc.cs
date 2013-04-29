@@ -198,6 +198,20 @@ namespace VitsWCF
 
         //Get single Objects.
 
+        public int GetCountryIdByName(string name)
+        { 
+            using (var context = new DATABASEVITSEntities())
+            {
+                int id = (from c in context.Country
+                          where c.Name.Equals(name)
+                          select c.CID).FirstOrDefault();
+
+                return id;           
+            }
+             
+        
+        }
+
         public CompositeEmployee GetEmployee(int eid)
         {
             using (var context = new DATABASEVITSEntities())

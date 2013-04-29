@@ -207,6 +207,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Klasser\Avvikelse.cs" />
     <Compile Include="Klasser\Epost.cs" />
     <Compile Include="Klasser\Global.cs" />
     <Compile Include="Klasser\Traktamente.cs" />

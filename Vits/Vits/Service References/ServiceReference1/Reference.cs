@@ -2685,6 +2685,9 @@ namespace Vits.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SaveSubsistence", ReplyAction="http://tempuri.org/IService1/SaveSubsistenceResponse")]
         void SaveSubsistence(Vits.ServiceReference1.CompositeSubsistence subsistence);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCountryIdByName", ReplyAction="http://tempuri.org/IService1/GetCountryIdByNameResponse")]
+        int GetCountryIdByName(string name);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEmployee", ReplyAction="http://tempuri.org/IService1/GetEmployeeResponse")]
         Vits.ServiceReference1.CompositeEmployee GetEmployee(int eid);
         
@@ -2783,6 +2786,10 @@ namespace Vits.ServiceReference1 {
         
         public void SaveSubsistence(Vits.ServiceReference1.CompositeSubsistence subsistence) {
             base.Channel.SaveSubsistence(subsistence);
+        }
+        
+        public int GetCountryIdByName(string name) {
+            return base.Channel.GetCountryIdByName(name);
         }
         
         public Vits.ServiceReference1.CompositeEmployee GetEmployee(int eid) {

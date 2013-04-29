@@ -81,6 +81,12 @@
   <wsdl:message name="IService1_SaveSubsistence_OutputMessage">
     <wsdl:part name="parameters" element="tns:SaveSubsistenceResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetCountryIdByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountryIdByName" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCountryIdByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountryIdByNameResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetEmployee_InputMessage">
     <wsdl:part name="parameters" element="tns:GetEmployee" />
   </wsdl:message>
@@ -177,6 +183,10 @@
     <wsdl:operation name="SaveSubsistence">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SaveSubsistence" message="tns:IService1_SaveSubsistence_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/SaveSubsistenceResponse" message="tns:IService1_SaveSubsistence_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryIdByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCountryIdByName" message="tns:IService1_GetCountryIdByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCountryIdByNameResponse" message="tns:IService1_GetCountryIdByName_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetEmployee">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetEmployee" message="tns:IService1_GetEmployee_InputMessage" />
@@ -314,6 +324,15 @@
     </wsdl:operation>
     <wsdl:operation name="SaveSubsistence">
       <soap:operation soapAction="http://tempuri.org/IService1/SaveSubsistence" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryIdByName">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetCountryIdByName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

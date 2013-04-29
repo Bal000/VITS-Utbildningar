@@ -8,16 +8,22 @@ using System.IO;
 using System.Diagnostics;
 using System.Text;
 using Vits.ServiceReference1;
+using Vits;
 
 namespace Vits
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        private List<ServiceReference1.CompositeExpense> expense;
+        private List<CompositeExpense> expense;
         private List<Klasser.Traktamente>   lstAllaTraktamenten;
         private List<Klasser.Traktamente>   lstTraktamenteGrid;
         private List<Klasser.Traktamente>   lstTraktTillRapport;
         private List<DateTime>              lstAvvikelserTillRapport;
+        private string repID = Guid.NewGuid().ToString();
+        private int totalExpenses = 0;
+        private int missionID = 0;
+        private int km = 0;
+        private bool car = false;
         
         
         protected void Page_Load(object sender, EventArgs e)
@@ -28,7 +34,8 @@ namespace Vits
             lstTraktamenteGrid      = new List<Klasser.Traktamente>();
             lstTraktTillRapport     = new List<Klasser.Traktamente>();
             lstAvvikelserTillRapport = new List<DateTime>();
-        
+            
+            SetMissionID();
             lstTraktTillRapport.Clear();
             FillCountry();
             FillCategoryDropDown();
@@ -99,9 +106,6 @@ namespace Vits
             gwTract.DataBind();            
         }
         
-        
-        
-        
         // ------------------------------------------------------------------------------------------------------
         //Välj datum (period)
         protected void btnTract_Click(object sender, EventArgs e)
@@ -112,9 +116,6 @@ namespace Vits
             FillCountry();
             //Response.Write("Antal objekt i Trakt-GridView: " + lstTraktamenteGrid.Count);
         }
-
-
-
 
         // ------------------------------------------------------------------------------------------------------
         //  Beräkna Traktamenten + Avvikelser. Till Rapport
@@ -159,9 +160,6 @@ namespace Vits
             Debug.WriteLine("---------- SLUT RAPPORT ----------\n\n");
         }
 
-
-
-
         // ------------------------------------------------------------------------------------------------------
         // Väljer vilka datum som man ska ha traktamente
         protected void ValjDatumForTraktamente()
@@ -180,9 +178,6 @@ namespace Vits
                 date = date.AddDays(1);
             }
         }
-
-
-
 
         // ------------------------------------------------------------------------------------------------------
         //Avvikelser
@@ -212,9 +207,6 @@ namespace Vits
             }
             return lstAvTmp;
         }
-
-
-
 
         // ------------------------------------------------------------------------------------------------------
         // avdrag procent
@@ -261,9 +253,6 @@ namespace Vits
             return (int)Math.Round(nyTrakt);
         }
 
-
-
-
         // ------------------------------------------------------------------------------------------------------
         // ta bort
         protected void gwTract_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -291,12 +280,14 @@ namespace Vits
                 }
             }
         }
+
 // ________________________________________________ SLUT TRAKTAMENTEN / AVVIKELSER ________________________________________________
         
 
 
 
         // ------------------------------------------------------------------------------------------------------
+
         protected void btnAddReceipt_Click(object sender, EventArgs e)
         {
             
@@ -393,17 +384,32 @@ namespace Vits
             
         }
 
+        // Fyller alla utgifter i griden.
         protected void FillExpenseGrid()
         {
             gvReciept.DataSource = expense;
             gvReciept.DataBind();
         }
 
+        // Sparar ner rapport
         protected void btnSendReport_Click(object sender, EventArgs e)
         {
-            BeraknaTraktamenteAvvikelser();
+            CheckCar();
+            countExpenses();
+            CompositeReport rep = new CompositeReport();
+            rep.REPID = repID;
+            rep.Expenses = totalExpenses;
+            rep.MID = missionID;
+            rep.Car = car;
+            rep.Miles = km;
+
+            using (var client = new Service1Client())
+            {
+                client.SaveReport(rep);            
+            }
         }
 
+        // Beräknar alla avvikelser
         protected void BeraknaTraktamenteAvvikelser()
         {
             int ddlIndex = ddlTractCountry.SelectedIndex;
@@ -443,11 +449,102 @@ namespace Vits
             Debug.WriteLine("---------- SLUT RAPPORT ----------\n\n");
         }
 
+        // Tömmer utgiftsfälten
         protected void ClearExpenseFields()
         {
             txtBoxDate.Text = "";
             txtBoxAmount.Text = "";
             txtBoxDescription.Text = "";
         }
+
+        // Sparar alla utgifter
+        protected void SaveExpenses()
+        {
+            using (var client = new Service1Client())
+            {
+                for (int i = 0; i < expense.Count; i++)
+                {
+                    CompositeExpense ex = new CompositeExpense();
+
+                    ex = expense[i];
+                    ex.REPID = repID;
+
+                    client.SaveExpense(ex);
+
+
+                }
+            }
+        }
+
+        // Summerar alla utgifter
+        protected void countExpenses()
+        {
+            foreach (CompositeExpense ex in expense)
+            {
+                totalExpenses += ex.Sum;
+            }
+        
+        
+        }
+        // Sparar alla traktamenten
+        protected void SaveSubsistences()
+        {
+            using (var client = new Service1Client())
+            {
+                for (int i = 0; i < lstTraktTillRapport.Count; i++)
+                {
+                    CompositeSubsistence sub = new CompositeSubsistence();
+                    sub.REPID = repID;
+                    sub.CID = client.GetCountryIdByName(lstTraktTillRapport[i].Land);
+                    sub.SUM = lstTraktTillRapport[i].Kronor;
+                    sub.DATE = Convert.ToDateTime(lstTraktTillRapport[i].Datum);            
+                }
+            }
+        }
+
+        // Sparar alla avvikelser
+        protected void SaveDeviations()
+        { 
+           using (var client = new Service1Client())
+           {
+                for(int i = 0; i < lstAvvikelserTillRapport.Count; i++)
+                {
+                    CompositeDeviation dev = new CompositeDeviation();
+
+                    dev.REPID = repID;
+                    dev.StartDate = lstAvvikelserTillRapport[i].Date;
+                    dev.StopDate = new DateTime();
+              
+                }
+           
+           
+           }
+        
+        
+        }
+
+
+        protected void SetMissionID()
+        {
+            if (Session["currMission"] != null)
+            {
+                CompositeMission mi = (CompositeMission)Session["currMission"];
+                missionID = mi.MID;
+            }
+        
+        
+        }
+
+        protected void CheckCar()
+        {
+            if (cbOwnCar.Checked && txtlOWnCar.Text != "")
+            {
+                km = int.Parse(txtlOWnCar.Text);
+                car = true;
+            }
+        
+        }
+
+
     }
 }
