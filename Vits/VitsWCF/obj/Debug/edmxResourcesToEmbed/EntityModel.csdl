@@ -123,7 +123,7 @@
     <Key>
       <PropertyRef Name="EID" />
     </Key>
-    <Property Name="EID" Type="Int32" Nullable="false" />
+    <Property Name="EID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="FirstName" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
     <Property Name="LastName" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
     <Property Name="Adress" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />

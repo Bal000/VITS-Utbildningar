@@ -126,7 +126,7 @@
     <Key>
       <PropertyRef Name="EID" />
     </Key>
-    <Property Name="EID" Type="int" Nullable="false" />
+    <Property Name="EID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="64" />
     <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="64" />
     <Property Name="Adress" Type="nvarchar" Nullable="false" MaxLength="64" />
