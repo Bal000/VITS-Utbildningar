@@ -93,6 +93,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EntityDeploy Include="EntityModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

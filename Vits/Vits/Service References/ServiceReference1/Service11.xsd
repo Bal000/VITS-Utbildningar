@@ -248,6 +248,7 @@
           <xs:element minOccurs="0" name="MID" type="xs:int" />
           <xs:element minOccurs="0" name="Mission" nillable="true" type="tns:Mission" />
           <xs:element minOccurs="0" name="MissionReference" nillable="true" type="q10:EntityReferenceOfMissionEo6k46yw" />
+          <xs:element minOccurs="0" name="Sent" type="xs:boolean" />
           <xs:element minOccurs="0" name="TID" type="xs:int" />
           <xs:element minOccurs="0" name="TMID" type="xs:int" />
           <xs:element minOccurs="0" name="To" nillable="true" type="xs:dateTime" />

@@ -3170,7 +3170,8 @@ namespace VitsWCF
         /// <param name="tMID">Initial value of the TMID property.</param>
         /// <param name="approved">Initial value of the Approved property.</param>
         /// <param name="answered">Initial value of the Answered property.</param>
-        public static TravelOrder CreateTravelOrder(global::System.Int32 tID, global::System.Int32 mID, global::System.Int32 eID, global::System.Int32 tMID, global::System.Boolean approved, global::System.Boolean answered)
+        /// <param name="sent">Initial value of the Sent property.</param>
+        public static TravelOrder CreateTravelOrder(global::System.Int32 tID, global::System.Int32 mID, global::System.Int32 eID, global::System.Int32 tMID, global::System.Boolean approved, global::System.Boolean answered, global::System.Boolean sent)
         {
             TravelOrder travelOrder = new TravelOrder();
             travelOrder.TID = tID;
@@ -3179,6 +3180,7 @@ namespace VitsWCF
             travelOrder.TMID = tMID;
             travelOrder.Approved = approved;
             travelOrder.Answered = answered;
+            travelOrder.Sent = sent;
             return travelOrder;
         }
 
@@ -3403,6 +3405,30 @@ namespace VitsWCF
         private global::System.Boolean _Answered;
         partial void OnAnsweredChanging(global::System.Boolean value);
         partial void OnAnsweredChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Sent
+        {
+            get
+            {
+                return _Sent;
+            }
+            set
+            {
+                OnSentChanging(value);
+                ReportPropertyChanging("Sent");
+                _Sent = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Sent");
+                OnSentChanged();
+            }
+        }
+        private global::System.Boolean _Sent;
+        partial void OnSentChanging(global::System.Boolean value);
+        partial void OnSentChanged();
 
         #endregion
     

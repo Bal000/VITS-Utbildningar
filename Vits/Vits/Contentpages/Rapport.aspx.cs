@@ -19,7 +19,7 @@ namespace Vits
         private List<Klasser.Traktamente>   lstTraktamenteGrid;
         private List<Klasser.Traktamente>   lstTraktTillRapport;
         private List<DateTime>              lstAvvikelserTillRapport;
-        private string repID = Guid.NewGuid().ToString();
+        private string repID;
         private int totalExpenses = 0;
         private int missionID = 0;
         private int km = 0;
@@ -30,9 +30,11 @@ namespace Vits
         
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            SetRepID(); // gör nytt repID, om det finns, återställ från session
+
             lstAllaTraktamenten = new List<Klasser.Traktamente>();
             currentUser = HttpContext.Current.User.Identity.Name;
-            ID = Guid.NewGuid().ToString();
             SetMissionID();
             expense = new List<CompositeExpense>();
                 
@@ -41,6 +43,19 @@ namespace Vits
             FillCountry();
             FillCategoryDropDown();
 
+        }
+
+        private void SetRepID()
+        {
+            if (Session["REPID"] == null)
+            {
+                repID = Guid.NewGuid().ToString();
+                Session["REPID"] = (string)repID;
+            }
+            if (Session["REPID"] != null)
+            {
+                repID = (string)Session["REPID"];
+            }
         }
 
         //Börjar kod för Utgifter
@@ -315,10 +330,10 @@ namespace Vits
                 expense = (List<CompositeExpense>)Session["EXPENSE"];
             }
 
-            if (ID != "")
+            if (repID != "")
             {
                 CompositeExpense expenseObj = new CompositeExpense();
-                expenseObj.REPID = ID;
+                expenseObj.REPID = repID;
                 string value = ddlCategory.SelectedValue.ToString();
                 int newVal = 0;
 
@@ -417,6 +432,7 @@ namespace Vits
             setEID();
             countExpenses();
             CheckCar();
+            //Skapar en ny rapport för sparning.
             CompositeReport rep = new CompositeReport();
             rep.REPID = repID;
             rep.EID = eid;
@@ -427,12 +443,14 @@ namespace Vits
 
             using (var client = new Service1Client())
             {
-                client.SaveReport(rep);            
+                client.SaveReport(rep);
+
+                SaveExpenses();
+                SaveSubsistences();
+                SaveDeviations();
             }
 
-            SaveExpenses();
-            SaveSubsistences();
-            SaveDeviations();
+            
 
         }
 
@@ -497,7 +515,13 @@ namespace Vits
                 {
                     CompositeExpense ex = new CompositeExpense();
 
-                    ex = expense[i];
+
+                    ex.REPID = repID;
+                    ex.CCID = expense[i].CCID;
+                    ex.Sum = expense[i].Sum;
+                    ex.VAT = expense[i].VAT;
+                    ex.Date = expense[i].Date;
+                    ex.Description = expense[i].Description;
                  
                     client.SaveExpense(ex);
 
@@ -528,7 +552,9 @@ namespace Vits
             {
                 lstTraktTillRapport = (List<Klasser.Traktamente>)Session["TRAKT_RAPPORT"];
             }
+
             
+
             using (var client = new Service1Client())
             {
                 for (int i = 0; i < lstTraktTillRapport.Count; i++)
@@ -537,7 +563,9 @@ namespace Vits
                     sub.REPID = repID;
                     sub.CID = client.GetCountryIdByName(lstTraktTillRapport[i].Land);
                     sub.SUM = lstTraktTillRapport[i].Kronor;
-                    sub.DATE = Convert.ToDateTime(lstTraktTillRapport[i].Datum);            
+                    sub.DATE = Convert.ToDateTime(lstTraktTillRapport[i].Datum);
+
+                    client.SaveSubsistence(sub);
                 }
             }
         }
@@ -559,6 +587,8 @@ namespace Vits
                     dev.REPID = repID;
                     dev.StartDate = lstAvvikelserTillRapport[i].Date;
                     dev.StopDate = new DateTime();
+
+                    client.SaveDeviation(dev);
               
                 }
            
