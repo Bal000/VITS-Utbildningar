@@ -195,7 +195,7 @@
           <Property Name="REPID" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="CID" Type="int" Nullable="false" />
           <Property Name="SUM" Type="int" />
-          <Property Name="DATE" Type="date" />
+          <Property Name="DATE" Type="datetime" />
         </EntityType>
         <EntityType Name="TravelAdvances">
           <Key>
@@ -224,8 +224,8 @@
           <Property Name="MID" Type="int" Nullable="false" />
           <Property Name="EID" Type="int" Nullable="false" />
           <Property Name="TMID" Type="int" Nullable="false" />
-          <Property Name="From" Type="date" />
-          <Property Name="To" Type="date" />
+          <Property Name="From" Type="datetime" />
+          <Property Name="To" Type="datetime" />
           <Property Name="Description" Type="nvarchar" MaxLength="500" />
           <Property Name="Approved" Type="bit" Nullable="false" />
           <Property Name="Answered" Type="bit" Nullable="false" />
