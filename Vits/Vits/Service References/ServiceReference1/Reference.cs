@@ -34,6 +34,7 @@ namespace Vits.ServiceReference1 {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CompositeTravelAdvances))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.TravelOrder))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.TravelMethod))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CompositeTravelOrder))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CompositeMission))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CompositeEmployee))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Expense))]
@@ -87,6 +88,7 @@ namespace Vits.ServiceReference1 {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CompositeTravelAdvances))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.TravelOrder))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.TravelMethod))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CompositeTravelOrder))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CompositeMission))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CompositeEmployee))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.Expense))]
@@ -1552,6 +1554,7 @@ namespace Vits.ServiceReference1 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TravelOrder", Namespace="http://schemas.datacontract.org/2004/07/VitsWCF", IsReference=true)]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CompositeTravelOrder))]
     public partial class TravelOrder : Vits.ServiceReference1.EntityObject {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1583,6 +1586,9 @@ namespace Vits.ServiceReference1 {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Vits.ServiceReference1.EntityReferenceOfMissionEo6k46yw MissionReferenceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool SentField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int TIDField;
@@ -1730,6 +1736,19 @@ namespace Vits.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Sent {
+            get {
+                return this.SentField;
+            }
+            set {
+                if ((this.SentField.Equals(value) != true)) {
+                    this.SentField = value;
+                    this.RaisePropertyChanged("Sent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TID {
             get {
                 return this.TIDField;
@@ -1848,6 +1867,13 @@ namespace Vits.ServiceReference1 {
                 }
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeTravelOrder", Namespace="http://schemas.datacontract.org/2004/07/VitsWCF", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class CompositeTravelOrder : Vits.ServiceReference1.TravelOrder {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2473,6 +2499,8 @@ namespace Vits.ServiceReference1 {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.CompositeExpense>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.CompositeCostCenter>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.CompositeMission>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.CompositeTravelOrder>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CompositeTravelOrder))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.EntityKey))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.EntityKeyMember>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.EntityObject))]
@@ -2711,6 +2739,9 @@ namespace Vits.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMissionsByEid", ReplyAction="http://tempuri.org/IService1/GetMissionsByEidResponse")]
         System.Collections.Generic.List<Vits.ServiceReference1.CompositeMission> GetMissionsByEid(int eid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTravelOrderbyEid", ReplyAction="http://tempuri.org/IService1/GetTravelOrderbyEidResponse")]
+        System.Collections.Generic.List<Vits.ServiceReference1.CompositeTravelOrder> GetTravelOrderbyEid(int eid);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2822,6 +2853,10 @@ namespace Vits.ServiceReference1 {
         
         public System.Collections.Generic.List<Vits.ServiceReference1.CompositeMission> GetMissionsByEid(int eid) {
             return base.Channel.GetMissionsByEid(eid);
+        }
+        
+        public System.Collections.Generic.List<Vits.ServiceReference1.CompositeTravelOrder> GetTravelOrderbyEid(int eid) {
+            return base.Channel.GetTravelOrderbyEid(eid);
         }
     }
 }

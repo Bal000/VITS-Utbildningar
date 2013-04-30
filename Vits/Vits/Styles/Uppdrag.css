@@ -1,0 +1,41 @@
+﻿body {
+}
+
+
+tr.UppdragGrid td
+{
+   border-bottom: 1px solid black;
+}
+
+.button
+{
+    border: 1px solid black;
+    background-color: White;
+    color: Black;
+    font-weight:bold;
+    font-size:normal;
+    
+    }
+
+.Godkand
+{
+    font-weight:bold;
+    color:green;
+    font-size: large;
+    }
+    
+    
+.Inskickad
+{
+    font-weight:normal;
+    color:Black;
+    font-weight:bold;
+    
+    }
+    
+.Ejgodkand
+    {
+    font-weight:bold;
+    color:red;
+    font-size: large;      
+        }

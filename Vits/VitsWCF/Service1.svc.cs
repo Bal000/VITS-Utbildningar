@@ -414,6 +414,32 @@ namespace VitsWCF
             }
         }
 
+        public List<CompositeTravelOrder> GetTravelOrderbyEid(int eid)
+        {
+            using (var context = new DATABASEVITSEntities())
+            {
+                List<CompositeTravelOrder> to = new List<CompositeTravelOrder>();
+
+                to = context.TravelOrder.Where(x => x.EID.Equals(eid)).Select(y => new CompositeTravelOrder
+                {
+                    TID = y.TID,
+                    MID = y.MID,
+                    EID = y.EID,
+                    TMID = y.TMID,
+                    From = y.From,
+                    To = y.To,
+                    Description = y.Description,
+                    Approved = y.Approved,
+                    Answered = y.Answered
+
+                }).ToList();
+
+
+                return to;
+
+
+            }
+        }
        
     }
 }

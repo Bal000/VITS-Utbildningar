@@ -81,6 +81,8 @@ namespace VitsWCF
         [OperationContract]
         List<CompositeMission> GetMissionsByEid(int eid);
 
+        [OperationContract]
+        List<CompositeTravelOrder> GetTravelOrderbyEid(int eid);
 
         // TODO: Add your service operations here
     }

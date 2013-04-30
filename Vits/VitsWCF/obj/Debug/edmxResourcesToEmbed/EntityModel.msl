@@ -127,6 +127,7 @@
     <EntitySetMapping Name="TravelOrder">
       <EntityTypeMapping TypeName="DATABASEVITSModel.TravelOrder">
         <MappingFragment StoreEntitySet="TravelOrder">
+          <ScalarProperty Name="Sent" ColumnName="Sent" />
           <ScalarProperty Name="TID" ColumnName="TID" />
           <ScalarProperty Name="MID" ColumnName="MID" />
           <ScalarProperty Name="EID" ColumnName="EID" />

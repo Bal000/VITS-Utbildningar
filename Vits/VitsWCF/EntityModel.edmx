@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DATABASEVITSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="DATABASEVITSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="DATABASEVITSModelStoreContainer">
           <EntitySet Name="CostCenter" EntityType="DATABASEVITSModel.Store.CostCenter" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Country" EntityType="DATABASEVITSModel.Store.Country" store:Type="Tables" Schema="dbo" />
@@ -229,9 +229,10 @@
           <Property Name="Description" Type="nvarchar" MaxLength="500" />
           <Property Name="Approved" Type="bit" Nullable="false" />
           <Property Name="Answered" Type="bit" Nullable="false" />
+          <Property Name="Sent" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'C:\USERS\DANIEL\DOCUMENTS\GITHUB\VITS-UTBILDNINGAR\VITS\VITSWCF\APP_DATA\DATABASEVITS.MDF.dbo.Trip' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'C:\USERS\RICKARD\DOCUMENTS\GITHUB\VITS-UTBILDNINGAR\VITS\VITSWCF\APP_DATA\DATABASEVITS.MDF.dbo.Trip' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="Trip">
           <Key>
@@ -474,8 +475,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DATABASEVITSModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -730,6 +730,7 @@
           <NavigationProperty Name="Employee" Relationship="DATABASEVITSModel.FK__TravelOrder__EID__3C69FB99" FromRole="TravelOrder" ToRole="Employee" />
           <NavigationProperty Name="Mission" Relationship="DATABASEVITSModel.FK__TravelOrder__MID__3B75D760" FromRole="TravelOrder" ToRole="Mission" />
           <NavigationProperty Name="TravelMethod" Relationship="DATABASEVITSModel.FK__TravelOrde__TMID__3D5E1FD2" FromRole="TravelOrder" ToRole="TravelMethod" />
+          <Property Type="Boolean" Name="Sent" Nullable="false" />
         </EntityType>
         <EntityType Name="Trip">
           <Key>
@@ -1061,7 +1062,8 @@
             <ScalarProperty Name="Name" ColumnName="Name" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="TravelOrder"><EntityTypeMapping TypeName="DATABASEVITSModel.TravelOrder"><MappingFragment StoreEntitySet="TravelOrder">
-            <ScalarProperty Name="TID" ColumnName="TID" />
+            <ScalarProperty Name="Sent" ColumnName="Sent" />
+                <ScalarProperty Name="TID" ColumnName="TID" />
             <ScalarProperty Name="MID" ColumnName="MID" />
             <ScalarProperty Name="EID" ColumnName="EID" />
             <ScalarProperty Name="TMID" ColumnName="TMID" />
