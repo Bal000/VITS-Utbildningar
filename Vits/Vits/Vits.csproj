@@ -61,6 +61,10 @@
     <None Include="Contentpages\Rapport.aspx.cs.old" />
     <None Include="Contentpages\Rapport.aspx.old" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="App_Data\ASPNETDB.MDF" />
+    <Content Include="App_Data\aspnetdb_log.LDF">
+      <DependentUpon>ASPNETDB.MDF</DependentUpon>
+    </Content>
     <Content Include="Contentpages\HanteraAnvandare.aspx" />
     <Content Include="Contentpages\HanteraKunder.aspx" />
     <Content Include="Contentpages\HanteraUppdrag.aspx" />
@@ -262,7 +266,6 @@
     <Compile Include="WebProfile.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="IMG\" />
   </ItemGroup>
   <ItemGroup>
