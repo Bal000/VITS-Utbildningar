@@ -12,9 +12,16 @@
             <%--Nedan samlar jag information om egen bil i en egen div för presentation inom ContentLeft--%>.
             <div class="CarDiv">
                 <asp:Label ID="lblOwnCar" runat="server" Text="Egen bil" CssClass="lblBold"></asp:Label>
-                <asp:CheckBox ID="cbOwnCar" runat="server" />
-                <asp:Label ID="lblMiles" runat="server" Text="Antal mil: " CssClass="lblBold" Visible="False"></asp:Label>
-                <asp:TextBox ID="txtlOWnCar" runat="server" Visible="False"></asp:TextBox>
+                <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                    <ContentTemplate>
+                        <asp:CheckBox ID="cbOwnCar" runat="server" OnCheckedChanged="cbOwnCar_CheckedChanged"
+                            AutoPostBack="true" />
+                        <asp:Label ID="lblMiles" runat="server" Text="Antal km: " CssClass="lblBold"></asp:Label>
+                        <asp:TextBox ID="txtlOWnCar" runat="server" Enabled="false">
+                        </asp:TextBox>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                <br />
                 <br />
             </div>
             <%--Nedan samlar jag information om Kvitton i en egen div inom ContentLeft.--%>
@@ -164,7 +171,7 @@
                             <SortedDescendingCellStyle BackColor="#FFFDF8" />
                             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                         </asp:GridView>
-                       <%-- <asp:Button ID="Button2tmp" runat="server" Text="Beräkna" OnClick="Button2tmp_Click" />--%>
+                        <%-- <asp:Button ID="Button2tmp" runat="server" Text="Beräkna" OnClick="Button2tmp_Click" />--%>
                     </div>
                 </ContentTemplate>
                 <Triggers>
@@ -175,8 +182,8 @@
             </asp:UpdatePanel>
         </div>
         <%--Avslutar subsistence div--%>
-        <asp:Button ID="btnSendReport" runat="server" Text="Skicka in" 
-            CssClass="btnSendReport" onclick="btnSendReport_Click" />
+        <asp:Button ID="btnSendReport" runat="server" Text="Skicka in" CssClass="btnSendReport"
+            OnClick="btnSendReport_Click" />
     </div>
     <%--Avslutar ContentWrapper--%>
 </asp:Content>

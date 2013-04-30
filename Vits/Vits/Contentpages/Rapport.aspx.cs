@@ -30,18 +30,14 @@ namespace Vits
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            expense = new List<CompositeExpense>();
-            ID = Guid.NewGuid().ToString();
-            lstAllaTraktamenten     = new List<Klasser.Traktamente>();
-            lstTraktamenteGrid      = new List<Klasser.Traktamente>();
-            lstTraktTillRapport     = new List<Klasser.Traktamente>();
-            lstAvvikelserTillRapport = new List<DateTime>();
-
+            lstAllaTraktamenten = new List<Klasser.Traktamente>();
             currentUser = HttpContext.Current.User.Identity.Name;
-            
-            
+            ID = Guid.NewGuid().ToString();
             SetMissionID();
-            lstTraktTillRapport.Clear();
+            expense = new List<CompositeExpense>();
+                
+            //lstTraktTillRapport.Clear();
+            
             FillCountry();
             FillCategoryDropDown();
 
@@ -65,7 +61,6 @@ namespace Vits
 
             }
         }
-
 
         //Slutar kod för Utgifter
 
@@ -91,6 +86,10 @@ namespace Vits
         // Lägg till
         protected void LaggTillTraktGrid(DateTime date)
         {
+            
+            lstTraktamenteGrid = new List<Klasser.Traktamente>();
+            
+
             int ddlIndex = ddlTractCountry.SelectedIndex;
             
             if (Session["TRAKT"] != null)
@@ -125,9 +124,17 @@ namespace Vits
         // knapp
         protected void Button2tmp_Click(object sender, EventArgs e)
         {
+
+            BeraknaTraktAv();
+        }
+
+        private void BeraknaTraktAv()
+        {
+            lstTraktamenteGrid = new List<Klasser.Traktamente>();
+            lstTraktTillRapport = new List<Klasser.Traktamente>();
+            lstAvvikelserTillRapport = new List<DateTime>();
             int ddlIndex = ddlTractCountry.SelectedIndex;
             
-
             if (Session["TRAKT"] != null)
             {
                 lstTraktamenteGrid = (List<Klasser.Traktamente>)Session["TRAKT"];
@@ -147,19 +154,24 @@ namespace Vits
             Session["TRAKT"] = lstTraktamenteGrid;
 
             lstTraktTillRapport = lstTraktTillRapport.OrderBy(x => x.Datum).ToList();
-            
+
             lstAvvikelserTillRapport = Avvikelser(); // beräka avvikelser
 
-            Debug.WriteLine("\n\n---------- Traktamente / Avvikelser ----------");
-            for (int i = 0; i < lstAvvikelserTillRapport.Count; i++)
-            {
-                Debug.WriteLine("Avvikelse: " + lstAvvikelserTillRapport[i].ToShortDateString());
-            }
-            for (int i = 0; i < lstTraktTillRapport.Count; i++)
-            {
-                Debug.WriteLine("Traktamente: " + lstTraktTillRapport[i].Datum + " " + lstTraktTillRapport[i].Land + " " + lstTraktTillRapport[i].Kronor);
-            }
-            Debug.WriteLine("---------- SLUT RAPPORT ----------\n\n");
+            Session["TRAKT_RAPPORT"] = lstTraktTillRapport;
+            Session["AVVIKELSE_RAPPORT"] = lstAvvikelserTillRapport;
+
+            //Debug.WriteLine("\n\n---------- Traktamente / Avvikelser ----------");
+            //for (int i = 0; i < lstAvvikelserTillRapport.Count; i++)
+            //{
+            //    Debug.WriteLine("Avvikelse: " + lstAvvikelserTillRapport[i].ToShortDateString());
+            //}
+            //for (int i = 0; i < lstTraktTillRapport.Count; i++)
+            //{
+            //    Debug.WriteLine("Traktamente: " + lstTraktTillRapport[i].Datum + " " + lstTraktTillRapport[i].Land + " " + lstTraktTillRapport[i].Kronor);
+            //}
+            //Debug.WriteLine("---------- SLUT RAPPORT ----------\n\n");
+
+
         }
 
         // ------------------------------------------------------------------------------------------------------
@@ -259,6 +271,9 @@ namespace Vits
         // ta bort
         protected void gwTract_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            
+            lstTraktamenteGrid = new List<Klasser.Traktamente>();
+            
             if (e.CommandName == "remove")
             {
                 int index = Convert.ToInt32(e.CommandArgument);
@@ -292,7 +307,8 @@ namespace Vits
 
         protected void btnAddReceipt_Click(object sender, EventArgs e)
         {
-            
+
+            expense = new List<CompositeExpense>();
 
             if (Session["EXPENSE"] != null)
             {
@@ -301,7 +317,7 @@ namespace Vits
 
             if (ID != "")
             {
-                ServiceReference1.CompositeExpense expenseObj = new ServiceReference1.CompositeExpense();
+                CompositeExpense expenseObj = new CompositeExpense();
                 expenseObj.REPID = ID;
                 string value = ddlCategory.SelectedValue.ToString();
                 int newVal = 0;
@@ -396,11 +412,14 @@ namespace Vits
         // Sparar ner rapport
         protected void btnSendReport_Click(object sender, EventArgs e)
         {
+            BeraknaTraktAv();
+
             setEID();
-            CheckCar();
             countExpenses();
+            CheckCar();
             CompositeReport rep = new CompositeReport();
             rep.REPID = repID;
+            rep.EID = eid;
             rep.Expenses = totalExpenses;
             rep.MID = missionID;
             rep.Car = car;
@@ -468,6 +487,10 @@ namespace Vits
         // Sparar alla utgifter
         protected void SaveExpenses()
         {
+            if (Session["EXPENSE"] != null)
+            {
+                expense = (List<CompositeExpense>)Session["EXPENSE"];
+            }
             using (var client = new Service1Client())
             {
                 for (int i = 0; i < expense.Count; i++)
@@ -475,8 +498,7 @@ namespace Vits
                     CompositeExpense ex = new CompositeExpense();
 
                     ex = expense[i];
-                    ex.REPID = repID;
-
+                 
                     client.SaveExpense(ex);
 
 
@@ -487,17 +509,26 @@ namespace Vits
         // Summerar alla utgifter
         protected void countExpenses()
         {
+            if (Session["EXPENSE"] != null)
+            {
+                expense = (List<CompositeExpense>)Session["EXPENSE"];
+            }
+
             foreach (CompositeExpense ex in expense)
             {
                 totalExpenses += ex.Sum;
-            }
-        
+            }       
         
         }
 
         // Sparar alla traktamenten
         protected void SaveSubsistences()
         {
+            if (Session["TRAKT_RAPPORT"] != null)
+            {
+                lstTraktTillRapport = (List<Klasser.Traktamente>)Session["TRAKT_RAPPORT"];
+            }
+            
             using (var client = new Service1Client())
             {
                 for (int i = 0; i < lstTraktTillRapport.Count; i++)
@@ -513,8 +544,13 @@ namespace Vits
 
         // Sparar alla avvikelser
         protected void SaveDeviations()
-        { 
-           using (var client = new Service1Client())
+        {
+            if (Session["AVVIKELSE_RAPPORT"] != null)
+            {
+                lstAvvikelserTillRapport = (List<DateTime>)Session["AVVIKELSE_RAPPORT"];
+            }
+
+            using (var client = new Service1Client())
            {
                 for(int i = 0; i < lstAvvikelserTillRapport.Count; i++)
                 {
@@ -546,12 +582,11 @@ namespace Vits
 
         protected void CheckCar()
         {
-            if (cbOwnCar.Checked && txtlOWnCar.Text != "")
-            {
-                km = int.Parse(txtlOWnCar.Text);
-                car = true;
-            }
-        
+                if (txtlOWnCar.Text != "")
+                { 
+                    km = int.Parse(txtlOWnCar.Text);
+                    car = true;
+                }                             
         }
 
         protected void setEID()
@@ -561,6 +596,14 @@ namespace Vits
                 eid = client.GetEmployeeByIdNumber(currentUser);           
             }
         
+        }
+
+        protected void cbOwnCar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbOwnCar.Checked)
+                txtlOWnCar.Enabled = true;
+            else
+                txtlOWnCar.Enabled = false;
         }
 
 

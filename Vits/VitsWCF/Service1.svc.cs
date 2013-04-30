@@ -130,12 +130,14 @@ namespace VitsWCF
             using (var context = new DATABASEVITSEntities())
             {
                 Expense exp = new Expense();
-                exp.REPID = expense.REPID;
-                exp.CCID = expense.CCID;
-                exp.Sum = expense.Sum;
-                exp.VAT = expense.VAT;
-                exp.Date = expense.Date;
-                exp.Description = expense.Description;
+                //exp.REPID = expense.REPID;
+                //exp.CCID = expense.CCID;
+                //exp.Sum = expense.Sum;
+                //exp.VAT = expense.VAT;
+                //exp.Date = expense.Date;
+                //exp.Description = expense.Description;
+
+                exp = expense;
 
                 context.Expense.AddObject(exp);
                 context.SaveChanges();
