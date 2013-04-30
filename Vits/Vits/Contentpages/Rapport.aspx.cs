@@ -24,16 +24,21 @@ namespace Vits
         private int missionID = 0;
         private int km = 0;
         private bool car = false;
+        private string currentUser = "";
+        private int eid = 0;
         
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            expense = new List<ServiceReference1.CompositeExpense>();
+            expense = new List<CompositeExpense>();
             ID = Guid.NewGuid().ToString();
             lstAllaTraktamenten     = new List<Klasser.Traktamente>();
             lstTraktamenteGrid      = new List<Klasser.Traktamente>();
             lstTraktTillRapport     = new List<Klasser.Traktamente>();
             lstAvvikelserTillRapport = new List<DateTime>();
+
+            currentUser = HttpContext.Current.User.Identity.Name;
+            
             
             SetMissionID();
             lstTraktTillRapport.Clear();
@@ -81,9 +86,6 @@ namespace Vits
                 ddlTractCountry.Items.Add(lstAllaTraktamenten[i].Land);
             }
         }
-
-
-
 
         // ------------------------------------------------------------------------------------------------------
         // Lägg till
@@ -294,7 +296,7 @@ namespace Vits
 
             if (Session["EXPENSE"] != null)
             {
-                expense = (List<ServiceReference1.CompositeExpense>)Session["EXPENSE"];
+                expense = (List<CompositeExpense>)Session["EXPENSE"];
             }
 
             if (ID != "")
@@ -394,6 +396,7 @@ namespace Vits
         // Sparar ner rapport
         protected void btnSendReport_Click(object sender, EventArgs e)
         {
+            setEID();
             CheckCar();
             countExpenses();
             CompositeReport rep = new CompositeReport();
@@ -407,6 +410,11 @@ namespace Vits
             {
                 client.SaveReport(rep);            
             }
+
+            SaveExpenses();
+            SaveSubsistences();
+            SaveDeviations();
+
         }
 
         // Beräknar alla avvikelser
@@ -486,6 +494,7 @@ namespace Vits
         
         
         }
+
         // Sparar alla traktamenten
         protected void SaveSubsistences()
         {
@@ -528,8 +537,8 @@ namespace Vits
         {
             if (Session["currMission"] != null)
             {
-                CompositeMission mi = (CompositeMission)Session["currMission"];
-                missionID = mi.MID;
+                int mi = (int)Session["currMission"];
+                missionID = mi;
             }
         
         
@@ -541,6 +550,15 @@ namespace Vits
             {
                 km = int.Parse(txtlOWnCar.Text);
                 car = true;
+            }
+        
+        }
+
+        protected void setEID()
+        {
+            using (var client = new Service1Client())
+            {
+                eid = client.GetEmployeeByIdNumber(currentUser);           
             }
         
         }

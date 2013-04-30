@@ -28,9 +28,13 @@ namespace Vits
 
         protected void btnTillRapport_Click(object sender, EventArgs e)
         {
-            
-           Session["currMission"] = ddlChooseMission.SelectedItem;
-           Response.Redirect("~/Contentpages/Rapport.aspx");
+
+            int i = ddlChooseMission.SelectedIndex;
+
+            CompositeMission mi = missList[i];
+
+            Session["currMission"] = mi.MID;
+            Response.Redirect("~/Contentpages/Rapport.aspx");
         }
 
         protected void FillMissonsDDL()
