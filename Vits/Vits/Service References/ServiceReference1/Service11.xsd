@@ -248,6 +248,7 @@
           <xs:element minOccurs="0" name="MID" type="xs:int" />
           <xs:element minOccurs="0" name="Mission" nillable="true" type="tns:Mission" />
           <xs:element minOccurs="0" name="MissionReference" nillable="true" type="q10:EntityReferenceOfMissionEo6k46yw" />
+          <xs:element minOccurs="0" name="SENT" type="xs:boolean" />
           <xs:element minOccurs="0" name="TID" type="xs:int" />
           <xs:element minOccurs="0" name="TMID" type="xs:int" />
           <xs:element minOccurs="0" name="To" nillable="true" type="xs:dateTime" />
@@ -412,4 +413,18 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfCompositeMission" nillable="true" type="tns:ArrayOfCompositeMission" />
+  <xs:complexType name="ArrayOfCompositeTravelOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CompositeTravelOrder" nillable="true" type="tns:CompositeTravelOrder" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCompositeTravelOrder" nillable="true" type="tns:ArrayOfCompositeTravelOrder" />
+  <xs:complexType name="CompositeTravelOrder">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TravelOrder">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CompositeTravelOrder" nillable="true" type="tns:CompositeTravelOrder" />
 </xs:schema>

@@ -224,9 +224,10 @@
     <Property Name="Description" Type="nvarchar" MaxLength="500" />
     <Property Name="Approved" Type="bit" Nullable="false" />
     <Property Name="Answered" Type="bit" Nullable="false" />
+    <Property Name="SENT" Type="bit" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-      warning 6002: The table/view 'C:\USERS\DANIEL\DOCUMENTS\GITHUB\VITS-UTBILDNINGAR\VITS\VITSWCF\APP_DATA\DATABASEVITS.MDF.dbo.Trip' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'C:\USERS\RICKARD\DOCUMENTS\GITHUB\VITS-UTBILDNINGAR\VITS\VITSWCF\APP_DATA\DATABASEVITS.MDF.dbo.Trip' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
   <EntityType Name="Trip">
     <Key>

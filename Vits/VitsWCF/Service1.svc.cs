@@ -21,21 +21,21 @@ namespace VitsWCF
 
         public void SaveReport(CompositeReport report)
         {
-                using (var context = new DATABASEVITSEntities())
-                {
-                    Report rep = new Report();
-                    rep.REPID = report.REPID;
-                    rep.EID = report.EID;
-                    rep.MID = report.MID;
-                    rep.Expenses = report.Expenses;
-                    rep.Car = report.Car;
-                    rep.Miles = report.Miles;
+            using (var context = new DATABASEVITSEntities())
+            {
+                Report rep = new Report();
+                rep.REPID = report.REPID;
+                rep.EID = report.EID;
+                rep.MID = report.MID;
+                rep.Expenses = report.Expenses;
+                rep.Car = report.Car;
+                rep.Miles = report.Miles;
 
-                    context.Report.AddObject(rep);
-                    context.SaveChanges();
-                }
-             
-            
+                context.Report.AddObject(rep);
+                context.SaveChanges();
+            }
+
+
 
         }
 
@@ -49,7 +49,7 @@ namespace VitsWCF
                 off.Adress = office.Adress;
                 off.ZipCode = office.ZipCode;
                 off.CID = office.CID;
-               
+
 
                 context.Office.AddObject(off);
                 context.SaveChanges();
@@ -65,8 +65,8 @@ namespace VitsWCF
                 miss.Manager = mission.Manager;
                 miss.Description = mission.Description;
                 miss.StartDate = mission.StartDate;
-                
-                
+
+
                 context.Mission.AddObject(miss);
                 context.SaveChanges();
             }
@@ -82,8 +82,8 @@ namespace VitsWCF
                 tri.CID = trip.CID;
                 tri.StartDate = trip.StartDate;
                 tri.StopDate = trip.StopDate;
-                    
-                
+
+
                 context.Trip.AddObject(tri);
                 context.SaveChanges();
             }
@@ -100,7 +100,7 @@ namespace VitsWCF
                 ta.Date = travelAdvances.Date;
                 ta.EID = travelAdvances.EID;
                 ta.MID = travelAdvances.MID;
-                
+
                 context.TravelAdvances.AddObject(ta);
                 context.SaveChanges();
             }
@@ -165,7 +165,7 @@ namespace VitsWCF
                 dev.REPID = deviation.REPID;
                 dev.StartDate = deviation.StartDate;
                 dev.StopDate = dev.StopDate;
-                
+
                 context.Deviation.AddObject(dev);
                 context.SaveChanges();
             }
@@ -176,7 +176,7 @@ namespace VitsWCF
             {
                 Country co = new Country();
                 co.Name = country.Name;
-                
+
                 context.Country.AddObject(co);
                 context.SaveChanges();
             }
@@ -189,7 +189,7 @@ namespace VitsWCF
                 CostCenter cc = new CostCenter();
                 cc.CCID = costcenter.CCID;
                 cc.Name = costcenter.Name;
-                
+
                 context.CostCenter.AddObject(cc);
                 context.SaveChanges();
             }
@@ -204,7 +204,7 @@ namespace VitsWCF
                 List<CompositeEmployee> employees = new List<CompositeEmployee>();
                 employees = context.Employee.Select(x => new CompositeEmployee
                 {
-                    EID = x.EID, 
+                    EID = x.EID,
                     FirstName = x.FirstName,
                     LastName = x.LastName,
                     Email = x.Email,
@@ -258,13 +258,13 @@ namespace VitsWCF
             }
         }
 
-        public int GetEmployeeByIdNumber(string idNumber) 
+        public int GetEmployeeByIdNumber(string idNumber)
         {
             using (var context = new DATABASEVITSEntities())
             {
                 Employee emp = (from e in context.Employee
-                            where e.IdNumber.Equals(idNumber)
-                            select e).FirstOrDefault();
+                                where e.IdNumber.Equals(idNumber)
+                                select e).FirstOrDefault();
 
                 int eid = emp.EID;
 
@@ -298,7 +298,7 @@ namespace VitsWCF
                 return office;
             }
         }
-       
+
         //Get lists of Objects. 
         public List<CompositeEmployee> GetEmployees()
         {
@@ -333,7 +333,7 @@ namespace VitsWCF
                     Adress = x.Adress,
                     ZipCode = x.ZipCode,
                     City = x.City,
-                    CID = x.CID                  
+                    CID = x.CID
                 }).ToList();
 
                 return offices;
@@ -393,7 +393,34 @@ namespace VitsWCF
 
                 return missions;
 
-                   
+
+            }
+        }
+
+        public List<CompositeTravelOrder> GetTravelOrderbyEid(int eid)
+        {
+            using (var context = new DATABASEVITSEntities())
+            {
+                List<CompositeTravelOrder> to = new List<CompositeTravelOrder>();
+
+                to = context.TravelOrder.Where(x => x.EID.Equals(eid)).Select(y => new CompositeTravelOrder
+                {
+                    TID = y.TID,
+                    MID = y.MID,
+                    EID = y.EID,
+                    TMID = y.TMID,
+                    From = y.From,
+                    To = y.To,
+                    Description = y.Description,
+                    Approved = y.Approved,
+                    Answered = y.Answered
+
+                }).ToList();
+
+
+                return to;
+
+
             }
         }
     }

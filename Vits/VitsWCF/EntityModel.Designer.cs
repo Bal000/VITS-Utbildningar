@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -297,6 +298,7 @@ namespace VitsWCF
         private ObjectSet<Trip> _Trip;
 
         #endregion
+
         #region AddTo Methods
     
         /// <summary>
@@ -404,11 +406,11 @@ namespace VitsWCF
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entities
     
     /// <summary>
@@ -435,6 +437,7 @@ namespace VitsWCF
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -489,6 +492,7 @@ namespace VitsWCF
         partial void OnNameChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -515,6 +519,7 @@ namespace VitsWCF
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -541,6 +546,7 @@ namespace VitsWCF
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -595,6 +601,7 @@ namespace VitsWCF
         partial void OnNameChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -665,6 +672,7 @@ namespace VitsWCF
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -695,6 +703,7 @@ namespace VitsWCF
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -797,6 +806,7 @@ namespace VitsWCF
         partial void OnStopDateChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -839,6 +849,7 @@ namespace VitsWCF
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -879,6 +890,7 @@ namespace VitsWCF
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1101,6 +1113,7 @@ namespace VitsWCF
         partial void OnEmailChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1237,6 +1250,7 @@ namespace VitsWCF
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1271,6 +1285,7 @@ namespace VitsWCF
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1445,6 +1460,7 @@ namespace VitsWCF
         partial void OnDescriptionChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1525,6 +1541,7 @@ namespace VitsWCF
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1559,6 +1576,7 @@ namespace VitsWCF
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1709,6 +1727,7 @@ namespace VitsWCF
         partial void OnEIDChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1915,6 +1934,7 @@ namespace VitsWCF
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1951,6 +1971,7 @@ namespace VitsWCF
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2125,6 +2146,7 @@ namespace VitsWCF
         partial void OnCIDChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2189,6 +2211,7 @@ namespace VitsWCF
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2223,6 +2246,7 @@ namespace VitsWCF
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2373,6 +2397,7 @@ namespace VitsWCF
         partial void OnMilesChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2519,6 +2544,7 @@ namespace VitsWCF
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2547,6 +2573,7 @@ namespace VitsWCF
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2673,6 +2700,7 @@ namespace VitsWCF
         partial void OnDATEChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2753,6 +2781,7 @@ namespace VitsWCF
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2789,6 +2818,7 @@ namespace VitsWCF
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2963,6 +2993,7 @@ namespace VitsWCF
         partial void OnMIDChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -3043,6 +3074,7 @@ namespace VitsWCF
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -3069,6 +3101,7 @@ namespace VitsWCF
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -3123,6 +3156,7 @@ namespace VitsWCF
         partial void OnNameChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -3149,6 +3183,7 @@ namespace VitsWCF
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -3170,7 +3205,8 @@ namespace VitsWCF
         /// <param name="tMID">Initial value of the TMID property.</param>
         /// <param name="approved">Initial value of the Approved property.</param>
         /// <param name="answered">Initial value of the Answered property.</param>
-        public static TravelOrder CreateTravelOrder(global::System.Int32 tID, global::System.Int32 mID, global::System.Int32 eID, global::System.Int32 tMID, global::System.Boolean approved, global::System.Boolean answered)
+        /// <param name="sENT">Initial value of the SENT property.</param>
+        public static TravelOrder CreateTravelOrder(global::System.Int32 tID, global::System.Int32 mID, global::System.Int32 eID, global::System.Int32 tMID, global::System.Boolean approved, global::System.Boolean answered, global::System.Boolean sENT)
         {
             TravelOrder travelOrder = new TravelOrder();
             travelOrder.TID = tID;
@@ -3179,10 +3215,12 @@ namespace VitsWCF
             travelOrder.TMID = tMID;
             travelOrder.Approved = approved;
             travelOrder.Answered = answered;
+            travelOrder.SENT = sENT;
             return travelOrder;
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -3403,8 +3441,33 @@ namespace VitsWCF
         private global::System.Boolean _Answered;
         partial void OnAnsweredChanging(global::System.Boolean value);
         partial void OnAnsweredChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean SENT
+        {
+            get
+            {
+                return _SENT;
+            }
+            set
+            {
+                OnSENTChanging(value);
+                ReportPropertyChanging("SENT");
+                _SENT = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SENT");
+                OnSENTChanged();
+            }
+        }
+        private global::System.Boolean _SENT;
+        partial void OnSENTChanging(global::System.Boolean value);
+        partial void OnSENTChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -3523,6 +3586,7 @@ namespace VitsWCF
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -3553,6 +3617,7 @@ namespace VitsWCF
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -3688,6 +3753,7 @@ namespace VitsWCF
         partial void OnStopDateChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -3806,8 +3872,10 @@ namespace VitsWCF
         }
 
         #endregion
+
     }
 
     #endregion
+
     
 }

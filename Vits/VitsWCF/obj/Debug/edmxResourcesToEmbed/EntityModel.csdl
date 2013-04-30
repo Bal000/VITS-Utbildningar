@@ -251,6 +251,7 @@
     <NavigationProperty Name="Employee" Relationship="DATABASEVITSModel.FK__TravelOrder__EID__3C69FB99" FromRole="TravelOrder" ToRole="Employee" />
     <NavigationProperty Name="Mission" Relationship="DATABASEVITSModel.FK__TravelOrder__MID__3B75D760" FromRole="TravelOrder" ToRole="Mission" />
     <NavigationProperty Name="TravelMethod" Relationship="DATABASEVITSModel.FK__TravelOrde__TMID__3D5E1FD2" FromRole="TravelOrder" ToRole="TravelMethod" />
+    <Property Type="Boolean" Name="SENT" Nullable="false" />
   </EntityType>
   <EntityType Name="Trip">
     <Key>

@@ -20,6 +20,8 @@ namespace VitsWCF
         [OperationContract]
         void SaveReport(CompositeReport report);
 
+
+
         [OperationContract]
         void SaveOffice(CompositeOffice office);
 
@@ -76,6 +78,9 @@ namespace VitsWCF
 
         [OperationContract]
         List<CompositeMission> GetMissionsByEid(int eid);
+
+        [OperationContract]
+        List<CompositeTravelOrder> GetTravelOrderbyEid(int eid);
 
 
         // TODO: Add your service operations here
