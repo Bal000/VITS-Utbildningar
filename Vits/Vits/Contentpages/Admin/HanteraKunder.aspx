@@ -74,7 +74,7 @@
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:DATABASEVITSConnectionString %>" 
+            ConnectionString="<%$ ConnectionStrings:DATABASEVITSConnectionString2 %>" 
             SelectCommand="SELECT * FROM [Office]"></asp:SqlDataSource>
     <br />
     
@@ -114,7 +114,7 @@
                     Enabled="False" DataSourceID="SqlDataSource2" DataTextField="Name" 
                     DataValueField="CID"></asp:DropDownList>
                 <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
-                    ConnectionString="<%$ ConnectionStrings:DATABASEVITSConnectionString %>" 
+                    ConnectionString="<%$ ConnectionStrings:DATABASEVITSConnectionString2 %>" 
                     SelectCommand="SELECT * FROM [Country]"></asp:SqlDataSource>
                 <br /><br />
 <br />
