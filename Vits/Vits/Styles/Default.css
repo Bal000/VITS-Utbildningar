@@ -1,0 +1,32 @@
+﻿.leftDivDefault
+{
+    width: 280px;
+    height: 300px;
+    float: left;
+}
+
+.centerDivDefault
+{
+    width: 350px;
+    height: 300px;
+    background-color: White;
+    border: 2px none purple;
+    float: left;
+}
+
+.rightDivDefault
+{
+    width: 280px;
+    height: 300px;
+    float: left;
+}
+
+.centerDivDefault p
+{
+    text-align: center;    
+}
+
+.centerDivDefault h2
+{
+    text-align: center;    
+}

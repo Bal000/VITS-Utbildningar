@@ -5,6 +5,7 @@
 <head runat="server">
     <title></title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/Default.css" rel="stylesheet" type="text/css" />
     <link href="~/Styles/Rapport.css" rel="stylesheet" type="text/css" />
     <link href="~/Styles/RapportIntro.css" rel="stylesheet" type="text/css" />
     <link href="~/Styles/Reseorder.css" rel="stylesheet" type="text/css" />

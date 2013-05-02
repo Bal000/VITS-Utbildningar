@@ -4,21 +4,21 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-   <div class="leftDiv">
+   <div class="leftDivDefault">
    </div>
-   <div class="centerDiv">
+   <div class="centerDivDefault">
     <h2>
         vITs tjänsteresesystem
     </h2>
     <p>
-        Var god logga in för att rapportera in resor,
-        ansöka om reseförskott etc.
+        Välkommen till vITs tjänsteresesystem. Här kan du som konsult rapportera
+        in dina tjänsteresor, ansöka om reseförskott, ansöka om reseordrar etc.
+        <br /><br />
+
+        Som chef kan du även hantera kunder, rapporter, konsulter och uppdrag.
     </p>
-        <asp:Button ID="btnLogin" runat="server" CssClass="btnLogin" Text="Logga in" 
-           onclick="btnLogin_Click" />
-           <asp:Label runat="server">hej</asp:Label>
    </div>
-   <div class="rightDiv">
+   <div class="rightDivDefault">
    </div>
 
 </asp:Content>
