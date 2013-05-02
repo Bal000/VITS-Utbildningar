@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-  <asp:scriptmanager ID="sm1" runat="server" EnablePartialRendering="true" />
+    <asp:scriptmanager ID="sm1" runat="server" EnablePartialRendering="true" />
 
 <div class="ContentWrapper">
     <h1>HANTERA UPPDRAG</h1>
@@ -61,7 +61,7 @@
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:DATABASEVITSConnectionString %>" 
+            ConnectionString="<%$ ConnectionStrings:DATABASEVITSConnectionString2 %>" 
             SelectCommand="SELECT * FROM [Mission]"></asp:SqlDataSource>
         <br />
     </div>
@@ -77,7 +77,7 @@
             </asp:DropDownList>
            
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
-                ConnectionString="<%$ ConnectionStrings:DATABASEVITSConnectionString %>" 
+                ConnectionString="<%$ ConnectionStrings:DATABASEVITSConnectionString2 %>" 
                 SelectCommand="SELECT * FROM [Office]"></asp:SqlDataSource>
            
             <br />
@@ -91,7 +91,7 @@
             </asp:DropDownList>
            
             <asp:SqlDataSource ID="SqlDataSource3" runat="server" 
-                ConnectionString="<%$ ConnectionStrings:DATABASEVITSConnectionString %>" SelectCommand="select EID, firstname + ' ' + lastname as fullname
+                ConnectionString="<%$ ConnectionStrings:DATABASEVITSConnectionString2 %>" SelectCommand="select EID, firstname + ' ' + lastname as fullname
 from employee
 where manager = 1;"></asp:SqlDataSource>
            
@@ -107,7 +107,7 @@ where manager = 1;"></asp:SqlDataSource>
             </asp:DropDownList>
             
             <asp:SqlDataSource ID="SqlDataSource4" runat="server" 
-                ConnectionString="<%$ ConnectionStrings:DATABASEVITSConnectionString %>" SelectCommand="select EID, firstname + ' ' + lastname as fullname
+                ConnectionString="<%$ ConnectionStrings:DATABASEVITSConnectionString2 %>" SelectCommand="select EID, firstname + ' ' + lastname as fullname
 from employee;"></asp:SqlDataSource>
             
             <br />

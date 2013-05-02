@@ -104,7 +104,7 @@
         
 
         <asp:SqlDataSource ID="SqlDataSource3" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:DATABASEVITSConnectionString %>" 
+            ConnectionString="<%$ ConnectionStrings:DATABASEVITSConnectionString2 %>" 
             SelectCommand="SELECT * FROM [Employee]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
             ConnectionString="<%$ ConnectionStrings:DATABASEVITSConnectionString %>" 
