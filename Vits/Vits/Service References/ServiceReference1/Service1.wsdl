@@ -111,6 +111,12 @@
   <wsdl:message name="IService1_GetOffice_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetOfficeResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetOffices_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOffices" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetOffices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOfficesResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetEmployees_InputMessage">
     <wsdl:part name="parameters" element="tns:GetEmployees" />
   </wsdl:message>
@@ -209,6 +215,10 @@
     <wsdl:operation name="GetOffice">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetOffice" message="tns:IService1_GetOffice_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetOfficeResponse" message="tns:IService1_GetOffice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOffices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetOffices" message="tns:IService1_GetOffices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetOfficesResponse" message="tns:IService1_GetOffices_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetEmployees">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetEmployees" message="tns:IService1_GetEmployees_InputMessage" />
@@ -379,6 +389,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetOffice">
       <soap:operation soapAction="http://tempuri.org/IService1/GetOffice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOffices">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetOffices" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

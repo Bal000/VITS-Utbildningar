@@ -389,6 +389,12 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="CompositeSubsistence" nillable="true" type="tns:CompositeSubsistence" />
+  <xs:complexType name="ArrayOfCompositeOffice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CompositeOffice" nillable="true" type="tns:CompositeOffice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCompositeOffice" nillable="true" type="tns:ArrayOfCompositeOffice" />
   <xs:complexType name="ArrayOfCompositeEmployee">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="CompositeEmployee" nillable="true" type="tns:CompositeEmployee" />

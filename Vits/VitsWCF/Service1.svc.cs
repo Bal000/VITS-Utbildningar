@@ -49,13 +49,14 @@ namespace VitsWCF
                 off.Adress = office.Adress;
                 off.ZipCode = office.ZipCode;
                 off.CID = office.CID;
-               
+                off.City = office.City;
+
 
                 context.Office.AddObject(off);
                 context.SaveChanges();
             }
         }
-
+        
         public void SaveMission(CompositeMission mission)
         {
             using (var context = new DATABASEVITSEntities())
@@ -65,8 +66,8 @@ namespace VitsWCF
                 miss.Manager = mission.Manager;
                 miss.Description = mission.Description;
                 miss.StartDate = mission.StartDate;
-                
-                
+                miss.EID = mission.EID;
+
                 context.Mission.AddObject(miss);
                 context.SaveChanges();
             }
@@ -219,7 +220,7 @@ namespace VitsWCF
                 List<CompositeEmployee> employees = new List<CompositeEmployee>();
                 employees = context.Employee.Select(x => new CompositeEmployee
                 {
-                    EID = x.EID, 
+                    EID = x.EID,
                     FirstName = x.FirstName,
                     LastName = x.LastName,
                     Email = x.Email,
@@ -242,12 +243,9 @@ namespace VitsWCF
                         //Finns inte någon employee med det specifikerade IDt
                     }
                 }
-                Debug.WriteLine(employees[0].FirstName);
-                Debug.WriteLine(employees[1].LastName);
                 return emp;
             }
         }
-
         public CompositeMission GetMission(int mid)
         {
             using (var context = new DATABASEVITSEntities())
@@ -286,7 +284,25 @@ namespace VitsWCF
                 return eid;
             }
         }
+        public List<CompositeOffice> GetOffices()
+        {
+            using (var context = new DATABASEVITSEntities())
+            {
+                List<CompositeOffice> offices = new List<CompositeOffice>();
+                offices = context.Office.Select(x => new CompositeOffice
+                {
+                    OID = x.OID,
+                    Name = x.Name,
+                    OrgNumber = x.OrgNumber,
+                    Adress = x.Adress,
+                    ZipCode = x.ZipCode,
+                    City = x.City,
+                    CID = x.CID
+                }).ToList();
 
+                return offices;
+            }
+        }
         public CompositeOffice GetOffice(int oid)
         {
             using (var context = new DATABASEVITSEntities())
@@ -294,8 +310,13 @@ namespace VitsWCF
                 List<CompositeOffice> offices = new List<CompositeOffice>();
                 offices = context.Office.Select(x => new CompositeOffice
                 {
-
-
+                    OID = x.OID,
+                    Name = x.Name,
+                    OrgNumber = x.OrgNumber,
+                    Adress = x.Adress,
+                    ZipCode = x.ZipCode,
+                    City = x.City,
+                    CID = x.CID
                 }).ToList();
 
                 CompositeOffice office = new CompositeOffice();
@@ -335,25 +356,7 @@ namespace VitsWCF
             }
         }
 
-        public List<CompositeOffice> GetOffices()
-        {
-            using (var context = new DATABASEVITSEntities())
-            {
-                List<CompositeOffice> offices = new List<CompositeOffice>();
-                offices = context.Office.Select(x => new CompositeOffice
-                {
-                    OID = x.OID,
-                    Name = x.Name,
-                    OrgNumber = x.OrgNumber,
-                    Adress = x.Adress,
-                    ZipCode = x.ZipCode,
-                    City = x.City,
-                    CID = x.CID                  
-                }).ToList();
-
-                return offices;
-            }
-        }
+        
 
         public List<CompositeExpense> GetExpenses()
         {

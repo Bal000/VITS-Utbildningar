@@ -70,6 +70,9 @@ namespace VitsWCF
 
         //Get methods for lists.
         [OperationContract]
+        List<CompositeOffice> GetOffices();
+
+        [OperationContract]
         List<CompositeEmployee> GetEmployees();
 
         [OperationContract]

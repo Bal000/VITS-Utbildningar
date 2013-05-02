@@ -58,6 +58,7 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="Contentpages\Admin\web.config" />
     <None Include="Contentpages\Rapport.aspx.cs.old" />
     <None Include="Contentpages\Rapport.aspx.old" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
@@ -65,9 +66,9 @@
     <Content Include="App_Data\aspnetdb_log.LDF">
       <DependentUpon>ASPNETDB.MDF</DependentUpon>
     </Content>
-    <Content Include="Contentpages\HanteraAnvandare.aspx" />
-    <Content Include="Contentpages\HanteraKunder.aspx" />
-    <Content Include="Contentpages\HanteraUppdrag.aspx" />
+    <Content Include="Contentpages\Admin\HanteraAnvandare.aspx" />
+    <Content Include="Contentpages\Admin\HanteraKunder.aspx" />
+    <Content Include="Contentpages\Admin\HanteraUppdrag.aspx" />
     <Content Include="Contentpages\RapportIntro.aspx" />
     <Content Include="Contentpages\RapportSammanställning.aspx" />
     <Content Include="Contentpages\Reseforskott.aspx" />
@@ -171,25 +172,25 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Contentpages\HanteraAnvandare.aspx.cs">
+    <Compile Include="Contentpages\Admin\HanteraAnvandare.aspx.cs">
       <DependentUpon>HanteraAnvandare.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Contentpages\HanteraAnvandare.aspx.designer.cs">
+    <Compile Include="Contentpages\Admin\HanteraAnvandare.aspx.designer.cs">
       <DependentUpon>HanteraAnvandare.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Contentpages\HanteraKunder.aspx.cs">
+    <Compile Include="Contentpages\Admin\HanteraKunder.aspx.cs">
       <DependentUpon>HanteraKunder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Contentpages\HanteraKunder.aspx.designer.cs">
+    <Compile Include="Contentpages\Admin\HanteraKunder.aspx.designer.cs">
       <DependentUpon>HanteraKunder.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Contentpages\HanteraUppdrag.aspx.cs">
+    <Compile Include="Contentpages\Admin\HanteraUppdrag.aspx.cs">
       <DependentUpon>HanteraUppdrag.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Contentpages\HanteraUppdrag.aspx.designer.cs">
+    <Compile Include="Contentpages\Admin\HanteraUppdrag.aspx.designer.cs">
       <DependentUpon>HanteraUppdrag.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contentpages\Reseforskott.aspx.cs">

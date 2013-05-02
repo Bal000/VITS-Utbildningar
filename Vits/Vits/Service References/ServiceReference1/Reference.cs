@@ -2495,6 +2495,7 @@ namespace Vits.ServiceReference1 {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CompositeCountry))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CompositeCostCenter))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Vits.ServiceReference1.CompositeSubsistence))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.CompositeOffice>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.CompositeEmployee>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.CompositeExpense>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.List<Vits.ServiceReference1.CompositeCostCenter>))]
@@ -2728,6 +2729,9 @@ namespace Vits.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetOffice", ReplyAction="http://tempuri.org/IService1/GetOfficeResponse")]
         Vits.ServiceReference1.CompositeOffice GetOffice(int oid);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetOffices", ReplyAction="http://tempuri.org/IService1/GetOfficesResponse")]
+        System.Collections.Generic.List<Vits.ServiceReference1.CompositeOffice> GetOffices();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEmployees", ReplyAction="http://tempuri.org/IService1/GetEmployeesResponse")]
         System.Collections.Generic.List<Vits.ServiceReference1.CompositeEmployee> GetEmployees();
         
@@ -2837,6 +2841,10 @@ namespace Vits.ServiceReference1 {
         
         public Vits.ServiceReference1.CompositeOffice GetOffice(int oid) {
             return base.Channel.GetOffice(oid);
+        }
+        
+        public System.Collections.Generic.List<Vits.ServiceReference1.CompositeOffice> GetOffices() {
+            return base.Channel.GetOffices();
         }
         
         public System.Collections.Generic.List<Vits.ServiceReference1.CompositeEmployee> GetEmployees() {
