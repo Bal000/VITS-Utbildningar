@@ -71,10 +71,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityModel.Designer.cs">
+    <Compile Include="EntityModeledmx.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EntityModel.edmx</DependentUpon>
+      <DependentUpon>EntityModeledmx.edmx</DependentUpon>
     </Compile>
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
@@ -96,9 +96,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="EntityModel.edmx">
+    <EntityDeploy Include="EntityModeledmx.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EntityModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>EntityModeledmx.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
