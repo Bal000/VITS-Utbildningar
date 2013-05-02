@@ -18,6 +18,7 @@
                 Visible="False"></asp:Label>
     
     <br />
+        
         <asp:GridView ID="gwUsers" runat="server" OnRowCommand="gwUsers_RowCommand" AutoGenerateColumns="False" 
             DataKeyNames="EID" DataSourceID="SqlDataSource3" >
             <Columns>
@@ -97,9 +98,11 @@
                         <asp:Label ID="Label8" runat="server" Text='<%# Bind("Email") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:ButtonField ButtonType="Button" Text="Visa information" />
+                <asp:ButtonField ButtonType="Button" Text="Visa" />
             </Columns>
         </asp:GridView>
+        
+
         <asp:SqlDataSource ID="SqlDataSource3" runat="server" 
             ConnectionString="<%$ ConnectionStrings:DATABASEVITSConnectionString %>" 
             SelectCommand="SELECT * FROM [Employee]"></asp:SqlDataSource>
@@ -165,15 +168,11 @@
             </asp:RadioButtonList><br />
             <br />
             <div class="Buttons">
-                <asp:Button ID="btnEditUser" runat="server" Text="Ändra uppgifter" 
-                    Width="164px" onclick="btnEditUser_Click" />
                 <asp:Button ID="btnAddUser" runat="server" Text="Lägg till användare" 
                     Width="164px"  onclick="btnAddUser_Click"/>
                 <br />
                 <asp:Button ID="btnAvbryt" runat="server" Text="Avbryt" Width="164px" 
                     onclick="btnAvbryt_Click" Visible="False" />
-                <asp:Button ID="btnSave" runat="server" Text="Spara ändringar" Width="164px" 
-                     onclick="btnSave_Click" Visible="False"/>
                 <asp:Button ID="btnAddUser2" runat="server" Text="Lägg till användare"  Width="164px"
                      Visible="False" onclick="btnAddUser2_Click" /> 
             </div>

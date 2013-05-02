@@ -23,16 +23,11 @@ namespace Vits
         protected void Page_Load(object sender, EventArgs e)
         {
             
+        
         }
-        protected void FillCountry()
+        protected void updateGW()
         {
-            String sokvagTraktamenteFil = @"c:\vits\trakt.html";
-            lstAllaTraktamenten = Klasser.Traktamente.HamtaUtlandstraktamenten(Klasser.Global.sokvagTraktamenteAdress, sokvagTraktamenteFil);
-
-            for (int i = 0; i < lstAllaTraktamenten.Count; i++)
-            {
-                ddlCountry.Items.Add(lstAllaTraktamenten[i].Land);
-            }
+            gwOffices.DataBind();
         }
         protected void btnEditOffice_Click(object sender, EventArgs e)
         {
@@ -43,41 +38,47 @@ namespace Vits
         protected void btnAvbryt_Click(object sender, EventArgs e)
         {
             buttonsAvbryt();
-
+            resetFields();
             setFieldsEnabled(false);
         }
         protected void btnAddOffice_Click(object sender, EventArgs e)
         {
             buttonsAddOffice();
-
+            resetFields();
             setFieldsEnabled(true);
-            FillCountry();
         }
         protected void btnAddOffice2_Click(object sender, EventArgs e)
         {
+            setAttributes();
             
-            ServiceReference1.Country testland = new ServiceReference1.Country();
-            testland.CID = 1;
-            
+            ServiceReference1.Service1Client x = new ServiceReference1.Service1Client();
+
 
             ServiceReference1.CompositeOffice office = new ServiceReference1.CompositeOffice();
             office.Adress = Address;
             office.City = City;
-            office.Country = testland;
+
+            int CID = Convert.ToInt32(ddlCountry.SelectedValue);
+            
+            //office.Country = ddlCountry.SelectedItem;
             int n;
             bool r = int.TryParse(OrgNumber, out n);
             office.OrgNumber = n;
             int n2;
             bool r2 = int.TryParse(ZipCode, out n2);
             office.ZipCode = n2;
-            office.Name = "Tja";
+            office.Name = OfficeName;
+            office.CID = CID;
 
-            ServiceReference1.Service1Client x = new ServiceReference1.Service1Client();
+            
             
             x.SaveOffice(office);
 
             buttonsAddOffice2();
-            setFieldsEnabled(true);
+            setFieldsEnabled(false);
+            updateGW();
+            resetFields();
+
         }
         protected void btnSaveOffice_Click(object sender, EventArgs e)
         {
@@ -107,39 +108,30 @@ namespace Vits
         private void buttonsAddOffice()
         {
             btnAvbryt.Visible = true;
-            btnSaveOffice.Visible = false;
-            btnEditOffice.Visible = false;
             btnAddOffice.Visible = false;
             btnAddOffice2.Visible = true;
         }
         private void buttonsEditOffice()
         {
             btnAvbryt.Visible = true;
-            btnSaveOffice.Visible = true;
-            btnEditOffice.Visible = false;
             btnAddOffice.Visible = false;
         }
         private void buttonsAddOffice2()
         {
-            btnAvbryt.Visible = true;
-            btnAddOffice2.Visible = true;
-            btnSaveOffice.Visible = false;
-            btnEditOffice.Visible = false;
-            btnAddOffice.Visible = false;
+            btnAvbryt.Visible = false;
+            btnAddOffice2.Visible = false;
+            btnAddOffice.Visible = true;
         }
         private void buttonsSaveOffice()
         {
             btnAvbryt.Visible = false;
-            btnSaveOffice.Visible = false;
-            btnEditOffice.Visible = true;
             btnAddOffice.Visible = true;
+            btnAddOffice2.Visible = false;
         }
         private void buttonsAvbryt()
         {
             btnAddOffice2.Visible = false;
             btnAvbryt.Visible = false;
-            btnSaveOffice.Visible = false;
-            btnEditOffice.Visible = true;
             btnAddOffice.Visible = true;
         }
         protected void gwOffices_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -155,6 +147,20 @@ namespace Vits
             Tbzipcode.Text = office.ZipCode.ToString();
             Tbcity.Text = office.City.ToString();
             Tbadress.Text = office.Adress.ToString();
+
+            int cid = office.CID;
+            ddlCountry.ClearSelection();
+            ddlCountry.Items.FindByValue(cid.ToString()).Selected = true;
+        }
+        protected void resetFields()
+        {
+            Tbnamn.Text = "";
+            Tbadress.Text = "";
+            Tbcity.Text = "";
+            Tborgnummer.Text = "";
+            Tbzipcode.Text = "";
+            
+            ddlCountry.SelectedValue = null;
         }
     }
 }

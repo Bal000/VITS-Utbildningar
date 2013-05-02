@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<div class="ContentWrapper">
+    <div class="ContentWrapper">
     <h1>Hantera kunder</h1>
     <br />
     <div class="List">
@@ -10,7 +10,7 @@
     <asp:Label ID="lblOfficeList" CssClass="ValidationLabel" runat="server" Text="Välj en kund!"
                 Visible="False"></asp:Label>
         <asp:GridView ID="gwOffices" OnRowCommand="gwOffices_RowCommand" runat="server" AutoGenerateColumns="False" 
-            DataKeyNames="OID" DataSourceID="SqlDataSource1" Width="136px">
+            DataKeyNames="OID" DataSourceID="SqlDataSource1">
             <Columns>
                 <asp:TemplateField HeaderText="OID" SortExpression="OID" Visible="False">
                     <EditItemTemplate>
@@ -70,7 +70,7 @@
                         <asp:Label ID="Label7" runat="server" Text='<%# Bind("CID") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:ButtonField ButtonType="Button" Text="Visa information" />
+                <asp:ButtonField ButtonType="Button" Text="Visa" />
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
@@ -111,7 +111,12 @@
                 <asp:Label ID="lblCoutry" CssClass="ValidationLabel" runat="server" 
                 Visible="False"></asp:Label><br />
                 <asp:DropDownList ID="ddlCountry" runat="server" Height="25px" Width="164px" 
-                    Enabled="False"></asp:DropDownList><br /><br />
+                    Enabled="False" DataSourceID="SqlDataSource2" DataTextField="Name" 
+                    DataValueField="CID"></asp:DropDownList>
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
+                    ConnectionString="<%$ ConnectionStrings:DATABASEVITSConnectionString %>" 
+                    SelectCommand="SELECT * FROM [Country]"></asp:SqlDataSource>
+                <br /><br />
 <br />
             
                     <div class="Buttons">
@@ -119,10 +124,6 @@
                     Width="164px" onclick="btnAddOffice_Click" />
                 <asp:Button ID="btnAvbryt" runat="server" Text="Avbryt" 
                     onclick="btnAvbryt_Click" Visible="False" Width="164px" />
-                <asp:Button ID="btnEditOffice" runat="server" Text="Ändra uppgifter" 
-                    Width="164px" onclick="btnEditOffice_Click" />
-                <asp:Button ID="btnSaveOffice" runat="server" Text="Spara ändringar" 
-                    Width="164px" Visible="False" onclick="btnSaveOffice_Click" />
                 <asp:Button ID="btnAddOffice2" runat="server" Text="Lägg till kund" 
                     Visible="False" Width="164px" onclick="btnAddOffice2_Click" />
                     </div>

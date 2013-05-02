@@ -283,15 +283,6 @@ namespace Vits.Contentpages {
         protected global::System.Web.UI.WebControls.RadioButtonList radiobutton;
         
         /// <summary>
-        /// btnEditUser control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEditUser;
-        
-        /// <summary>
         /// btnAddUser control.
         /// </summary>
         /// <remarks>
@@ -308,15 +299,6 @@ namespace Vits.Contentpages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAvbryt;
-        
-        /// <summary>
-        /// btnSave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
         /// btnAddUser2 control.

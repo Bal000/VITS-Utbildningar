@@ -109,42 +109,38 @@ namespace Vits.Contentpages
             resetFields();
             buttonsAddUser2();
             setFieldsEnabled(false);
-            //UserList.SelectedValue = null;
-            //fillUserList();
+            updateGW();
+        }
+
+        protected void updateGW()
+        {
+            gwUsers.DataBind();
         }
 
         private void buttonsEditUser()
         {
             btnAvbryt.Visible = true;
-            btnSave.Visible = true;
-            btnEditUser.Visible = false;
             btnAddUser.Visible = false;
             btnAddUser2.Visible = false;
         }
 
         private void buttonsSave()
         {
-            btnSave.Visible = false;
             btnAvbryt.Visible = false;
-            btnEditUser.Visible = true;
             btnAddUser.Visible = true;
         }
 
         private void buttonsAvbryt()
         {
             btnAddUser2.Visible = false;
-            btnSave.Visible = false;
             btnAvbryt.Visible = false;
-            btnEditUser.Visible = true;
             btnAddUser.Visible = true;
         }
 
         private void buttonsAddUser()
         {
-            btnSave.Visible = false;
             btnAddUser2.Visible = true;
             btnAvbryt.Visible = true;
-            btnEditUser.Visible = false;
             btnAddUser.Visible = false;
 
 
@@ -156,9 +152,7 @@ namespace Vits.Contentpages
         private void buttonsAddUser2()
         {
             btnAddUser2.Visible = false;
-            btnSave.Visible = false;
             btnAvbryt.Visible = false;
-            btnEditUser.Visible = true;
             btnAddUser.Visible = true;
         }
         
@@ -218,7 +212,20 @@ namespace Vits.Contentpages
             tbLastName.Text = employee.LastName;
             tbID.Text = employee.IdNumber;
             tbZipCode.Text = employee.ZipCode;
-           
+
+            if (employee.Manager == true)
+            {
+
+                radiobutton.Items.FindByText("Konsult").Selected = false;
+                radiobutton.Items.FindByText("Chef").Selected = true;
+            }
+            else
+            {
+                radiobutton.Items.FindByText("Chef").Selected = false;
+                radiobutton.Items.FindByText("Konsult").Selected = true;
+
+            }
+
         }
 
         protected void gwUsers_SelectedIndexChanged(object sender, EventArgs e)
