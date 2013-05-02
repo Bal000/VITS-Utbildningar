@@ -441,6 +441,15 @@ namespace Vits
             rep.Car = car;
             rep.Miles = km;
 
+            //Rapportör
+          CompositeEmployee emp = new CompositeEmployee();
+            //ChefObjekt
+          CompositeEmployee empChef = new CompositeEmployee();
+            //Mission för att hämta manager.
+          CompositeMission mission = new CompositeMission();
+            //Chef
+          int chefID = 0;
+
             using (var client = new Service1Client())
             {
                 client.SaveReport(rep);
@@ -448,8 +457,21 @@ namespace Vits
                 SaveExpenses();
                 SaveSubsistences();
                 SaveDeviations();
+                
+               emp = client.GetEmployee(eid);
+
+             mission = client.GetMission(missionID);
+
+             chefID = mission.Manager;
+            empChef = client.GetEmployee(chefID);
             }
 
+            
+
+            bool epostSkickat = Klasser.Epost.Skicka(empChef.Email, "Ny Rapport", "Du har en ny rapport att godkänna från: " + emp.FirstName + " " + emp.LastName);
+            if (epostSkickat)
+            {
+            }
             
 
         }
