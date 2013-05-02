@@ -7,8 +7,7 @@
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Styles/Rapport.css" rel="stylesheet" type="text/css" />
     <link href="~/Styles/RapportIntro.css" rel="stylesheet" type="text/css" />
-    <link href="~/Styles/Reseorder.css" rel="stylesheet" type="text/css" />
-    <link href="~/Styles/Uppdrag.css" rel="stylesheet" type="text/css" />  
+    <link href="~/Styles/Reseorder.css" rel="stylesheet" type="text/css" />  
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>

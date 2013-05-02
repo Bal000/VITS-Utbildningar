@@ -60,9 +60,7 @@
       <DependentUpon>DATABASEVITS.mdf</DependentUpon>
     </Content>
     <Content Include="Service1.svc" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -71,10 +69,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityModeledmx.Designer.cs">
+    <Compile Include="EntityModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EntityModeledmx.edmx</DependentUpon>
+      <DependentUpon>EntityModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
@@ -96,9 +94,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="EntityModeledmx.edmx">
+    <EntityDeploy Include="EntityModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EntityModeledmx.Designer.cs</LastGenOutput>
+      <LastGenOutput>EntityModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -248,7 +248,6 @@
     <Property Name="Description" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
     <Property Name="Approved" Type="Boolean" Nullable="false" />
     <Property Name="Answered" Type="Boolean" Nullable="false" />
-    <Property Name="Sent" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Employee" Relationship="DATABASEVITSModel.FK__TravelOrder__EID__3C69FB99" FromRole="TravelOrder" ToRole="Employee" />
     <NavigationProperty Name="Mission" Relationship="DATABASEVITSModel.FK__TravelOrder__MID__3B75D760" FromRole="TravelOrder" ToRole="Mission" />
     <NavigationProperty Name="TravelMethod" Relationship="DATABASEVITSModel.FK__TravelOrde__TMID__3D5E1FD2" FromRole="TravelOrder" ToRole="TravelMethod" />

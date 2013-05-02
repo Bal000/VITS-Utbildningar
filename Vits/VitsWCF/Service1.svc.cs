@@ -49,6 +49,7 @@ namespace VitsWCF
                 off.Adress = office.Adress;
                 off.ZipCode = office.ZipCode;
                 off.CID = office.CID;
+                off.City = office.City;
                
 
                 context.Office.AddObject(off);
@@ -65,7 +66,7 @@ namespace VitsWCF
                 miss.Manager = mission.Manager;
                 miss.Description = mission.Description;
                 miss.StartDate = mission.StartDate;
-                
+                miss.EID = mission.EID;
                 
                 context.Mission.AddObject(miss);
                 context.SaveChanges();
@@ -124,7 +125,16 @@ namespace VitsWCF
                 context.SaveChanges();
             }
         }
-
+        public void SaveCountry(CompositeCountry country)
+        {
+            using (var context = new DATABASEVITSEntities())
+            {
+                Country c = new Country();
+                c.Name = country.Name;
+                context.Country.AddObject(c);
+                context.SaveChanges();
+            }
+        }
         public void SaveExpense(CompositeExpense expense)
         {
             using (var context = new DATABASEVITSEntities())
@@ -171,17 +181,6 @@ namespace VitsWCF
             }
         }
         
-        public void SaveCountry(CompositeCountry country)
-        {
-            using (var context = new DATABASEVITSEntities())
-            {
-                Country co = new Country();
-                co.Name = country.Name;
-                
-                context.Country.AddObject(co);
-                context.SaveChanges();
-            }
-        }
 
         public void SaveCostCenter(CompositeCostCenter costcenter)
         {
@@ -197,20 +196,6 @@ namespace VitsWCF
         }
 
         //Get single Objects.
-
-        public int GetCountryIdByName(string name)
-        { 
-            using (var context = new DATABASEVITSEntities())
-            {
-                int id = (from c in context.Country
-                          where c.Name.Equals(name)
-                          select c.CID).FirstOrDefault();
-
-                return id;           
-            }
-             
-        
-        }
 
         public CompositeEmployee GetEmployee(int eid)
         {
@@ -242,8 +227,6 @@ namespace VitsWCF
                         //Finns inte någon employee med det specifikerade IDt
                     }
                 }
-                Debug.WriteLine(employees[0].FirstName);
-                Debug.WriteLine(employees[1].LastName);
                 return emp;
             }
         }
@@ -272,7 +255,27 @@ namespace VitsWCF
                 return mission;
             }
         }
-
+        public CompositeCountry GetCountry(int CID)
+        {
+            using (var context = new DATABASEVITSEntities())
+            {
+                List<CompositeCountry> countries = new List<CompositeCountry>();
+                countries = context.Country.Select(x => new CompositeCountry
+                {
+                    CID = x.CID,
+                    Name = x.Name
+                }).ToList();
+                CompositeCountry country = new CompositeCountry();
+                for (int i = 0; i < countries.Count; i++)
+                {
+                    if (countries[i].CID == CID)
+                    {
+                        country = countries[i];
+                    }
+                }
+                return country;
+            }
+        }
         public int GetEmployeeByIdNumber(string idNumber) 
         {
             using (var context = new DATABASEVITSEntities())
@@ -294,8 +297,13 @@ namespace VitsWCF
                 List<CompositeOffice> offices = new List<CompositeOffice>();
                 offices = context.Office.Select(x => new CompositeOffice
                 {
-
-
+                    OID = x.OID,
+                    Name = x.Name,
+                    OrgNumber = x.OrgNumber,
+                    Adress = x.Adress,
+                    ZipCode = x.ZipCode,
+                    City = x.City,
+                    CID = x.CID 
                 }).ToList();
 
                 CompositeOffice office = new CompositeOffice();
@@ -411,33 +419,5 @@ namespace VitsWCF
                    
             }
         }
-
-        public List<CompositeTravelOrder> GetTravelOrderbyEid(int eid)
-        {
-            using (var context = new DATABASEVITSEntities())
-            {
-                List<CompositeTravelOrder> to = new List<CompositeTravelOrder>();
-
-                to = context.TravelOrder.Where(x => x.EID.Equals(eid)).Select(y => new CompositeTravelOrder
-                {
-                    TID = y.TID,
-                    MID = y.MID,
-                    EID = y.EID,
-                    TMID = y.TMID,
-                    From = y.From,
-                    To = y.To,
-                    Description = y.Description,
-                    Approved = y.Approved,
-                    Answered = y.Answered
-
-                }).ToList();
-
-
-                return to;
-
-
-            }
-        }
-       
     }
 }

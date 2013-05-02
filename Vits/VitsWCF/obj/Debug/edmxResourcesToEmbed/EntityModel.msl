@@ -136,7 +136,6 @@
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Approved" ColumnName="Approved" />
           <ScalarProperty Name="Answered" ColumnName="Answered" />
-          <ScalarProperty Name="Sent" ColumnName="Sent" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

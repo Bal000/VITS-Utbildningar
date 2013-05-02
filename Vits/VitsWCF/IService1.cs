@@ -52,10 +52,6 @@ namespace VitsWCF
 
        
         //Get Single objects.
-
-        [OperationContract]
-        int GetCountryIdByName(string name);
-
         [OperationContract]
         CompositeEmployee GetEmployee(int eid);
 
@@ -70,6 +66,9 @@ namespace VitsWCF
 
         //Get methods for lists.
         [OperationContract]
+        List<CompositeOffice> GetOffices();
+
+        [OperationContract]
         List<CompositeEmployee> GetEmployees();
 
         [OperationContract]
@@ -81,8 +80,6 @@ namespace VitsWCF
         [OperationContract]
         List<CompositeMission> GetMissionsByEid(int eid);
 
-        [OperationContract]
-        List<CompositeTravelOrder> GetTravelOrderbyEid(int eid);
 
         // TODO: Add your service operations here
     }
