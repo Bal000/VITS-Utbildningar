@@ -4,7 +4,7 @@
   <siteMapNode url="~/Default.aspx" title="Start"  description="">
         <siteMapNode url="~/Contentpages/RapportIntro.aspx" title="Rapport"  description="" />
         <siteMapNode url="~/Contentpages/Reseorder.aspx" title="Reseorder"  description="" />
-        <siteMapNode url="~/Contentpages/Reseförskott.aspx" title="Reseförskott"  description="" />      
+        <siteMapNode url="~/Contentpages/Reseforskott.aspx" title="Reseförskott"  description="" />      
         <siteMapNode url="~/Contentpages/Admin/HanteraUppdrag.aspx" title="Hantera Uppdrag"  description="" />
         <siteMapNode url="~/Contentpages/Admin/HanteraAnvandare.aspx" title="Hantera Användare"  description="" />
         <siteMapNode url="~/Contentpages/Admin/HanteraKunder.aspx" title="Hantera Kunder"  description="" />
