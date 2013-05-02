@@ -206,10 +206,11 @@ namespace Vits
             employee = x.GetEmployee(employeeid);
 
 
+            ddOffice.ClearSelection();
             ddOffice.Items.FindByValue(office.OID.ToString()).Selected = true;
-            
+            ddManager.ClearSelection();
             ddManager.Items.FindByValue(manager.EID.ToString()).Selected = true;
-
+            ddEmployee.ClearSelection();
             ddEmployee.Items.FindByValue(employee.EID.ToString()).Selected = true;
 
             /*
