@@ -165,7 +165,7 @@ namespace VitsWCF
                 Deviation dev = new Deviation();
                 dev.REPID = deviation.REPID;
                 dev.StartDate = deviation.StartDate;
-                dev.StopDate = dev.StopDate;
+                dev.StopDate = DateTime.Now;
                 
                 context.Deviation.AddObject(dev);
                 context.SaveChanges();
