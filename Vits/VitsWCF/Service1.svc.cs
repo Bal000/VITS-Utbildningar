@@ -253,7 +253,8 @@ namespace VitsWCF
                 List<CompositeMission> missions = new List<CompositeMission>();
                 missions = context.Mission.Select(x => new CompositeMission
                 {
-                    OID = x.MID,
+                    MID = x.MID, 
+                    OID = x.OID,
                     Description = x.Description,
                     StartDate = x.StartDate,
                     Manager = x.Manager,
@@ -263,7 +264,7 @@ namespace VitsWCF
                 CompositeMission mission = new CompositeMission();
                 for (int i = 0; i < missions.Count; i++)
                 {
-                    if (missions[i].OID == mid)
+                    if (missions[i].MID == mid)
                     {
                         mission = missions[i];
                     }
