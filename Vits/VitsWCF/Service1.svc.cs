@@ -256,7 +256,8 @@ namespace VitsWCF
                     OID = x.MID,
                     Description = x.Description,
                     StartDate = x.StartDate,
-                    Manager = x.Manager
+                    Manager = x.Manager,
+                    EID = x.EID
 
                 }).ToList();
                 CompositeMission mission = new CompositeMission();
